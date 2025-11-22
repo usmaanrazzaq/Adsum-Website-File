@@ -1,0 +1,32 @@
+{% include "loading" %}
+
+{% paginate collection.products by 30 %}
+
+<h1 class="collection-title">{{ collection.title }}</h1>
+
+
+{% if settings.collection_pagination %}
+<small>Showing items {{ paginate.current_offset | plus: 1 }}-{% if paginate.next %}{{ paginate.current_offset | plus: paginate.page_size }}{% else %}{{ paginate.items }}{% endif %} of {{ paginate.items }}.</small>
+{% endif %}
+
+<div id="adsumspace">
+<div id="products" class="gallery">
+{% if collection.products.size == 0 %}
+	<p>There are currently no products in this collection. Please check back later.</p>
+{% else %}
+	{% include "gallery-50" %}
+{% endif %}
+</div>
+
+{% if paginate.pages > 1 %}
+	<div id="paginate">
+		{{ paginate | default_pagination }}
+	</div>
+{% endif %}
+
+{% endpaginate %}
+
+</div>
+
+<div style="padding: 100px 0 0 0;"></div>
+{% include "footer" %}

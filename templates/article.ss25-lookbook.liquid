@@ -1,0 +1,227 @@
+<style>
+  .grid-1 {
+    display: grid;
+    width: 100%; 
+    grid-template-columns: repeat(12, 1fr);
+    padding: 80px 50px;
+    justify-items: center;
+    row-gap: 10px;
+    column-gap: 10px;
+    max-width: 1800px;
+    margin: 0 auto;
+    place-content: center;
+  }
+   .cell-1, .cell-2 {
+     grid-column: span 1;
+     display: flex;
+     align-self: center;
+   }
+   .solo-image {
+     padding: 120px 0;
+     max-width: 500px; display: block; margin: 0 auto;
+   }
+  .lookbook-caption {
+    line-height: 14px;
+    font-size: 10px;
+    text-align: center;
+    max-width: 300px;
+    color: #000;
+    display: block;
+    font-weight: 400;
+    align-self: auto;
+    padding-top: 20px;
+    margin: 0 auto;
+  }
+  .lookbook-collection-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 16px;
+    row-gap: 20px;
+    padding: 10px 40px 40px 40px;
+  }
+}
+@media (max-width: 1400px) {
+  .grid-1 {
+    padding: 40px 40px;
+  }
+}
+@media (max-width: 1000px) {
+  .grid-1 {
+    padding: 40px 0px;
+  }
+}
+@media (max-width: 900px) {
+  .lookbook-caption {
+    grid-column: span 2;
+  }
+  .cell-1, .cell-2 {
+  }
+  .lookbook-collection-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0px 10px 40px 10px;
+  }
+}
+@media (max-width: 500px) {
+  .cell-mobile {
+    grid-column: 1 / span 2!important;
+  }
+  .solo-image:first-of-type {
+        padding-top: 45px;
+  }
+  .fw22-title {
+    font-size: 38px;
+  }
+  .fall-22-lookbook-header {
+    height: 75vh; 
+    width: 100%; 
+    background-image: url('https://cdn.shopify.com/s/files/1/0664/2387/files/cover-mobile-9B3A0568.jpg?v=1664562268'); 
+  }
+  .grid-1 {
+    margin: 0px;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0px 10px 60px;
+  }
+  .grid-1:first-of-type {
+    padding-bottom: 60px;
+    padding-top: 60px;
+  }
+  .cell-1, .cell-2 {
+    grid-column: span 2;
+  }
+}
+</style>
+
+<div class="grid-1">
+  <div class="cell-mobile" style="grid-column: 4 / span 6; display: flex; align-self: center; max-width: 600px;">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-9B3A3300-cover-2.jpg?v=1741808566" style="display: block; width: 100%; height: auto; margin: 0 auto;" alt="SS25 Lookbook | Adsum">
+  </div>
+</div>
+
+ <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 2 / span 10; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-Adsum-011.jpg?v=1741806572" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;" alt="SS25 Lookbook | Adsum">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 2 / span 10; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-9B3A4671.jpg?v=1741792514" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;" alt="SS25 Lookbook | Adsum">
+    </div>
+  </div>
+
+
+  <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 2 / span 10; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-9B3A2788-2.jpg?v=1741806885" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;" alt="SS25 Lookbook | Adsum">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 2 / span 10; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum-006.jpg?v=1741793685" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;" alt="SS25 Lookbook | Adsum">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 2 / span 10; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-9B3A2436.jpg?v=1741794238" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;" alt="SS25 Lookbook | Adsum">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 2 / span 10; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-9B3A4439_653d80a7-bb45-47e8-bde9-018ae065b27e.jpg?v=1741805698" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;" alt="SS25 Lookbook | Adsum">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 2 / span 10; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-paddy-sweater-layout.jpg?v=1741796116" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;" alt="SS25 Lookbook | Adsum">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 2 / span 10; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-Untitled-1-2.jpg?v=1741801138" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;" alt="SS25 Lookbook | Adsum">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 2 / span 10; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-9B3A4187.jpg?v=1741803252" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;" alt="SS25 Lookbook | Adsum">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 2 / span 10; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-Untitled-1.jpg?v=1741803478" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;" alt="SS25 Lookbook | Adsum">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 2 / span 10; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-Adsum-100.jpg?v=1741803727" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;" alt="SS25 Lookbook | Adsum">
+    </div>
+  </div>
+
+  <div class="cell-mobile" style="grid-column: 2 / span 10; grid-row: 2; max-width: 400px; margin: 0 auto; padding: 20px 20px 0 20px; text-align: center;">
+    <div style="font-size:10px; padding-top: 4px; line-height: 13px;">
+      Shot on Owen by Christian & Cynthia in Brooklyn, NY<br>
+      Owen is 6'1" and weating size large in tops and 32 in bottoms
+    </div>
+  </div>
+
+</div>
+
+{% comment %}
+<div class="featured-products-title">
+	Collection
+</div>
+
+<div id="products" class="lookbook-collection-grid {{ collection.title | handleize }}">
+  {% for product in collections.fw23-drop-2.products %}
+  	<div class="collection-grid-item">
+      <a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}">  
+        <div style="position: relative;">
+          <img data-sizes="auto"
+               src="{{ product.images.first | product_img_url: '1x1' }}" 
+               data-src="{{ product.images.first | product_img_url: '1024x1024' }}"
+               data-srcset="{{ product.images.first | product_img_url: '600x600' }} 300w,
+                            {{ product.images.first | product_img_url: '1200x1200' }} 600w,
+                            {{ product.images.first | product_img_url: '1800x1800' }} 900w"
+               alt="{{ product.title | strip_html | escape }}" class="lazyload" style="display: block; width: 100%; height: 100%;" />
+          <img data-sizes="auto"
+               src="{{ product.images[1] | product_img_url: '1x1' }}" 
+               data-src="{{ product.images[1] | product_img_url: '1024x1024' }}" 
+               data-srcset="{{ product.images[1] | product_img_url: '600x600' }} 300w,
+                            {{ product.images[1] | product_img_url: '1200x1200' }} 600w,
+                            {{ product.images[1] | product_img_url: '1800x1800' }} 900w"
+               alt="{{ product.images[1].alt | escape }}" class="collection-product-hover lazyload"/>
+        </div>
+        <div class="product_info_content">
+            {%if product.available == true %}
+                <div class="gallery-product-title">
+                    {{ product.title }}
+                </div>
+                <div class="gallery-product-price">
+                    {% if product.compare_at_price_max > product.price %}
+                        <del class="sale">{{ product.compare_at_price_max | money }}</del>
+                    {% endif %}
+                    {{ product.price | money }}
+                </div>
+            {% endif %}
+            {%if product.available == false %}    
+                <span style="color: red; text-decoration: uppercase;">Sold Out</span>
+            {% endif %}
+        </div>          
+      </a>
+    </div>
+{% endfor %}
+</div>
+{% endcomment %}
+
+{% include "footer" %}
+
+<script>
+ $('.header-fullsite-fixed').addClass('header-fullsite').removeClass('header-fullsite-fixed');
+</script>

@@ -1,0 +1,1003 @@
+<style>
+  .ge-free-shipping-container .ge-free-shipping-msg {
+    display: none;
+  }
+    .collection-grid-archive .collection-grid-item,
+  .collection-grid-archive .product5 {
+    display: none;
+  }
+
+  .collection-grid-archive .collection-grid-item:nth-child(-n+4),
+  .collection-grid-archive .product5:nth-child(-n+4) {
+    display: block;
+  }
+
+  .collection-grid-archive.expanded .collection-grid-item,
+  .collection-grid-archive.expanded .product5 {
+    display: block !important;
+  }
+
+  .toggle-products {
+    margin: 30px auto;
+  text-align: center;
+  display: block;
+  padding: 20px 16px;
+  font-size: 22px;
+  text-transform: uppercase;
+  background-color: #fff;
+  border: 1px solid #eee;
+  cursor: pointer;
+  color: #000;
+  width: calc(100% - 40px);
+  letter-spacing: 0.01em;
+  }
+  .toggle-products:hover {
+    background-color: #000;
+    border: 1px solid #000;
+    cursor: pointer;
+    color: #fff;
+  }
+  .toggle-products:active {
+    background-color: #ddd;
+    border: 1px solid #ddd;
+    color: #000;
+  }
+  .archive-note {
+    max-width: 483px; padding: 0 20px; margin: 0 auto; text-align: center; font-size: 11px; line-height: 15px;
+  }
+  .category-title {
+    text-align: center; 
+    font-size: 30px; 
+    line-height: 80px; 
+    padding: 20px;
+  }
+  input[type="radio"] {
+    display: none;
+  }
+  .collection-grid-archive {
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr); 
+    column-gap: 4px; 
+    row-gap: 4px; 
+    padding: 0px 20px 0px 20px;
+  }
+
+  @media (max-width: 900px) {
+    .collection-grid-archive {
+      grid-template-columns: repeat(3, 1fr); 
+      padding: 0px 10px 0px 10px;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .collection-grid-archive {
+      grid-template-columns: repeat(2, 1fr); 
+    }
+  }
+  .product_info_content {
+    padding: 10px 2px;
+  }
+  .radio  {
+    color: #000;
+    display: block;
+    font-size: 8px;
+    margin-right: 12px;
+    font-weight: normal;
+    border: 1px solid #000;
+    margin: 0px 0;
+    width: 100%;
+    padding: 0px 14px;
+    text-align: center;
+    line-height: 12px;
+  }
+  
+  .sold_out {
+    color: #ccc;
+    display: block;
+    font-size: 8px;
+    text-decoration: line-through;
+    margin-right: 12px;
+    font-weight: normal;
+    border: 1px solid #ccc;
+    margin: 1px 0;
+    width: 36px;
+    text-align: center;
+    line-height: 12px;
+}
+    
+  #page-adsumworks .gallery .product5, .product5 {
+    width: 33.333%;
+    padding: 0;
+  }
+   
+  #page-adsumworks .gallery {
+    padding: 0px;
+  }
+  
+  #page-adsumworks .collection-product-hover {
+    padding: 0px 0px 20px 0px;
+  }
+  
+  #page-adsumworks .product_info_content {
+    width: 100%;
+  }
+  
+  #page-adsumworks .product_info_content {
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+  }
+  
+  .adsumworks-desc {
+    grid-column: span 8; 
+    font-size: 54px; 
+    font-size: 54px;
+    line-height: 60px;
+    padding-top: 25px; 
+    letter-spacing: -.02em;
+    opacity: 0;
+    -webkit-transform: translate3d(-175px, 0, 0);
+    transform: translate3d(-175px, 0, 0);
+  }
+  
+  .adsumworks-desc-grid {
+    display:grid; 
+    grid-template-columns: repeat(4, 1fr); 
+    width: 100%;
+    -moz-transition: all .3s ease-in-out;  
+    -webkit-transition: all .3s ease-in-out;  
+    -o-transition: all .3s ease-in-out;  
+    -ms-transition: all .3s ease-in-out;  
+    transition: all .3s ease-in-out;
+  }
+  
+  .adsumworks-details {
+    grid-column: span 2; 
+    line-height: 13px;
+    opacity: 0;
+    -webkit-transform: translate3d(0, 175px, 0);
+    transform: translate3d(0, 175px, 0);
+  }
+  
+  #countdown, .expires {
+    font-size: 74px;
+    text-align: center;   
+  }
+  
+  .shrink-svg2 {
+    transform: translate3d(0, 0px, 0) scale(0.10);
+    -moz-transition: all .3s ease;  
+    -webkit-transition: all .3s ease;  
+    -o-transition: all .3s ease;  
+    -ms-transition: all .3s ease;  
+    transition: all .3s ease;
+    padding-top: 80px;
+  }
+  
+  .adsumworks-desc-grid-1 {
+  	grid-column: span 2; 
+    display: grid; 
+    grid-template-columns: repeat(8, 1fr); 
+    padding: 220px 20px 0 20px; 
+    column-gap: 10px;
+  }
+  
+  .time-left{
+    text-align: center; 
+    padding: 30px 20px; 
+    font-size: 18px;
+  }
+  
+  @media (max-width: 900px) {
+    .product-size {
+          padding-bottom: 20px;
+          text-align: left;
+    }
+    .shrink-svg2 {
+      transform: translate3d(0, 0px, 0) scale(0.30);
+      padding-top: 40px;
+    }
+      
+    .adsumworks-desc-grid-1 { 
+      padding: 140px 20px 0 20px; 
+      grid-auto-rows: min-content;
+    }
+    .adsumworks-desc {
+      font-size: 16px; 
+      line-height: 20px;
+      padding-bottom: 80px;
+      font-weight: 500;
+    }
+    .adsumworks-details {
+      grid-column: span 4;
+      padding-bottom: 40px;
+    }    
+    #countdown, .expires {
+      font-size: 40px;
+      text-align: center;   
+    }
+    .time-left{
+    	text-align: center; 
+    	padding: 30px 20px; 
+    	font-size: 14px;
+  	}
+    #page-adsumworks .gallery .product5, .product5 {
+    	width: 50%;
+    	padding: 0;
+	}
+  }
+  
+</style>
+
+
+{% layout 'theme.adsumworks' %} 
+
+{% include "loading" %}
+
+<div class="adsumworks-svg">{% include "adsum-archive" %}</div>
+
+<div class="adsumworks-desc-grid">
+  <div class="adsumworks-desc-grid-1">
+    <div class="adsumworks-desc">
+      An archive of past season Adsum goods available for a limited time. 
+    </div>
+    <div class="adsumworks-details" id="detail-1">
+      <span style="font-weight: 600;">Dates:</span> 
+      <div style="max-width:62px;">08.22.2024 11AM EST<br>—<br>08.29.2024 11:00AM EST</div>
+    </div>
+    <div class="adsumworks-details" id="detail-2">
+      <span style="font-weight: 600;">NYC Time:</span> <div id="clock"></div>
+    </div>
+    <div class="adsumworks-details" id="detail-3">
+      <span style="font-weight: 600;">Seasons:</span><br>
+      SS15-SS24<br>
+      FW15-FW24<br>
+      Samples<br>
+      Unreleased
+    </div>
+    <div class="adsumworks-details" id="detail-4">
+      <span style="font-weight: 600;">Categories:</span><br>
+      Outerwear<br>
+      Tops<br>
+      Bottoms<br>
+      Accessories<br>
+    </div>
+  </div>
+  <div style="grid-column: span 2; height: 100vh; overflow: hidden;">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/aimg20250702_18020425_copy.jpg?v=1752499605" style="width: 100%;  object-fit: cover; object-position: top; height: 100vh;">
+  </div>
+
+</div>
+
+<div class="time-left">
+  Expires:
+</div>
+<div class="expires">Thursday August 29th, 11:00AM EST</div>
+<div id="countdown"></div> 
+
+<div style="text-align: center; padding: 280px 20px 40px 20px; font-size: 48px; font-weight: 400; letter-spacing: -0.02em;">
+  ARCHIVE
+</div>
+
+<div class="category-title">One of One's</div>
+
+{% paginate collections['ss25-archive-one-of-one'].products by 340 %}
+  {% if settings.collection_pagination %}
+    <small>Showing items {{ paginate.current_offset | plus: 1 }}-{% if paginate.next %}{{ paginate.current_offset | plus: paginate.page_size }}{% else %}{{ paginate.items }}{% endif %} of {{ paginate.items }}.</small>
+  {% endif %}
+  
+  <div id="products-one" class="collection-grid-archive {{ collection.title | handleize }}">
+    {% if collection.products.size == 0 %}
+    	<p>There are currently no products in this collection. Please check back later.</p>
+    {% else %}
+  	{% for product in collections['ss25-archive-one-of-one'].products %}
+      {% if template == 'collection.sidebar' %}
+        <div class="product5 {% cycle '', '' %}">  
+      {% else %}
+        <div class="collection-grid-item">
+      {% endif %}
+        <a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}">  
+          <div style="position: relative;">
+            <img data-sizes="auto" src="{{ product.images.first | product_img_url: '1x1' }}"  data-src="{{ product.images.first | product_img_url: '1024x1024' }}" data-srcset="{{ product.images.first | product_img_url: '600x600' }} 300w, {{ product.images.first | product_img_url: '1200x1200' }} 600w, {{ product.images.first | product_img_url: '1800x1800' }} 900w" alt="{{ product.title | strip_html | escape }}" class="lazyload" style="display: block; width: 100%; height: 100%;" />
+            <img data-sizes="auto" src="{{ product.images[1] | product_img_url: '1x1' }}" data-src="{{ product.images[1] | product_img_url: '1024x1024' }}" data-srcset="{{ product.images[1] | product_img_url: '600x600' }} 300w, {{ product.images[1] | product_img_url: '1200x1200' }} 600w, {{ product.images[1] | product_img_url: '1800x1800' }} 900w" alt="{{ product.images[1].alt | escape }}" class="collection-product-hover lazyload"/>
+          </div>
+          <div class="product_info_content">
+            {% if product.available == true %}
+              <div class="gallery-product-title"> {{ product.title }} </div>
+              <div class="gallery-product-price">
+                
+              {{ product.price | money }}
+          </div>
+          <div class="product-size">
+            <ul id="variants">
+              {% for variant in product.variants %}
+              <li style="display: relative;">
+              {% if variant.available == true %}
+                <input type="radio" name="id" value="{{variant.id}}" id="radio_{{variant.id}}" {%if forloop.first%} {%endif%} />
+                <label for="radio_{{variant.id}}">
+                  <div class='variant_title'>{{ variant.title }}</div>
+                  {% assign variant = product.variants.first %}
+                  {% if variant.available %}
+                  {% if variant.inventory_management != ''  %}
+                  {% else %}
+                  {% endif %}
+                  {% endif %}
+                </label>        
+                {% else %}
+                <span class="sold_out">{{ variant.title }}</span>
+                {% endif %}
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+            {% endif %}
+            {% if product.available == false %} <span style="color: red; text-decoration: uppercase;">Sold Out</span> {% endif %}
+          </div>          
+          </a>
+        </div>
+      {% endfor %}
+  {% endif %}
+  {% if paginate.pages > 1 %}
+  	<div id="paginate">
+  		{{ paginate | default_pagination }}
+  	</div>
+  {% endif %}
+{% endpaginate %}
+  </div>
+<button class="toggle-products" onclick="toggleCollection(this,'products-one')">Show More</button>
+
+
+<div class="category-title">Heavy Jackets</div>
+
+{% paginate collections['ss25-archive-heavy-jackets'].products by 340 %}
+  {% if settings.collection_pagination %}
+    <small>Showing items {{ paginate.current_offset | plus: 1 }}-{% if paginate.next %}{{ paginate.current_offset | plus: paginate.page_size }}{% else %}{{ paginate.items }}{% endif %} of {{ paginate.items }}.</small>
+  {% endif %}
+  
+  <div id="products-heavy" class="collection-grid-archive {{ collection.title | handleize }}">
+    {% if collection.products.size == 0 %}
+    	<p>There are currently no products in this collection. Please check back later.</p>
+    {% else %}
+  	{% for product in collections['ss25-archive-heavy-jackets'].products %}
+      {% if template == 'collection.sidebar' %}
+        <div class="product5 {% cycle '', '' %}">  
+      {% else %}
+        <div class="collection-grid-item">
+      {% endif %}
+        <a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}">  
+          <div style="position: relative;">
+            <img data-sizes="auto" src="{{ product.images.first | product_img_url: '1x1' }}"  data-src="{{ product.images.first | product_img_url: '1024x1024' }}" data-srcset="{{ product.images.first | product_img_url: '600x600' }} 300w, {{ product.images.first | product_img_url: '1200x1200' }} 600w, {{ product.images.first | product_img_url: '1800x1800' }} 900w" alt="{{ product.title | strip_html | escape }}" class="lazyload" style="display: block; width: 100%; height: 100%;" />
+            <img data-sizes="auto" src="{{ product.images[1] | product_img_url: '1x1' }}" data-src="{{ product.images[1] | product_img_url: '1024x1024' }}" data-srcset="{{ product.images[1] | product_img_url: '600x600' }} 300w, {{ product.images[1] | product_img_url: '1200x1200' }} 600w, {{ product.images[1] | product_img_url: '1800x1800' }} 900w" alt="{{ product.images[1].alt | escape }}" class="collection-product-hover lazyload"/>
+          </div>
+          <div class="product_info_content">
+            {% if product.available == true %}
+              <div class="gallery-product-title"> {{ product.title }} </div>
+              <div class="gallery-product-price">
+                
+              {{ product.price | money }}
+          </div>
+          <div class="product-size">
+            <ul id="variants">
+              {% for variant in product.variants %}
+              <li style="display: relative;">
+              {% if variant.available == true %}
+                <input type="radio" name="id" value="{{variant.id}}" id="radio_{{variant.id}}" {%if forloop.first%} {%endif%} />
+                <label for="radio_{{variant.id}}">
+                  <div class='variant_title'>{{ variant.title }}</div>
+                  {% assign variant = product.variants.first %}
+                  {% if variant.available %}
+                  {% if variant.inventory_management != ''  %}
+                  {% else %}
+                  {% endif %}
+                  {% endif %}
+                </label>        
+                {% else %}
+                <span class="sold_out">{{ variant.title }}</span>
+                {% endif %}
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+            {% endif %}
+            {% if product.available == false %} <span style="color: red; text-decoration: uppercase;">Sold Out</span> {% endif %}
+          </div>          
+          </a>
+        </div>
+      {% endfor %}
+  {% endif %}
+  {% if paginate.pages > 1 %}
+  	<div id="paginate">
+  		{{ paginate | default_pagination }}
+  	</div>
+  {% endif %}
+{% endpaginate %}
+  </div>
+<button class="toggle-products" onclick="toggleCollection(this,'products-heavy')">Show More</button>
+
+<div class="category-title">Light Jackets</div>
+
+{% paginate collections['ss25-archive-light-jackets'].products by 340 %}
+  {% if settings.collection_pagination %}
+    <small>Showing items {{ paginate.current_offset | plus: 1 }}-{% if paginate.next %}{{ paginate.current_offset | plus: paginate.page_size }}{% else %}{{ paginate.items }}{% endif %} of {{ paginate.items }}.</small>
+  {% endif %}
+  
+  <div id="products-light" class="collection-grid-archive {{ collection.title | handleize }}">
+    {% if collection.products.size == 0 %}
+    	<p>There are currently no products in this collection. Please check back later.</p>
+    {% else %}
+  	{% for product in collections['ss25-archive-light-jackets'].products %}
+      {% if template == 'collection.sidebar' %}
+        <div class="product5 {% cycle '', '' %}">  
+      {% else %}
+        <div class="collection-grid-item">
+      {% endif %}
+        <a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}">  
+          <div style="position: relative;">
+            <img data-sizes="auto" src="{{ product.images.first | product_img_url: '1x1' }}"  data-src="{{ product.images.first | product_img_url: '1024x1024' }}" data-srcset="{{ product.images.first | product_img_url: '600x600' }} 300w, {{ product.images.first | product_img_url: '1200x1200' }} 600w, {{ product.images.first | product_img_url: '1800x1800' }} 900w" alt="{{ product.title | strip_html | escape }}" class="lazyload" style="display: block; width: 100%; height: 100%;" />
+            <img data-sizes="auto" src="{{ product.images[1] | product_img_url: '1x1' }}" data-src="{{ product.images[1] | product_img_url: '1024x1024' }}" data-srcset="{{ product.images[1] | product_img_url: '600x600' }} 300w, {{ product.images[1] | product_img_url: '1200x1200' }} 600w, {{ product.images[1] | product_img_url: '1800x1800' }} 900w" alt="{{ product.images[1].alt | escape }}" class="collection-product-hover lazyload"/>
+          </div>
+          <div class="product_info_content">
+            {% if product.available == true %}
+              <div class="gallery-product-title"> {{ product.title }} </div>
+              <div class="gallery-product-price">
+               
+              {{ product.price | money }}
+          </div>
+          <div class="product-size">
+            <ul id="variants">
+              {% for variant in product.variants %}
+              <li style="display: relative;">
+              {% if variant.available == true %}
+                <input type="radio" name="id" value="{{variant.id}}" id="radio_{{variant.id}}" {%if forloop.first%} {%endif%} />
+                <label for="radio_{{variant.id}}">
+                  <div class='variant_title'>{{ variant.title }}</div>
+                  {% assign variant = product.variants.first %}
+                  {% if variant.available %}
+                  {% if variant.inventory_management != ''  %}
+                  {% else %}
+                  {% endif %}
+                  {% endif %}
+                </label>        
+                {% else %}
+                <span class="sold_out">{{ variant.title }}</span>
+                {% endif %}
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+            {% endif %}
+            {% if product.available == false %} <span style="color: red; text-decoration: uppercase;">Sold Out</span> {% endif %}
+          </div>          
+          </a>
+        </div>
+      {% endfor %}
+  {% endif %}
+  {% if paginate.pages > 1 %}
+  	<div id="paginate">
+  		{{ paginate | default_pagination }}
+  	</div>
+  {% endif %}
+{% endpaginate %}
+  </div>
+<button class="toggle-products" onclick="toggleCollection(this, 'products-light')">Show More</button>
+
+<div class="category-title">Sweaters</div>
+
+{% paginate collections['ss25-archive-sweaters'].products by 340 %}
+  {% if settings.collection_pagination %}
+    <small>Showing items {{ paginate.current_offset | plus: 1 }}-{% if paginate.next %}{{ paginate.current_offset | plus: paginate.page_size }}{% else %}{{ paginate.items }}{% endif %} of {{ paginate.items }}.</small>
+  {% endif %}
+  
+  <div id="products-sweaters" class="collection-grid-archive {{ collection.title | handleize }}">
+    {% if collection.products.size == 0 %}
+    	<p>There are currently no products in this collection. Please check back later.</p>
+    {% else %}
+  	{% for product in collections['ss25-archive-sweaters'].products %}
+      {% if template == 'collection.sidebar' %}
+        <div class="product5 {% cycle '', '' %}">  
+      {% else %}
+        <div class="collection-grid-item">
+      {% endif %}
+        <a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}">  
+          <div style="position: relative;">
+            <img data-sizes="auto" src="{{ product.images.first | product_img_url: '1x1' }}"  data-src="{{ product.images.first | product_img_url: '1024x1024' }}" data-srcset="{{ product.images.first | product_img_url: '600x600' }} 300w, {{ product.images.first | product_img_url: '1200x1200' }} 600w, {{ product.images.first | product_img_url: '1800x1800' }} 900w" alt="{{ product.title | strip_html | escape }}" class="lazyload" style="display: block; width: 100%; height: 100%;" />
+            <img data-sizes="auto" src="{{ product.images[1] | product_img_url: '1x1' }}" data-src="{{ product.images[1] | product_img_url: '1024x1024' }}" data-srcset="{{ product.images[1] | product_img_url: '600x600' }} 300w, {{ product.images[1] | product_img_url: '1200x1200' }} 600w, {{ product.images[1] | product_img_url: '1800x1800' }} 900w" alt="{{ product.images[1].alt | escape }}" class="collection-product-hover lazyload"/>
+          </div>
+          <div class="product_info_content">
+            {% if product.available == true %}
+              <div class="gallery-product-title"> {{ product.title }} </div>
+              <div class="gallery-product-price">
+                
+              {{ product.price | money }}
+          </div>
+          <div class="product-size">
+            <ul id="variants">
+              {% for variant in product.variants %}
+              <li style="display: relative;">
+              {% if variant.available == true %}
+                <input type="radio" name="id" value="{{variant.id}}" id="radio_{{variant.id}}" {%if forloop.first%} {%endif%} />
+                <label for="radio_{{variant.id}}">
+                  <div class='variant_title'>{{ variant.title }}</div>
+                  {% assign variant = product.variants.first %}
+                  {% if variant.available %}
+                  {% if variant.inventory_management != ''  %}
+                  {% else %}
+                  {% endif %}
+                  {% endif %}
+                </label>        
+                {% else %}
+                <span class="sold_out">{{ variant.title }}</span>
+                {% endif %}
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+            {% endif %}
+            {% if product.available == false %} <span style="color: red; text-decoration: uppercase;">Sold Out</span> {% endif %}
+          </div>          
+          </a>
+        </div>
+      {% endfor %}
+  {% endif %}
+  {% if paginate.pages > 1 %}
+  	<div id="paginate">
+  		{{ paginate | default_pagination }}
+  	</div>
+  {% endif %}
+{% endpaginate %}
+  </div>
+<button class="toggle-products" onclick="toggleCollection(this, 'products-sweaters')">Show More</button>
+
+<div class="category-title">Shirts</div>
+
+{% paginate collections['ss25-archive-shirts'].products by 340 %}
+  {% if settings.collection_pagination %}
+    <small>Showing items {{ paginate.current_offset | plus: 1 }}-{% if paginate.next %}{{ paginate.current_offset | plus: paginate.page_size }}{% else %}{{ paginate.items }}{% endif %} of {{ paginate.items }}.</small>
+  {% endif %}
+  
+  <div id="products-shirts" class="collection-grid-archive {{ collection.title | handleize }}">
+    {% if collection.products.size == 0 %}
+    	<p>There are currently no products in this collection. Please check back later.</p>
+    {% else %}
+  	{% for product in collections['ss25-archive-shirts'].products %}
+      {% if template == 'collection.sidebar' %}
+        <div class="product5 {% cycle '', '' %}">  
+      {% else %}
+        <div class="collection-grid-item">
+      {% endif %}
+        <a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}">  
+          <div style="position: relative;">
+            <img data-sizes="auto" src="{{ product.images.first | product_img_url: '1x1' }}"  data-src="{{ product.images.first | product_img_url: '1024x1024' }}" data-srcset="{{ product.images.first | product_img_url: '600x600' }} 300w, {{ product.images.first | product_img_url: '1200x1200' }} 600w, {{ product.images.first | product_img_url: '1800x1800' }} 900w" alt="{{ product.title | strip_html | escape }}" class="lazyload" style="display: block; width: 100%; height: 100%;" />
+            <img data-sizes="auto" src="{{ product.images[1] | product_img_url: '1x1' }}" data-src="{{ product.images[1] | product_img_url: '1024x1024' }}" data-srcset="{{ product.images[1] | product_img_url: '600x600' }} 300w, {{ product.images[1] | product_img_url: '1200x1200' }} 600w, {{ product.images[1] | product_img_url: '1800x1800' }} 900w" alt="{{ product.images[1].alt | escape }}" class="collection-product-hover lazyload"/>
+          </div>
+          <div class="product_info_content">
+            {% if product.available == true %}
+              <div class="gallery-product-title"> {{ product.title }} </div>
+              <div class="gallery-product-price">
+              {{ product.price | money }}
+          </div>
+          <div class="product-size">
+            <ul id="variants">
+              {% for variant in product.variants %}
+              <li style="display: relative;">
+              {% if variant.available == true %}
+                <input type="radio" name="id" value="{{variant.id}}" id="radio_{{variant.id}}" {%if forloop.first%} {%endif%} />
+                <label for="radio_{{variant.id}}">
+                  <div class='variant_title'>{{ variant.title }}</div>
+                  {% assign variant = product.variants.first %}
+                  {% if variant.available %}
+                  {% if variant.inventory_management != ''  %}
+                  {% else %}
+                  {% endif %}
+                  {% endif %}
+                </label>        
+                {% else %}
+                <span class="sold_out">{{ variant.title }}</span>
+                {% endif %}
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+            {% endif %}
+            {% if product.available == false %} <span style="color: red; text-decoration: uppercase;">Sold Out</span> {% endif %}
+          </div>          
+          </a>
+        </div>
+      {% endfor %}
+  {% endif %}
+  {% if paginate.pages > 1 %}
+  	<div id="paginate">
+  		{{ paginate | default_pagination }}
+  	</div>
+  {% endif %}
+{% endpaginate %}
+  </div>
+<button class="toggle-products" onclick="toggleCollection(this, 'products-shirts')">Show More</button>
+
+<div class="category-title">Tees</div>
+
+{% paginate collections['ss25-archive-tees'].products by 340 %}
+  {% if settings.collection_pagination %}
+    <small>Showing items {{ paginate.current_offset | plus: 1 }}-{% if paginate.next %}{{ paginate.current_offset | plus: paginate.page_size }}{% else %}{{ paginate.items }}{% endif %} of {{ paginate.items }}.</small>
+  {% endif %}
+  
+  <div id="products-tees" class="collection-grid-archive {{ collection.title | handleize }}">
+    {% if collection.products.size == 0 %}
+    	<p>There are currently no products in this collection. Please check back later.</p>
+    {% else %}
+  	{% for product in collections['ss25-archive-tees'].products %}
+      {% if template == 'collection.sidebar' %}
+        <div class="product5 {% cycle '', '' %}">  
+      {% else %}
+        <div class="collection-grid-item">
+      {% endif %}
+        <a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}">  
+          <div style="position: relative;">
+            <img data-sizes="auto" src="{{ product.images.first | product_img_url: '1x1' }}"  data-src="{{ product.images.first | product_img_url: '1024x1024' }}" data-srcset="{{ product.images.first | product_img_url: '600x600' }} 300w, {{ product.images.first | product_img_url: '1200x1200' }} 600w, {{ product.images.first | product_img_url: '1800x1800' }} 900w" alt="{{ product.title | strip_html | escape }}" class="lazyload" style="display: block; width: 100%; height: 100%;" />
+            <img data-sizes="auto" src="{{ product.images[1] | product_img_url: '1x1' }}" data-src="{{ product.images[1] | product_img_url: '1024x1024' }}" data-srcset="{{ product.images[1] | product_img_url: '600x600' }} 300w, {{ product.images[1] | product_img_url: '1200x1200' }} 600w, {{ product.images[1] | product_img_url: '1800x1800' }} 900w" alt="{{ product.images[1].alt | escape }}" class="collection-product-hover lazyload"/>
+          </div>
+          <div class="product_info_content">
+            {% if product.available == true %}
+              <div class="gallery-product-title"> {{ product.title }} </div>
+              <div class="gallery-product-price">
+
+              {{ product.price | money }}
+          </div>
+          <div class="product-size">
+            <ul id="variants">
+              {% for variant in product.variants %}
+              <li style="display: relative;">
+              {% if variant.available == true %}
+                <input type="radio" name="id" value="{{variant.id}}" id="radio_{{variant.id}}" {%if forloop.first%} {%endif%} />
+                <label for="radio_{{variant.id}}">
+                  <div class='variant_title'>{{ variant.title }}</div>
+                  {% assign variant = product.variants.first %}
+                  {% if variant.available %}
+                  {% if variant.inventory_management != ''  %}
+                  {% else %}
+                  {% endif %}
+                  {% endif %}
+                </label>        
+                {% else %}
+                <span class="sold_out">{{ variant.title }}</span>
+                {% endif %}
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+            {% endif %}
+            {% if product.available == false %} <span style="color: red; text-decoration: uppercase;">Sold Out</span> {% endif %}
+          </div>          
+          </a>
+        </div>
+      {% endfor %}
+  {% endif %}
+  {% if paginate.pages > 1 %}
+  	<div id="paginate">
+  		{{ paginate | default_pagination }}
+  	</div>
+  {% endif %}
+{% endpaginate %}
+  </div>
+<button class="toggle-products" onclick="toggleCollection(this, 'products-tees')">Show More</button>
+
+<div class="category-title">Pants</div>
+
+{% paginate collections['ss25-archive-pants'].products by 340 %}
+  {% if settings.collection_pagination %}
+    <small>Showing items {{ paginate.current_offset | plus: 1 }}-{% if paginate.next %}{{ paginate.current_offset | plus: paginate.page_size }}{% else %}{{ paginate.items }}{% endif %} of {{ paginate.items }}.</small>
+  {% endif %}
+  
+  <div id="products-pants" class="collection-grid-archive {{ collection.title | handleize }}">
+    {% if collection.products.size == 0 %}
+    	<p>There are currently no products in this collection. Please check back later.</p>
+    {% else %}
+  	{% for product in collections['ss25-archive-pants'].products %}
+      {% if template == 'collection.sidebar' %}
+        <div class="product5 {% cycle '', '' %}">  
+      {% else %}
+        <div class="collection-grid-item">
+      {% endif %}
+        <a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}">  
+          <div style="position: relative;">
+            <img data-sizes="auto" src="{{ product.images.first | product_img_url: '1x1' }}"  data-src="{{ product.images.first | product_img_url: '1024x1024' }}" data-srcset="{{ product.images.first | product_img_url: '600x600' }} 300w, {{ product.images.first | product_img_url: '1200x1200' }} 600w, {{ product.images.first | product_img_url: '1800x1800' }} 900w" alt="{{ product.title | strip_html | escape }}" class="lazyload" style="display: block; width: 100%; height: 100%;" />
+            <img data-sizes="auto" src="{{ product.images[1] | product_img_url: '1x1' }}" data-src="{{ product.images[1] | product_img_url: '1024x1024' }}" data-srcset="{{ product.images[1] | product_img_url: '600x600' }} 300w, {{ product.images[1] | product_img_url: '1200x1200' }} 600w, {{ product.images[1] | product_img_url: '1800x1800' }} 900w" alt="{{ product.images[1].alt | escape }}" class="collection-product-hover lazyload"/>
+          </div>
+          <div class="product_info_content">
+            {% if product.available == true %}
+              <div class="gallery-product-title"> {{ product.title }} </div>
+              <div class="gallery-product-price">
+
+              {{ product.price | money }}
+          </div>
+          <div class="product-size">
+            <ul id="variants">
+              {% for variant in product.variants %}
+              <li style="display: relative;">
+              {% if variant.available == true %}
+                <input type="radio" name="id" value="{{variant.id}}" id="radio_{{variant.id}}" {%if forloop.first%} {%endif%} />
+                <label for="radio_{{variant.id}}">
+                  <div class='variant_title'>{{ variant.title }}</div>
+                  {% assign variant = product.variants.first %}
+                  {% if variant.available %}
+                  {% if variant.inventory_management != ''  %}
+                  {% else %}
+                  {% endif %}
+                  {% endif %}
+                </label>        
+                {% else %}
+                <span class="sold_out">{{ variant.title }}</span>
+                {% endif %}
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+            {% endif %}
+            {% if product.available == false %} <span style="color: red; text-decoration: uppercase;">Sold Out</span> {% endif %}
+          </div>          
+          </a>
+        </div>
+      {% endfor %}
+  {% endif %}
+  {% if paginate.pages > 1 %}
+  	<div id="paginate">
+  		{{ paginate | default_pagination }}
+  	</div>
+  {% endif %}
+{% endpaginate %}
+  </div>
+<button class="toggle-products" onclick="toggleCollection(this, 'products-pants')">Show More</button>
+
+<div class="category-title">Shorts</div>
+
+{% paginate collections['ss25-archive-shorts'].products by 340 %}
+  {% if settings.collection_pagination %}
+    <small>Showing items {{ paginate.current_offset | plus: 1 }}-{% if paginate.next %}{{ paginate.current_offset | plus: paginate.page_size }}{% else %}{{ paginate.items }}{% endif %} of {{ paginate.items }}.</small>
+  {% endif %}
+  
+  <div id="products-shorts" class="collection-grid-archive {{ collection.title | handleize }}">
+    {% if collection.products.size == 0 %}
+    	<p>There are currently no products in this collection. Please check back later.</p>
+    {% else %}
+  	{% for product in collections['ss25-archive-shorts'].products %}
+      {% if template == 'collection.sidebar' %}
+        <div class="product5 {% cycle '', '' %}">  
+      {% else %}
+        <div class="collection-grid-item">
+      {% endif %}
+        <a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}">  
+          <div style="position: relative;">
+            <img data-sizes="auto" src="{{ product.images.first | product_img_url: '1x1' }}"  data-src="{{ product.images.first | product_img_url: '1024x1024' }}" data-srcset="{{ product.images.first | product_img_url: '600x600' }} 300w, {{ product.images.first | product_img_url: '1200x1200' }} 600w, {{ product.images.first | product_img_url: '1800x1800' }} 900w" alt="{{ product.title | strip_html | escape }}" class="lazyload" style="display: block; width: 100%; height: 100%;" />
+            <img data-sizes="auto" src="{{ product.images[1] | product_img_url: '1x1' }}" data-src="{{ product.images[1] | product_img_url: '1024x1024' }}" data-srcset="{{ product.images[1] | product_img_url: '600x600' }} 300w, {{ product.images[1] | product_img_url: '1200x1200' }} 600w, {{ product.images[1] | product_img_url: '1800x1800' }} 900w" alt="{{ product.images[1].alt | escape }}" class="collection-product-hover lazyload"/>
+          </div>
+          <div class="product_info_content">
+            {% if product.available == true %}
+              <div class="gallery-product-title"> {{ product.title }} </div>
+              <div class="gallery-product-price">
+
+              {{ product.price | money }}
+          </div>
+          <div class="product-size">
+            <ul id="variants">
+              {% for variant in product.variants %}
+              <li style="display: relative;">
+              {% if variant.available == true %}
+                <input type="radio" name="id" value="{{variant.id}}" id="radio_{{variant.id}}" {%if forloop.first%} {%endif%} />
+                <label for="radio_{{variant.id}}">
+                  <div class='variant_title'>{{ variant.title }}</div>
+                  {% assign variant = product.variants.first %}
+                  {% if variant.available %}
+                  {% if variant.inventory_management != ''  %}
+                  {% else %}
+                  {% endif %}
+                  {% endif %}
+                </label>        
+                {% else %}
+                <span class="sold_out">{{ variant.title }}</span>
+                {% endif %}
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+            {% endif %}
+            {% if product.available == false %} <span style="color: red; text-decoration: uppercase;">Sold Out</span> {% endif %}
+          </div>          
+          </a>
+        </div>
+      {% endfor %}
+  {% endif %}
+  {% if paginate.pages > 1 %}
+  	<div id="paginate">
+  		{{ paginate | default_pagination }}
+  	</div>
+  {% endif %}
+{% endpaginate %}
+  </div>
+<button class="toggle-products" onclick="toggleCollection(this, 'products-shorts')">Show More</button>
+
+<div class="category-title">Accessories</div>
+
+{% paginate collections['ss25-archive-accessories'].products by 340 %}
+  {% if settings.collection_pagination %}
+    <small>Showing items {{ paginate.current_offset | plus: 1 }}-{% if paginate.next %}{{ paginate.current_offset | plus: paginate.page_size }}{% else %}{{ paginate.items }}{% endif %} of {{ paginate.items }}.</small>
+  {% endif %}
+  
+  <div id="products-accessories" class="collection-grid-archive {{ collection.title | handleize }}">
+    {% if collection.products.size == 0 %}
+    	<p>There are currently no products in this collection. Please check back later.</p>
+    {% else %}
+  	{% for product in collections['ss25-archive-accessories'].products %}
+      {% if template == 'collection.sidebar' %}
+        <div class="product5 {% cycle '', '' %}">  
+      {% else %}
+        <div class="collection-grid-item">
+      {% endif %}
+        <a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}">  
+          <div style="position: relative;">
+            <img data-sizes="auto" src="{{ product.images.first | product_img_url: '1x1' }}"  data-src="{{ product.images.first | product_img_url: '1024x1024' }}" data-srcset="{{ product.images.first | product_img_url: '600x600' }} 300w, {{ product.images.first | product_img_url: '1200x1200' }} 600w, {{ product.images.first | product_img_url: '1800x1800' }} 900w" alt="{{ product.title | strip_html | escape }}" class="lazyload" style="display: block; width: 100%; height: 100%;" />
+            <img data-sizes="auto" src="{{ product.images[1] | product_img_url: '1x1' }}" data-src="{{ product.images[1] | product_img_url: '1024x1024' }}" data-srcset="{{ product.images[1] | product_img_url: '600x600' }} 300w, {{ product.images[1] | product_img_url: '1200x1200' }} 600w, {{ product.images[1] | product_img_url: '1800x1800' }} 900w" alt="{{ product.images[1].alt | escape }}" class="collection-product-hover lazyload"/>
+          </div>
+          <div class="product_info_content">
+            {% if product.available == true %}
+              <div class="gallery-product-title"> {{ product.title }} </div>
+              <div class="gallery-product-price">
+
+              {{ product.price | money }}
+          </div>
+          <div class="product-size">
+            <ul id="variants">
+              {% for variant in product.variants %}
+              <li style="display: relative;">
+              {% if variant.available == true %}
+                <input type="radio" name="id" value="{{variant.id}}" id="radio_{{variant.id}}" {%if forloop.first%} {%endif%} />
+                <label for="radio_{{variant.id}}">
+                  <div class='variant_title'>{{ variant.title }}</div>
+                  {% assign variant = product.variants.first %}
+                  {% if variant.available %}
+                  {% if variant.inventory_management != ''  %}
+                  {% else %}
+                  {% endif %}
+                  {% endif %}
+                </label>        
+                {% else %}
+                <span class="sold_out">{{ variant.title }}</span>
+                {% endif %}
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+            {% endif %}
+            {% if product.available == false %} <span style="color: red; text-decoration: uppercase;">Sold Out</span> {% endif %}
+          </div>          
+          </a>
+        </div>
+      {% endfor %}
+  {% endif %}
+  {% if paginate.pages > 1 %}
+  	<div id="paginate">
+  		{{ paginate | default_pagination }}
+  	</div>
+  {% endif %}
+{% endpaginate %}
+  </div>
+<button class="toggle-products" onclick="toggleCollection(this, 'products-accessories')">Show More</button>
+
+
+<div class="archive-note">
+  <strong>PLEASE NOTE:</strong> All Archive sales are final and cannot be returned or exchanged. 
+</div>
+  
+<div style="padding: 100px 0 0 0;"></div>
+
+{% include "footer" %}
+
+<script type="text/javascript">
+  $(window).load(function(){
+    $('.adsumworks-svg').addClass("anim-done2");
+    $('.adsumworks-desc').addClass("anim-done");
+    $('#detail-1').addClass("anim-done");
+    setTimeout(function(){
+        $('#detail-2').addClass("anim-done");
+      }, 200);
+    setTimeout(function(){
+        $('#detail-3').addClass("anim-done");
+      }, 400);
+    setTimeout(function(){
+        $('#detail-4').addClass("anim-done");
+      }, 600);
+     setTimeout(function(){
+        $('.index-first-block').addClass("shrink");
+      }, 5500);
+  });
+</script>
+
+<script>
+$(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 10) {
+      $(".adsumworks-desc-grid").addClass("hide4");
+      $(".adsumworks-svg").addClass("shrink-svg2");
+    }
+  	else{
+        $('.adsumworks-desc-grid').removeClass('hide4');
+      $(".adsumworks-svg").removeClass("shrink-svg2");
+    }
+});
+</script>
+  
+<script type="text/javascript"> 
+     $(document).ready(function(){
+    $('.variant_title').each(function(){
+    	var index = $(this).text().indexOf('/');
+        var variantString = $(this).text();
+        var newString = variantString.substring(index + 2, variantString.length);
+        var colorString = variantString.substring(0, index);
+      console.log(newString + " " + colorString);
+      $(this).html(newString + "<div class='variant_color'>" + colorString + "</div>");
+    });
+  
+    $('.sold_out').each(function(){
+    	var index = $(this).text().indexOf('/');
+        var variantString = $(this).text();
+        var newString = variantString.substring(index + 2, variantString.length);
+        var colorString = variantString.substring(0, index);
+      console.log(newString + " " + colorString);
+      $(this).html(newString + "<div class='variant_color'>" + colorString + "</div>");
+    });
+  });
+                             		
+</script>
+
+<script>
+  function startTime() {
+  offset = 20;
+  var today = new Date();
+  var h = today.getUTCHours();
+  var m = today.getUTCMinutes();
+  var s = today.getUTCSeconds();
+  h = h + offset;
+  if (h > 24) {
+    h = h - 24;
+  }
+  if (h < 0) {
+    h = h + 24;
+  }
+  h = checkTime(h);
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('clock').innerHTML = h + ":" + m + ":" + s;
+  var t = setTimeout(function() {
+    startTime()
+  }, 500);
+}
+
+function checkTime(i) {
+  if (i < 10) {
+    i = "0" + i
+  };
+  return i;
+}
+
+startTime()
+</script>
+
+    <script>
+  function toggleCollection(button, id) {
+    const grid = document.getElementById(id);
+    if (!grid) return;
+
+    grid.classList.toggle('expanded');
+    const showingAll = grid.classList.contains('expanded');
+    button.textContent = showingAll ? 'Show Less' : 'Show More';
+  }
+</script>
+
+<style>
+.variant_title {
+display: inline;
+}
+.variant_color {
+  display: none;
+}
+</style>

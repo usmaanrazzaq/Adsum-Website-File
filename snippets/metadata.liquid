@@ -1,0 +1,68 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="keywords" content="{{ page_title }}, Clothing, New York City, Brooklyn, Mens Clothing, Online Store, Menswear, Jackets, Buttondowns, Oxford, Pete Macnee, Christian Richard Rice" />
+<meta property="og:site_name" content="{{shop.name}}"/>
+<meta name="author" content="Adsum" />
+<meta property="fb:admins" content="81002139,81010154" />
+<meta property="fb:app_id" content="139026689496001"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="imagetoolbar" content="no" />
+
+<meta name="facebook-domain-verification" content="5foe39l9nezjiuc7vfwprrubqwxfg7" />
+<meta name="google-site-verification" content="mkYDxbW_G-lP5cf6b8T4E5kUp8OEIyTMfxRjKLeH89s" />
+
+	{% case template %}
+		{% when 'index' %}
+			<title>Adsum</title>
+			<meta name="description" content="{{ pages.about.content | strip_html | truncate: 300 }}" />
+			<meta property="og:title" content="{{ shop.name }}" />
+			<meta property="og:description" content="{{ pages.about.content | strip_html | truncate: 300 }}" />
+			<meta property="og:image" content="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-logotype-360px.png?17883426181066571477" />
+		{% when 'page' %} 
+			<title>{{ page_title }} &mdash; {{ shop.name }}</title>
+			<meta name="description" content="{{ page.title | escape}} &mdash; {{ page.content | strip_html | truncate: 250 }}" />
+			<meta property="og:title" content="{{ page.title }}"/>
+			<meta property="og:image" content="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-logotype-360px.png?17883426181066571477" />
+		{% when 'product' %}
+			{% if collection %}<link rel="canonical" href="{{ product.url }}" />{% endif %}
+			{% capture description %}{{ product.title | escape }} &mdash; {{ product.description | strip_html | truncate: 250 | escape }}{% endcapture %}
+			<title>{{ page_title }} &#47; {{ shop.name }}</title>
+			<meta name="description" content="{{ description }}" />
+			<link rel="image_src" href="{{ product.featured_image | product_img_url: 'large' }}" />
+			<meta property="og:title" content="{{ product.title }}"/>
+			<meta property="og:description" content="{{ description }}" />
+			<meta property="og:type" content="product"/>
+			<meta property="og:url" content="{{ shop.url }}{{ product.url }}" />
+			<meta property="og:image" content="https:{{ product.featured_image | product_img_url: 'master' }}" />
+			<meta property="og:email" content="{{ shop.email }}" />
+			<meta property="product:brand" content="Adsum" />
+			<meta property="product:availability" content="in stock" />
+			<meta property="product:condition" content="new" />
+			<meta property="product:price:amount" content="{{ product.price | money_without_currency }}" />
+			<meta property="product:price:currency" content="USD">
+			<meta property="product:retailer_item_id" content="{{ product.id }}" />
+		{% when 'article' or 'article.football-face-fuzz' %} 
+			<title>{{ article.title | escape }}</title>
+			<meta name="description" content="{{article.content | strip_html }}" />
+  			<meta property="og:title" content="{{ article.title | escape }}" />
+			<meta property="og:image" content="https:{{ article | img_url: 'large' }}" />
+        	<meta property="og:description" content="{{article.content | strip_html | truncate: 150 }}" />
+		{% when 'blog' %} 
+			<title>{{ page_title }} &#47; {{ shop.name }}</title>
+			<meta name="description" content="{{ shop.name }} {{ blog.title | escape }}" />
+			<meta property="og:image" content="{{ article | img_url: 'master }}" />
+        	<meta property="og:image:secure_url" content="{{ article | img_url: 'master' }}" />
+        	<meta property="og:title" content="{{ article.title | escape }}" />
+        	<meta property="og:description" content="{{ article.content | strip_html | truncate: 150 }}" />
+		{% when 'collection' or 'collection.fw15' %}
+			<title>{{ page_title }} &#47; {{ shop.name }}</title>
+			<meta name="description" content="{{ page_title | escape }} {% if collection.description.size > 0 %}&mdash; {{ collection.description | strip_html | truncate: 150 }}{% endif %}" />
+		{% when '404' %}
+			<title>{{ shop.name }} - Page not found</title>
+		{% else %}
+			<title>{{ page_title }} &#47; {{ shop.name }}</title>
+			<meta name="description" content="{{ page.title | escape}} &mdash; {{ page.content | strip_html | truncate: 150 }}" />
+	{% endcase %}
+
+<meta name="msapplication-TileColor" content="#2b5797">
+<meta name="msapplication-TileImage" content="https://cdn.shopify.com/s/files/1/0664/2387/files/mstile-144x144.png?285464261536098351">
+<meta name="theme-color" content="#ffffff">

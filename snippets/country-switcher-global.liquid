@@ -1,0 +1,208 @@
+    
+  {% if localization.available_countries.size > 1 %}
+    <style>
+      /*
+      #country-switcher {
+        font-size: 11px;
+        display: inline-block;
+        padding-right: 22px;
+        position: absolute;
+        color: black;
+        right: 159px;
+        top: 52px;
+        z-index: 1;
+      } */
+      #country-switcher {
+        font-size: 11px;
+        padding-right: 22px;
+        position: absolute;
+        color: black;
+        top: 52px;
+        right: 172px;
+        z-index: 1;
+      }
+      #country-switcher:hover {
+        color: #ccc;
+      }
+      #country-switcher:active {
+        color: #000;
+      }
+      .ge_countrySwitcher {
+          position: absolute;
+          top: 3px;
+          right: 225px;
+          min-width: max-content;
+          font-size: 11px;
+      } 
+      .disclosure__item a:hover{
+        color: #666;
+      }
+      .disclosure__button{
+          background-color: transparent;
+          border: none;
+          text-align: right;
+      }
+      .disclosure__button .icon{ 
+        width:12px; 
+      }
+      .ge-free-shipping-container .ge-free-shipping-msg {
+          text-align: center;
+          font-family: "Helvetica Neue", helvetica,sans-serif;
+          color: #000000;
+          font-size: 13px;
+      }
+      .CountryList{
+          position: absolute;
+          background-color: white;
+          padding: 20px;
+          max-height: 80vh;
+          overflow-y: scroll;
+          margin-left: -14px;
+          scrollbar-color: #e4e4e4;
+          scrollbar-width: thin;
+      }
+        ul.Ge_Count_Li{  
+          flex-direction: column;
+          min-width: max-content;
+          max-height: 20vh;
+          overflow-y: scroll;
+          gap: 0.35rem;
+          border: 0px solid #f1f1f1;
+          background: #fff;
+          position: absolute;
+          list-style-type: none;   
+          line-height: 16px;
+          top: 20px ;
+          right: 5px; 
+          padding-inline: 5px;
+          background: white;
+          align-items:flex-end;
+      }  
+
+      .CountryList li{ display:block!important; }
+      ::-webkit-scrollbar {
+      width: 12px;
+      height: 12px;
+      }
+
+      ::-webkit-scrollbar-track {
+      background: #f5f5f5;
+      border-radius: 10px;
+      }
+
+      ::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background: #ccc;  
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+      background: #999;  
+      }
+      /* mobile nav */
+      .mobile-navigation .CountryList{ max-height: 30vh; margin-left:-18px; }
+      .mobile-navigation .disclosure__item{ width:100%!important; padding-left:0; }
+      .mobile-navigation .disclosure__button{ padding-left: 0px; }
+       .ge_countrySwitcher-mobile.disclosure { font-size: 14px;}
+      .ge_countrySwitcher-mobile  ul.Ge_Count_Li {
+            position: initial;
+            margin-top: 10px;
+            background: white;
+      }
+      .ge_countrySwitcher-mobile ul.Ge_Count_Li li {
+          font-size: 15px !important;
+      }
+
+    .ge_countrySwitcher-mobile .disclosure__button{
+          margin-top: 2rem;
+      } 
+    .disclosure {
+      align-content: flex-end;
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: column;
+    }
+
+      @media screen and (max-width: 900px){
+        div#country-switcher {
+          display: none;
+        }
+        .disclosure__button {
+            text-align: left;
+        }
+        div#country-switcher-mobile {
+          top: 15px;
+          right: 24px;
+          padding-bottom: 40px;
+          position: initial;
+          color: black;
+          line-height: 18px;
+          font-size: 14px;
+          display: inline-block;
+        }
+        ul.Ge_Count_Li {
+          left: 0px;
+          width: 100%;
+          list-style: none;
+          align-items: flex-start;
+          position: relative;
+          background: white;
+          padding-inline-end: 4px;
+          padding: 0px 3px 10px 0px;
+          top: 14px;
+          line-height: 26px;
+        }
+      }
+
+
+
+    </style>
+  <script>
+  class LocalizationForm extends HTMLElement {
+    constructor() {
+      super();
+      this.elements = {
+        input: this.querySelector('input[name="locale_code"], input[name="country_code"]'),
+        button: this.querySelector('button'),
+        panel: this.querySelector('ul'),
+      };
+
+      this.querySelectorAll('a').forEach(item => item.addEventListener('click', this.onItemClick.bind(this)));
+    }
+
+    hidePanel() {
+      this.elements.button.setAttribute('aria-expanded', 'false');
+      this.elements.panel.setAttribute('hidden', true);
+      console.log("Hide");
+    }
+
+    onContainerKeyUp(event) {
+      if (event.code.toUpperCase() !== 'ESCAPE') return;
+
+      this.hidePanel();
+      this.elements.button.focus();
+    }
+
+    onItemClick(event) {
+      event.preventDefault();
+      const form = this.querySelector('form');
+      this.elements.input.value = event.currentTarget.dataset.value;
+      if (form) form.submit();
+    }
+
+    openSelector() {
+      this.elements.button.focus();
+      this.elements.panel.toggleAttribute('hidden');
+      console.log("Show");
+      this.elements.button.setAttribute('aria-expanded', (this.elements.button.getAttribute('aria-expanded') === 'false').toString());
+    }
+
+    closeSelector(event) {
+      const shouldClose = event.relatedTarget && event.relatedTarget.nodeName === 'BUTTON';
+      if (event.relatedTarget === null || shouldClose) {
+        this.hidePanel();
+      }
+    }
+  }
+  customElements.define('localization-form', LocalizationForm);
+  </script>
+{% endif %}

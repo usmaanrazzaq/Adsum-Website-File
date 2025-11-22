@@ -1,0 +1,5 @@
+{% if settings.social_facebook_admin !='' %}
+<iframe src="http://www.facebook.com/plugins/like.php?href={{ shop.url }}{{ facebook-like.url }}&amp;layout=standard&amp;show_faces=true&amp;width=450&amp;action=like&amp;font&amp;colorscheme=light&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100%; height:80px;" allowTransparency="true"></iframe>
+{% else %}
+	<p class="instructions">To enable Facebook Like, please enter your facebook admin email in Theme > Theme Settings under the "Social Media" section.</p>
+{% endif %}

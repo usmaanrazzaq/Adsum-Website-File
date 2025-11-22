@@ -1,0 +1,348 @@
+/* Undo background and gradient */
+body, #main, #container, #header, #footer {
+  background: #fff !important;
+}
+
+/* Undo overview background and borders */
+#main #overview {
+  background: #fff;
+  border: none;
+}
+#main #overview > * {
+  border: none;
+}
+#main #thumbs div {
+  border: none;
+  margin: 0 22px 0 0;
+}
+
+/* Insert your own logo (upload separately) */
+#logo { 
+  height: 65px;
+  background: url('http://cdn.shopify.com/s/files/1/0058/3352/files/hndsm_website_logo_white.jpg?10782') center no-repeat;
+}
+
+#header > h1{
+  text-align:center;
+}
+
+/* Hide the name of the store because we got this nifty logo now */
+
+#header > h1 span.title {
+  display:none;
+}
+
+#overview {
+  background: none;
+}
+
+div.wallet-highlight {
+  background: none;
+}
+
+#gateway-logos img {
+  display:none;
+}
+
+#cost, #order-num {
+  color: #000;
+  text-shadow: none!important;
+  font-family: "futura-pt", futura, sans-serif;
+}
+
+#steps {
+  font-family: "futura-pt", futura, sans-serif;
+  font-style: normal;
+  font-size: 12px;
+}
+
+#thumbs h3 {
+  color: #000;
+}
+
+#thumbs span {
+  color: #000;
+}
+
+#overview h2 {
+  display: none;
+}
+
+h1 span.subtitle {
+  display: none;
+}
+
+#email {
+  background: none;
+  border: none;
+  padding: 0px;
+}
+
+#addresses {
+  background: none;
+  border: none;
+}
+
+#content {
+  padding: 10px;
+  font-family: "futura-pt", futura, sans-serif;
+}
+
+#buttons {
+    background: none;
+  border: none;
+  padding: 0px;
+}
+
+input[type=text], input[type=password], textarea {
+border: 1px solid #000;
+/* border-bottom: 1px solid #e7e7e7; */
+/* border-right: 1px solid #e7e7e7; */
+padding: 2px;
+}
+
+#email input {
+font-size: 150%;
+border: 1px solid #000;
+  padding: 5px;
+}
+
+#buttons input {
+font-weight: normal;
+padding: 17px 10px 18px 10px;
+background: #fff;
+border: 1px solid #000;
+text-transform: uppercase;
+letter-spacing: .04em;
+font-size: 12px;
+width: 100%;
+font-family: "futura-pt", futura, sans-serif;
+/* font-weight: 100; */
+  -webkit-transition: all .1s ease-in-out;
+-moz-transition: all .1s ease-in-out;
+-o-transition: all .1s ease-in-out;
+-ms-transition: all .1s ease-in-out;
+transition: all .1s ease-in-out;
+}
+
+#buttons input:hover {
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+  -webkit-transition: all .1s ease-in-out;
+-moz-transition: all .1s ease-in-out;
+-o-transition: all .1s ease-in-out;
+-ms-transition: all .1s ease-in-out;
+transition: all .1s ease-in-out;
+}
+
+.address-notification:before {
+  content: "Please uncheck the box to the left if you would like to ship to a different address from your billing address. Otherwise,";
+  text-transform: normal;
+  line-height: 18px;
+  text-transform: uppercase;
+  
+}
+
+
+
+.address-notification {
+background: #fff;
+border: none;
+color: #000;
+text-align: center;
+padding: 0px;
+  text-transform: uppercase;
+  text-align: left;
+  font-size: 10px;
+  line-height: 18px;
+}
+
+#billing_address_country, #billing_address_province, #shipping_address_country, #shipping_address_province {
+  width: 150px;
+background: #fff;
+color: #000;
+border: 1px solid #000;
+border-radius: 0px;
+}
+
+input:focus {
+    outline:none;
+}
+
+.group h3, .pgroup h3 {
+   border-bottom: none;
+}
+
+.group {
+  padding: 0px;
+}
+
+.form td {
+  padding: 5px 0;
+}
+ 
+
+.form td input.short {
+width: 96%;
+}
+
+.form td input {
+width: 96%;
+}
+
+#addresses {
+background: none;
+border: none;
+width: 100%;
+}
+
+#logo {
+height: 65px;
+background: url('http://cdn.shopify.com/s/files/1/0058/3352/files/hndsm_website_logo_white.jpg?10782') center no-repeat;
+background-size: 100px;
+}
+
+#wallet {
+margin-left: 0px;
+padding: 0px;
+text-align: center;
+width: 100%;
+float: left;
+}
+
+.form ul.inline li {
+display: block;
+float: left;
+margin-right: 10px;
+}
+
+#cost, #order-num {
+color: #000;
+text-shadow: none!important;
+font-family: "futura-pt", futura, sans-serif;
+font-size: 18px;
+margin-top: 20px;
+}
+
+#container { 
+  width:60%;
+  min-width: 300px;
+}
+
+#header {
+width: 100%;
+padding: 0;
+}
+
+#main {
+width: 100%;
+  padding: 0px;
+}
+#products {
+float: left;
+width: 100%;
+}
+
+#thumbs {
+margin: 0 auto;
+padding: 0;
+width: 0%;
+  font-family: "futura-pt", futura, sans-serif;
+}
+
+#thumbs td {
+font-size: 80%;
+padding: 30px 0 10px 0;
+line-height: 140%;
+vertical-align: middle;
+width: 50%;
+}
+
+label {
+  font-weight: 300;
+}
+
+.gright {
+margin-left: 0;
+padding-left: 3%;
+width: 47%;
+float: left;
+}
+
+span.sign-in-message {
+font-size: 13px;
+margin-left: 3%;
+}
+ 
+
+#email input {
+font-size: 150%;
+border: 1px solid #000;
+padding: 1%;
+width: 48%;
+}
+
+input[type="text"] {
+ padding: 2%;
+ margin-right: 0px;
+}
+
+span.sign-in-message {
+font-size: 13px;
+margin-left: 3%;
+line-height: 34px;
+}
+
+#footer {
+width: 100%;
+padding: 25px 0;
+}
+
+.group {
+background: #fff;
+border: 0px solid #e6e6e6;
+}
+
+@media (max-width:1100px) {
+
+#container {
+  width:70%;
+}
+}
+
+@media (max-width:900px) {
+
+#container {
+  width:90%;
+}
+}
+
+@media (max-width:700px) {
+  
+.gleft {
+  width:100%;
+}
+  
+.gright {
+margin-left: 0;
+padding-left: 0%;
+padding-top: 20px;
+width: 100%;
+float: left;
+}
+  
+#email input {
+font-size: 150%;
+border: 1px solid #000;
+padding: 1%;
+width: 98%;
+}
+  
+span.sign-in-message {
+font-size: 13px;
+margin-left: 0%;
+line-height: 22px;
+}
+  
+}

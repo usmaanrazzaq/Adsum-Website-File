@@ -1,0 +1,237 @@
+{% include "loading" %}
+
+ <style>
+  .grid-1 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 120px 100px;
+    justify-items: center;
+    row-gap: 5px;
+    column-gap: 10px;
+    max-width: 1400px;
+    margin: 0 auto;
+    place-content: center;
+  }
+   .cell-1, .cell-2 {
+     grid-column: span 1;
+     display: flex;
+     align-self: center;
+   }
+   .solo-image {
+     padding: 120px 0;
+     max-width: 500px; display: block; margin: 0 auto;
+   }
+  .lookbook-caption {
+    line-height: 14px;
+    font-size: 10px;
+    text-align: center;
+    max-width: 300px;
+    color: #000;
+    display: block;
+    font-weight: 400;
+    align-self: auto;
+    padding-top: 20px;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 1400px) {
+  .grid-1 {
+    padding: 40px 40px;
+  }
+}
+@media (max-width: 1000px) {
+  .grid-1 {
+    padding: 40px 0px;
+  }
+}
+@media (max-width: 900px) {
+  .lookbook-caption {
+    grid-column: span 2;
+  }
+  .cell-1, .cell-2 {
+  }
+  .lookbook-collection-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0px 10px 40px 10px;
+  }
+}
+@media (max-width: 500px) {
+  .solo-image:first-of-type {
+        padding-top: 45px;
+  }
+  .fw22-title {
+    font-size: 38px;
+  }
+  .fall-22-lookbook-header {
+    height: 75vh; 
+    width: 100%; 
+    background-image: url('https://cdn.shopify.com/s/files/1/0664/2387/files/cover-mobile-9B3A0568.jpg?v=1664562268'); 
+  }
+  .grid-1 {
+    margin: 0px;
+  }
+  .cell-1, .cell-2 {
+    grid-column: span 2;
+  }
+}
+</style>
+
+
+{% include "loading" %}
+
+
+
+       <div style="max-width: 300px; margin: 0 auto; padding: 99px 20px 0 20px; text-align: center;">
+        <div style="font-size:14px; font-weight: 600;">Spring/Summer 23 III Lookbook</div>
+        <div style="font-size:10px; padding-top: 4px; line-height: 13px;/* font-family: times, serif; */">
+          Shot across all of NYC on Chris, Perry, Oliver, Marty, Joe, Mac, Arman, Chad, Gaby, Niccolò<br>
+          May 24-28, 2023
+        </div>
+      </div>
+
+  <div class="grid-1">
+    <div class="cell-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/01-16250005.jpg?v=1683037077" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="cell-2">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/01-16250008.jpg?v=1683037077" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+  </div>
+  
+  <div class="grid-1">
+    <div class="cell-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/02-16240002.jpg?v=1683037076" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="cell-2">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/02-16240001.jpg?v=1683037077" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+  </div>
+
+
+
+   <div class="grid-1">
+    <div class="cell-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/09-16230012.jpg?v=1683037077" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="cell-2">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/09-16230019.jpg?v=1683037077" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/06-16270001.jpg?v=1683037076" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="cell-2">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/06-16270005.jpg?v=1683037077" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/05-16270020.jpg?v=1683037076" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="cell-2">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/16270027.jpg?v=1683053296" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/04-16250030_7bc953a6-d9c8-4d84-ad92-b5522dbc97b8.jpg?v=1684245937" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="cell-2">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/16250035.jpg?v=1683053798" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/07-16240014.jpg?v=1683037077" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="cell-2">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/07-16230003.jpg?v=1683037077" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/03-IMGP0066.jpg?v=1683037076" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="cell-2">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/03-16250015.jpg?v=1683037077" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/08-16230006.jpg?v=1683037077" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="cell-2">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/08-IMGP0100.jpg?v=1683037076" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/10-16260004.jpg?v=1683037077" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="cell-2">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/10-16260011.jpg?v=1683051727" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+  </div>
+
+
+
+      
+</div>
+
+{% comment %}
+<div class="featured-products-title">
+	SS23 Part 3
+</div>
+
+<div id="products" class="lookbook-collection-grid {{ collection.title | handleize }}">
+  {% for product in collections.ss23drop3.products %}
+  	<div class="collection-grid-item">
+      <a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}">  
+        <div style="position: relative;">
+          <img data-sizes="auto"
+               src="{{ product.images.first | product_img_url: '1x1' }}" 
+               data-src="{{ product.images.first | product_img_url: '1024x1024' }}"
+               data-srcset="{{ product.images.first | product_img_url: '600x600' }} 300w,
+                            {{ product.images.first | product_img_url: '1200x1200' }} 600w,
+                            {{ product.images.first | product_img_url: '1800x1800' }} 900w"
+               alt="{{ product.title | strip_html | escape }}" class="lazyload" style="display: block; width: 100%; height: 100%;" />
+          <img data-sizes="auto"
+               src="{{ product.images[1] | product_img_url: '1x1' }}" 
+               data-src="{{ product.images[1] | product_img_url: '1024x1024' }}" 
+               data-srcset="{{ product.images[1] | product_img_url: '600x600' }} 300w,
+                            {{ product.images[1] | product_img_url: '1200x1200' }} 600w,
+                            {{ product.images[1] | product_img_url: '1800x1800' }} 900w"
+               alt="{{ product.images[1].alt | escape }}" class="collection-product-hover lazyload"/>
+        </div>
+        <div class="product_info_content">
+            {%if product.available == true %}
+                <div class="gallery-product-title">
+                    {{ product.title }}
+                </div>
+                <div class="gallery-product-price">
+                    {% if product.compare_at_price_max > product.price %}
+                        <del class="sale">{{ product.compare_at_price_max | money }}</del>
+                    {% endif %}
+                    {{ product.price | money }}
+                </div>
+            {% endif %}
+            {%if product.available == false %}    
+                <span style="color: red; text-decoration: uppercase;">Sold Out</span>
+            {% endif %}
+        </div>          
+      </a>
+    </div>
+{% endfor %}
+</div>
+
+{% endcomment %}
+
+{% include "footer" %}

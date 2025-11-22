@@ -1,0 +1,75 @@
+<div class="page-padding">
+
+  <div class="page-title">
+    My Account
+  </div>
+
+<div id="customer_sidebar">
+  <div id="customer_detail" class="group">
+    <div style=" background-color: green; color: #fff; padding: 20px; text-align: center; font-size: 14px;">
+      You now have access to the <a href="{{ routes.collections_url }}/members-only" class="account-members-only-link">MEMBERS ONLY</a> section.
+    </div>
+    
+    
+    <div style="padding: 20px 0 0 0; font-size: 16px; font-weight: 400; line-height: 18px;">
+      Name: {{ customer.name }}
+    </div>
+    <div style="font-size: 16px; font-weight: 400; line-height: 18px;">
+      Email: {{ customer.email }}
+    </div>
+  
+    <div style="font-size:16px; padding: 20px 0;">
+    	Addresses:
+  	</div>
+                
+    <div class="address" style="font-size: 12px; line-height: 14px;">
+      {% if customer.default_address != nil %}
+      {{ customer.default_address.address1 }}
+      	<br/>
+        {% if customer.default_address.address2 != "" %}
+        {{ customer.default_address.address2 }}
+      {% endif %}
+      <br/>
+      {{ customer.default_address.city}}, {% if address.province_code %}{{customer.default_address.province_code}}, {% endif %}{{customer.default_address.country}}
+      <br/>  
+      {{ customer.default_address.zip}}
+      <br/>
+      {{ customer.default_address.phone }}
+      {% endif %}
+      <br/>
+      <a id="view_address" href="{{ routes.account_addresses_url }}">View Addresses ({{ customer.addresses_count }})</a>
+    </div>
+
+    
+  </div>
+</div>
+
+<div id="customer_orders">
+  <div style="font-size:16px; padding: 20px 0;">
+    Past Orders:
+  </div>
+  {% if customer.orders.size != 0 %}
+  <div style="display: table; width: 100%; font-size: 12px;">
+    <div style="display: table-row; font-weight: 600;">
+        <div style="display: table-cell;">Order</div>
+        <div style="display: table-cell;">Date</div>
+      	<div style="display: table-cell;">Payment Status</div>
+      	<div style="display: table-cell;">Fulfillment Status</div>
+        <div style="display: table-cell;">Total</div>
+    </div>
+      {% for order in customer.orders %}
+    <div style="display: table-row; height: 30px;" class="{% cycle 'odd', 'even' %} {% if order.cancelled %}cancelled_order{% endif %}">
+      <div style="display: table-cell; vertical-align: middle;"><span id="customer_order">{{ order.name | link_to: order.customer_url }}</span></div>
+        <div style="display: table-cell; vertical-align: middle;"><span class="note">{{ order.created_at | date: "%b %d, %Y" }}</span></div>
+        <div style="display: table-cell; vertical-align: middle; text-transform: capitalize;"><span class="status_{{ order.financial_status }}">{{ order.financial_status }}</span></div>
+        <div style="display: table-cell; vertical-align: middle; text-transform: capitalize;"><span class="status_{{ order.fulfillment_status }}">{{ order.fulfillment_status }}</span></div>
+        <div style="display: table-cell; vertical-align: middle;"><span class="total money">{{ order.total_price | money }}</span></div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+    <p>You haven't placed any orders yet.</p>
+  {% endif %}
+</div>
+
+</div>

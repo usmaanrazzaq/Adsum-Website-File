@@ -1,0 +1,227 @@
+<style>
+  .ss20-grid {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    border-top: 1px solid #000;
+    max-width: 1500px;
+    margin: 0 auto;
+  }
+  
+  .ss20-grid-left, .ss20-grid-right {
+    grid-column: span 1;
+    overflow: hidden;
+  }
+  
+  .ss20-grid-left {
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+  }
+  
+  .ss20-grid-right {
+    border-bottom: 1px solid #000;
+  }
+  
+  .ss20-lookbook-caption {
+    padding: 20px;
+    border-bottom: 1px solid #000;
+    font-size: 13px;
+  }
+  
+  .caption-title {
+    font-weight: 600;
+    padding-bottom: 6px;
+  }
+    
+  .caption-desc {
+    line-height: 18px;
+    max-width: 440px;
+  }
+  
+  .ss20-lookbook-img {
+    display: block;
+    width: 100%;
+    image-rendering: -webkit-optimize-contrast;
+  }
+  
+  .sherbert-tee {
+     background: url(https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-drop2-hank-sherbert-tee.jpg?v=1587579465);
+  }
+  
+  .purple-ucjacket {
+    background: url(https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-drop2-purple-uc-jacket.jpg?v=1587569382);
+  }
+  
+  .stripe-shirt {
+    background: url(https://cdn.shopify.com/s/files/1/0664/2387/files/ss20-drop2-stripe-shirt.jpg?v=1587574451);
+  }
+  
+  .block-bg-img {
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  
+  .ss20-intro-block {
+    height: 90vh; width: 100%; display: flex; align-items: center; justify-content: center;
+  }
+  
+  .ss20-intro-img {
+    display: block; width: 100%; max-width: 480px; margin: 0 auto; padding: 0 40px;
+  }
+  
+  @media (min-width: 1500px) {
+    .ss20-grid {
+      border-right: 1px solid #000;
+      border-left: 1px solid #000;
+    }
+  }
+  
+  @media (max-width: 900px) { 
+    .ss20-grid-left, .ss20-grid-right {
+      grid-column: span 1;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .ss20-intro-block {
+    height: 75vh;
+    }
+   .ss20-grid-left, .ss20-grid-right {
+    grid-column: span 2;
+   }
+    .block-bg-img {
+      min-height: 600px;
+    }
+    .ss20-grid-left {
+      border-right: 0px solid #000;
+    }
+  }
+  
+</style>
+
+{% include "loading" %}
+
+<div class="ss20-intro-block">
+	<img class="ss20-intro-img" src="https://cdn.shopify.com/s/files/1/0664/2387/files/ss20-lookbook-intro-text.jpg?v=1587648266">
+</div>
+
+<div class="ss20-grid">
+  <div class="ss20-grid-left">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-watercolor-big-plaid.jpg?v=1587505365" class="ss20-lookbook-img">
+  </div>
+  <div class="ss20-grid-right">
+     <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/SS20-Lookbook1423S.jpg?v=1587153714" class="ss20-lookbook-img">
+  </div>
+  <div class="ss20-grid-left block-bg-img sherbert-tee"></div>
+  <div class="ss20-grid-right">
+    <div class="ss20-lookbook-caption">
+      <div class="caption-title">
+        Jacquard Check Pique Tee 
+      </div>
+      <div class="caption-desc">
+        Jacquared knit checkered t-shirt. Extremely breathable and available in White and Sherbert.
+      </div>
+    </div>
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/products/ss20-ecomm-drop-2-tee-shirt-grid-sherbert-front.jpg?v=1586464962" class="ss20-lookbook-img">
+  </div>
+  <div class="ss20-grid-left">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-watercolor-script-hat.jpg?v=1587505366" class="ss20-lookbook-img">
+  </div>
+  <div class="ss20-grid-right">
+     <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/ss20-drop2-script-hat-2.jpg?v=1587647373" class="ss20-lookbook-img">
+  </div>
+  <div class="ss20-grid-left block-bg-img purple-ucjacket"></div>
+  <div class="ss20-grid-right">
+    <div class="ss20-lookbook-caption">
+      <div class="caption-title">
+        UC Jacket
+      </div>
+      <div class="caption-desc">
+        UC Jacket is a mesh lined, 3/4 zip popover, made from a durable coated nylon fabric. With rear ventilation detail, zipped funnel neck, elasticated cuff, and Adsum logo embroidery at the chest.
+      </div>
+    </div>
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/products/ss20-ecomm-drop-2-uc-jacket-purple-front.jpg?v=1585598964" class="ss20-lookbook-img">
+  </div>
+  <div class="ss20-grid-left">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-watercolor-stamp-tee.jpg?v=1587505365" class="ss20-lookbook-img">
+  </div>
+  <div class="ss20-grid-right">
+     <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-drop2-stamp-tee.jpg?v=1587572140" class="ss20-lookbook-img">
+  </div>
+  <div class="ss20-grid-left block-bg-img stripe-shirt"></div>
+  <div class="ss20-grid-right">
+    <div class="ss20-lookbook-caption">
+      <div class="caption-title">
+        Stripe Oxford Premium Buttondown
+      </div>
+      <div class="caption-desc">
+        A loose fitting button-down collar shirt in heavy, crisp Oxford cloth. Available in Sky Blue, Stone, and Sherbert.    
+      </div>
+    </div>
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/products/ss20-ecomm-drop-2-shirting-stripes-sherbert.jpg?v=1586321270" class="ss20-lookbook-img">
+  </div>
+  <div class="ss20-grid-left">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-watercolor-site-short.jpg?v=1587505365" class="ss20-lookbook-img">
+  </div>
+  <div class="ss20-grid-right">
+     <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/ss20-drop2-breaker-jacket.jpg?v=1587577466" class="ss20-lookbook-img">
+  </div>
+</div>
+  
+<div class="featured-products-title">
+    All SS20 Drop 2
+</div>
+
+
+<div id="products" class="gallery">
+{% for product in collections.ss20-drop-2.products %}
+  {% include 'bold-product' with product, hide_action: 'skip' %}
+	<div class="product5">
+  		<a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}">  
+      
+        <img data-sizes="auto"
+             src="{{ product.images.first | product_img_url: '1x1' }}" 
+             data-src="{{ product.images.first | product_img_url: '1800x1800' }}"
+             data-srcset="{{ product.images.first | product_img_url: '600x600' }} 300w,
+                          {{ product.images.first | product_img_url: '1200x1200' }} 600w,
+                          {{ product.images.first | product_img_url: '1800x1800' }} 900w"
+             class="lazyload" style="display: block; width: 100%; height: 100%;" alt="{{ product.title | strip_html | escape }}"/>
+        <img src="{{ product.images[1] | product_img_url: '1x1' }}" data-src="{{ product.images[1] | product_img_url: '2048x2048' }}" class="collection-product-hover lazyload" alt="{{ product.images[1].alt | escape }}" />
+    
+        <div class="product_info_content">
+          <div class="product-info-content-wrap">
+			{%if product.available == true %}           
+            <div class="gallery-product-wrap">
+              <div class="gallery-product-title">
+                {{ product.title }}
+              </div>
+              <div class="gallery-product-price" style="padding-top: 0px;">
+                {% if product.compare_at_price_max > product.price %}
+                <del class="sale">{{ product.compare_at_price_max | money }}</del>
+                {% endif %}
+                {{ product.price | money }}
+              </div>
+            </div>
+			{% endif %}
+			{%if product.available == false %}
+             <div class="gallery-product-wrap">         
+               <div class="sold-out">Sold Out</div>
+             </div>
+			{% endif %}
+          </div>
+        </div>
+  		</a>
+	</div>
+{% endfor %}
+</div>
+
+{% include "footer" %}
+   
+<script type="text/javascript">
+$('.header-fullsite-fixed').addClass('header-fullsite').removeClass('header-fullsite-fixed');
+</script>

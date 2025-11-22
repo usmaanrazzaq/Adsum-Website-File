@@ -1,0 +1,16 @@
+<!--
+{% if filter.tags.size > 0 %}
+	<div class="collection_nav ellipsis">
+	<p>Filters:
+		{% for tag in filter.tags limit:8 %}
+			{% if current_tags contains tag %}
+				{{ tag | highlight_active_tag | link_to_remove_tag: tag }}
+			{% else %}
+				{{ tag | highlight_active_tag | link_to_add_tag: tag }}
+			{% endif %}
+			{% unless forloop.last %},&nbsp;{% endunless %}
+		{% endfor %}
+	</p>
+	</div>
+{% endif %}
+-->

@@ -1,0 +1,181 @@
+{% include "loading" %}
+
+<style>
+  .graphics-article-title {
+    display: block;
+    position: absolute;
+    text-align: center;
+    font-size: 20px;
+    top: 43px;
+    width: 100%;
+    opacity: 1;
+    -moz-transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+  }
+
+  @media (max-width: 900px) {
+    .graphics-article-title {
+      font-size: 18px;
+      line-height: 26px;
+      top: 67px;
+    }    
+  }
+</style>
+
+<div class="graphics-article-title" >
+  Hyperlight Down
+</div>
+<div class="centered-article-text" style="padding-top: 10px;">
+  <p>
+    New for the FW19 season are the additions of the Hyperlight Down Vest and Jacket. Snug fitting, extremely lightweight and packable make the Hyperlight duo a versatile travel companion for the colder months of winter and valuable layering piece. The quality of the down we sourced for both the jacket and vest is extremely high. Fill power rating stands at 800 and the down to feather cluster ratio is 90/10 so there will be minimal feathers poking through the lightweight exterior of the jacket. 
+  </p>
+</div>
+
+<div class="left-50" style="opacity: 1;">
+  <div class="img-left-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-9B3A4677.jpg?12086" class="img-left ss16-preview">
+  </div>
+</div>
+
+<div class="right-50 float-right" style="opacity: 1;">
+    <div class="img-right-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-9B3A4712.jpg?12100" class="img-right ss16-preview">
+  	</div>
+</div>
+
+<div class="clearfix"></div>
+<div class="clearfix lb-extra-spacing"></div>
+
+<div class="left-50" style="opacity: 1;">
+  <div class="img-left-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-9B3A4649.jpg?12097" class="img-left ss16-preview">
+  </div>
+</div>
+
+<div class="right-50 float-right" style="opacity: 1;">
+    <div class="img-right-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-9B3A4629.jpg?12092" class="img-right ss16-preview">
+  	</div>
+</div>
+
+<div class="clearfix"></div>
+
+<div class="centered-article-text">
+  <p style="font-size: 14px; line-height: 20px; max-width: 500px; margin: 20px auto;">
+    We equipped both the Hyperlight styles with a reversible YKK center front chest pocket zipper so they can be packed away into a macaroni box sized bag. Sleeve cuffs feature a snug fitting elastic hem while the waist hem utilizes locking elastic cords that funnel into the interior hand pocket wells. All zippers are finished with silicone dipped, two cord pulls for easy access with gloves on. Reflective heat transfers appear on the neck (Adsum logotype) and on the lower back (800 Fill Power icon).
+  </p> 
+</div>
+
+<div class="left-50" style="opacity: 1;">
+  <div class="img-left-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-9B3A4803.jpg?12118" class="img-left ss16-preview">
+  </div>
+</div>
+
+<div class="right-50 float-right" style="opacity: 1;">
+    <div class="img-right-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-9B3A4795.jpg?12113" class="img-right ss16-preview">
+  	</div>
+</div>
+
+<div class="clearfix"></div>
+<div class="clearfix lb-extra-spacing"></div>
+
+<div class="max-width-1400" style="opacity: 1;">
+    <img class="center-single ss16-preview" src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-9B3A4844.jpg?12123">
+</div>
+
+<div class="clearfix"></div>
+
+<div class="centered-article-text">
+ <p style="font-size: 14px; line-height: 20px; max-width: 500px; margin: 20px auto;">
+    All of our down filled styles require a thorough shaking out prior to first use. Take the jacket and shake it as if it were a jug of orange juice then hang it on a coat hanger at room temperature. The down clusters need time to fluff up after being packed tightly for transportation to their new owner.
+  </p>
+</div>
+
+
+  <div class="featured-products-title">
+    Featured Products
+  </div>
+
+
+<div id="products" class="gallery">
+{% for product in collections.FW19hyperlightdown.products %}
+  {% include 'bold-product' with product, hide_action: 'skip' %}
+	<div class="product5">
+  		<a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}">  
+      
+        <img data-sizes="auto"
+             src="{{ product.images.first | product_img_url: '1x1' }}" 
+             data-src="{{ product.images.first | product_img_url: '1800x1800' }}"
+             data-srcset="{{ product.images.first | product_img_url: '600x600' }} 300w,
+                          {{ product.images.first | product_img_url: '1200x1200' }} 600w,
+                          {{ product.images.first | product_img_url: '1800x1800' }} 900w"
+             class="lazyload" style="display: block; width: 100%; height: 100%;" alt="{{ product.title | strip_html | escape }}"/>
+        <img src="{{ product.images[1] | product_img_url: '1x1' }}" data-src="{{ product.images[1] | product_img_url: '2048x2048' }}" class="collection-product-hover lazyload" alt="{{ product.images[1].alt | escape }}" />
+    
+        <div class="product_info_content">
+          <div class="product-info-content-wrap">
+			{%if product.available == true %}           
+            <div class="gallery-product-wrap">
+              <div class="gallery-product-title">
+                {{ product.title }}
+              </div>
+              <div class="gallery-product-price" style="padding-top: 0px;">
+                {% if product.compare_at_price_max > product.price %}
+                <del class="sale">{{ product.compare_at_price_max | money }}</del>
+                {% endif %}
+                {{ product.price | money }}
+              </div>
+            </div>
+			{% endif %}
+			{%if product.available == false %}
+             <div class="gallery-product-wrap">         
+               <div class="sold-out">Sold Out</div>
+             </div>
+			{% endif %}
+          </div>
+        </div>
+  		</a>
+	</div>
+{% endfor %}
+</div>
+
+<a href="/collections/all" class="shop-button-photo-story">Shop All FW19</a>
+
+<div class="postnav">
+	<a href="{{ blog.previous_article }}" class="btn" style="float: left">Previous Post</a>
+    {% if blog.next_article %}
+	<a href="{{ blog.next_article }}" class="btn" style="float: right">Next Post</a>
+    {% endif %}
+</div>
+
+{% include "footer" %}
+
+<script type="text/javascript">  
+  $('.header-fullsite-fixed').addClass('header-fullsite').removeClass('header-fullsite-fixed');
+</script>
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    window.setTimeout(function(){
+        $(".index-scroll-arrow").addClass("visible");
+    },2500);
+});
+</script>
+
+<script type="text/javascript">
+$(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 10) {
+        $(".index-scroll-arrow-img").addClass("hide4");
+    } else {
+        $(".index-scroll-arrow-img").removeClass("hide4");
+    }
+});
+</script>

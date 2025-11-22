@@ -1,0 +1,64 @@
+{% include "loading" %}
+
+
+
+<div class="index-scroll-arrow">
+  <div class="index-scroll-arrow-img">↓</div>
+  <div class="scroll-down">
+  	Scroll down
+  </div>
+</div>
+
+
+<div class="article-main-image">
+  <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_Brazil_42_R.jpg?4246" style="display: block; width: 100%; height: auto; max-width: 1000px; margin: 0 auto; padding-top: 50px;" alt="Adsum Kennedy Magazine 1">
+  <div class="centered-article-title robert-frank-title" style="color: #000;">
+  	  SS19 by Marcelo Gomes (Pt.3)
+    <!--<h2 class="centered-article-title-secondary">
+       
+    </h2> -->   
+  </div>
+</div>  
+
+
+<div class="centered-article-text">
+<p>
+    
+  </p>
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_Brazil_7.jpg?4246">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_Brazil_44.jpg?4252">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_Brazil_43.jpg?4246">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_Brazil_40.jpg?4246">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_Brazil_46.jpg?4246">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_Brazil_41.jpg?4246">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_Brazil_25.jpg?4246">
+  <p class="credits" style="padding: 0px; text-align: center;">
+      Photography: <a href="http://marcelogom.es" target="_blank">Marcelo Gomes</a><br/>
+      Model: Hick Duarte
+      <a href="/collections/ss19-brazil-shoot" class="blog-link-joe" target="_blank" rel="noopener noreferrer">Shop The Clothing</a>
+  </p>
+</div>
+
+{% include "footer" %}
+
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    window.setTimeout(function(){
+        $(".index-scroll-arrow").addClass("visible");
+    },2500);
+});
+</script>
+
+<script type="text/javascript">
+$(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 10) {
+        $(".index-scroll-arrow-img").addClass("hide3");
+    } else {
+        $(".index-scroll-arrow-img").removeClass("hide3");
+    }
+});
+</script>

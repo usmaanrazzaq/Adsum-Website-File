@@ -1,0 +1,72 @@
+{% include "loading" %}
+
+<script type="text/javascript">
+$(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 10) {
+        $(".index-scroll-arrow-img").addClass("hide3");
+    } else {
+        $(".index-scroll-arrow-img").removeClass("hide3");
+    }
+});
+</script>
+
+
+<div class="index-scroll-arrow">
+  <div class="index-scroll-arrow-img">↓</div>
+  <div class="scroll-down">
+  	Scroll down
+  </div>
+</div>
+
+
+  
+
+<div style="
+            position: relative; 
+            height: 100vh; 
+            width: 100%; 
+            overflow: hidden;
+            background: black;
+  			background: url(https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_Alec_Priester_26_CROP.jpg?289);
+  			background-repeat: no-repeat;
+  			background-position: center center;
+  			-webkit-background-size: cover;
+  			-moz-background-size: cover;
+  			-o-background-size: cover;
+  			background-size: cover;">
+  <div class="centered-article-title robert-frank-title">
+  	SS19 by Marcelo Gomes
+  </div>
+</div>
+
+
+<div class="centered-article-text">
+  <p>
+    Howdy neighbors. On a recent Fall afternoon in Brooklyn, Jima stopped by the Adsum office to see how the upstart label spends their day. Greenpoint, the neighborhood of Adsum, is a mix of old Polish spots and newer bars & restaurants; it’s cool but in a sleepy, understated way. A perfect home for a label that works hard to create a laidback look. What follows is a snapshot of the day in the life of the Adsum team—a game of catch to start the day, fabric meetings in the studio (a former pencil factory from the 1920s), a walk to the local grocery store, and moms homemade jam.
+  </p>
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_Graham_Hamilton_10_ALMOST.jpg?276">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_Graham_Hamilton_48.jpg?276">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_Graham_Hamilton_33_CROP.jpg?276">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_Graham_Hamilton_28.jpg?276">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_Graham_Hamilton_30.jpg?276">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_Alec_Priester_21.jpg?276">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_Alec_Priester_1_CROP_BURNT.jpg?276">
+  <p class="credits" style="padding: 0px;">
+      Photography: <a href="https://www.instagram.com/jimagraphy" target="_blank">Marcelo Gomes</a><br/>
+      Models: Graham Hamilton & Alec Priester</a>
+    </p>
+</div>
+
+{% include "footer" %}
+
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    window.setTimeout(function(){
+        $(".index-scroll-arrow").addClass("visible");
+    },2500);
+});
+</script>

@@ -1,0 +1,436 @@
+ <style>
+  .grid-1 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 120px 100px;
+    justify-items: center;
+    row-gap: 5px;
+    column-gap: 10px;
+    max-width: 1400px;
+    margin: 0 auto;
+    place-content: center;
+  }
+   .cell-1, .cell-2 {
+     grid-column: span 1;
+     display: flex;
+     align-self: center;
+   }
+   .solo-image {
+     padding: 120px 0;
+     max-width: 500px; display: block; margin: 0 auto;
+   }
+  .lookbook-caption {
+    line-height: 14px;
+    font-size: 10px;
+    text-align: center;
+    max-width: 300px;
+    color: #000;
+    display: block;
+    font-weight: 400;
+    align-self: auto;
+    padding-top: 20px;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 1400px) {
+  .grid-1 {
+    padding: 40px 40px;
+  }
+}
+@media (max-width: 1000px) {
+  .grid-1 {
+    padding: 40px 0px;
+  }
+}
+@media (max-width: 900px) {
+  .lookbook-caption {
+    grid-column: span 2;
+  }
+  .cell-1, .cell-2 {
+  }
+  .lookbook-collection-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0px 10px 40px 10px;
+  }
+}
+@media (max-width: 500px) {
+  .solo-image:first-of-type {
+        padding-top: 45px;
+  }
+  .fw22-title {
+    font-size: 38px;
+  }
+  .fall-22-lookbook-header {
+    height: 75vh; 
+    width: 100%; 
+    background-image: url('https://cdn.shopify.com/s/files/1/0664/2387/files/cover-mobile-9B3A0568.jpg?v=1664562268'); 
+  }
+  .grid-1 {
+    margin: 0px;
+  }
+  .cell-1, .cell-2 {
+    grid-column: span 2;
+  }
+}
+</style>
+
+{% comment %}
+{% include "loading" %}
+
+
+<div class="fall-22-lookbook-header">
+  <div class="header-text">
+    <div class="fw22-title">Fall Ball</div>
+    <div style="line-height: 12px;">
+      Fall 2022 Lookbook<br>
+      Long Island, NY
+    </div>
+  </div>
+</div>
+<div class="scrolldown">
+  Scroll Down
+</div>
+{% endcomment %}
+
+  <div class="solo-image">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-drop2-00-webcover.jpg?v=1680114831" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+      <div style="max-width: 400px; margin: 0 auto; padding: 18px 20px; text-align: center;">
+        <div style="font-size:11px; font-weight: 600;">Spring 23 II Lookbook</div>
+        <div style="font-size:10px; padding-top: 4px; line-height: 13px;/* font-family: times, serif; */">
+        Shot in Greenpoint, Brooklyn on Lev Krag<br>
+        March 23, 2023</div>
+      </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-drop2-01.jpg?v=1680115267" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="cell-2">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-drop2-02_a214833f-5fd9-48e8-9b31-266f75a07b32.jpg?v=1680115267" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="lookbook-caption">
+        Beige Flexure Zip Short<br>
+        Gazer Slate Seam Shirt
+    </div>
+  </div>
+
+  <div class="solo-image">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-drop2-03_6e973f44-9895-4cc3-937f-d1f17f8f8176.jpg?v=1680278022" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    <div class="lookbook-caption">
+    </div>
+  </div>
+  
+
+  <div class="grid-1">
+    <div class="cell-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-drop2-04_7b2d70a5-e596-4663-a0e1-07b6500ddad7.jpg?v=1680115775" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="cell-2">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-drop2-05.jpg?v=1680115776" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="lookbook-caption">
+      Beige Summer Patch Pocket Pant<br>
+      Soft Blue Oxford Stripe Premium Button Down
+    </div>
+  </div>
+  
+
+  <div class="solo-image" style="max-width: 600px; display: block; margin: 0 auto;">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-drop2-06.jpg?v=1680115775" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-drop2-07.jpg?v=1680116783" style="display: block; width: 100%; height: auto; margin: 0 auto;"> 
+    </div>
+    <div class="cell-2">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-drop2-08_e03ea830-9721-4e97-9a5b-e9797d7eefab.jpg?v=1680116783" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="lookbook-caption">
+        Charcoal 14W Corduroy Overshirt
+    </div>
+  </div>
+
+  <div class="solo-image" style="max-width: 600px; display: block; margin: 0 auto;">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-drop2-09.jpg?v=1680116783" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    <div class="lookbook-caption">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-drop2-10_21e541ca-e9db-4e19-af76-702ea7f607c3.jpg?v=1680186547" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="cell-2">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-drop2-11-2.jpg?v=1680117416" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="lookbook-caption">
+      Flat Hem Workshirt<br>
+      Flexure Zip Short
+    </div>
+  </div>
+  
+
+  <div class="grid-1">
+    <div class="cell-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-drop2-12.jpg?v=1680117704" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="cell-2">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-drop2-13.jpg?v=1680117704" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="lookbook-caption">
+      Soft Blue Check Breezer Shirt
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-drop2-15.jpg?v=1680117980" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="cell-2">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-drop2-16.jpg?v=1680117980" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="lookbook-caption">
+        Cheeks Tartan Plaid Premium Button Down
+    </div>
+  </div>
+
+  <div class="solo-image" style="max-width: 600px; display: block; margin: 0 auto;">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-drop2-14.jpg?v=1680117980" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    <div class="lookbook-caption">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-drop2-17.jpg?v=1680122642" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="cell-2">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-drop2-18.jpg?v=1680122642" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="lookbook-caption">
+      Ultra Blue Corduroy 5 Pocket Pant<br>
+      Purple/Navy Classic Plaid Workshirt
+    </div>
+  </div>
+
+  <div class="solo-image" style="max-width: 500px; display: block; margin: 0 auto;">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-drop2-19.jpg?v=1680122642" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    <div class="lookbook-caption">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-drop2-20.jpg?v=1680123120" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="cell-2">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-drop2-21.jpg?v=1680123120" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="lookbook-caption">
+      Lilac Seam Shirt<br>
+      Charcoal Corduroy 5 Pocket Pant
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-drop2-23.jpg?v=1680123500" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="cell-2">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-drop2-24.jpg?v=1680123500" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="lookbook-caption">
+      Aqua/Sulphur Classic Plaid Workshirt
+    </div>
+  </div>
+
+  <div class="solo-image" style="max-width: 700px; display: block; margin: 0 auto;">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-drop2-25.jpg?v=1680123500" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    <div class="lookbook-caption">
+     
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-drop2-26.jpg?v=1680181732" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="cell-2">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-drop2-27.jpg?v=1680181732" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="lookbook-caption">
+        Soft White Premium Button Down
+    </div>
+  </div>
+
+      
+</div>
+{% comment %}
+<div class="featured-products-title">
+	Fall 2022 Collection
+</div>
+
+<div id="products" class="lookbook-collection-grid {{ collection.title | handleize }}">
+  {% for product in collections.ss22garden.products %}
+  	<div class="collection-grid-item">
+      <a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}">  
+        <div style="position: relative;">
+          <img data-sizes="auto"
+               src="{{ product.images.first | product_img_url: '1x1' }}" 
+               data-src="{{ product.images.first | product_img_url: '1024x1024' }}"
+               data-srcset="{{ product.images.first | product_img_url: '600x600' }} 300w,
+                            {{ product.images.first | product_img_url: '1200x1200' }} 600w,
+                            {{ product.images.first | product_img_url: '1800x1800' }} 900w"
+               alt="{{ product.title | strip_html | escape }}" class="lazyload" style="display: block; width: 100%; height: 100%;" />
+          <img data-sizes="auto"
+               src="{{ product.images[1] | product_img_url: '1x1' }}" 
+               data-src="{{ product.images[1] | product_img_url: '1024x1024' }}" 
+               data-srcset="{{ product.images[1] | product_img_url: '600x600' }} 300w,
+                            {{ product.images[1] | product_img_url: '1200x1200' }} 600w,
+                            {{ product.images[1] | product_img_url: '1800x1800' }} 900w"
+               alt="{{ product.images[1].alt | escape }}" class="collection-product-hover lazyload"/>
+        </div>
+        <div class="product_info_content">
+            {%if product.available == true %}
+                <div class="gallery-product-title">
+                    {{ product.title }}
+                </div>
+                <div class="gallery-product-price">
+                    {% if product.compare_at_price_max > product.price %}
+                        <del class="sale">{{ product.compare_at_price_max | money }}</del>
+                    {% endif %}
+                    {{ product.price | money }}
+                </div>
+            {% endif %}
+            {%if product.available == false %}    
+                <span style="color: red; text-decoration: uppercase;">Sold Out</span>
+            {% endif %}
+        </div>          
+      </a>
+    </div>
+{% endfor %}
+</div>
+{% endcomment %}
+
+{% include "footer" %}
+
+<script type="text/javascript">
+  $(document).ready(function($) {
+	var controller = new ScrollMagic.Controller();
+    
+    new ScrollMagic.Scene({triggerElement: ".one", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".one", "anim-done") // add class toggle
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".two", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".two", "anim-done") // add class toggle
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".three", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".three", "anim-done") // add class toggle
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".four", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".four", "anim-done") // add class toggle
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".five", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".five", "anim-done") // add class toggle
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".six", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".six", "anim-done") // add class toggle
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".seven", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".seven", "anim-done") // add class toggle
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".eight", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".eight", "anim-done") // add class toggle
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".nine", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".nine", "anim-done") // add class toggle
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".ten", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".ten", "anim-done") // add class toggle
+					.addTo(controller)
+    
+    new ScrollMagic.Scene({triggerElement: ".eleven", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".eleven", "anim-done") // add class toggle
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".twelve", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".twelve", "anim-done") // add class toggle
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".thirteen", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".thirteen", "anim-done")
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".fourteen", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".fourteen", "anim-done") 
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".fifteen", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".fifteen", "anim-done")
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".sixteen", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".sixteen", "anim-done") 
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".seventeen", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".seventeen", "anim-done") 
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".eighteen", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".eighteen", "anim-done") 
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".nineteen", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".nineteen", "anim-done")
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".twenty", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".twenty", "anim-done")
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".twentyone", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".twentyone", "anim-done")
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".twentytwo", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".twentytwo", "anim-done")
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".twentythree", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".twentythree", "anim-done")
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".twentyfour", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".twentyfour", "anim-done")
+					.addTo(controller)
+   });
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+        $(".header-fullsite-fixed").addClass("menu-to-white");
+        $('.header-fullsite-fixed').addClass('header-fullsite').removeClass('header-fullsite-fixed');
+});
+</script>
+
+<script type="text/javascript">
+  $(window).scroll(function() {	  
+    if ($(window).scrollTop() > 10 ){
+      $('.scrolldown').addClass('hide3');
+    } else {
+      $('.scrolldown').removeClass('hide3');		
+	}; 
+  });
+</script>

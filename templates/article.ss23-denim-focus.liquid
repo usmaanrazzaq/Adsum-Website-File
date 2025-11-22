@@ -1,0 +1,278 @@
+<style>
+  * {
+    scroll-behavior: smooth;
+  }
+  .blog-link {
+    text-align: center;
+    font-size: 13px;
+    max-width: 420px;
+    background-color: #fff;
+    color: #000;
+    padding: 10px 20px;
+    margin: 0 auto;
+    display: block;
+    border: 1px solid #000;
+    margin-bottom: 80px;
+    margin-top: 40px;
+  }
+  .blog-link:hover {
+    background-color: #000;
+    color: #fff;
+  }
+  .grid-container {
+    grid-template-columns: repeat(10, 1fr);
+    column-gap: 10px;
+    display: grid;
+    margin: 94px 10vw 0 10vw;
+    scroll-behavior: smooth;
+  }
+  .hero-image{
+    width: 100%;
+    grid-column: 4 / span 4;
+  }
+  .first-paragraph {
+    grid-column: 1 / span 4;
+    font-size: 18px;
+    margin: 80px 0 120px;
+    line-height: 1.3em;
+    letter-spacing: .02em
+  }
+    .five-across{
+      grid-column: span 10;
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      column-gap: 10px;
+      margin-top: 120px;
+    }
+      .two-across {
+        grid-column: span 10;
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        column-gap: 10px;
+        margin: 40px 0px 0px 0px;
+      } 
+      .five-across img{
+        width: 100%;
+        grid-column: span 2;
+      }
+      .five-across .first-image{
+        grid-column: 1 / span 2
+      }
+      .two-across img{
+        width: 100%;
+        grid-column: span 4;
+      }
+      .caption{
+        padding: 0px 0 20px 0;
+      }
+      .two-across .image-1{
+        grid-column: 1 / span 4;
+      }
+      .two-across .image-2 {
+        grid-column: 7 / span 4;
+      }
+      .article-collection-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 6px;
+        row-gap: 20px;
+        padding: 0px 10vw 40px 10vw;
+        max-width: 100%;
+        margin: 0 auto;
+      }
+    @media (max-width: 900px) {
+      .article-collection-grid {
+        padding: 0px 20px 40px 20px;
+      }
+      .five-across .first-image{
+        display: none;
+      }
+      .five-across img{
+        grid-column: span 3;
+      }
+      .two-across{
+        grid-column: span 12;
+      }   
+      .five-across{
+      margin-top: 60px;
+      grid-column: span 12;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 10px;
+      }  
+      .hero-image{
+        grid-column: 1 / span 12;
+      }
+      .first-paragraph{
+        grid-column: 1 / span 9;
+      }
+        .two-across .image-1{
+          grid-column: 1 / span 5;
+        }
+      .two-across .image-2{
+        grid-column: 6 / span 5;
+      }
+      .grid-container{
+        grid-template-columns: repeat(12, 1fr);
+        column-gap: 0px;
+        grid-row-gap: 0px;
+        display: grid;
+        margin: 50px 20px 0 20px; 
+      }    
+    @media (max-width: 400px) {
+      .five-across img{
+      grid-column: span 3;
+      }
+      .five-across .first-image {
+          display: none;
+      }    
+      .first-paragraph{
+        grid-column: 1 / span 10;
+        font-size: 14px;
+        margin: 40px 0 80px;
+      }     
+      .blog-link {
+        margin: 0 20px 80px;
+      }
+    }
+</style>
+
+<div class="grid-container">
+
+    <img class="hero-image" src="https://cdn.shopify.com/s/files/1/0664/2387/files/SS23-1-3-2.jpg?v=1678397836" alt="" />
+
+  
+    <div class="five-across">
+      <!--
+      <img class="first-image" src="https://cdn.shopify.com/s/files/1/0664/2387/files/SS23-overdyed-5-pocket-jean-gazer-slate-detail-1.jpg?v=1678475770" alt="" />
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Untitled-Session2164-4.jpg?v=1678475833" alt="" />
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Untitled-Session2164-5-2.jpg?v=1678475777" alt="" />
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Untitled-Session2164-5-2.jpg?v=1678475777" alt="" />
+
+      -->
+      <img class="first-image" src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_Lookbook_021922-28_dda74b05-26ac-4d05-ab35-d21e8aaa40f9.jpg?v=1678478197" alt="" />
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/qqUntitled-3_189f233c-4c14-4147-95a0-9a357d475e21.jpg?v=1678478205" alt="" />
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/08810005-2_43409f69-0008-4b4b-be36-2b4c97874fe5.jpg?v=1678478207" alt="" />
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/ss23-onmodel-FW22-Ecomm-OnModel1215_4ee07060-2490-472a-afc2-613fcb4902b0.jpg?v=1678475780" alt="" />
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A1342_c9227541-d576-420c-937e-bb1c522e5060.jpg?v=1678478194" alt="" />
+    </div>
+
+<div class="first-paragraph">Each season for the past year we've gradually grown our denim offering. This season marks our first overdyed option. Each jean is finished with custom shanks and rivets and is made using traditional denim making machines without cutting corners.</div>
+
+
+  <div class="two-across">
+    <div class="image-1">
+      <div class="caption">Open Head Shanks</div>
+      <img class="image-1" src="https://cdn.shopify.com/s/files/1/0664/2387/files/SS23-overdyed-5-pocket-jean-gazer-slate-detail-1.jpg?v=1678475770" alt="" />
+    </div>
+    <div class="image-2">
+      <div class="caption caption2">Closed Head Shanks</div>
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Untitled-Session2164-4.jpg?v=1678475833" alt="" />
+    </div>   
+  </div>
+
+  <div class="first-paragraph" >
+  All of the styles within our denim offering utilize a sturdy 14oz denim base, which we perform various wash techniques and processes on. From stone washing and moderately rinsing a raw denim base to overdyeing a PFD denim base in a seasonal Gazer Slate tone for SS23—we’ve created a year round offering of denim that will continue to get better the more you wear and break in over time.
+</div>
+
+
+  <div class="two-across">
+    <div class="image-1">
+      <div class="caption">Eco Suede Branding Patch</div>
+      <img class="image-1" src="https://cdn.shopify.com/s/files/1/0664/2387/files/Untitled-Session2141-4.jpg?v=1678714812" alt="" />
+    </div>
+    <div class="image-2">
+      <div class="caption caption2">14 Ounce Denim</div>
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Untitled-Session2141-1-2.jpg?v=1678715546" alt="" />
+    </div> 
+  </div>
+
+  <div class="first-paragraph">
+    The Adsum Jean sits somewhere between a Straight and Relaxed cut, which we find is ideal for most occasions. 
+    <br><br>
+    We hope that they become your go-to’s for years to come.
+  </div>
+  
+</div>
+
+
+
+
+
+        {{ 'gsap.min.js' | asset_url | script_tag }}
+        {{ 'ss23-accessories-focus.js' | asset_url | script_tag }}
+
+
+
+
+
+<!--
+<a href="/collections/fw20" class="shop-button-photo-story">Shop All</a>
+-->
+
+
+
+
+<div class="featured-products-title">
+   SS23 Denim
+</div>
+
+<div id="products" class="article-collection-grid {{ collection.title | handleize }}">
+  {% for product in collections.ss23-denim.products %}
+  	<div class="collection-grid-item">
+      <a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}">  
+        <div style="position: relative;">
+          <img data-sizes="auto"
+               src="{{ product.images.first | product_img_url: '1x1' }}" 
+               data-src="{{ product.images.first | product_img_url: '1024x1024' }}"
+               data-srcset="{{ product.images.first | product_img_url: '600x600' }} 300w,
+                            {{ product.images.first | product_img_url: '1200x1200' }} 600w,
+                            {{ product.images.first | product_img_url: '1800x1800' }} 900w"
+               alt="{{ product.title | strip_html | escape }}" class="lazyload" style="display: block; width: 100%; height: 100%;" />
+          <img data-sizes="auto"
+               src="{{ product.images[1] | product_img_url: '1x1' }}" 
+               data-src="{{ product.images[1] | product_img_url: '1024x1024' }}" 
+               data-srcset="{{ product.images[1] | product_img_url: '600x600' }} 300w,
+                            {{ product.images[1] | product_img_url: '1200x1200' }} 600w,
+                            {{ product.images[1] | product_img_url: '1800x1800' }} 900w"
+               alt="{{ product.images[1].alt | escape }}" class="collection-product-hover lazyload"/>
+        </div>
+        <div class="product_info_content">
+            {%if product.available == true %}
+                <div class="gallery-product-title">
+                    {{ product.title }}
+                </div>
+                <div class="gallery-product-price">
+                    {% if product.compare_at_price_max > product.price %}
+                        <del class="sale">{{ product.compare_at_price_max | money }}</del>
+                    {% endif %}
+                    {{ product.price | money }}
+                </div>
+            {% endif %}
+            {%if product.available == false %}    
+                <span style="color: red; text-decoration: uppercase;">Sold Out</span>
+            {% endif %}
+        </div>          
+      </a>
+    </div>
+{% endfor %}
+</div>
+
+
+  <a href="/collections/accessories" class="blog-link">Shop SS23 Denim</a>
+
+<!--
+<a href="/collections/fw20" class="shop-button-photo-story">Shop All</a>
+-->
+<div class="postnav">
+  <a href="{{ blog.previous_article }}" class="btn" style="float: left">Previous Post</a>
+    {% if blog.next_article %}
+  <a href="{{ blog.next_article }}" class="btn" style="float: right">Next Post</a>
+    {% endif %}
+</div>
+
+{% include "footer" %}
+
+<script type="text/javascript">  
+  $('.header-fullsite-fixed').addClass('header-fullsite').removeClass('header-fullsite-fixed');
+</script>

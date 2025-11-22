@@ -1,0 +1,144 @@
+{% include "loading" %}
+
+<script type="text/javascript">
+$(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 10) {
+        $(".index-scroll-arrow-img").addClass("hide3");
+    } else {
+        $(".index-scroll-arrow-img").removeClass("hide3");
+    }
+});
+</script>
+
+
+<style>
+  .gramicci-title {
+    bottom: 10vh;
+    font-size: 59px;
+    display: block;
+    position: absolute;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+  }
+  .gramicci-bg {
+    position: relative; 
+    margin-top: 5vh;
+    height: 90vh; 
+    width: 100%; 
+    overflow: hidden;
+    background: black;
+  	background: url(https://cdn.shopify.com/s/files/1/0664/2387/files/aIMG_6622.jpg?v=1734454657);
+  	background-repeat: no-repeat;
+  	background-position: center center;
+  	background-size: contain;
+  }
+  .gramicci-video {
+    display: block;
+    max-width: 100%;
+    padding: 60px 10px;
+    margin: 0 auto;
+    width: 100%;
+    
+  }
+  @media(max-width: 600px){
+      .gramicci-title {
+        font-size: 28px;
+      }
+      .gramicci-bg {
+        background-size: cover;
+      }
+      .centered-article-title-secondary {
+        font-size: 12px;
+      }
+  }
+</style>
+
+<div class="index-scroll-arrow">
+  <div class="index-scroll-arrow-img">↓</div>
+  <div class="scroll-down">
+  	Scroll down
+  </div>
+</div>
+
+<div class="gramicci-bg">
+  <div class=" gramicci-title">
+  	Behind the Scenes
+    <h2 class="centered-article-title-secondary">
+      Adsum + Gramicci Holiday
+    </h2>   
+  </div>
+</div>
+
+<div class="centered-article-text">
+  <p>
+    Remember when your teacher would say "show your work." That always annoyed us but maybe it hinted at a bigger truth we would come to learn; that the process behind something sometimes tells a story just as compelling as the final result. In honor of that, we wanted to share a little behind-the-scenes of our latest Gramicci campaign.
+  </p>
+  <div class="article-image-table" style="display: table; width: 100%;">
+    
+    <div class="article-img-table-cell-50">
+  		<img src="https://cdn.shopify.com/s/files/1/0664/2387/files/aadsum-fw24-gramicci-holiday-3.jpg?v=1734455855">
+    	<div class="blog-img-caption">Adsum + Gramicci Campaign Image</div>
+    </div>
+    <div class="article-img-table-cell-50">
+      	<img src="https://cdn.shopify.com/s/files/1/0664/2387/files/sassIMG_1007_1.jpg?v=1734455994" alt="" style="" />
+    	<div class="blog-img-caption">The actual set up.</div>
+    </div>
+  </div>
+  
+  <p>
+    We wanted to embrace where we feel we overlap with Gramicci and showcase the offbeat outdoorsy sensibilities we both embrace, this time through a holiday lens. Taking inspiration from <a href="https://adsumnyc.com/blogs/news/adsum-gramicci-behind-the-scenes" target="_blank">our first collaboration</a>, and holiday movies like Elf and Christmas Vacation, we played with simple camera tricks that people have been using since the dawn of Hollywood.  
+  </p>
+  
+  	<img style="max-width: 700px; margin: 0 auto;" src="https://cdn.shopify.com/s/files/1/0664/2387/files/a2b26acd491da933f70f488139c9992eb.jpg?v=1734455391" />
+  	<div class="blog-img-caption">An inspiration for the campaign, the holiday movie Elf used forced-perspective throughout much of the beginning of the film.</div>
+  
+  <div class="article-image-table" style="display: table; width: 100%;">
+    <div class="article-img-table-cell-50">
+  		<img src="https://cdn.shopify.com/s/files/1/0664/2387/files/asIMG_1024_1.jpg?v=1734461382">
+    	<div class="blog-img-caption"></div>
+    </div>
+    <div class="article-img-table-cell-50">
+      	<img src="https://cdn.shopify.com/s/files/1/0664/2387/files/aa9B3A2390.jpg?v=1734464241">
+    	<div class="blog-img-caption"></div>
+    </div>
+  </div>
+  <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/asadsum-fw24-gramicci-holiday-2.jpg?v=1734461708" style="max-width: 500px; margin: 0 auto;">
+  <div class="blog-img-caption"></div>
+  
+  <p>
+    Christmas tree shopping is one of our favorite holiday traditions that gets us outside in the winter so we based the shoot around going out and finding the perfect tree to bring back to the city and set up with friends. 
+  </p>
+  
+  <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/aaadsum-fw24-gramicci-holiday1671.jpg?v=1734464594">
+  <div class="blog-img-caption"></div>
+
+
+  <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/aadsum-fw24-gramicci-holiday-8-launch.jpg?v=1734465622" style="max-width: 500px;">
+  <div class="blog-img-caption"></div>
+  
+  <p>
+    The final piece was getting same good friends we had in the first campaign—Troy and Layton to model, and Mac to style—was for some continuity as much as it was an excuse to hang out again for a few hours. They all brought that same great energy and we hope it comes through in the final images.
+  </p>
+
+  <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/aadsum-fw24-gramicci-holiday2042.jpg?v=1734465169" style="max-width: 500px;">
+  <div class="blog-img-caption"></div>
+  
+</div>
+
+{% include "footer" %}
+
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    window.setTimeout(function(){
+        $(".index-scroll-arrow").addClass("visible");
+    },2500);
+    window.setTimeout(function(){
+        $(".index-scroll-arrow").addClass("hide");
+    },8500);
+});
+</script>

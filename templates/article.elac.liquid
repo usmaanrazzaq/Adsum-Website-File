@@ -1,0 +1,128 @@
+<style>
+  .community-header {
+    font-size: 14px;
+    max-width: 589px;
+    line-height: 146%;
+    padding-bottom: 100px;
+  }
+  .community-grid {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: min-content;
+    column-gap: 20px;
+    row-gap: 92px;
+  }
+  .bts-grid {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: min-content;
+    column-gap: 20px;
+    row-gap: 92px;
+  }
+  .community-cell {
+    display: flex;
+    justify-content: top;
+    grid-column: span 1;
+    flex-direction: column;
+  }
+  .community-cell img {
+    display: block; 
+    width: 100%;
+  }
+
+  @media (max-width: 700px) {
+    .community-grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: min-content;
+    }
+    .community-header {
+        font-size: 14px;
+        padding-bottom: 90px;
+    }
+    .community-cell {
+      grid-column: span 2;
+  }
+  
+</style>
+
+{% include "loading" %}
+
+<div class="page-padding">
+
+  <h1 class="page-title">Adsum + ELAC Debut CONNEX Campaign</h1>
+
+  <div class="community-header">
+    Adsum has joined with storied German audio brand ELAC to create a special edition of their award-winning fully powered bookshelf speakers. Much more than a logo slap or a color flap, ELAC allowed Adsum to rebuild their design from
+the ground up. We’ve developed a stand, magnetic removable screens, squared off the corners,
+developed their only pair of painted speakers, and included a custom controller and premium
+custom wiring.
+  </div>
+  
+  <div class="community-grid">
+    <div class="community-cell">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A7796-opt-1.jpg?v=1710167885" loading="lazy"alt="Adsum + ELAC Campaign">
+    </div>
+    <div class="community-cell">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A7796-opt-2.jpg?v=1710167889" loading="lazy"alt="Adsum + ELAC Campaign">
+    </div>
+    <div class=community-cell>
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A7796-opt-3.jpg?v=1710167892" loading="lazy"alt="Adsum + ELAC Campaign">
+    </div>
+    <div class=community-cell>
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A7796-opt-4.jpg?v=1710167895" loading="lazy"alt="Adsum + ELAC Campaign">
+    </div>
+    <div class=community-cell>
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A7796-opt-5.jpg?v=1710167898" loading="lazy" alt="Adsum + ELAC Campaign">
+    </div>
+    <div class=community-cell >
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A7796-opt-6.jpg?v=1710167901" loading="lazy" alt="Adsum + ELAC Campaign">
+    </div>
+    <div class=community-cell>
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A7796-opt-7.jpg?v=1710167905" loading="lazy" alt="Adsum + ELAC Campaign">
+    </div>
+    <div class=community-cell>
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A7796-opt-8.jpg?v=1710167908" loading="lazy" alt="Adsum + ELAC Campaign">
+    </div>
+    <div class=community-cell>
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A7796-opt-9.jpg?v=1710167912" loading="lazy" alt="Adsum + ELAC Campaign">
+    </div>
+    <div class=community-cell>
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A7796-opt-10.jpg?v=1710167915" loading="lazy" alt="Adsum + ELAC Campaign">
+    </div>
+  </div>
+<!--
+  <h1 class="page-title">Behind The Scenes</h1>
+
+  <div class="community-header">
+    A few snaps from the photoshoot. Simpler than our <a href="">Gramicci Shoot</a> but no less fun.
+  </div>
+
+   <div class="bts-grid">
+    <div class="community-cell">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/kjbIMG_9379.jpg?v=1700166574" loading="lazy">
+    </div>
+     <div class="community-cell">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/aaaIMG_1240.jpg?v=1700168023" loading="lazy">
+    </div>
+     <div class="community-cell">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/IMG_1668_1_-opti.jpg?v=1700166574" loading="lazy">
+    </div>
+     <div class="community-cell">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/IMG_1670_1_-opti.jpg?v=1700166574" loading="lazy">
+    </div>
+     
+   </div>
+-->
+  
+</div>
+  
+  <div class="postnav">
+	<a href="{{ blog.previous_article }}" class="btn" style="float: left">Previous Post</a>
+    {% if blog.next_article %}
+	<a href="{{ blog.next_article }}" class="btn" style="float: right">Next Post</a>
+    {% endif %}
+  </div>
+
+{% include "footer" %}

@@ -1,0 +1,398 @@
+{% include "loading" %}
+
+<style>
+  .graphics-article-title {
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    padding: 43px 20px 0 20px;
+    width: 100%;
+    max-width: 440px;
+    line-height: 26px;
+    margin: 0 auto;
+    opacity: 1;
+    -moz-transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+  }
+  
+  .cover-image {
+    padding-top: 100px; 
+    display: block; 
+    width:100%; 
+    height: auto; 
+    max-width: 1000px; 
+    margin: 0 auto;
+  }
+
+  .page-grid-1 {
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 10px;
+    row-gap: 12px;
+    padding: 100px 40px 40px 40px;
+  }
+  .page-grid-item-1 {
+    grid-column: span 1;
+    display: flex;  
+    flex-direction: column; 
+    align-self: center;
+  }
+  .page-grid-item-2 {
+    grid-column: span 1;
+    display: flex;  
+    flex-direction: column; 
+    align-self: center;
+  }
+  
+  .image-1 {
+    padding: 0px;
+    max-width: 460px;
+    margin: 0 auto;
+  }
+  
+  .image-2 {
+    padding: 0px;
+  }
+  
+  .image-3 {
+    padding: 80px;
+  }
+  
+  .image-4 {
+    align-self: center;
+        max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .image-5 {
+    padding: 100px;
+  }
+  
+  .image-6 {
+    padding: 60px;
+  }
+  
+  .image-7 {
+    max-width: 1000px;
+    align-self: center;
+    margin: 0 auto;
+  }
+  
+  .image-8 {
+    align-self: center;
+    padding: 0px;
+  }
+  
+  .image-10 {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .image-13 {
+    max-width: 460px;
+    margin: 0 auto;
+  }
+  
+  .image-14 {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .caption {
+    padding-top: 6px;
+    font-size: 8px;
+    line-height: 11px;
+  }
+  
+  /*
+  .page-grid-item-2 {
+    grid-column: span 12;
+    background-image: url(https://cdn.shopify.com/s/files/1/0664/2387/files/Look1_21-optimized.jpg?v=1619637250); 
+    background-size: cover; 
+    display: flex;
+    background-position: center center; 
+    height: 100%;
+  }
+  */  
+  
+  .lookbook-shop-button {
+    border: 1px solid #000;
+    background-color: #000;
+    color: #fff;
+    max-width: 500px;
+    display: block;
+    margin: 0 auto;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px 10px;
+    margin-bottom: 160px;
+  }
+  .lookbook-shop-button:active, .lookbook-shop-button:hover {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+  }
+  
+  .image-16 {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .image-22 {
+    max-width: 500px; 
+    margin: 0 auto; 
+    padding-top: 80px;
+  }
+  .image-23 {
+    max-width: 800px; margin: 0 auto; padding: 80px;
+  }
+
+  @media (max-width: 900px) {
+    .graphics-article-title {
+      font-size: 18px;
+      line-height: 26px;
+      top: 67px;
+      padding-top: 80px;
+    }
+    .cover-image {
+      padding-top: 145px; 
+    }
+    .page-grid-1 {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 160px 0px 0px;
+      column-gap: 0px;
+    }
+    .page-grid-item-1 {
+      grid-column: span 1;
+    }
+    .page-grid-item-2 {
+      grid-column: span 1;
+    }
+    .caption {
+      display: none;
+      font-size: 4px;
+      line-height: 6px;
+      padding-top: 6px;
+      padding-left: 6px;
+    }
+    .image-1 {
+      padding: 0 20px 20px 20px;
+      grid-column: span 2; 
+    }
+    .image-2 {
+      padding: 80px 0 0 0;
+      grid-column: span 2;
+    }
+    .image-3 {
+      grid-column: span 2;
+      padding: 40px;
+    }
+    .image-4 {
+      grid-column: span 2;
+      padding: 60px;
+      grid-column: span 2;
+    }
+    .image-5 {
+      grid-column: span 2;
+      padding: 0px;
+    }
+    .image-6 {
+      grid-column: span 2;
+	  padding: 20px;
+    }
+    .image-7 {
+      padding: 120px 60px 0 60px;
+    }
+    .image-8 {
+      grid-column: span 2;
+      padding: 0px;
+    }
+    .image-9 {
+      grid-column: span 2;
+      padding: 20px;
+    }
+    .image-10 {
+      grid-column: span 2;
+      padding: 0;
+    }
+    .image-11 {
+      grid-column: span 2;
+      padding: 60px 60px 0 60px;
+    }
+    .image-12 {
+      grid-column: span 2;
+      padding: 0 60px 60px 60px;
+    }
+    .image-13 {
+      grid-column: span 2;
+      padding: 0px;
+    }
+    .image-14 {
+      grid-column: span 2;
+      padding: 0 20px 20px 20px;
+    }
+    .image-15 {
+      grid-column: span 2;
+      padding: 0px;
+    }
+    .image-16 {
+      grid-column: span 2;
+      padding: 120px 60px 0 60px;
+    }
+    .image-17 {
+      grid-column: span 2;
+      padding: 0 40px 40px 40px;
+    }
+    .image-18 {
+      grid-column: span 2;
+      padding: 0px;
+    }
+    .image-19 {
+      grid-column: span 2;
+      padding: 60px 60px 0 60px;
+    }
+    .image-20 {
+      grid-column: span 2;
+      padding: 0px;
+    }
+    .image-21 {
+      grid-column: span 2;
+      padding: 40px;
+    }
+    .image-22 {
+      grid-column: span 2;
+      padding: 0px;
+    }
+    .image-23 {
+      padding: 80px 80px 0px 80px;
+    }
+    .lookbook-shop-button {
+      padding: 40px;
+      margin-top: 40px;
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .image-1, .image-12, .image-6, .image-5, .image-11, .image-7, .image-9, .image-2, .image-13, .image-8 {
+      grid-column: span 2;
+    }
+  }
+</style>
+
+<!--
+<div class="graphics-article-title" >
+ Summer 2021
+</div>
+-->
+
+<img src="https://cdn.shopify.com/s/files/1/0664/2387/files/cover-2-fw21_D2_R2-101-05660002.jpg?v=1637182218" class="cover-image">
+
+<div class="page-grid-1">
+    <div class="page-grid-item-1 image-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/fw21_D2_R2-73.jpg?v=1637181573" style="display: block; width:100%; height: auto;">
+      <!-- <p class="caption">
+        Dark Madras Bucket Hat<br>
+        Light Olive Heavyweight Cotton Pique LS Polo<br>
+        Slate Aqua Site Short
+      </p> -->
+  	</div>
+    <div class="page-grid-item-2 image-2">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/fw21_D2_R2-76.jpg?v=1637180989" style="display: block; width:100%; height: auto;">
+  	</div>
+</div>
+
+<div class="page-grid-1">
+    <div class="page-grid-item-1 image-3">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/fw21_D2_R2-63.jpg?v=1637180989" style="display: block; width:100%; height: auto;">
+    </div>
+    <div class="page-grid-item-2 image-4">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/fw21_D2_R2-67.jpg?v=1637180989" style="display: block; width:100%; height: auto;">
+    </div>
+</div>
+
+<div class="page-grid-1">
+    <div class="page-grid-item-1 image-5">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/fw21_D2_R2-58_01015141-8ec9-47e6-ac05-f0eb129cfe2e.jpg?v=1637182714" style="display: block; width:100%; height: auto;">
+    </div>
+    <div class="page-grid-item-2 image-6">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/fw21_D2_R2-59_058b6ceb-5187-4725-938a-56e8c9dee560.jpg?v=1637182714" style="display: block; width:100%; height: auto; max-width: 800px; align-self: center;">
+    </div>
+</div>
+
+<div class="image-7">
+  <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/fw21_D2_R2-112-05660007.jpg?v=1637183543" style="display: block; width:100%; height: auto;">
+</div>
+
+<div class="page-grid-1">
+    <div class="page-grid-item-1 image-8">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/fw21_D2_R2-90.jpg?v=1637180989" style="display: block; width:100%; height: auto;">
+    </div>
+    <div class="page-grid-item-2 image-9">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/fw21_D2_R2-91.jpg?v=1637183360" style="display: block; width:100%; height: auto; max-width: 800px; align-self: center;">
+    </div>
+</div>
+
+
+
+<div class="page-grid-1">
+    <div class="page-grid-item-1 image-10">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/fw21_D2_R2-101_c7561ff0-4f5f-4d2b-aabe-f5c6682d22aa.jpg?v=1637184287" style="display: block; width:100%; height: auto;">
+    </div>
+    <div class="page-grid-item-2 image-11">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/fw21_D2_R2-106.jpg?v=1637184287" style="display: block; width:100%; height: auto;">
+  	</div>
+</div>
+
+<div class="page-grid-1">
+    <div class="page-grid-item-1 image-12">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/fw21_D2_R2-86.jpg?v=1637185674" style="display: block; width:100%; height: auto;">
+      <!--<p class="caption">
+        Navy Summer Plaid Workshirt<br>
+        White Chex Tee<br>
+        Olive Bank Pant
+      </p> -->
+    </div>
+    <div class="page-grid-item-2 image-13">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/fw21_D2_R2-82.jpg?v=1637185674" style="display: block; width:100%; height: auto;">
+  	</div>
+</div>
+
+
+<div class="page-grid-1">
+    <div class="page-grid-item-1 image-14">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/fw21_D2_R2-97.jpg?v=1637187077" style="display: block; width:100%; height: auto;">
+      <!--<p class="caption">
+        Navy Summer Plaid Workshirt<br>
+        White Chex Tee<br>
+        Olive Bank Pant
+      </p> -->
+    </div>
+    <div class="page-grid-item-2 image-15">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/fw21_D2_R2-96_b146a335-57ce-4c34-8d06-329fbcfe40d0.jpg?v=1637245760" style="display: block; width:100%; height: auto;">
+  	</div>
+</div>
+
+
+<div class="page-grid-1">
+    <div class="page-grid-item-1 image-17">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/fw21_D2_R2-109.jpg?v=1637190884" style="display: block; width:100%; height: auto;">
+    </div>
+    <div class="page-grid-item-2 image-18">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/fw21_D2_R2-111.jpg?v=1637190884" style="display: block; width:100%; height: auto; max-width: 800px; align-self: center;">
+    </div>
+</div>
+
+
+
+
+<a href="/collections/winter-2021" target="_blank" class="lookbook-shop-button">
+  Shop Winter 2021
+</a>
+
+{% include "footer" %}
+
+<script type="text/javascript">  
+  $('.header-fullsite-fixed').addClass('header-fullsite').removeClass('header-fullsite-fixed');
+</script>

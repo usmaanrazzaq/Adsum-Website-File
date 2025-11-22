@@ -1,0 +1,483 @@
+ <style>
+   .fw22-title {
+     font-size: 58px; font-weight: 600; letter-spacing: -0.04em;
+   }
+   .header-text {
+     position: relative; max-width: 300px; margin: 0 auto; color: #fff; top: 60px; text-align: center; font-size: 11px;
+   }
+   video {
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: block
+  }
+  video::-webkit-media-controls {
+    display: none !important;
+  }
+  *::-webkit-media-controls-panel {
+    display: none!important;
+    -webkit-appearance: none;
+  }
+   .scrolldown {
+     font-size: 11px; 
+     background-color: white; 
+     color: #000; 
+     height: 5vh; 
+     padding: 20px; 
+     text-align: center; 
+     display: flex; 
+     align-items: center; 
+     justify-content: center;
+   }
+   .lookbook-collection-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 10px;
+    row-gap: 10px;
+    padding: 20px 40px 40px 40px;
+    max-width: 1800px;
+    margin: 0 auto;
+  }
+   .fall-22-lookbook-header {
+     height: 95vh; 
+     width: 100%; 
+    background-image: url('https://cdn.shopify.com/s/files/1/0664/2387/files/cover-9B3A0571.jpg?v=1664478397'); 
+      /*  background-image: url('https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A0602.jpg?v=1663955599'); */
+     background-position: center top;                       
+     background-size: cover;  
+     margin-bottom: 0px;
+   }
+  .grid-1 {
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 0px;
+    padding: 0px 240px;
+    margin: 120px 0;
+    justify-items: center;
+    row-gap: 5px; 
+    place-content: center;
+  }
+  .cell-1, .cell-2 {
+    background-position: center;                       
+    background-size: cover;  
+    height: 75vh;
+    width: 100%;
+    display: flex;
+  }
+  .one, .three, .five, .seven, .nine, .eleven, .thirteen, .fifteen, .seventeen, .nineteen, .twentyone, .twentythree {
+    opacity: 0;
+    transform: translate3d(-55px, 0, 0px);
+    transition: transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1) 0s, opacity 0.5s linear 0.1s;
+  }
+  .two, .four, .six, .eight, .ten, .twelve, .fourteen, .sixteen, .eighteen, .twenty, .twentytwo, .twentyfour {
+    opacity: 0;
+    transform: translate3d(55px, 0, 0px);
+    transition: transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1) 0s, opacity 0.5s linear 0.1s;
+  }
+  .lookbook-caption {
+    line-height: 14px;
+    font-size: 10px;
+    text-align: left;
+    max-width: 75%;
+    color: #fff;
+    font-weight: 600;
+    margin: 0 10px 8px 10px;
+    align-self: flex-end;
+  }
+  .menu-to-white > .menu > .nav-link-wrapper > .first-level-link > a, 
+  .menu-to-white > .menu > .nav-link-wrapper > .first-level-link > .dropdown-child > .second-level-link > a {
+    color: #fff!important;
+    fill: #fff!important;
+    transition: all .3s ease-in-out;
+  }
+  #page-fall-22-lookbook .right-nav, 
+  #page-fall-22-lookbook #eyebrow-cart, 
+  #page-fall-22-lookbook .currency-picker {
+    color:#fff;
+  }
+  #page-fall-22-lookbook select {
+      width: auto; 
+      vertical-align: inherit;
+      cursor: pointer;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -webkit-padding-end: 34px;
+      -moz-padding-end: 34px;
+      -webkit-padding-start: 0px;
+      -moz-padding-start: 0px;
+      background: url(https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-down-arrow-white.png?7373984998795179158) no-repeat;
+      background-size: 10px;
+      background-position: calc(100% - 20px) 3px;
+      background-repeat: no-repeat;
+      background-color: transparent;
+      border: 0px;
+      border-radius: 0px;
+      box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+      color: #000;
+      font-size: 12px;
+      font-weight: 400!important;
+      margin: 0;
+      overflow: hidden;
+      padding-top: 0px;
+      padding-bottom: 0px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      transition: all .3s ease-in-out;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+@media (max-width: 1400px) {
+  .grid-1 {
+    padding: 40px 40px;
+  }
+}
+@media (max-width: 1000px) {
+  .grid-1 {
+    padding: 40px 0px;
+  }
+}
+@media (max-width: 900px) {
+  .cell-1, .cell-2 {
+    height: 50vh;
+  }
+  .lookbook-collection-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0px 10px 40px 10px;
+  }
+}
+@media (max-width: 500px) {
+  .fw22-title {
+    font-size: 38px;
+  }
+  .fall-22-lookbook-header {
+    height: 75vh; 
+    width: 100%; 
+    background-image: url('https://cdn.shopify.com/s/files/1/0664/2387/files/cover-mobile-9B3A0568.jpg?v=1664562268'); 
+  }
+  .grid-1 {
+    margin: 0px;
+  }
+  .cell-1, .cell-2 {
+    grid-column: span 2;
+    height: 60vh;
+  }
+}
+</style>
+
+{% comment %}
+{% include "loading" %}
+{% endcomment %}
+
+<div class="fall-22-lookbook-header">
+  <div class="header-text">
+    <div class="fw22-title">Fall Ball</div>
+    <div style="line-height: 12px;">
+      Fall 2022 Lookbook<br>
+      Long Island, NY
+    </div>
+  </div>
+</div>
+<div class="scrolldown">
+  Scroll Down
+</div>
+
+<!--
+<video autoplay muted playsinline loop poster="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A0571.jpg?v=1663946692" >
+  <source src="https://cdn.shopify.com/videos/c/o/v/85b0f80371ea47fb902281f07ce4b632.mp4" type="video/mp4">
+</video>
+-->
+
+
+
+  <div class="grid-1">
+    <div class="cell-1 one" style="background-image: url('https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A0468.jpg?v=1663858583');">
+      <div class="lookbook-caption">
+        Alpine Jacket in Moss, Expedition Fleece in Jacquard, Waffle Buttondown in Brown, 5-Pocket Jean in Dark Wash
+      </div>
+    </div>
+    <div class="cell-2 two" style="background-image: url('https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A0538.jpg?v=1663859402');">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-1 five" style="background-image: url('https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A9564-2.jpg?v=1664288476');">
+      <div class="lookbook-caption">
+        Serge Hat in Royal Blue, Marsu Jacket in Mariner, Full Zip Waffle Lined Hoodie in Navy, 5-Pocket Jean in Light Wash
+      </div>
+    </div>
+    <div class="cell-2 six" style="background-image: url('https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A9544-2.jpg?v=1663870287');">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-1 three" style="background-image: url('https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A0164.jpg?v=1663869096');">
+      <div class="lookbook-caption">
+        Core Logo Hat in Navy, Core Logo Hoodie in Grey, Sleepy Bear Tee in Port, Core Logo Sweatpants in Grey
+      </div>
+    </div>
+    <div class="cell-2 four" style="background-image: url('https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A0116_0ebb909d-edc9-4538-af1e-cdf746a038b5.jpg?v=1663870523');">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-1 seven" style="background-image: url('https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A0281.jpg?v=1663871082');">
+      <div class="lookbook-caption">
+        Core Logo Crewneck Sweatshirt in Oakland Green, Lax Short in Navy, Cargo Tote in Purple, Core Logo Sock in White
+      </div>
+    </div>
+    <div class="cell-2 eight" style="background-image: url('https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A0345.jpg?v=1663871054');">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-1 nine" style="background-image: url('https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A9186.jpg?v=1663871520');">
+      <div class="lookbook-caption">
+        Rizo Shirt in Navy, Yogi Jacket in Black, 5-Pocket Jean in Dark Wash
+      </div>
+    </div>
+    <div class="cell-2 ten" style="background-image: url('https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A9238.jpg?v=1663871959');">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-1 eleven" style="background-image: url('https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A9784.jpg?v=1663872701');">
+      <div class="lookbook-caption">
+        Cutter Jacket in Met Orange, Classic Plaid Workshirt in Olive, Backpack in Black
+      </div>
+    </div>
+    <div class="cell-2 twelve" style="background-image: url('https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A9644.jpg?v=1663872701');">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-1 thirteen" style="background-image: url('https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A9848.jpg?v=1663874143');">
+      <div class="lookbook-caption">
+        Striped LS Tee in Blue, Core Logo Hat in Met Orange
+      </div>
+    </div>
+    <div class="cell-2 fourteen" style="background-image: url('https://cdn.shopify.com/s/files/1/0664/2387/files/DSCF9297.jpg?v=1663874143');">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-1 twentythree" style="background-image: url('https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A0223.jpg?v=1664286163');">
+      <div class="lookbook-caption">
+        Two Tone Hat in Green, AD Tee in Heather Grey, Otter Swim Trunks in Muted Indigo, Walnut Tote in Light Blue
+      </div>
+    </div>
+    <div class="cell-2 twentyfour" style="background-image: url('https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A0219-2_ac2585a6-b688-40ff-a3b6-bbe8001e2e50.jpg?v=1664286881');">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-1 seventeen" style="background-image: url('https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A9989.jpg?v=1663875219');">
+      <div class="lookbook-caption">
+        Serge Hat in Black, Denim Buttondown, Tech Pant in Oakland Green
+      </div>
+    </div>
+    <div class="cell-2 eighteen" style="background-image: url('https://cdn.shopify.com/s/files/1/0664/2387/files/DSCF9338.jpg?v=1663875450');">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-1 fifteen" style="background-image: url('https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A9882.jpg?v=1663874913');">
+      <div class="lookbook-caption">
+        Expedition Vest in Jacquard, Core Logo Hoodie in Moss, No Flap Flannel Workshirt in Blue
+      </div>
+    </div>
+    <div class="cell-2 sixteen" style="background-image: url('https://cdn.shopify.com/s/files/1/0664/2387/files/DSCF9327.jpg?v=1663874589');">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-1 nineteen" style="background-image: url('https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A9444.jpg?v=1664214647');">
+      <div class="lookbook-caption">
+        Core Logo Hat in Oakland Green, Buffalo Tee in Navy, 5-Pocket Jean in Dark Wash
+      </div>
+    </div>
+    <div class="cell-2 twenty" style="background-image: url('https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A9462.jpg?v=1664214647');">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-1 twentyone" style="background-image: url('https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A9622.jpg?v=1664215917');">
+      <div class="lookbook-caption">
+        Serge Hat in Royal Blue, Full Zip Waffle Lined Hoodie in Navy, 5-Pocket Jean in Stone Wash
+      </div>
+    </div>
+    <div class="cell-2 twentytwo" style="background-image: url('https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A9608.jpg?v=1664215917');">
+    </div>
+  </div>
+      
+</div>
+{% comment %}
+<div class="featured-products-title">
+	Fall 2022 Collection
+</div>
+
+<div id="products" class="lookbook-collection-grid {{ collection.title | handleize }}">
+  {% for product in collections.ss22garden.products %}
+  	<div class="collection-grid-item">
+      <a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}">  
+        <div style="position: relative;">
+          <img data-sizes="auto"
+               src="{{ product.images.first | product_img_url: '1x1' }}" 
+               data-src="{{ product.images.first | product_img_url: '1024x1024' }}"
+               data-srcset="{{ product.images.first | product_img_url: '600x600' }} 300w,
+                            {{ product.images.first | product_img_url: '1200x1200' }} 600w,
+                            {{ product.images.first | product_img_url: '1800x1800' }} 900w"
+               alt="{{ product.title | strip_html | escape }}" class="lazyload" style="display: block; width: 100%; height: 100%;" />
+          <img data-sizes="auto"
+               src="{{ product.images[1] | product_img_url: '1x1' }}" 
+               data-src="{{ product.images[1] | product_img_url: '1024x1024' }}" 
+               data-srcset="{{ product.images[1] | product_img_url: '600x600' }} 300w,
+                            {{ product.images[1] | product_img_url: '1200x1200' }} 600w,
+                            {{ product.images[1] | product_img_url: '1800x1800' }} 900w"
+               alt="{{ product.images[1].alt | escape }}" class="collection-product-hover lazyload"/>
+        </div>
+        <div class="product_info_content">
+            {%if product.available == true %}
+                <div class="gallery-product-title">
+                    {{ product.title }}
+                </div>
+                <div class="gallery-product-price">
+                    {% if product.compare_at_price_max > product.price %}
+                        <del class="sale">{{ product.compare_at_price_max | money }}</del>
+                    {% endif %}
+                    {{ product.price | money }}
+                </div>
+            {% endif %}
+            {%if product.available == false %}    
+                <span style="color: red; text-decoration: uppercase;">Sold Out</span>
+            {% endif %}
+        </div>          
+      </a>
+    </div>
+{% endfor %}
+</div>
+{% endcomment %}
+
+{% include "footer" %}
+
+<script type="text/javascript">
+  $(document).ready(function($) {
+	var controller = new ScrollMagic.Controller();
+    
+    new ScrollMagic.Scene({triggerElement: ".one", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".one", "anim-done") // add class toggle
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".two", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".two", "anim-done") // add class toggle
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".three", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".three", "anim-done") // add class toggle
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".four", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".four", "anim-done") // add class toggle
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".five", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".five", "anim-done") // add class toggle
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".six", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".six", "anim-done") // add class toggle
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".seven", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".seven", "anim-done") // add class toggle
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".eight", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".eight", "anim-done") // add class toggle
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".nine", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".nine", "anim-done") // add class toggle
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".ten", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".ten", "anim-done") // add class toggle
+					.addTo(controller)
+    
+    new ScrollMagic.Scene({triggerElement: ".eleven", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".eleven", "anim-done") // add class toggle
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".twelve", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".twelve", "anim-done") // add class toggle
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".thirteen", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".thirteen", "anim-done")
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".fourteen", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".fourteen", "anim-done") 
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".fifteen", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".fifteen", "anim-done")
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".sixteen", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".sixteen", "anim-done") 
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".seventeen", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".seventeen", "anim-done") 
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".eighteen", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".eighteen", "anim-done") 
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".nineteen", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".nineteen", "anim-done")
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".twenty", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".twenty", "anim-done")
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".twentyone", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".twentyone", "anim-done")
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".twentytwo", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".twentytwo", "anim-done")
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".twentythree", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".twentythree", "anim-done")
+					.addTo(controller)
+
+    new ScrollMagic.Scene({triggerElement: ".twentyfour", triggerHook: 'onEnter', offset: 50})
+					.setClassToggle(".twentyfour", "anim-done")
+					.addTo(controller)
+   });
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+        $(".header-fullsite-fixed").addClass("menu-to-white");
+        $('.header-fullsite-fixed').addClass('header-fullsite').removeClass('header-fullsite-fixed');
+});
+</script>
+
+<script type="text/javascript">
+  $(window).scroll(function() {	  
+    if ($(window).scrollTop() > 10 ){
+      $('.scrolldown').addClass('hide3');
+    } else {
+      $('.scrolldown').removeClass('hide3');		
+	}; 
+  });
+</script>

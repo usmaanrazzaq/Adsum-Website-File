@@ -1,0 +1,323 @@
+{% include "loading" %}
+
+<style>
+  .graphics-article-title {
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    padding: 43px 20px 0 20px;
+    width: 100%;
+    max-width: 440px;
+    line-height: 26px;
+    margin: 0 auto;
+    opacity: 1;
+    -moz-transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+  }
+  
+  .cover-image {
+    padding-top: 100px; 
+    display: block; 
+    width:100%; 
+    height: auto; 
+    max-width: 900px; 
+    margin: 0 auto;
+  }
+
+  .page-grid-1 {
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 10px;
+    row-gap: 12px;
+    padding: 100px 40px 40px 40px;
+  }
+  .page-grid-item-1 {
+    grid-column: span 1;
+    display: flex;  
+    flex-direction: column; 
+    align-self: center;
+  }
+  .page-grid-item-2 {
+    grid-column: span 1;
+    display: flex;  
+    flex-direction: column; 
+    align-self: center;
+  }
+  
+  .image-1 {
+    padding: 0px;
+  }
+  
+  .image-2 {
+    padding: 0px;
+  }
+  
+  .image-3 {
+    padding: 80px;
+  }
+  
+  .image-4 {
+    align-self: center;
+  }
+  
+  .image-5 {
+    padding: 100px;
+  }
+  
+  .image-6 {
+    padding: 60px;
+  }
+  
+  .image-7 {
+    max-width: 1000px; 
+    align-self: center;
+    margin: 0 auto;
+    padding: 60px 0px 60px 0px;
+  }
+  
+  .image-8 {
+    align-self: center;
+    padding: 0px;
+  }
+  
+  .caption {
+    padding-top: 6px;
+    font-size: 8px;
+    line-height: 11px;
+  }
+  
+  /*
+  .page-grid-item-2 {
+    grid-column: span 12;
+    background-image: url(https://cdn.shopify.com/s/files/1/0664/2387/files/Look1_21-optimized.jpg?v=1619637250); 
+    background-size: cover; 
+    display: flex;
+    background-position: center center; 
+    height: 100%;
+  }
+  */  
+  
+  .lookbook-shop-button {
+    border: 1px solid #000;
+    background-color: #fff;
+    color: #000;
+    max-width: 500px;
+    display: block;
+    margin: 0 auto;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px 10px;
+    margin-bottom: 160px;
+  }
+  .lookbook-shop-button:active, .lookbook-shop-button:hover {
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #000;
+  }
+  .image-15 {
+      padding: 40px;
+    }
+  .image-16 {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .image-22 {
+    max-width: 500px; 
+    margin: 0 auto; 
+    padding-top: 80px;
+  }
+  .image-23 {
+    max-width: 2000px; margin: 0 auto; padding: 80px;
+  }
+
+  @media (max-width: 900px) {
+    .new-centered-article-text {
+      padding-top: 140px!important;
+    }
+    .graphics-article-title {
+      font-size: 18px;
+      line-height: 26px;
+      top: 67px;
+      padding-top: 80px;
+    }
+    .cover-image {
+      padding-top: 45px; 
+    }
+    .page-grid-1 {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 160px 0px 0px;
+      column-gap: 0px;
+    }
+    .page-grid-item-1 {
+      grid-column: span 1;
+    }
+    .page-grid-item-2 {
+      grid-column: span 1;
+    }
+    .caption {
+      display: none;
+      font-size: 4px;
+      line-height: 6px;
+      padding-top: 6px;
+      padding-left: 6px;
+    }
+    .image-1 {
+      padding: 0px;
+      grid-column: span 1; 
+    }
+    .image-2 {
+      padding: 60px;
+      grid-column: span 2;
+    }
+    .image-3 {
+      grid-column: span 2;
+      padding: 0px;
+    }
+    .image-4 {
+      grid-column: span 2;
+      padding: 60px;
+      grid-column: span 2;
+    }
+    .image-5 {
+      grid-column: span 2;
+      padding: 0px;
+    }
+    .image-6 {
+      grid-column: span 2;
+    padding: 20px;
+    }
+    .image-7 {
+      padding: 120px 6px 0 6px;
+    }
+    .image-8 {
+      grid-column: span 2;
+      padding: 0px;
+    }
+    .image-9 {
+      grid-column: span 2;
+      padding: 20px;
+    }
+    .image-10 {
+      grid-column: span 2;
+      padding: 0;
+    }
+    .image-11 {
+      grid-column: span 2;
+      padding: 60px 60px 0 60px;
+    }
+    .image-12 {
+      grid-column: span 2;
+      padding: 0 60px 60px 60px;
+    }
+    .image-13 {
+      grid-column: span 2;
+      padding: 0px;
+    }
+    .image-14 {
+      grid-column: span 2;
+      padding: 0 20px 20px 20px;
+    }
+    .image-15 {
+      grid-column: span 2;
+      padding: 0px;
+    }
+    .image-16 {
+      grid-column: span 2;
+      padding: 120px 60px 0 60px;
+    }
+    .image-17 {
+      grid-column: span 2;
+      padding: 0 40px 40px 40px;
+    }
+    .image-18 {
+      grid-column: span 2;
+      padding: 0px;
+    }
+    .image-19 {
+      grid-column: span 2;
+      padding: 60px 60px 0 60px;
+    }
+    .image-20 {
+      grid-column: span 2;
+      padding: 0px;
+    }
+    .image-21 {
+      grid-column: span 2;
+      padding: 40px;
+    }
+    .image-22 {
+      grid-column: span 2;
+      padding: 0px;
+    }
+    .image-23 {
+      padding: 6px 6px 0px 6px;
+    }
+    .lookbook-shop-button {
+      padding: 40px;
+      margin-top: 80px;
+          max-width: 300px;
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .image-12, .image-6, .image-5, .image-11, .image-7, .image-9, .image-2, .image-13, .image-8 {
+      grid-column: span 2;
+    }
+  }
+</style>
+
+<img src="https://cdn.shopify.com/s/files/1/0664/2387/files/hatssocks_apt-8-2.jpg?v=1634581494" class="cover-image">
+
+<span class="new-centered-article-text" style="margin-bottom:0px;">
+  Fall 21 sees the return of 3 of our most popular ways to cover your head. The longstanding favorite, the Overdyed Core Logo Hat, assembled and dyed in Los Angeles. The Fall/Winter favorite Heavy Cable Knit Beanie, made in Japan. And the newest of the bunch, the Daisy Bucket Hat made of twill also in the USA. 
+</span>
+
+<div class="page-grid-1">
+    <div class="page-grid-item-1 image-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/a_H0A8686.jpg?v=1634581626" style="display: block; width:100%; height: auto;">
+      <!-- <p class="caption">
+        Dark Madras Bucket Hat<br>
+        Light Olive Heavyweight Cotton Pique LS Polo<br>
+        Slate Aqua Site Short
+      </p> -->
+    </div>
+    <div class="page-grid-item-2 image-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/products/fw21-ecomm-product-hat-daisy-khaki_87a638cc-bba2-47d5-92e4-9fc1a22766e3.jpg?v=1633619146" style="display: block; width:100%; height: auto;">
+    </div>
+</div>
+
+
+<div class="image-7">
+  <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/aahatssocks_apt-14.jpg?v=1634582070" style="display: block; width:100%; height: auto;">
+</div>
+
+<div class="image-23">
+  <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/aass21-ecomm-product-drop2-1-overd.jpg?v=1634582803" style="display: block; width:100%; height: auto;">
+</div>
+
+
+
+<div class="page-grid-1">
+    <div class="page-grid-item-1 image-10">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/aaahatssocks_apt-5.jpg?v=1634584896" style="display: block; width:100%; height: auto;">
+    </div>
+    <div class="page-grid-item-2 image-11">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/products/fw21-ecomm-product-laydowns-knit-beanie-indigo.jpg?v=1633362283" style="display: block; width:100%; height: auto;">
+    </div>
+</div>
+
+
+
+
+<a href="/collections/fw21-hats-and-beanies" target="_blank" class="lookbook-shop-button">
+  Shop Fall Hats + Beanies
+</a>
+
+{% include "footer" %}
+
+<script type="text/javascript">  
+  $('.header-fullsite-fixed').addClass('header-fullsite').removeClass('header-fullsite-fixed');
+</script>  

@@ -1,0 +1,16 @@
+<h4>Contact</h4>
+{% comment %}
+This is your store address. It uses the hcard microformat: http://microformats.org/wiki/hcard
+{% endcomment %}
+<div class="vcard">
+	<p class="org fn">
+		<a href="{{ shop.url }}" class="url">{{ shop.name | escape }}</a>
+	</p>
+	<p class="adr">
+		<span class="street-address">42 Star Blvd</span><br/>
+		<span class="locality">Hollywood</span>, <abbr title="California" class="region">CA</abbr>, <span class="postal-code">90210</span><br/>
+		<span class="country-name">USA</span><br/>
+	</p>
+	<a href="mailto:{{ shop.email }}" class="email">{{ shop.email }}</a>
+	<p class="tel">Phone: <span class="tel">800-867-5309</span></p>
+</div>

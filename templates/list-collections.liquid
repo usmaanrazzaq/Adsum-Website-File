@@ -1,0 +1,45 @@
+<div id="collections-listing">
+  {% paginate collections by 10 %}
+
+    {% if collections.size > 0 %}
+  
+  <div class="page-padding">
+
+	<h1 class="page-title">Shop</h1>
+
+ 
+    {% for link in linklists.all-collections.links %}
+    
+		{% assign collection = link.object %}  
+    
+    	<div style="position:relative; display: inline-block; width: 50%; margin-right: -2px; vertical-align: top;">
+          <a href="{{ collection.url }}" class="collection-list-link">
+                        
+              <div class="collection-list-image-wrapper">
+                {% if collection.image %}
+                <div class="collection-list-image" style="background-image: url('{{ collection.image | img_url: 'master' }}');"></div>
+                {% endif %}
+				</div>        
+             
+            <div class="collection-list-text">
+              {{ collection.title | escape }}
+              <br/>
+              {{ collection.description }}
+            </div>
+          </a>
+    	</div>
+        
+      {% endfor %}
+
+
+    <div id="pagination">{{ paginate | default_pagination }}</div>
+
+    {% else %}
+      <p>No Collections found...</p>
+    {% endif %}
+  {% endpaginate %}
+  
+  </div>
+</div>
+
+{% include "footer" %}

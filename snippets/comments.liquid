@@ -1,0 +1,58 @@
+{% if blog.comments_enabled? %}
+<div id="comments">
+<h3>Comments</h3>
+	{% if article.comments.size == 0 %}
+		<p class="zero-posts">There are no comments yet.</p>
+	{% else %}
+		{% for comment in article.comments %}
+		<blockquote>
+			<p>{{ comment.content }}</p>
+		</blockquote>
+		<p class="post-info">
+			<img src="https://www.gravatar.com/avatar/{{comment.email | lowercase | md5}}.jpg?s=40" alt="" class="gravatar" />
+			Posted by {{ comment.author }} on {{ comment.created_at | date: "%B %d, %Y" }}
+		</p>
+		{% endfor %}
+	{% endif %}
+</div>	
+
+<h3>Post a comment</h3>
+{% form article %}
+	{% if form.posted_successfully? %}
+		<p><span class="notice">
+		{% if blog.moderated? %}
+			Successfully posted your comment.<br />
+			It will have to be approved by the blog owner first before showing up.
+		{% else %}
+			Successfully posted your comment.
+		{% endif %}
+		</span></p>
+	{% endif %}
+
+	{% if form.errors %}
+		<p><span class="notice error">Not all the fields have been filled out correctly!</span></p>
+	{% endif %}
+
+	<p>
+		<label for="comment_author" class="{% if form.errors contains 'author' %}error{% endif %}">Name</label>
+		<input type="text" id="comment_author" name="comment[author]" size="40" value="{{form.author}}" class="{% if form.errors contains 'author' %}input-error{% endif %}" />
+	</p>
+
+	<p>
+		<label for="comment_email" class="{% if form.errors contains 'email' %}error{% endif %}">Email</label>
+		<input type="text" id="comment_email" name="comment[email]" size="40" value="{{form.email}}" class="{% if form.errors contains 'email' %}input-error{% endif %}" />
+	</p>
+
+	<p>
+		<label for="comment_body" class="{% if form.errors contains 'body' %}error{% endif %}">Comment</label>
+		<textarea id="comment_body" name="comment[body]" cols="40" rows="5" class="{% if form.errors contains 'body' %}input-error{% endif %}">{{form.body}}</textarea>
+	</p>
+
+	<p>
+		<input type="submit" value="Post Comment" class="awesome" />
+		{% if blog.moderated? %}
+			<span class="hint">Note: comments are moderated before appearing here.</span>
+		{% endif %}    
+	</p>
+{% endform %}
+{% endif %}

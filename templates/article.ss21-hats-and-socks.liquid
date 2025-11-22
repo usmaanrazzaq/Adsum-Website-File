@@ -1,0 +1,290 @@
+{% include "loading" %}
+
+<style>
+  .article-collection-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 16px;
+    row-gap: 20px;
+    padding: 20px 40px 40px 40px;
+  }
+  
+  .graphics-article-title {
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    padding: 43px 20px 0 20px;
+    width: 100%;
+    max-width: 440px;
+    line-height: 26px;
+    margin: 0 auto;
+    opacity: 1;
+    -moz-transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+  }
+  
+  .centered-article-text {
+    font-size: 12px;
+  }
+  
+  .blog-img-caption {
+    top: 10px;
+  }
+  
+  .gallery {
+    min-height: 10px;
+  }
+  
+  .post-grid-three-column {
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10px;
+    row-gap: 12px;
+    padding: 0px 40px 0px 40px;
+  }
+  .post-grid-item-1 {
+    grid-column: span 1;
+    display: flex;  
+    align-self: center;
+  }
+
+  @media (max-width: 900px) {
+    .graphics-article-title {
+      font-size: 17px;
+      line-height: 26px;
+      text-align: left;
+      padding: 80px 20px 0px;
+      font-weight: 500;
+      max-width: 580px;
+    }  
+    .article-collection-grid {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 16px;
+      row-gap: 20px;
+      padding: 20px;
+    }
+    .post-grid-three-column {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        padding: 0px 10px;
+    }
+    .post-grid-item-1 img {
+      padding: 0px;
+    }
+  }
+</style>
+
+<div class="graphics-article-title" >
+ {{ article.title }}
+</div>
+<span class="new-centered-article-text">
+    Whether you have hair or not, it is important to wear a hat to keep the sun's rays off the top of your coconut, and out of your eyes. Our summer selection of hats builds on past season development with some new additions. Just like everyone needs a hat, everyone needs a good pair of socks. Our made in Japan plush cotton socks will help out when your dogs are barking. 
+</span>
+
+<div class="left-50" style="opacity: 1;">
+  <div class="img-left-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/hats_socks_finals-3-optimized.jpg?v=1626800784" alt="Dark Madras Bucket Hat on model" class="img-left ss16-preview">
+    <div class="blog-img-caption"></div>
+  </div>
+</div>
+<div class="right-50 float-right" style="opacity: 1;">
+    <div class="img-right-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/hats_socks_finals-1-optimized-2.jpg?v=1626800776" alt="Dark Madras Bucket Hat" class="img-right ss16-preview">
+      <div class="blog-img-caption"></div>
+    </div>
+</div>
+
+<div class="clearfix lb-extra-spacing"></div>
+
+<!--
+<div class="left-50" style="opacity: 1;">
+  <div class="img-left-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/31232_AWI_Adsum-31232_AWI_Adsum_010-31232_AWI_Adsum_010_15.jpg?v=1626285569" class="img-left ss16-preview">
+    <div class="blog-img-caption"></div>
+  </div>
+</div>
+<div class="right-50 float-right" style="opacity: 1;">
+    <div class="img-right-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/31232_AWI_Adsum-31232_AWI_Adsum_012-31232_AWI_Adsum_012_20.jpg?v=1626285945" class="img-right ss16-preview">
+      <div class="blog-img-caption"></div>
+    </div>
+</div>
+-->
+
+<span class="new-centered-article-text">
+    The Classic Bucket Hat and Daisy Bucket Hat have wrap-around brims offering the most sun and rain protection. The Daisy Bucket hat performs best in hot/dry climates, whereas the Classic Bucket Hat with its longer crushable brim works well in all weather. The classic bucket hat in the nylon taslan used on the Site Short has become a running and fishing hat for us. It’s quick drying and rolls up easily into the front pocket of a backpack or duffel bag.  
+</span>
+
+<div class="left-50" style="opacity: 1;">
+  <div class="img-left-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/hats_socks_finals-8-optimized.jpg?v=1626800803" alt="Safety Red Bucket Hat on model" class="img-left ss16-preview">
+    <div class="blog-img-caption"></div>
+  </div>
+</div>
+<div class="right-50 float-right" style="opacity: 1;">
+    <div class="img-right-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/hats_socks_finals-2-optimized.jpg?v=1626800779" alt="Safety Red Bucket Hat" class="img-right ss16-preview">
+      <div class="blog-img-caption"></div>
+    </div>
+</div>
+
+<div class="clearfix lb-extra-spacing"></div>
+
+
+<span class="new-centered-article-text">
+    The Tree Hat utilizes a permacurve brim. We believe that all hats look best with a brim that has been worked into a curve which is why we shoot our Core Logo Overdyed hats with a curve even though they ship out to you with a flat brim. Having a permacurve takes out any fuss around working in a brim curve. Other notable features include dyed to match metal eyelets and custom made sizing adjuster. 
+</span>
+
+<!--
+<div class="left-50" style="opacity: 1;">
+  <div class="img-left-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/31232_AWI_Adsum-31232_AWI_Adsum_001-31232_AWI_Adsum_001_09.jpg?v=1626287500" class="img-left ss16-preview">
+    <div class="blog-img-caption"></div>
+  </div>
+</div>
+<div class="right-50 float-right" style="opacity: 1;">
+    <div class="img-right-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/31232_AWI_Adsum-31232_AWI_Adsum_001-31232_AWI_Adsum_001_07.jpg?v=1626287500" class="img-right ss16-preview">
+      <div class="blog-img-caption"></div>
+    </div>
+</div>
+
+
+
+<div class="left-50" style="opacity: 1;">
+  <div class="img-left-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/hats_socks_finals-6-optimized.jpg?v=1626800795" alt="Raspberry Core Logo Hat - Adsum" class="img-left ss16-preview">
+    <div class="blog-img-caption"></div>
+  </div>
+</div>
+<div class="right-50 float-right" style="opacity: 1;">
+    <div class="img-right-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/hats_socks_finals-7-optimimized.jpg?v=1626800799" alt="Light Olive Tree Hat - Adsum" class="img-right ss16-preview">
+      <div class="blog-img-caption"></div>
+    </div>
+</div>
+-->
+
+<div class="post-grid-three-column">
+    <div class="post-grid-item-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/hats_socks_finals-6-optimized.jpg?v=1626800795" alt="Raspberry Core Logo Hat - Adsum" class="img-left ss16-preview">
+    </div>
+  <div class="post-grid-item-1">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/hats_socks_finals-7-optimimized.jpg?v=1626800799" alt="Light Olive Tree Hat - Adsum" class="img-right ss16-preview">
+  </div>
+  <div class="post-grid-item-1">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/hats_socks_finals-4-optimized-resized.jpg?v=1626811376" alt="Suede Baseball Cap - Adsum" class="img-right ss16-preview">
+  </div>
+</div>
+
+
+<span class="new-centered-article-text">
+    Our sport socks are made from plush cotton knit and finished in Japan. Every season color is custom dyed to spec with this season’s palette being earth tones. The comfort fit sock features two different types of knit techniques on the tube of the sock that grips your ankle and lower leg area. Each sock is finished with an outward facing direct embroidery. We call it the comfort fit because the entire foot area of the sock has a thick, cushioned terry to help absorb sweat and protect your foot from abrasion. 
+</span>
+
+
+<div class="left-50" style="opacity: 1;">
+  <div class="img-left-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/hats_socks_finals-9-1_1.jpg?v=1627314777" alt="Classic Comfort Socks" class="img-left ss16-preview">
+    <div class="blog-img-caption"></div>
+  </div>
+</div>
+<div class="right-50 float-right" style="opacity: 1;">
+    <div class="img-right-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/hats_socks_finals-5-optimized.jpg?v=1626800791" alt="Classic Comfort Sock" class="img-right ss16-preview">
+      <div class="blog-img-caption"></div>
+    </div>
+</div>
+<div class="clearfix lb-extra-spacing"></div>
+<div class="clearfix lb-extra-spacing"></div>
+
+<!--
+<span class="new-centered-article-text" style="font-size: 10px; color: #aaa;">
+  Matt is 6'1" and 185 lbs. and wears Larges in tops & bottoms and S/M in the bucket hat.
+</span>
+-->
+
+<div class="featured-products-title">
+  Featured Products
+</div>
+
+
+<div id="products" class="article-collection-grid {{ collection.title | handleize }}">
+  {% for product in collections.ss21-hats-and-socks.products %}
+    <div class="collection-grid-item">
+      <a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}">  
+        <div style="position: relative;">
+          <img data-sizes="auto"
+               src="{{ product.images.first | product_img_url: '1x1' }}" 
+               data-src="{{ product.images.first | product_img_url: '1024x1024' }}"
+               data-srcset="{{ product.images.first | product_img_url: '600x600' }} 300w,
+                            {{ product.images.first | product_img_url: '1200x1200' }} 600w,
+                            {{ product.images.first | product_img_url: '1800x1800' }} 900w"
+               alt="{{ product.title | strip_html | escape }}" class="lazyload" style="display: block; width: 100%; height: 100%;" />
+          <img data-sizes="auto"
+               src="{{ product.images[1] | product_img_url: '1x1' }}" 
+               data-src="{{ product.images[1] | product_img_url: '1024x1024' }}" 
+               data-srcset="{{ product.images[1] | product_img_url: '600x600' }} 300w,
+                            {{ product.images[1] | product_img_url: '1200x1200' }} 600w,
+                            {{ product.images[1] | product_img_url: '1800x1800' }} 900w"
+               alt="{{ product.images[1].alt | escape }}" class="collection-product-hover lazyload"/>
+        </div>
+        <div class="product_info_content">
+            {%if product.available == true %}
+                <div class="gallery-product-title">
+                    {{ product.title }}
+                </div>
+                <div class="gallery-product-price">
+                    {% if product.compare_at_price_max > product.price %}
+                        <del class="sale">{{ product.compare_at_price_max | money }}</del>
+                    {% endif %}
+                    {{ product.price | money }}
+                </div>
+            {% endif %}
+            {%if product.available == false %}    
+                <span style="color: red; text-decoration: uppercase;">Sold Out</span>
+            {% endif %}
+        </div>          
+      </a>
+    </div>
+{% endfor %}
+</div>
+
+<a href="/collections/summer-2021" class="shop-button-photo-story">Shop All Summer 2021</a>
+
+<div class="postnav">
+  <a href="{{ blog.previous_article }}" class="btn" style="float: left">Previous Post</a>
+    {% if blog.next_article %}
+  <a href="{{ blog.next_article }}" class="btn" style="float: right">Next Post</a>
+    {% endif %}
+</div>
+
+{% include "footer" %}
+
+<script type="text/javascript">  
+  $('.header-fullsite-fixed').addClass('header-fullsite').removeClass('header-fullsite-fixed');
+</script>
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    window.setTimeout(function(){
+        $(".index-scroll-arrow").addClass("visible");
+    },2500);
+});
+</script>
+
+<script type="text/javascript">
+$(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 10) {
+        $(".index-scroll-arrow-img").addClass("hide4");
+    } else {
+        $(".index-scroll-arrow-img").removeClass("hide4");
+    }
+});
+</script>

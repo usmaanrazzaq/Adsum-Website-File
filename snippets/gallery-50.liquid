@@ -1,0 +1,49 @@
+{% for product in collection.products %}
+
+{% if template == 'collection.sidebar' %}
+
+<div class="product50 {% cycle '', '' %}">
+  
+{% else %}
+
+<div class="product50">
+	
+{% endif %}
+  
+  <a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}">  
+      
+      <img style="display: block; width: 100%; height: 100%;" src="{{ product.images.first | product_img_url: '2048x2048' }}" alt="{{ product.title | strip_html | escape }}"/>
+      <img class="collection-product-hover" src="{{ product.images[1] | product_img_url: '2048x2048' }}" alt="{{ product.images[1].alt | escape }}" />
+    
+        <div class="product_info_content">
+          <div class="product-info-content-wrap">
+{%if product.available == true %}           
+            <div class="gallery-product-wrap">
+              <div class="gallery-product-title">
+                {{ product.title }}
+              </div>
+              <div class="gallery-product-price">
+                {% if product.compare_at_price_max > product.price %}
+                <del class="sale">{{ product.compare_at_price_max | money }}</del>
+                {% endif %}<br/>
+                {{ product.price | money }}
+              </div>
+              <div class="collection-product-description">
+                {{ product.description | truncatewords: 20 | strip_html}}
+              </div>
+            </div>
+{% endif %}
+{%if product.available == false %}
+             <div class="gallery-product-wrap">         
+               <div class="sold-out">Sold Out</div>
+             </div>
+{% endif %}
+          </div>
+        </div>
+    
+    	
+  
+  </a>
+	
+</div>
+{% endfor %}

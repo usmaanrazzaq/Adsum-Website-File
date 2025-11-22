@@ -1,0 +1,421 @@
+{% include "loading" %}
+
+<style>
+
+.scrollContainer::-webkit-scrollbar {
+  width: 0px;
+  height: 5px;
+}
+
+.scrollContainer::-webkit-scrollbar-track {
+  background: #ffffff;
+  margin-block: 0px;
+
+}
+
+.scrollContainer::-webkit-scrollbar-thumb{
+  background: #ccc;
+
+}
+
+.scrollContainer::-webkit-scrollbar-thumb: hover{
+  background: #ccc;
+
+}
+
+
+
+
+  .gridContainer{
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 20px;
+    grid-row-gap: 20px;
+    display: grid;
+    margin: 94px 40px 0 240px;
+  }
+.heading{
+  display: block;
+  border-bottom: black 1px solid;
+  padding: 14px;
+  grid-column: 1 / span 12;
+}
+
+.bodyText{
+  font-size: 13px;
+  line-height: 21px;
+}
+
+.hide2{
+  display: none;
+   -moz-transition: all .3s ease-in-out;
+  -webkit-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  -ms-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+.show2{
+  display: flex;
+}
+
+.scrollContainer > a > img{
+  height: 100%;
+  max-width: unset;
+  padding-right: 10px;
+}
+
+
+.scrollContainer{
+  grid-column: 1 / span 12;
+  white-space: nowrap;
+  overflow: scroll;
+  width: 100%;
+  /*display: flex;
+  flex-direction: row;
+  column-gap: 20px;*/
+  height: 45vh;
+}
+.shortsChart{
+  grid-column: 7 / span 6;
+}
+.infoContainer{
+  grid-column: 1 / span 4;
+  align-self: center;
+
+}
+.infoContainer > div{
+  column-gap: 40px;
+}
+
+
+.infoContainer > div > a > img{
+  max-width: 120px;
+}
+
+
+.explainerTeoverflxt{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.heading{
+  display: flex;
+  align-items: center;
+  padding-left: 0;
+  column-gap: 20px;
+}
+
+.heading > h1{
+  font-size: 18px;
+
+}
+
+.bodyTitle{
+
+}
+.bodyText{
+
+}
+
+.campHeroColor{
+  fill: red;
+}
+.blackColor{
+  fill: black;
+}
+
+.shadeShortColor{
+  fill: goldenrod;
+}
+
+.otterSwimColor{
+  fill: aqua;
+} 
+  
+.siteShortColor{
+  fill: beige;
+}
+.expeditionShortColor{
+  fill: green;
+}
+.effoShortColor{
+  fill: aqua;
+}
+.laxShortColor{
+  fill: whitesmoke;
+}
+.bankShortColor{
+  fill: #3e372d;
+}
+
+
+ @media (max-width: 1350px) {
+.shortsChart{
+  grid-column: 6 / span 7;
+}
+ }
+
+ @media (max-width: 900px) {
+
+.gridContainer{
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 0px;
+    grid-row-gap: 10px;
+    display: grid;
+    margin: 50px 10px 0px 10px;
+  }
+
+.shortsChart{
+  grid-column: 1 / span 12;
+  grid-row: 3;
+  padding-top: 20px;
+}
+.infoContainer{
+  grid-column: 1 / span 12;
+  margin-bottom: 20px;
+/*  align-self: center; */
+
+}
+.hide2{
+  display: block;
+}
+
+.infoContainer > div {
+    border-top: 1px black solid;
+    padding-block: 20px;
+    column-gap: 40px;
+    display: flex;
+}
+#firstExplainer{
+  border-top: none;
+  padding-top: 10px;
+}
+
+
+
+</style>
+<body>
+<div class="gridContainer">
+
+  <!--CAROUSEL OF DETAIL PHOTOS-->
+
+  <div class="scrollContainer">
+    <a href="https://adsumnyc.com/collections/bottoms/products/shade-short-mustard">
+      <img class="shadeShort" src="https://cdn.shopify.com/s/files/1/0664/2387/files/Summer-shade-short-mustard-detail-3-2-opt.jpg?v=1655242699" alt="shade short in mustard front clasp detail">
+    </a>
+    <a href="https://adsumnyc.com/collections/bottoms/products/camp-hero-short-cherry">      
+      <img class="campHero" src="https://cdn.shopify.com/s/files/1/0664/2387/products/Summer-camp-hero-cherry-3.jpg?v=1650054322" alt="camp hero short in cherry reflective logo detail">
+    </a>
+    <a href="https://adsumnyc.com/collections/bottoms/products/otter-swim-trunk-aqua">
+      <img class="otterSwim" src="https://cdn.shopify.com/s/files/1/0664/2387/products/Summer-otter-swim-aqua-detail-1.jpg?v=1650482662" alt="Otter swim trunk in aqua back pocket detail">
+    </a>
+    <a href="https://adsumnyc.com/collections/bottoms/products/bank-short-dark-green">
+      <img class="bankShort" src="https://cdn.shopify.com/s/files/1/0664/2387/products/Summer-bank-short-detail-1.jpg?v=1650469246" alt="Bank Short in Dark Green back pocket detail">
+    </a>
+    <a href="https://adsumnyc.com/collections/bottoms/products/site-short-beige">
+      <img class="siteShort" src="https://cdn.shopify.com/s/files/1/0664/2387/products/Summer-site-short-beige-2.jpg?v=1650489694" alt="Site Short in beige Zipper pocket detail">
+    </a>
+    <a href="https://adsumnyc.com/collections/bottoms/products/expedition-short-dark-green">
+      <img class="expeditionShort" src="https://cdn.shopify.com/s/files/1/0664/2387/products/GARMENT-DYED-PACK0018-EXPEDITION-SHORT-OLIVE-detail-5.jpg?v=1652805293" alt="Expedition Short in green front button detail">
+    </a>
+    <a href="https://adsumnyc.com/collections/bottoms/products/effo-short-aqua">
+      <img class="effoShort" src="https://cdn.shopify.com/s/files/1/0664/2387/products/Summer-effo-aqua-detail-2_35589737-722f-48c3-a1a9-5e7cd8d63890.jpg?v=1650486847" alt="Effo Short in aqua Herringbone tape detail">
+    </a>
+    <a href="https://adsumnyc.com/collections/bottoms/products/lax-short-dark-green">
+      <img class="laxShort" src="https://cdn.shopify.com/s/files/1/0664/2387/products/ss22-product-photos1566.jpg?v=1646184661" alt="Lax Short in green front patch detail">
+    </a>
+    <a href="https://adsumnyc.com/collections/bottoms/products/shade-short-stone-washed-denim">
+      <img class="shadeShort" src="https://cdn.shopify.com/s/files/1/0664/2387/products/Summer-shade-short-denim-2.jpg?v=1650469511" alt="shade short in denim back pocket detail">
+    </a>
+    <a href="https://adsumnyc.com/collections/bottoms/products/site-short-sun-pollen">
+      <img class="siteShort" src="https://cdn.shopify.com/s/files/1/0664/2387/products/Summer-site-short-sun-pollen-2.jpg?v=1650052789" alt="Site Short in beige Zipper pocket detail">
+    </a>
+    <a href="https://adsumnyc.com/products/camp-hero-short-dark-navy-liquid-print">      
+      <img class="campHero" src="https://cdn.shopify.com/s/files/1/0664/2387/products/Summer-camp-hero-liquid-print-navy-1.jpg?v=1650055511" alt="camp hero short liquid print in blue reflective logo detail">
+    </a>
+    <a href="https://adsumnyc.com/collections/bottoms/products/lax-short-dark-navy">
+      <img class="laxShort" src="https://cdn.shopify.com/s/files/1/0664/2387/products/ss22-product-photos1591.jpg?v=1646184642" alt="Lax Short in navy front patch detail">
+    </a>
+    <a href="https://adsumnyc.com/collections/bottoms/products/effo-short-stone">
+      <img class="effoShort" src="https://cdn.shopify.com/s/files/1/0664/2387/products/ss21-ecomm--140.jpg?v=1615951958" alt="Effo Short in Stone Herringbone tape and back pocket detail">
+    </a>
+    <a href="https://adsumnyc.com/products/bank-short-beige">
+      <img class="bankShort" src="https://cdn.shopify.com/s/files/1/0664/2387/products/Summer-bank-short-beige-detail-1.jpg?v=1650473352" alt="Bank Short in beige back pocket detail">
+    </a>
+    <a href="https://adsumnyc.com/collections/bottoms/products/otter-swim-trunk-cherry">
+      <img class="otterSwim" src="https://cdn.shopify.com/s/files/1/0664/2387/products/Summer-otter-swim-cherry-3.jpg?v=1650483707" alt="Otter swim trunk in cherry back pocket detail">
+    </a>
+    <a href="https://adsumnyc.com/collections/bottoms/products/expedition-short-dark-navy">
+      <img class="expeditionShort" src="https://cdn.shopify.com/s/files/1/0664/2387/products/GARMENT-DYED-PACK0032-expedition-navy-detail-4.jpg?v=1652804869
+" alt="Expedition Short in navy back button detail">
+    </a>
+
+
+
+
+  </div>
+
+  <!--HEADING - Will not change-->
+  <div class="heading">  
+    <h1>A Guide to Adsum Shorts</h1>
+    <div class="scrollCommand">→ Scroll</div>
+  </div>
+
+
+  <!--Info Container - Will change-->
+  <div class="infoContainer">
+
+
+    <div class="firstExplainer show2" id="firstExplainer">
+      <div class="explainerText">
+        <p class="bodyTitle"></p>
+        <p class="bodyText">We offer a variety of shorts for all your summer needs. But which one should you buy? We put together a little guide below to help you navigate and find the right short for you.</p>
+      </div>
+    </div>
+
+    <div class="shadeShortExplainer hide2">
+      <div class="explainerText">
+        <a href="https://adsumnyc.com/collections/bottoms/products/shade-short-mustard">
+          <p class="bodyTitle">Seam Short</p>
+          <p class="bodyText">The Seam Short is inpired by the general design language of a volley short style. We played with seam positioning and cutlines, pushing forward the side seams into curved cutlines that finish towards the front panels of each leg.</p>
+        </a>
+      </div>
+      <a href="https://adsumnyc.com/collections/all/products/overlock-seam-short-gazer-slate">
+        <img class="previewImage" src="https://cdn.shopify.com/s/files/1/0664/2387/files/SS23-overlock-seam-short-gazer-slate-laydown-2.jpg?v=1685717879" alt="Seam Short">
+     </a>
+    </div>
+
+    <div class="campHeroExplainer hide2">
+      <div class="explainerText">
+        <a href="https://adsumnyc.com/products/cargo-trail-short-black">      
+          <p class="bodyTitle">Cargo Trail Short</p>
+          <p class="bodyText">The Cargo Trail Short is an athletic fit short constructed from a 4 way stretch UV protectant, quick dry fabric. Exterior cargo pockets allow for easy access and highly breathable storage. </p>
+        </a>
+      </div>
+      <a href="https://adsumnyc.com/products/cargo-trail-short-black">
+        <img class="previewImage" src="https://cdn.shopify.com/s/files/1/0664/2387/files/SS23-118-cargo-trail-short-black-2.jpg?v=1685717881" alt="Cargo Trail Short">
+      </a>
+    </div>
+
+    <div class="otterSwimExplainer hide2">
+      <div class="explainerText">
+        <a href="https://adsumnyc.com/collections/all/products/otter-swim-trunk-port">
+          <p class="bodyTitle">Otter Swim Trunk</p>
+          <p class="bodyText">Adsum’s first ever swim short, The Otter Swim Trunk is designed for pure water activity. It has a relatively short inseam at 6.5” long and is lined with stretch perforated mesh to keep internal bits in place when you go commando in the trunks.</p>
+        </a>
+      </div>
+      <a href="https://adsumnyc.com/collections/all/products/otter-swim-trunk-port">
+        <img class="previewImage" src="https://cdn.shopify.com/s/files/1/0664/2387/files/FW22-Product-Flat-otter-swim-short-port.jpg?v=1685717883" alt="Otter Swim Trunk">
+      </a>
+    </div>
+
+    <div class="bankShortExplainer hide2">
+      <div class="explainerText">
+        <a href="https://adsumnyc.com/collections/bottoms/products/bank-short-dark-green">
+          <p class="bodyTitle">Bank Short</p>
+          <p class="bodyText">The Bank Short is our classic pair of shorts. It's still casual with an elastic waistband for comfort, but it's also the one that's most appropriate with a fresh buttondown.</p>
+        </a>
+      </div>
+      <a href="https://adsumnyc.com/collections/bottoms/products/bank-short-dark-green">
+       <img class="previewImage" src="https://cdn.shopify.com/s/files/1/0664/2387/products/Summer-bank-short-green.jpg?v=1650405072">
+      </a>
+    </div>
+
+
+    <div class="siteShortExplainer hide2">
+      <div class="explainerText">
+        <a href="https://adsumnyc.com/collections/bottoms/products/site-short-sage">
+          <p class="bodyTitle">Site Short</p>
+          <p class="bodyText">The Site Short is our active utility short designed to be in and out of the water. The zippered pockets keep your belongings from falling out and the abrasion resistant fabric prevents snags on outdoor adventures.</p>
+        </a>
+      </div>
+      <a href="https://adsumnyc.com/collections/bottoms/products/site-short-sage">
+        <img class="previewImage" src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-site-short-green-2.jpg?v=1685717977" alt="Site Short - Sage">
+      </a>
+    </div>
+
+    <div class="expeditionShortExplainer hide2">
+      <div class="explainerText">
+        <a href="https://adsumnyc.com/collections/bottoms/products/expedition-short-dark-green">
+          <p class="bodyTitle">Run Short</p>
+          <p class="bodyText">Made from a micro perforated lightweight 92% Polyester 8% Spandex fabric weighing 45 GSM, it is feathery light and highly breathable. The inseam length comes in at 6" so they aren't super short but hit well above the knee.</p>
+        </a>
+      </div>
+      <a href="https://adsumnyc.com/collections/bottoms/products/run-short-oakland-green">
+        <img class="previewImage" src="https://cdn.shopify.com/s/files/1/0664/2387/files/FW22-Product-Flat-run-short-green-2.jpg?v=1685717874" alt="Run Short">
+      </a>
+    </div>
+    <div class="effoShortExplainer hide2">
+      <div class="explainerText">
+        <a href="https://adsumnyc.com/collections/bottoms/products/effo-short-aqua">
+          <p class="bodyTitle">Effo Short</p>
+          <p class="bodyText">The Effo Short is our casual sport short. It’s meant for when you want to just get some activity into your day whether that's shooting around on an outdoor hoop, rallying with your friend on the tennis court, or cleaning the house with the music going.</p>
+        </a>
+      </div>
+      <a href="https://adsumnyc.com/collections/bottoms/products/effo-short-navy">
+        <img class="previewImage" src="https://cdn.shopify.com/s/files/1/0664/2387/files/ss21-ecomm-drop1-navy-effo-short.jpg?v=1685719218" alt="Effo Short - Navy">
+      </a>
+    </div>
+    <div class="laxShortExplainer hide2">
+      <div class="explainerText">
+        <a href="https://adsumnyc.com/collections/bottoms/products/lax-short-grey">
+          <p class="bodyTitle">Lax Short</p>
+          <p class="bodyText">The Lax Short is a heavyweight pocket mesh short that references design from a sport we love. It has branded patch embellishments and 250 GSM heavyweight polyester fabric that makes it one of our favorites.</p>
+        </a>
+      </div>
+      <a href="https://adsumnyc.com/collections/bottoms/products/lax-short-grey">
+        <img class="previewImage" src="https://cdn.shopify.com/s/files/1/0664/2387/files/FW22-Product-Flat-lax-short-grey.jpg?v=1685717870" alt="LAX Short">
+      </a>
+    </div>
+    <div class="laxShortExplainer hide2">
+      <div class="explainerText">
+        <a href="https://adsumnyc.com/collections/bottoms/products/summer-patch-pocket-short-navy">
+          <p class="bodyTitle">Summer Patch Pocket Short</p>
+          <p class="bodyText">Taking ques from our SS18 Utility Pant we developed a relaxed fit patch pocket short that shares the mid weight peached canvas fabric from the newly design SS23 Summer Patch Pocket Pant.</p>
+        </a>
+      </div>
+      <a href="https://adsumnyc.com/collections/bottoms/products/summer-patch-pocket-short-navy">
+        <img class="previewImage" src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-short-beige_17bd8294-480c-4f7b-ad16-bdbbd4c36371-2-3.jpg?v=1685717903" alt="Summer Patch Pocket Pant">
+      </a>
+    </div>
+<div class="laxShortExplainer hide2">
+      <div class="explainerText">
+        <a href="https://adsumnyc.com/collections/bottoms/products/flexure-zip-short-beige">
+          <p class="bodyTitle">Flexure Zip Short</p>
+          <p class="bodyText">This short features unique curved openings giving the back section of the short a new modern aesthetic. The wearers left leg of the short has a large zippered asymmetrical patch pocket for secure stowage needed outside regular hand pockets.</p>
+        </a>
+      </div>
+      <a href="https://adsumnyc.com/collections/bottoms/products/flexure-zip-short-beige">
+        <img class="previewImage" src="https://cdn.shopify.com/s/files/1/0664/2387/files/SS23-12-3-opt-2.jpg?v=1685717876" alt="Flexure Zip Short">
+      </a>
+    </div>
+  </div>
+
+
+  <!--SHORTS CHART-->
+
+
+  <div class="shortsChart">
+    <?xml version="1.0" encoding="UTF-8"?><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 811.4 228.21"><defs><style>.cls-1{letter-spacing:0em;}.cls-2{letter-spacing:-.02em;}.cls-3{letter-spacing:.01em;}.cls-4{letter-spacing:0em;}.cls-5{letter-spacing:0em;}.cls-6{letter-spacing:0em;}.cls-7{letter-spacing:0em;}.cls-8{letter-spacing:0em;}.cls-9{letter-spacing:0em;}.cls-10{letter-spacing:0em;}.cls-11{letter-spacing:0em;}.cls-12{letter-spacing:0em;}.cls-13{letter-spacing:0em;}.cls-14{letter-spacing:0em;}.cls-15{letter-spacing:.02em;}.cls-16{letter-spacing:0em;}.cls-18,.cls-19{fill:#231f20;}.cls-20{letter-spacing:0em;}.cls-21{letter-spacing:0em;}.cls-22{letter-spacing:0em;}.cls-23{letter-spacing:.01em;}.cls-24{letter-spacing:0em;}.cls-25{letter-spacing:0em;}.cls-26{letter-spacing:.01em;}.cls-27{letter-spacing:0em;}.cls-28{letter-spacing:0em;}.cls-29{letter-spacing:.01em;}.cls-30{letter-spacing:.01em;}.cls-31{letter-spacing:0em;}.cls-32{letter-spacing:0em;}.cls-33{letter-spacing:0em;}.cls-34{letter-spacing:0em;}.cls-35{letter-spacing:0em;}.cls-36{letter-spacing:.02em;}.cls-37{letter-spacing:0em;}.cls-38{letter-spacing:0em;}.cls-18{font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;}.cls-18,.cls-19{font-size:13px;}.cls-39{letter-spacing:0em;}.cls-40{letter-spacing:.02em;}.cls-41{letter-spacing:0em;}.cls-42{letter-spacing:0em;}.cls-43{letter-spacing:0em;}.cls-44{letter-spacing:0em;}.cls-45{letter-spacing:0em;}.cls-46{letter-spacing:.03em;}.cls-47{letter-spacing:0em;}.cls-48{letter-spacing:-.03em;}.cls-49{letter-spacing:0em;}.cls-50{stroke-width:1.04px;}.cls-50,.cls-51{fill:none;stroke:#231f20;stroke-miterlimit:10;}.cls-52{letter-spacing:0em;}.cls-53{letter-spacing:.03em;}.cls-54{letter-spacing:0em;}.cls-55{letter-spacing:0em;}.cls-56{letter-spacing:0em;}.cls-57{letter-spacing:0em;}.cls-58{letter-spacing:-.02em;}.cls-59{letter-spacing:-.06em;}.cls-60{letter-spacing:0em;}.cls-61{letter-spacing:0em;}.cls-51{stroke-width:1.2px;}.cls-62{letter-spacing:0em;}.cls-63{letter-spacing:0em;}.cls-64{letter-spacing:0em;}.cls-65{letter-spacing:0em;}.cls-19{font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: bold;}.cls-66{letter-spacing:.01em;}.cls-67{letter-spacing:0em;}.cls-68{letter-spacing:0em;}.cls-69{letter-spacing:0em;}.cls-70{letter-spacing:0em;}.cls-71{letter-spacing:0em;}.cls-72{letter-spacing:.01em;}.cls-73{letter-spacing:0em;}.cls-74{letter-spacing:0em;}.cls-75{letter-spacing:0em;}.cls-76{letter-spacing:0em;}.cls-77{letter-spacing:0em;}.cls-78{letter-spacing:.03em;}.cls-79{letter-spacing:0em;}.cls-80{letter-spacing:0em;}.cls-81{letter-spacing:0em;}.cls-82{letter-spacing:0em;}.cls-83{letter-spacing:0em;}.cls-84{letter-spacing:-.02em;}.cls-85{letter-spacing:0em;}.cls-86{letter-spacing:0em;}.cls-87{letter-spacing:0em;}.cls-88{letter-spacing:0em;}.cls-89{letter-spacing:0em;}.cls-90{letter-spacing:0em;}.cls-91{letter-spacing:0em;}.cls-92{letter-spacing:0em;}.cls-93{letter-spacing:0em;}.cls-94{letter-spacing:0em;}.cls-95{letter-spacing:.02em;}</style></defs><text class="cls-19" transform="translate(460.73 10.02)"><tspan class="cls-3" x="0" y="0">S</tspan><tspan class="cls-90" x="8.6" y="0">i</tspan><tspan class="cls-94" x="12.01" y="0">t</tspan><tspan x="16.61" y="0">e</tspan><tspan class="cls-15" x="-5.19" y="15.6">S</tspan><tspan class="cls-45" x="3.45" y="15.6">h</tspan><tspan class="cls-64" x="11.2" y="15.6">o</tspan><tspan class="cls-46" x="19.21" y="15.6">r</tspan><tspan class="cls-89" x="24.69" y="15.6">t</tspan></text><text class="cls-19" transform="translate(303.92 10.02)"><tspan class="cls-25" x="0" y="0">C</tspan><tspan class="cls-67" x="9.6" y="0">a</tspan><tspan class="cls-92" x="17.15" y="0">m</tspan><tspan x="29.04" y="0">p</tspan><tspan class="cls-67" x="3.32" y="15.6">H</tspan><tspan class="cls-11" x="13.04" y="15.6">e</tspan><tspan class="cls-28" x="20.59" y="15.6">r</tspan><tspan x="25.72" y="15.6">o</tspan></text><text class="cls-19" transform="translate(384.9 10.02)"><tspan class="cls-24" x="0" y="0">E</tspan><tspan class="cls-53" x="8.42" y="0">f</tspan><tspan class="cls-41" x="13.17" y="0">f</tspan><tspan x="17.44" y="0">o</tspan><tspan class="cls-15" x="-4.53" y="15.6">S</tspan><tspan class="cls-45" x="4.1" y="15.6">h</tspan><tspan class="cls-64" x="11.85" y="15.6">o</tspan><tspan class="cls-46" x="19.86" y="15.6">r</tspan><tspan class="cls-89" x="25.34" y="15.6">t</tspan></text><text class="cls-19" transform="translate(231.6 10.02)"><tspan class="cls-28" x="0" y="0">B</tspan><tspan class="cls-39" x="9.22" y="0">a</tspan><tspan class="cls-57" x="16.8" y="0">n</tspan><tspan x="24.54" y="0">k</tspan><tspan class="cls-15" x="-1.22" y="15.6">S</tspan><tspan class="cls-45" x="7.41" y="15.6">h</tspan><tspan class="cls-64" x="15.16" y="15.6">o</tspan><tspan class="cls-46" x="23.17" y="15.6">r</tspan><tspan class="cls-89" x="28.65" y="15.6">t</tspan></text><text class="cls-18" transform="translate(0 64.73)"><tspan class="cls-1" x="0" y="0">L</tspan><tspan class="cls-77" x="7.19" y="0">u</tspan><tspan class="cls-9" x="14.37" y="0">n</tspan><tspan class="cls-56" x="21.56" y="0">c</tspan><tspan x="28.51" y="0">h </tspan><tspan class="cls-88" x="39.35" y="0">w</tspan><tspan class="cls-49" x="49.12" y="0">i</tspan><tspan class="cls-44" x="51.96" y="0">t</tspan><tspan x="55.93" y="0">h </tspan><tspan class="cls-83" x="66.77" y="0">G</tspan><tspan class="cls-10" x="76.65" y="0">i</tspan><tspan class="cls-8" x="79.46" y="0">r</tspan><tspan class="cls-61" x="83.8" y="0">l</tspan><tspan class="cls-63" x="86.62" y="0">f</tspan><tspan class="cls-8" x="90.45" y="0">r</tspan><tspan class="cls-20" x="94.79" y="0">i</tspan><tspan class="cls-52" x="97.61" y="0">e</tspan><tspan class="cls-7" x="104.62" y="0">n</tspan><tspan class="cls-58" x="111.81" y="0">d</tspan><tspan class="cls-59" x="119.31" y="0">’</tspan><tspan x="122.2" y="0">s </tspan><tspan class="cls-2" x="132.31" y="0">P</tspan><tspan class="cls-73" x="140.48" y="0">a</tspan><tspan class="cls-14" x="147.49" y="0">r</tspan><tspan class="cls-52" x="151.72" y="0">e</tspan><tspan class="cls-32" x="158.73" y="0">n</tspan><tspan class="cls-31" x="165.87" y="0">t</tspan><tspan x="169.93" y="0">s</tspan></text><text class="cls-18" transform="translate(0 102)"><tspan class="cls-65" x="0" y="0">H</tspan><tspan class="cls-80" x="9.3" y="0">i</tspan><tspan class="cls-87" x="12.06" y="0">k</tspan><tspan class="cls-16" x="18.82" y="0">i</tspan><tspan class="cls-6" x="21.61" y="0">n</tspan><tspan class="cls-81" x="28.78" y="0">g </tspan><tspan class="cls-44" x="39.86" y="0">t</tspan><tspan class="cls-4" x="43.83" y="0">h</tspan><tspan class="cls-81" x="51" y="0">e </tspan><tspan class="cls-85" x="61.59" y="0">Ad</tspan><tspan class="cls-10" x="77.51" y="0">ir</tspan><tspan class="cls-9" x="84.58" y="0">on</tspan><tspan class="cls-41" x="99.19" y="0">d</tspan><tspan class="cls-69" x="106.84" y="0">a</tspan><tspan class="cls-4" x="113.76" y="0">c</tspan><tspan class="cls-75" x="120.68" y="0">k</tspan><tspan x="127.3" y="0">s</tspan></text><text class="cls-18" transform="translate(0 139.27)"><tspan class="cls-55" x="0" y="0">J</tspan><tspan class="cls-77" x="6.66" y="0">u</tspan><tspan class="cls-69" x="13.84" y="0">m</tspan><tspan x="24.86" y="0">p </tspan><tspan class="cls-21" x="36.19" y="0">i</tspan><tspan x="38.98" y="0">n a </tspan><tspan class="cls-23" x="60.41" y="0">L</tspan><tspan class="cls-43" x="67.83" y="0">a</tspan><tspan class="cls-48" x="74.78" y="0">k</tspan><tspan x="81.18" y="0">e</tspan></text><text class="cls-18" transform="translate(0 176.54)"><tspan class="cls-84" x="0" y="0">P</tspan><tspan class="cls-33" x="8.21" y="0">i</tspan><tspan class="cls-68" x="11.05" y="0">c</tspan><tspan x="17.97" y="0">k </tspan><tspan class="cls-32" x="28.33" y="0">U</tspan><tspan class="cls-81" x="37.63" y="0">p So</tspan><tspan class="cls-87" x="64.84" y="0">c</tspan><tspan x="71.83" y="0">c</tspan><tspan class="cls-54" x="78.81" y="0">e</tspan><tspan class="cls-81" x="85.84" y="0">r </tspan><tspan class="cls-70" x="93.79" y="0">G</tspan><tspan class="cls-62" x="103.7" y="0">a</tspan><tspan class="cls-60" x="110.69" y="0">m</tspan><tspan x="121.73" y="0">e</tspan></text><text class="cls-18" transform="translate(0 213.82)"><tspan class="cls-79" x="0" y="0">D</tspan><tspan class="cls-8" x="9.23" y="0">r</tspan><tspan class="cls-21" x="13.57" y="0">in</tspan><tspan class="cls-87" x="23.5" y="0">k</tspan><tspan class="cls-16" x="30.26" y="0">i</tspan><tspan class="cls-4" x="33.05" y="0">n</tspan><tspan x="40.22" y="0">g </tspan><tspan class="cls-42" x="51.3" y="0">B</tspan><tspan class="cls-38" x="60.17" y="0">e</tspan><tspan class="cls-54" x="67.23" y="0">e</tspan><tspan class="cls-29" x="74.26" y="0">r</tspan><tspan x="78.73" y="0">s </tspan><tspan class="cls-61" x="88.84" y="0">a</tspan><tspan x="95.75" y="0">t a </tspan><tspan class="cls-76" x="114.06" y="0">B</tspan><tspan class="cls-27" x="122.9" y="0">a</tspan><tspan class="cls-91" x="129.91" y="0">s</tspan><tspan class="cls-37" x="136.38" y="0">e</tspan><tspan class="cls-74" x="143.37" y="0">b</tspan><tspan class="cls-24" x="151.02" y="0">a</tspan><tspan class="cls-71" x="157.99" y="0">l</tspan><tspan x="160.75" y="0">l </tspan><tspan class="cls-22" x="167.25" y="0">G</tspan><tspan class="cls-62" x="177.16" y="0">a</tspan><tspan class="cls-60" x="184.15" y="0">m</tspan><tspan x="195.19" y="0">e</tspan></text><g><line class="cls-51" x1=".29" y1="227.51" x2="610.71" y2="227.51"/><line class="cls-51" x1=".29" y1="189.99" x2="610.71" y2="189.99"/><line class="cls-51" x1=".29" y1="152.47" x2="610.71" y2="152.47"/><line class="cls-51" x1=".29" y1="114.94" x2="610.71" y2="114.94"/><line class="cls-51" x1=".29" y1="77.42" x2="610.71" y2="77.42"/><line class="cls-50" x1="510.36" y1="39.9" x2="510.36" y2="227.51"/><line class="cls-50" x1="435.18" y1="39.9" x2="435.18" y2="227.51"/><line class="cls-50" x1="360" y1="39.9" x2="360" y2="227.51"/><line class="cls-50" x1="284.82" y1="39.9" x2="284.82" y2="227.51"/><line class="cls-50" x1="210.39" y1="39.9" x2="210.39" y2="227.51"/></g><line class="cls-51" x1=".29" y1="39.9" x2="610.71" y2="39.9"/><g><line class="cls-51" x1="710.79" y1="39.9" x2="610.71" y2="39.9"/><line class="cls-51" x1="710.79" y1="77.42" x2="610.71" y2="77.42"/><line class="cls-51" x1="710.79" y1="114.94" x2="610.71" y2="114.94"/><line class="cls-51" x1="710.79" y1="152.47" x2="610.71" y2="152.47"/><line class="cls-51" x1="710.79" y1="189.99" x2="610.71" y2="189.99"/><line class="cls-50" x1="585.54" y1="227.51" x2="585.54" y2="39.9"/><line class="cls-51" x1="710.79" y1="227.51" x2="610.71" y2="227.51"/></g><g><line class="cls-51" x1="810.88" y1="39.9" x2="710.79" y2="39.9"/><line class="cls-51" x1="810.88" y1="77.42" x2="710.79" y2="77.42"/><line class="cls-51" x1="810.88" y1="114.94" x2="710.79" y2="114.94"/><line class="cls-51" x1="810.88" y1="152.47" x2="710.79" y2="152.47"/><line class="cls-51" x1="810.88" y1="189.99" x2="710.79" y2="189.99"/><line class="cls-50" x1="660.73" y1="227.51" x2="660.73" y2="39.9"/><line class="cls-51" x1="810.88" y1="227.51" x2="710.79" y2="227.51"/></g><line class="cls-50" x1="735.8" y1="227.51" x2="735.8" y2="39.9"/><line class="cls-50" x1="810.88" y1="227.51" x2="810.88" y2="39.9"/><text class="cls-19" transform="translate(528.17 10.02)"><tspan class="cls-15" x="0" y="0">S</tspan><tspan class="cls-5" x="8.64" y="0">h</tspan><tspan class="cls-93" x="16.43" y="0">a</tspan><tspan class="cls-86" x="23.94" y="0">d</tspan><tspan x="32.01" y="0">e</tspan><tspan class="cls-15" x="2.51" y="15.6">S</tspan><tspan class="cls-45" x="11.15" y="15.6">h</tspan><tspan class="cls-64" x="18.9" y="15.6">o</tspan><tspan class="cls-46" x="26.91" y="15.6">r</tspan><tspan class="cls-89" x="32.39" y="15.6">t</tspan></text><text class="cls-19" transform="translate(611.82 10.02)"><tspan class="cls-30" x="0" y="0">L</tspan><tspan class="cls-36" x="7.86" y="0">a</tspan><tspan x="15.56" y="0">x</tspan><tspan class="cls-15" x="-5.96" y="15.6">S</tspan><tspan class="cls-45" x="2.68" y="15.6">h</tspan><tspan class="cls-64" x="10.43" y="15.6">o</tspan><tspan class="cls-46" x="18.44" y="15.6">r</tspan><tspan class="cls-89" x="23.92" y="15.6">t</tspan></text><text class="cls-19" transform="translate(664.85 10.02)"><tspan class="cls-40" x="0" y="0">E</tspan><tspan class="cls-26" x="8.67" y="0">x</tspan><tspan class="cls-82" x="15.78" y="0">p</tspan><tspan class="cls-11" x="23.82" y="0">e</tspan><tspan class="cls-13" x="31.37" y="0">d</tspan><tspan class="cls-90" x="39.42" y="0">i</tspan><tspan class="cls-95" x="42.83" y="0">t</tspan><tspan class="cls-34" x="47.62" y="0">i</tspan><tspan class="cls-64" x="51.01" y="0">o</tspan><tspan x="59.02" y="0">n</tspan><tspan class="cls-15" x="16.14" y="15.6">S</tspan><tspan class="cls-45" x="24.78" y="15.6">h</tspan><tspan class="cls-64" x="32.52" y="15.6">o</tspan><tspan class="cls-46" x="40.54" y="15.6">r</tspan><tspan class="cls-89" x="46.02" y="15.6">t</tspan></text><text class="cls-19" transform="translate(757.16 10.02)"><tspan class="cls-72" x="0" y="0">O</tspan><tspan class="cls-78" x="10.3" y="0">t</tspan><tspan class="cls-47" x="15.22" y="0">t</tspan><tspan class="cls-12" x="19.83" y="0">e</tspan><tspan x="27.37" y="0">r</tspan><tspan class="cls-66" x="-1" y="15.6">S</tspan><tspan class="cls-5" x="7.58" y="15.6">w</tspan><tspan class="cls-35" x="18.24" y="15.6">i</tspan><tspan class="cls-89" x="21.65" y="15.6">m</tspan></text><circle class="cls-17 laxShortCircle" cx="623.09" cy="208.54" r="5.68"/><circle class="cls-17 laxShortCircle" cx="623.09" cy="171.38" r="5.68"/><circle class="cls-17 campHeroCircle" cx="322.41" cy="208.64" r="5.68"/><circle class="cls-17 campHeroCircle" cx="322.41" cy="171.17" r="5.68"/><circle class="cls-17 campHeroCircle" cx="322.41" cy="133.81" r="5.68"/><circle class="cls-17 otterSwimCircle" cx="773.38" cy="208.43" r="5.68"/><circle class="cls-17 otterSwimCircle" cx="773.38" cy="133.59" r="5.68"/><circle class="cls-17 campHeroCircle" cx="322.41" cy="96.18" r="5.68"/><circle class="cls-17 expeditionShortCircle" cx="698.21" cy="208.7" r="5.68"/><circle class="cls-17 expeditionShortCircle" cx="698.21" cy="96.24" r="5.68"/><circle class="cls-17 shadeShortCircle" cx="547.9" cy="208.64" r="5.68"/><circle class="cls-17 shadeShortCircle" cx="547.9" cy="96.18" r="5.68"/><circle class="cls-17 siteShortCircle" cx="472.77" cy="208.7" r="5.68"/><circle class="cls-17 siteShortCircle" cx="472.77" cy="133.86" r="5.68"/><circle class="cls-17 siteShortCircle" cx="472.77" cy="96.24" r="5.68"/><circle class="cls-17 effoShortCircle" cx="397.59" cy="208.7" r="5.68"/><circle class="cls-17 effoShortCircle" cx="397.59" cy="171.23" r="5.68"/><circle class="cls-17 bankShortCircle" cx="247.6" cy="58.55" r="5.68"/><circle class="cls-17 bankShortCircle" cx="247.6" cy="208.64" r="5.68"/></svg>
+  </div>
+
+
+</div>
+</body>
+
+
+
+
+<div class="postnav">
+  <a href="{{ blog.previous_article }}" class="btn" style="float: left">Previous Post</a>
+    {% if blog.next_article %}
+  <a href="{{ blog.next_article }}" class="btn" style="float: right">Next Post</a>
+    {% endif %}
+</div>
+
+
+{% include "footer" %}
+{{ 'ss22-shorts-guide-scroll.js' | asset_url | script_tag }}
+<script type="text/javascript">  
+//  $('.header-fullsite-fixed').addClass('header-fullsite').removeClass('header-fullsite-fixed');
+</script>

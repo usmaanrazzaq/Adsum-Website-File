@@ -1,0 +1,38 @@
+{% include "loading" %}
+
+<div class="page-padding">
+  
+  <div class="article">
+
+  <h1 class="page-title">
+    <!--
+    	{% if article.tags.size > 0 %} 
+          {% for tag in article.tags %}
+            <a href="{{ blog.url }}/tagged/{{ tag }}">{{ tag }}</a> / 
+            {% unless forloop.last %}, {% endunless %}
+          {% endfor %}
+        {% endif %}
+	-->
+    {{ article.title }}
+  </h1>
+
+      <div class="article-content">
+          {{ article.content }}
+      </div>
+  </div>
+
+<!--
+  <p class="postnav">
+      {% if prev_article %}<a href="{{ prev_article.url }}">&laquo; Previous: {{ prev_article.title | escape }}</a> | {% endif %}<a href="{{ blog.url }}">Back to {{ blog.title | escape }}</a>{% if next_article %} | <a href="{{ next_article.url }}">Next: {{ next_article.title | escape }} &raquo;</a>{% endif %}
+  </p>
+-->
+  
+  <div class="postnav">
+	<a href="{{ blog.previous_article }}" class="btn" style="float: left">Previous Post</a>
+    {% if blog.next_article %}
+	<a href="{{ blog.next_article }}" class="btn" style="float: right">Next Post</a>
+    {% endif %}
+  </div>
+
+</div>
+{% include "footer" %}

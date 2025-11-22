@@ -1,0 +1,55 @@
+{% include "loading" %}
+
+{% paginate collection.products by 39 %}
+
+<h1 class="collection-title">{{ collection.title }}</h1>
+
+{% if settings.collection_pagination %}
+<small>Showing items {{ paginate.current_offset | plus: 1 }}-{% if paginate.next %}{{ paginate.current_offset | plus: paginate.page_size }}{% else %}{{ paginate.items }}{% endif %} of {{ paginate.items }}.</small>
+{% endif %}
+
+<div id="adsumspace">
+<div id="products" class="gallery">
+  
+<!--
+<a href="/pages/ss17" class="collection-image-wrapper">
+  <div class="collection-image" style="position: relative;">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss17-ecommerce-collection-image.jpg?10244351127178494233" style="display: block; width: 100%; height: auto;">
+  	<div class="ss17-collection-image-text-block">
+      <span class="ss17-2017">
+        2017
+      </span>
+      <div class="deschutes-image-wrapper">
+      	<img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-deschutes.png?14542755777475455527" class="deschutes-image-white">
+        <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-deschutes-yellow.png?5119403434780328720" class="deschutes-image-yellow">
+      </div>
+      <a href="/pages/ss17-lookbook" target="_blank" class="ss17-lookbook-link">See Full Lookbook</a>
+      <div class="ss17-lookbook-link-underline"></div>
+    </div>
+  </div>
+</a>
+-->
+  
+<div class="collection-image" style="position: relative;">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-collection-ss17-sale5.jpg?1038882759512048733" style="display: block; width: 100%; height: auto;">
+  </div>
+    
+{% if collection.products.size == 0 %}
+	<p>There are currently no products in this collection. Please check back later.</p>
+{% else %}
+	{% include "gallery" %}
+{% endif %}
+</div>
+
+{% if paginate.pages > 1 %}
+	<div id="paginate">
+		{{ paginate | default_pagination }}
+	</div>
+{% endif %}
+
+{% endpaginate %}
+
+</div>
+
+<div style="padding: 100px 0 0 0;"></div>
+{% include "footer" %}

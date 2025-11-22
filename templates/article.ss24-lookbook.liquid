@@ -1,0 +1,242 @@
+<style>
+  .grid-1 {
+    display: grid;
+    width: 100%; 
+    grid-template-columns: repeat(12, 1fr);
+    padding: 102px 50px 120px;
+    justify-items: center;
+    row-gap: 10px;
+    column-gap: 10px;
+    max-width: 1800px;
+    margin: 0 auto;
+    place-content: center;
+  }
+   .cell-1, .cell-2 {
+     grid-column: span 1;
+     display: flex;
+     align-self: center;
+   }
+   .solo-image {
+     padding: 120px 0;
+     max-width: 500px; display: block; margin: 0 auto;
+   }
+  .lookbook-caption {
+    line-height: 14px;
+    font-size: 10px;
+    text-align: center;
+    max-width: 300px;
+    color: #000;
+    display: block;
+    font-weight: 400;
+    align-self: auto;
+    padding-top: 20px;
+    margin: 0 auto;
+  }
+  .lookbook-collection-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 16px;
+    row-gap: 20px;
+    padding: 10px 40px 40px 40px;
+  }
+}
+@media (max-width: 1400px) {
+  .grid-1 {
+    padding: 40px 40px;
+  }
+}
+@media (max-width: 1000px) {
+  .grid-1 {
+    padding: 40px 0px;
+  }
+}
+@media (max-width: 900px) {
+  .lookbook-caption {
+    grid-column: span 2;
+  }
+  .cell-1, .cell-2 {
+  }
+  .lookbook-collection-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0px 10px 40px 10px;
+  }
+}
+@media (max-width: 500px) {
+  .cell-mobile {
+    grid-column: 1 / span 2!important;
+  }
+  .solo-image:first-of-type {
+        padding-top: 45px;
+  }
+  .fw22-title {
+    font-size: 38px;
+  }
+  .fall-22-lookbook-header {
+    height: 75vh; 
+    width: 100%; 
+    background-image: url('https://cdn.shopify.com/s/files/1/0664/2387/files/cover-mobile-9B3A0568.jpg?v=1664562268'); 
+  }
+  .grid-1 {
+    margin: 0px;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0px 20px 10px;
+  }
+  .grid-1:first-of-type {
+    padding-bottom: 60px;
+    padding-top: 60px;
+  }
+  .cell-1, .cell-2 {
+    grid-column: span 2;
+  }
+}
+</style>
+
+<div class="grid-1">
+  <div class="cell-mobile" style="grid-column: 4 / span 6; display: flex; align-self: center; max-width: 600px;">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/MTG_ADSUM_HR_6.jpg?v=1713448998" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;" alt="FW23 Lookbook | Adsum">
+  </div>
+  <div class="cell-mobile" style="grid-column: 5 / span 4; grid-row: 2; max-width: 300px; margin: 0 auto; padding: 20px 20px 0 20px; text-align: center;">
+    <div style="font-size:14px; font-weight: 600;">Spring/Summer 24 Lookbook</div>
+    <div style="font-size:10px; padding-top: 4px; line-height: 13px;">
+      Shot on Diasaka by Marco in Greenpoint<br>
+      April 04, 2024
+    </div>
+  </div>
+</div>
+
+ <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 3 / span 8; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/MTG_ADSUM_HR_14.jpg?v=1713447531" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;" alt="FW23 Lookbook | Adsum">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 5 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/aADSUM_MTG-199.jpg?v=1713447695" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;" alt="FW23 Lookbook | Adsum">
+    </div>
+  </div>
+
+  
+
+  <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 3 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/ADSUM_MTG-38-5.jpg?v=1713205147" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;" alt="FW23 Lookbook | Adsum">
+    </div>
+    <div class="cell-mobile" style="grid-column: 7 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/aaMTG_ADSUM_HR_2.jpg?v=1713447855" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;" alt="FW23 Lookbook | Adsum">
+    </div>
+  </div>
+
+   <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 5 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/aMTG_ADSUM_HR_5.jpg?v=1713447924" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;" alt="FW23 Lookbook | Adsum">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 3 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/ADSUM_MTG-64-2.jpg?v=1713198595" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;" alt="FW23 Lookbook | Adsum">
+    </div>
+    <div class="cell-mobile" style="grid-column: 7 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/ADSUM_MTG-63-2.jpg?v=1713198595" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;" alt="FW23 Lookbook | Adsum">
+    </div>
+  </div> 
+
+  <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 5 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/MTG_ADSUM_HR_15.jpg?v=1713448063" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;" alt="FW23 Lookbook | Adsum">
+    </div>
+  </div>
+
+   <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 3 / span 8; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/aaMTG_ADSUM_HR_13.jpg?v=1713448349" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;" alt="FW23 Lookbook | Adsum">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 5 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/aaMTG_ADSUM_HR_10_ALT.jpg?v=1713448536" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;" alt="FW23 Lookbook | Adsum">
+    </div>
+  </div>
+
+
+<div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 3 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/aaaaMTG_ADSUM_HR_7.jpg?v=1713448818" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;" alt="FW23 Lookbook | Adsum">
+    </div>
+    <div class="cell-mobile" style="grid-column: 7 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/ADSUM_MTG-40.jpg?v=1713197303" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;" alt="FW23 Lookbook | Adsum">
+    </div>
+  </div>
+  
+      <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 5 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/ADSUM_MTG-45-2.jpg?v=1713206217" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;" alt="FW23 Lookbook | Adsum">
+    </div>
+  </div>   
+
+  <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 3 / span 8; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/MTG_ADSUM_HR_16_ALT.jpg?v=1713447041" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;" alt="FW23 Lookbook | Adsum">
+    </div>
+  </div>
+ 
+  <div style="font-size:10px; padding-top: 4px; line-height: 13px; max-width: 300px; margin: 0 auto;">
+    Diasaka is 6'1" and wearing size Large in everything.
+  </div>
+  
+</div>
+
+{% comment %}
+<div class="featured-products-title">
+	Collection
+</div>
+
+<div id="products" class="lookbook-collection-grid {{ collection.title | handleize }}">
+  {% for product in collections.fw23-drop-2.products %}
+  	<div class="collection-grid-item">
+      <a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}">  
+        <div style="position: relative;">
+          <img data-sizes="auto"
+               src="{{ product.images.first | product_img_url: '1x1' }}" 
+               data-src="{{ product.images.first | product_img_url: '1024x1024' }}"
+               data-srcset="{{ product.images.first | product_img_url: '600x600' }} 300w,
+                            {{ product.images.first | product_img_url: '1200x1200' }} 600w,
+                            {{ product.images.first | product_img_url: '1800x1800' }} 900w"
+               alt="{{ product.title | strip_html | escape }}" class="lazyload" style="display: block; width: 100%; height: 100%;" />
+          <img data-sizes="auto"
+               src="{{ product.images[1] | product_img_url: '1x1' }}" 
+               data-src="{{ product.images[1] | product_img_url: '1024x1024' }}" 
+               data-srcset="{{ product.images[1] | product_img_url: '600x600' }} 300w,
+                            {{ product.images[1] | product_img_url: '1200x1200' }} 600w,
+                            {{ product.images[1] | product_img_url: '1800x1800' }} 900w"
+               alt="{{ product.images[1].alt | escape }}" class="collection-product-hover lazyload"/>
+        </div>
+        <div class="product_info_content">
+            {%if product.available == true %}
+                <div class="gallery-product-title">
+                    {{ product.title }}
+                </div>
+                <div class="gallery-product-price">
+                    {% if product.compare_at_price_max > product.price %}
+                        <del class="sale">{{ product.compare_at_price_max | money }}</del>
+                    {% endif %}
+                    {{ product.price | money }}
+                </div>
+            {% endif %}
+            {%if product.available == false %}    
+                <span style="color: red; text-decoration: uppercase;">Sold Out</span>
+            {% endif %}
+        </div>          
+      </a>
+    </div>
+{% endfor %}
+</div>
+{% endcomment %}
+
+{% include "footer" %}
+
+<script>
+ $('.header-fullsite-fixed').addClass('header-fullsite').removeClass('header-fullsite-fixed');
+</script>

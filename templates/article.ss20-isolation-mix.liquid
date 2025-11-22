@@ -1,0 +1,152 @@
+{% include "loading" %}
+
+<style>
+  .graphics-article-title {
+    display: block;
+    color: #fff;
+    position: absolute;
+    text-align: center;
+    font-size: 20px;
+    top: 43px;
+    width: 100%;
+    opacity: 1;
+    -moz-transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+  }
+  
+  #main-image {
+  	display: block; 
+    width: 100%; 
+    height: auto;
+  }
+  
+  #blog-table-cell {
+    display: table-cell; 
+    vertical-align: middle; 
+    font-size: 14px; 
+    line-height: 22px; 
+    width: 50%;
+  }
+  
+  #blog-table-cell-text {
+    max-width: 500px; 
+    margin: 20px auto;
+  }
+
+  @media (max-width: 900px) {
+    .graphics-article-title {
+      font-size: 18px;
+      line-height: 26px;
+      top: 67px;
+    }
+    #main-image {
+      margin-top: 46px;
+    }
+    #blog-table-cell {
+      display: table-footer-group; 
+    }
+    #blog-table-cell-text { 
+      padding: 0 20px;
+      margin: 80px auto 0;
+    }
+  }
+</style>
+
+<div class="graphics-article-title" >
+  Dusty Fingers - in Isolation
+  <div style="font-size: 12px; line-height: 14px; max-width: 223px; margin: 6px auto; padding-top: 6px; border-top: 1px solid #fff;">
+  A relaxing mix to ease your mind by Patrick Little.
+  </div>
+</div>
+<div>
+  <img id="main-image" src="https://cdn.shopify.com/s/files/1/0664/2387/files/R0036421.jpg?v=1585690120">
+</div>
+<div class="centered-article-text">
+  <p>
+    We asked our friend and the man behind our Dusty Fingers playlists, Patrick Little, to come up with a mix to help ease anxieties. He donned his favorite Adsum hat and t-shirt and went to work. He emerged triumphantly, and with curiously relaxed shoulder blades.
+  </p>
+</div>
+
+<div class="clearfix"></div>
+
+<div class="left-50" style="opacity: 1;">
+  <div class="img-left-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/R0036379.jpg?v=1585690907" class="img-left ss16-preview">
+  </div>
+</div>
+
+<div class="right-50 float-right" style="opacity: 1;">
+    <div class="img-right-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/R0036438.jpg?v=1585691051" class="img-right ss16-preview">
+  	</div>
+</div>
+
+<div class="clearfix"></div>
+
+<div class="centered-article-text" style=" text-align: center;">
+  <p>
+    <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/788388358&color=%231d2425&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+    <br><br>
+    <strong>Tracklist:</strong><br>
+    	Spike - Car Crash (Abel Remix)<br>
+		Francis Monkman - Getting Ready<br>
+		Joni Mitchell - Edith and the Kingpin<br>
+		Enzo Carella - Parigi<br>
+		J.O.B Orchestra - Govinda<br>
+		Bobbi Humphrey - Please Set Me at Ease<br>
+		Roy Ayers Ubiquity - The Third Eye<br>
+		Clive Zanda - Ogun<br>
+		Jean Luc Ponty - Renaissance <br>
+		Sunbear - Let Love Flow For Peace<br>
+		Bill Conti - Reflections<br>
+		Alain Peters - Rest’ Là Maloya<br>
+		Flavio Venturini - Qualquer Coisa A Haver Com O Paraiso<br>
+		Pierre Akendengue - Orema Ka-Ka-Ka<br>
+		Ashra - Oasis<br>
+		Giovanni Gebbia - Le Cose Attorno<br>
+    <br>
+  </p>
+</div>
+
+
+<div class="max-width-900" style="opacity: 1;">
+    <img class="center-single ss16-preview" src="https://cdn.shopify.com/s/files/1/0664/2387/files/R0036452.jpg?v=1585693094">
+</div>
+
+<div class="postnav">
+	<a href="{{ blog.previous_article }}" class="btn" style="float: left">Previous Post</a>
+    {% if blog.next_article %}
+	<a href="{{ blog.next_article }}" class="btn" style="float: right">Next Post</a>
+    {% endif %}
+</div>
+
+{% include "footer" %}
+
+<script type="text/javascript">  
+  $('.header-fullsite-fixed').addClass('header-fullsite').removeClass('header-fullsite-fixed');
+  $(".header-fullsite").addClass("menu-to-white");
+</script>
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    window.setTimeout(function(){
+        $(".index-scroll-arrow").addClass("visible");
+    },2500);
+});
+</script>
+
+<script type="text/javascript">
+$(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 10) {
+        $(".index-scroll-arrow-img").addClass("hide4");
+    } else {
+        $(".index-scroll-arrow-img").removeClass("hide4");
+    }
+});
+</script>

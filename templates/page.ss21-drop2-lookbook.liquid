@@ -1,0 +1,339 @@
+{% include "loading" %}
+
+<style>
+  .graphics-article-title {
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    padding: 43px 20px 0 20px;
+    width: 100%;
+    max-width: 440px;
+    line-height: 26px;
+    margin: 0 auto;
+    opacity: 1;
+    -moz-transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+  }
+  
+  .cover-image {
+    padding-top: 100px; 
+    display: block; 
+    width:100%; 
+    height: auto; 
+    max-width: 1000px; 
+    margin: 0 auto;
+  }
+
+  .page-grid-1 {
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 10px;
+    row-gap: 12px;
+    padding: 100px 40px 40px 40px;
+  }
+  .page-grid-item-1 {
+    grid-column: span 1;
+    display: flex;  
+    flex-direction: column; 
+    align-self: center;
+  }
+  .page-grid-item-2 {
+    grid-column: span 1;
+    display: flex;  
+    flex-direction: column; 
+    align-self: center;
+  }
+  
+  .image-1 {
+    padding: 100px;
+  }
+  
+  .image-2 {
+    padding: 200px;
+  }
+  
+  .image-3 {
+    padding: 80px;
+  }
+  
+  .image-4 {
+    align-self: center;
+  }
+  
+  .image-5 {
+    padding: 100px;
+  }
+  
+  .image-6 {
+    padding: 60px;
+  }
+  
+  .image-7 {
+    max-width: 400px; 
+    align-self: center;
+    margin: 0 auto;
+  }
+  
+  .image-8 {
+    align-self: center;
+    padding: 20px;
+  }
+  .image-10 {
+    max-width: 1000px; 
+    margin: 90px auto;
+  }
+  
+  .caption {
+    padding-top: 6px;
+    font-size: 8px;
+    line-height: 11px;
+  }
+  
+  /*
+  .page-grid-item-2 {
+    grid-column: span 12;
+    background-image: url(https://cdn.shopify.com/s/files/1/0664/2387/files/Look1_21-optimized.jpg?v=1619637250); 
+    background-size: cover; 
+    display: flex;
+    background-position: center center; 
+    height: 100%;
+  }
+  */  
+  
+  .lookbook-shop-button {
+    border: 1px solid #000;
+    max-width: 240px;
+    display: block;
+    margin: 0 auto;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px 10px;
+    margin-bottom: 160px;
+  }
+  .lookbook-shop-button:active, .lookbook-shop-button:hover {
+    background-color: #000;
+    color: #fff;
+  }
+
+  @media (max-width: 900px) {
+    .graphics-article-title {
+      font-size: 18px;
+      line-height: 26px;
+      top: 67px;
+      padding-top: 80px;
+    }
+    .cover-image {
+      padding-top: 145px; 
+    }
+    .page-grid-1 {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 160px 0px 0px;
+      column-gap: 0px;
+    }
+    .page-grid-item-1 {
+      grid-column: span 1;
+    }
+    .page-grid-item-2 {
+      grid-column: span 1;
+    }
+    .caption {
+      display: none;
+      font-size: 4px;
+      line-height: 6px;
+      padding-top: 6px;
+      padding-left: 6px;
+    }
+    .image-1 {
+      padding: 20px;
+    }
+    .image-6 {
+	  padding: 10px;
+    }
+    .image-5 {
+      padding: 0 10px 0 0;
+    }
+    .image-2 {
+      padding: 60px;
+    }
+    .image-9 {
+      padding: 0 0 0 20px;
+    }
+    .image-10 {
+      margin: 160px auto 0px;
+    }
+    .image-3 {
+      grid-column: span 2;
+    }
+    .image-4 {
+      grid-column: span 2;
+      padding: 40px 10px 142px;
+    }
+    .image-11 {
+      padding: 10px;
+    }
+    .image-7 {
+      padding: 60px;
+    }
+    .image-8 {
+      padding: 10px;
+    }
+  }
+  
+  @media (max-width: 400px) {
+    /* .page-grid-1 {
+      padding: 80px 0 160px 0;
+    } */
+    .image-1, .image-12, .image-6, .image-5, .image-11, .image-7, .image-9, .image-2, .image-13, .image-8 {
+      grid-column: span 2;
+    }
+    .image-9 {
+      padding: 0px;
+    }
+    .image-2 {
+      padding: 0px;
+    }   
+    .image-6 {
+      padding: 30px;
+    }
+    .image-5 {
+      padding: 0px;
+    }
+    .image-7 {
+      padding: 90px;
+    }
+    .image-3 {
+      padding: 0 40px 40px 40px;
+    }
+    .image-11 {
+      padding: 0px;
+    }
+    .image-8 {
+      padding: 40px;
+    }
+  }
+</style>
+
+<!--
+<div class="graphics-article-title" >
+ Summer 2021
+</div>
+-->
+
+<img src="https://cdn.shopify.com/s/files/1/0664/2387/files/cover-adsum-ss21-drop2-9B3A1733-cutout.jpg?v=1622552263" class="cover-image">
+<div class="page-grid-1">
+    <div class="page-grid-item-1 image-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/ss21-drop2-lookbook-test2-2.jpg?v=1622222173" style="display: block; width:100%; height: auto;">
+      <p class="caption">
+        Dark Madras Bucket Hat<br>
+        Light Olive Heavyweight Cotton Pique LS Polo<br>
+        Slate Aqua Site Short
+      </p>
+  	</div>
+    <div class="page-grid-item-2 image-12">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss21-9B3A2624.jpg?v=1622216794" style="display: block; width:100%; height: auto;">
+  	</div>
+</div>
+
+<div class="page-grid-1">
+    <div class="page-grid-item-1 image-6">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss21-drop2-9B3A3822-2.jpg?v=1622222560" style="display: block; width:100%; height: auto;">
+    </div>
+    <div class="page-grid-item-2 image-5">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss21-drop2-2-cutout-noborder.jpg?v=1622466449" style="display: block; width:100%; height: auto;">
+  	  <p class="caption">
+        Bright Green Camp Hero Vest<br>
+        Soft Yellow Core Logo Tee<br>
+        Slate Aqua Site Short
+      </p>
+    </div>
+</div>
+
+<div class="image-10">
+  <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss21-drop2-5-cuout.jpg?v=1622555036" style="display: block; width:100%; height: auto;">
+  <p class="caption">
+    Beige Summer Plaid Workshirt<br>
+    Navy Florida Tee
+  </p>
+</div>
+
+<div class="page-grid-1">
+    <div class="page-grid-item-1 image-9">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss21-drop2-9B3A1786.jpg?v=1622225799" style="display: block; width:100%; height: auto;">
+      <p class="caption">
+        Navy Summer Plaid Workshirt<br>
+        White Chex Tee<br>
+        Olive Bank Pant
+      </p>
+    </div>
+    <div class="page-grid-item-2 image-2">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss21-drop2-9B3A1790.jpg?v=1622225799" style="display: block; width:100%; height: auto;">
+  	</div>
+</div>
+
+<div class="page-grid-1">
+    <div class="page-grid-item-1 image-3">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss21-drop2-9B3A3094.jpg?v=1622230768" style="display: block; width:100%; height: auto;">
+      <p class="caption">
+        White Rugby Shirt<br>
+        Olive Site Short<br>
+        1733 Duffel
+      </p>
+    </div>
+    <div class="page-grid-item-2 image-4">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss21-drop2-9B3A3016-cutout.jpg?v=1622230768" style="display: block; width:100%; height: auto;">
+  	</div>
+</div>
+
+<div style="max-width: 800px; margin: 0 auto;">
+  <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss21-drop2-9B3A2280-cutout.jpg?v=1622231311" style="display: block; width:100%; height: auto;">
+  <p class="caption">
+    Madras Premium BD<br>
+    White Florida Tee<br>
+    Safety Red Site Short
+  </p>
+</div>
+
+<div class="page-grid-1">
+    <div class="page-grid-item-1 image-11">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-2221-9B3A4023-border.jpg?v=1622494405" style="display: block; width:100%; height: auto;">
+      <p class="caption">
+        1733 Leather Tote
+      </p>
+    </div>
+    <div class="page-grid-item-2 image-7">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A1621-bw.jpg?v=1622548467" style="display: block; width:100%; height: auto;">
+  	  <p class="caption">
+        3/4 Snap Front Sweatshirt<br>
+        Large Stripe Premium BD
+      </p>
+    </div>
+</div>
+
+<div class="page-grid-1">
+    <div class="page-grid-item-1 image-13">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss21-drop2-4-cutout.jpg?v=1622551249" style="display: block; width:100%; height: auto;">
+    </div>
+    <div class="page-grid-item-2 image-8">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A3251.jpg?v=1622664466" style="display: block; width:100%; height: auto; max-width: 800px; align-self: center;">
+  	  <p class="caption">
+        Safety Red Micro Rip Caliper Jacket<br>
+        Green Rugby Shirt<br>
+        Madras Bank Short
+      </p>
+    </div>
+</div>
+
+<img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss21-3-cutout.jpg?v=1622494404" style="display: block; width:100%; height: auto; max-width: 600px; margin: 160px auto;">
+
+<a href="/collections/summer-2021" target="_blank" class="lookbook-shop-button">
+  Shop Summer 2021
+</a>
+
+{% include "footer" %}
+
+<script type="text/javascript">  
+  $('.header-fullsite-fixed').addClass('header-fullsite').removeClass('header-fullsite-fixed');
+</script>

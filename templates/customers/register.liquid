@@ -1,0 +1,58 @@
+<div class="page-padding">
+
+  <div class="page-title">
+    Register
+  </div>
+
+<div id="template">
+  <div class="create-customer-wrapper">
+	  <!-- Create Customer -->
+
+	    {% form 'create_customer' %}
+	      {{ form.errors | default_errors }}
+
+	      
+	        <input type="text" value="" name="customer[first_name]" id="first_name" class="input-field" style="width: 100%;" />
+            <br/>
+            <label for="first_name" class="login">First Name</label>
+	      
+        
+        <br/>
+		<br/>
+    	<br/>
+	      
+	        <input type="text" value="" name="customer[last_name]" id="last_name" class="input-field" style="width: 100%;" />
+            <br/>
+            <label for="last_name" class="login">Last Name</label>
+	      
+        
+        <br/>
+		<br/>
+    	<br/>
+	      
+	        <input type="email" value="" name="customer[email]" id="email" class="input-field" style="width: 100%;" />
+            <br/>
+            <label for="email" class="login">Email Address</label>
+	     
+        
+        <br/>
+		<br/>
+    	<br/>
+	     
+	        <input type="password" value="" name="customer[password]" id="password" class="input-field" style="width: 100%;" />
+            <br/>
+            <label for="password" class="login">Password</label>
+	    
+        
+        <br/>
+        <br/>
+    	<br/>
+
+	     
+	    <input class="button-sign-in" type="submit" value="Register" style="width: 100%;"/>
+	     
+	    {% endform %}
+  </div>
+</div>
+  
+</div>

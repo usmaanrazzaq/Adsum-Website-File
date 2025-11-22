@@ -1,0 +1,29 @@
+{% comment %}
+You can use this snippet to display categories on the front page. To set it up:
+1. Create a link list (in Navigation) that contains links to the collections you want to appear.
+2. Go to Template > Theme Settings and select "Categories" under the Homepage section.
+{% endcomment %}
+
+{% if linklists.categories.links.size > 0 %}
+<div class="gallery">
+{% for link in linklists.categories.links %}
+	<div class="product {% cycle 'first_col', '', '', 'last_col' %}">
+	{% assign collection = link.object %}
+	{% if collection.products.size > 0 %}
+		{% assign product = collection.products.first %}
+		<div class="image wraptocenter">
+			<a href="{{ collection.url }}" title="{{ collection.title | escape }}">
+				<img src="{{ product.images.first | product_img_url: 'compact' }}" alt="{{ collection.title | escape }}"/>
+			</a>
+		</div>
+		<div class="info">
+			<div class="title ellipsis"><a href="{{ collection.url }}">{{ collection.title | escape }}</a></div>
+		</div>
+	{% endif %}
+	</div>
+{% endfor %}
+</div>
+{% else %}
+	<p class="instructions">To view a category listing, <a href="/admin/links">create a link list</a> name "Categories", and insert links to your category collections.</p>
+{% endif %}
+<div class="padding"> </div>

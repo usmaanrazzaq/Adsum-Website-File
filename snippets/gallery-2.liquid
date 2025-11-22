@@ -1,0 +1,108 @@
+{% for product in collection.products %}
+
+{% if template == 'collection.sidebar' %}
+<div class="product4 {% cycle '', '' %}">  
+{% else %}
+
+<div class="collection-grid-item">
+	
+{% endif %}
+  
+  <a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}">  
+	<div style="position: relative;">
+      <img data-sizes="auto"
+           src="{{ product.images.first | product_img_url: '1x1' }}" 
+           data-src="{{ product.images.first | product_img_url: '1024x1024' }}"
+           data-srcset="{{ product.images.first | product_img_url: '600x600' }} 300w,
+    					{{ product.images.first | product_img_url: '1200x1200' }} 600w,
+    					{{ product.images.first | product_img_url: '1800x1800' }} 900w"
+           alt="{{ product.title | strip_html | escape }}" class="lazyload" style="display: block; width: 100%; height: 100%;" />
+      <img data-sizes="auto"
+           src="{{ product.images[1] | product_img_url: '1x1' }}" 
+           data-src="{{ product.images[1] | product_img_url: '1024x1024' }}" 
+           data-srcset="{{ product.images[1] | product_img_url: '600x600' }} 300w,
+    					{{ product.images[1] | product_img_url: '1200x1200' }} 600w,
+    					{{ product.images[1] | product_img_url: '1800x1800' }} 900w"
+           alt="{{ product.images[1].alt | escape }}" class="collection-product-hover lazyload"/>
+    </div>
+	<div class="product_info_content">
+		{%if product.available == true %}
+			<div class="gallery-product-title">
+				{{ product.title }}
+			</div>
+			<div class="gallery-product-price">
+				{% if product.compare_at_price_max > product.price %}
+                	<del class="sale-price">{{ product.compare_at_price_max | money }}</del>
+                {% endif %}
+                {{ product.price | money }}
+			</div>
+    
+		<div class="product-size">
+          <ul id="variants">
+            {% for variant in product.variants %}
+            <li style="display: relative;">
+              {% if variant.available == true %}
+              <input type="radio" name="id" value="{{variant.id}}" id="radio_{{variant.id}}" {%if forloop.first%} {%endif%} />
+              <label for="radio_{{variant.id}}">
+
+                <div class='variant_title'>{{ variant.title }}</div>
+                {% assign variant = product.variants.first %}
+                {% if variant.available %}
+                {% if variant.inventory_management != ''  %}
+                {% else %}
+                {% endif %}
+                {% endif %}
+              </label>        
+              {% else %}
+              <span class="sold_out">{{ variant.title }}</span>
+              {% endif %}
+            </li>
+            {% endfor %}
+          </ul>   
+      </div>
+		
+		{% endif %}
+		{%if product.available == false %}    
+			<span style="color: red; text-decoration: uppercase;">Sold Out</span>
+		{% endif %}
+	</div>          
+  </a>
+	
+</div>
+{% endfor %}
+  
+  <script type="text/javascript"> 
+     $(document).ready(function(){
+    $('.variant_title').each(function(){
+    	var index = $(this).text().indexOf('/');
+        var variantString = $(this).text();
+        var newString = variantString.substring(index + 2, variantString.length);
+        var colorString = variantString.substring(0, index);
+      console.log(newString + " " + colorString);
+      $(this).html(newString + "<div class='variant_color'>" + colorString + "</div>");
+    });
+  
+    $('.sold_out').each(function(){
+    	var index = $(this).text().indexOf('/');
+        var variantString = $(this).text();
+        var newString = variantString.substring(index + 2, variantString.length);
+        var colorString = variantString.substring(0, index);
+      console.log(newString + " " + colorString);
+      $(this).html(newString + "<div class='variant_color'>" + colorString + "</div>");
+    });
+   
+   
+    
+    
+  });
+                             		
+</script>
+
+<style>
+.variant_title {
+display: inline;
+}
+.variant_color {
+  display: none;
+}
+</style>

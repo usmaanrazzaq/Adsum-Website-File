@@ -1,0 +1,503 @@
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<style>
+  .wholesale-product-grid a:hover {
+    opacity: 0.7;
+    cursor: pointer;
+  }
+  .wholesale-title {
+    display: flex; width: 100%; 
+    justify-content: center; 
+    align-items: center;
+    font-size: 22px;
+    padding: 41px 10px 39px 10px;
+  }
+  .swiper-container {
+    width: 100%;
+    height: 90vh;
+    z-index: 0;
+  }
+  .swiper-button-prev {
+    left: 40px;
+  }
+  
+  .swiper-button-next {
+    right: 40px;
+  }
+  
+  .drop-title {
+    font-size: 24px;
+    padding: 10px 0px 10px;
+    border-top: 1px solid #000;
+  }
+  
+  .featured-title {
+     font-size: 24px;
+  }
+  
+  .swiper-button-next:after, .swiper-button-prev:after {
+    font-family:helvetica;
+    font-size: 12px;
+    color: #000;
+  }
+  .swiper-button-next:after, .swiper-container-rtl .swiper-button-prev:after {
+    content: 'Next';
+  }
+  .swiper-button-prev:after, .swiper-container-rtl .swiper-button-next:after {
+    content: 'Prev';
+  }
+  .swiper-slide img {
+    display: block; 
+    margin: 0 auto; 
+    width: auto; 
+    height: 90vh;
+  }
+  .wholesale-product-grid {
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr); 
+    padding: 40px; 
+    grid-gap: 20px;
+  }
+  
+  .wholesale-product-title {
+    line-height: 16px;
+  }
+  
+  .wholesale-contact {
+    padding: 160px 40px 120px; 
+    font-size: 16px; 
+    line-height: 24px;
+  }
+  
+  .wholesale-product-highlight {
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr);
+    padding: 40px; 
+  }
+  
+  .wholesale-product-highlight-2 {
+  	display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    height: 100vh; 
+    overflow: hidden; 
+    margin: 140px 40px;
+  }
+  
+  .wholesale-product-highlight-text {
+  	display: flex; 
+    align-items: flex-end; 
+    padding: 40px 0px; 
+    max-width: 420px; 
+    line-height: 16px;
+  }
+  .wholesale-product-highlight img {
+    width: 100%; 
+    grid-column: span 1;
+  }
+  .featured-product-title {
+    font-size: 24px;
+    padding: 100px 40px 0;
+  }
+  
+  .drop-title span {
+    display: block;
+    font-size: 11px;
+    padding-top: 10px;
+  }
+  
+  .resources-grid {
+  	display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    padding: 40px 40px 0 40px; 
+    grid-gap: 10px;
+  }
+  
+  .resources-grid a {
+    border: 1px solid #000;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    background-color: #000;
+    color: #fff;
+  }
+  
+  .resources-grid a:hover {
+    background-color: #fff;
+    color: #000;
+  }
+  
+  @media (max-width: 900px) {
+    
+    .featured-product-title {
+        font-size: 18px;
+        padding: 100px 20px 0;
+    }
+     .resources-grid {
+      padding: 40px 20px 0 20px;
+      line-height: 18px;
+  }
+    .featured-title {
+      font-size: 16px;
+      line-height: 24px;
+    }
+    .wholesale-product-highlight-2 {
+      display: grid; 
+      grid-template-columns: repeat(1, 1fr);  
+      overflow: hidden; 
+      margin: 140px 20px;
+    }
+    .drop-title {
+    	font-size: 18px;
+    }
+    .wholesale-product-highlight-text {
+    	grid-column: span 2;
+    }
+    .wholesale-product-highlight {
+      display: grid; 
+      grid-template-columns: repeat(4, 1fr);
+      padding: 20px; 
+    }
+    .wholesale-product-highlight img {
+      width: 100%; 
+      grid-column: span 2;
+    }
+    .wholesale-product-highlight img:first-of-type {
+      grid-column: span 4;
+    }
+    
+    .wholesale-product-highlight-text {
+        grid-column: span 3;
+        padding-left: 20px;
+    }
+    .wholesale-product-grid {
+      display: grid; 
+      grid-template-columns: repeat(2, 1fr); 
+      padding: 20px; 
+      grid-gap: 10px;
+    }
+    .wholesale-title {
+    	padding: 60px 20px 30px;
+    }
+    .wholesale-contact {
+      padding: 140px 20px 110px; 
+      font-size: 16px; 
+      line-height: 22px;
+    }
+    .swiper-slide img {
+      max-width: 100%;
+      height: auto;
+    }
+    .swiper-container {
+      height: auto;
+    }
+    .swiper-button-prev {
+      left: 20px;
+    }
+    .swiper-button-next {
+      right : 20px;
+    }
+      
+  }
+  
+</style>
+
+{% include "loading" %}
+
+
+<div class="wholesale-title">
+  Fall/Winter 2021 Wholesale
+</div>
+
+<!-- Slider main container -->
+<div class="swiper-container">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper">
+    <!-- Slides -->
+    <!-- <div class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_021821-204.jpg?v=1613765107"></div> -->
+    <div class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_021821-249.jpg?v=1613765175"></div>
+    <!-- <div class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_021821-254.jpg?v=1613765256"></div> -->
+    <div class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_021821-263.jpg?v=1613765354"></div>
+    <div class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_021821-520.jpg?v=1613768024"></div>
+	<!-- <div class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_021821-579.jpg?v=1613758651"></div> -->
+	<!-- <div class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_021821-333.jpg?v=1613765416"></div> -->
+    <!-- <div class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_021821-654.jpg?v=1613763369"></div> --> 
+    <div class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_021821-670.jpg?v=1613763373"></div>
+    <div class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_021821-61.jpg?v=1613754456"></div>
+    <!-- <div class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_021821-70.jpg?v=1613754793"></div> -->
+    <!-- <div class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_021821-168.jpg?v=1613755300"></div> -->
+    <div class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_021821-170.jpg?v=1613764978"></div>
+    <!--<div class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_021821-415.jpg?v=1613765465"></div> -->
+    <div class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_021821-949.jpg?v=1613763372"></div>
+    <div class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_021821-689.jpg?v=1613763372"></div>
+    <!-- <div class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_021821-717.jpg?v=1613763372"></div> -->
+    <div class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_021821-924.jpg?v=1613763373"></div>
+    <div class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_021821-941.jpg?v=1613763373"></div>
+    <div class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_021821-858.jpg?v=1613763372"></div>
+    <div class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_021821-860.jpg?v=1613763372"></div>
+    <div class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_021821-1066.jpg?v=1613763372"></div>
+    <div class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_021821-1080.jpg?v=1613763372"></div>
+    <div class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_021821-1133.jpg?v=1613763371"></div>
+    <!-- <div class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_021821-1155.jpg?v=1613763372"></div> -->
+    <div class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_021821-1225.jpg?v=1613763373"></div>
+	<div class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_021821-1239.jpg?v=1613763371"></div>    
+  </div>
+  <!-- If we need pagination -->
+  <div class="swiper-pagination"></div>
+
+  <!-- If we need navigation buttons -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>
+
+<div class="featured-product-title">
+  Resources
+</div>
+
+<div class="resources-grid">
+	<a href="https://drive.google.com/file/d/19eF8oXAQRcM4R903sGSorBMWxVRse9SH/view?usp=sharing" target="_blank">Download FW21 Linesheet</a>
+	<a href="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_FW21_Order_Sheet_Final_March_1.xlsx?v=1614614128">Download FW21 Order Sheet</a>
+</div>
+
+<div class="featured-product-title">
+  Featured Products: Fall 2021
+</div>
+
+<div class="wholesale-product-highlight">
+  <img src="https://cdn.shopify.com/s/files/1/0664/2387/products/Adsum_021721_PufferVestBeige.jpg?v=1613764118">
+  <img src="https://cdn.shopify.com/s/files/1/0664/2387/products/Adsum_021721_PufferVestBeige-2.jpg?v=1613764118">
+  <img src="https://cdn.shopify.com/s/files/1/0664/2387/products/Adsum_021721_PufferVestBeige-66.jpg?v=1613764118">
+  <div style="display: flex; align-items: left; flex-flow: column; padding: 40px 0px;">
+    <div style="font-size: 10px;">
+      <div style="padding-bottom: 20px;">
+        Fall 2021
+      </div>
+      <div class="featured-title">
+        Alpine Vest
+      </div>
+    </div>  
+  </div>
+  <div class="wholesale-product-highlight-text">
+      A square quilt down vest with custom soft touch water resistant Italian Nylon shell fabric. 800 fill power duck down with 90/10 feather to cluster ratio. Tonal Adsum EMB at wearers left chest. YYK Vislon center front zippers. Down filled neck collar. Contrast Light Umber Italian nylon ripstop liner fabric. Interior snap closure stow pocket.
+Available in Khaki and Green.  </div> 
+</div>
+
+<div class="wholesale-product-highlight">
+  <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/aasaaAdsum_021821-130.jpg?v=1614034295">
+  <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/aaaAdsum_021821-130.jpg?v=1614034295">
+  <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/aaaaAdsum_021821-130.jpg?v=1614034296">
+  <div style="display: flex; align-items: left; flex-flow: column; padding: 40px 0px;">
+    <div style="font-size: 10px;">
+      <div style="padding-bottom: 20px;">
+        Fall 2021
+      </div>
+      <div class="featured-title">
+        Sweatpant
+      </div>
+    </div>  
+  </div>
+  <div class="wholesale-product-highlight-text">
+      A heavyweight Cotton sweatpant with an elastic waistband and internal drawcord. 400GSM main body fabric and 200GSM jersey pocket bagging. Hidden internal stash pocket. Elastic ankle cuff.</div> 
+</div>
+
+
+<!--
+<div class="wholesale-product-highlight-2">
+  <div style="height: 100%; background: url(https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_021821-579.jpg?v=1613758651) no-repeat center center; background-size:cover;">
+  </div>
+  <div style="display: flex; justify-content: space-between; text-align:center; align-items: center; flex-flow: column; padding: 40px;">
+    <div style="font-size: 10px; padding-bottom: 4px;">
+      <div style="padding-bottom: 20px;">
+        Drop 1
+      </div>
+      <div class="featured-title">
+        Sweatpants
+      </div>
+    </div>
+    <div style="max-width: 420px; line-height: 16px;">
+      Canadian fleece hoodie. Made in Canada out of 100% Open end heavyweight Canadian fleece. Garment dyed with direct embroidery chest logo.
+    </div>   
+  </div>
+</div>
+-->
+
+
+<div class="wholesale-product-grid">
+  <div class="drop-title">
+    Fall 2021
+    <span>*All items/colors are not shown. Please refer to the <a href="https://drive.google.com/file/d/19eF8oXAQRcM4R903sGSorBMWxVRse9SH/view?usp=sharing" style="text-decoration: underline;">linesheet</a> to view complete collection.</span>
+  </div>
+    {% for product in collections.fw21wholesaledrop1.products limit:99 %}
+      
+      <a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}" >  
+
+          <img data-sizes="auto"
+               src="{{ product.images.first | product_img_url: '1x1' }}" 
+               data-src="{{ product.images.first | product_img_url: '1800x1800' }}"
+               data-srcset="{{ product.images.first | product_img_url: '600x600' }} 300w,
+                            {{ product.images.first | product_img_url: '1200x1200' }} 600w,
+                            {{ product.images.first | product_img_url: '1800x1800' }} 900w"
+               class="lazyload" style="display: block; width: 100%; padding-bottom: 10px;" alt="{{ product.title | strip_html | escape }}"/>
+          
+          <div class="wholesale-product-title">
+            {{ product.title }}
+          </div>
+    
+      </a> 
+	{% endfor %}
+</div>
+
+<div class="featured-product-title">
+  Featured Products: Winter 2021
+</div>
+
+<div class="wholesale-product-highlight">
+  <img src="https://cdn.shopify.com/s/files/1/0664/2387/products/Adsum_021721_PaddedClubJacketGreen-36.jpg?v=1613791714">
+  <img src="https://cdn.shopify.com/s/files/1/0664/2387/products/Adsum_021721_PaddedClubJacketGreen-72.jpg?v=1613791714">
+  <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_021821-1080.jpg?v=1613763372">
+  <div style="display: flex; align-items: left; flex-flow: column; padding: 40px 0px;">
+    <div style="font-size: 10px;">
+      <div style="padding-bottom: 20px;">
+        Winter 2021
+      </div>
+      <div class="featured-title">
+        Club Check Jacket
+      </div>
+    </div>  
+  </div>
+  <div class="wholesale-product-highlight-text">
+      A lightweight insulated jacket with custom club check in seasonal colors. Four-hole high shine button with Adsum logo at edge. Button closure cuffs. Side hand pockets.</div> 
+</div>
+
+<div class="wholesale-product-highlight">
+  <img src="https://cdn.shopify.com/s/files/1/0664/2387/products/Adsum_021721_QuarterSnapSweaterRed-47.jpg?v=1613792504">
+  <img src="https://cdn.shopify.com/s/files/1/0664/2387/products/Adsum_021721_QuarterSnapSweaterRed-70.jpg?v=1613792506">
+  <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/aaaAdsum_021821-97.jpg?v=1614034929">
+  <div style="display: flex; align-items: left; flex-flow: column; padding: 40px 0px;">
+    <div style="font-size: 10px;">
+      <div style="padding-bottom: 20px;">
+        Winter 2021
+      </div>
+      <div class="featured-title">
+        3/4 Snap Front Sweater
+      </div>
+    </div>  
+  </div>
+  <div class="wholesale-product-highlight-text">
+      A cotton 3/4 snap pullover made in Canada. 400gsm jersey main body. Custom 20L metal snaps with sunken Adsum logo. Reinforced placket & Heavyweight 3” high rib cuff.
+  </div> 
+</div>
+
+
+<!--
+<div class="wholesale-product-highlight-2">
+  <div style="height: 100%; background: url(https://cdn.shopify.com/s/files/1/0664/2387/products/Adsum_021721_QuarterSnapSweaterRed-47.jpg?v=1613792504) no-repeat center center; background-size:cover;">
+  </div>
+  <div style="display: flex; justify-content: space-between; text-align:center; align-items: center; flex-flow: column; padding: 40px;">
+    <div style="font-size: 10px; padding-bottom: 4px;">
+      <div style="padding-bottom: 20px;">
+        Drop 2
+      </div>
+      <div class="featured-title">
+        3/4 Snap Front Sweater
+      </div>
+    </div>
+    <div style="max-width: 420px; line-height: 16px;">
+      Canadian fleece hoodie. Made in Canada out of 100% Open end heavyweight Canadian fleece. Garment dyed with direct embroidery chest logo.
+    </div>   
+  </div>
+</div>
+-->
+
+<div class="wholesale-product-grid">
+  <div class="drop-title">
+    Winter 2021
+    <span>*All items/colors are not shown. Please refer to the <a href="https://drive.google.com/file/d/19eF8oXAQRcM4R903sGSorBMWxVRse9SH/view?usp=sharing" style="text-decoration: underline;">linesheet</a> to view complete collection.</span>
+  </div>
+    {% for product in collections.fw21wholesaledrop2.products limit:99 %}
+      
+      <a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}" >  
+
+          <img data-sizes="auto"
+               src="{{ product.images.first | product_img_url: '1x1' }}" 
+               data-src="{{ product.images.first | product_img_url: '1800x1800' }}"
+               data-srcset="{{ product.images.first | product_img_url: '600x600' }} 300w,
+                            {{ product.images.first | product_img_url: '1200x1200' }} 600w,
+                            {{ product.images.first | product_img_url: '1800x1800' }} 900w"
+               class="lazyload" style="display: block; width: 100%; padding-bottom: 10px;" alt="{{ product.title | strip_html | escape }}"/>
+          
+          <div>
+            {{ product.title }}
+          </div>
+    
+      </a> 
+	{% endfor %}
+</div>
+
+
+<div class="wholesale-product-grid">
+  <div class="drop-title">
+    FW2021 Core
+    <span>*All items/colors are not shown. Please refer to the <a href="https://drive.google.com/file/d/19eF8oXAQRcM4R903sGSorBMWxVRse9SH/view?usp=sharing" style="text-decoration: underline;">linesheet</a> to view complete collection.</span>
+  </div>
+    {% for product in collections.FW21wholesaleclassics.products limit:99 %}
+      
+      <a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}" >  
+
+          <img data-sizes="auto"
+               src="{{ product.images.first | product_img_url: '1x1' }}" 
+               data-src="{{ product.images.first | product_img_url: '1800x1800' }}"
+               data-srcset="{{ product.images.first | product_img_url: '600x600' }} 300w,
+                            {{ product.images.first | product_img_url: '1200x1200' }} 600w,
+                            {{ product.images.first | product_img_url: '1800x1800' }} 900w"
+               class="lazyload" style="display: block; width: 100%; padding-bottom: 10px;" alt="{{ product.title | strip_html | escape }}"/>
+          
+          <div>
+            {{ product.title }}
+          </div>
+    
+      </a> 
+	{% endfor %}
+</div>
+
+<div class="wholesale-contact">
+  <div style="font-size: 26px; font-weight: 600; padding-bottom: 20px;">Contact + Resources:</div>
+  Thank you for taking the time to review our collection.
+  <br><br> 
+  For any orders or inqueries please contact <a href="mailto:stuart@northern-fells.com" style="text-decoration: underline;">Stuart Graham</a>.
+  <br><br>
+  Download the full linesheet here: <a href="https://drive.google.com/file/d/19eF8oXAQRcM4R903sGSorBMWxVRse9SH/view?usp=sharing" style="text-decoration: underline;">FW21 Linesheet</a>. <br>
+  Download the order sheet here: <a href="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_FW21_Order_Sheet_Final_March_1.xlsx?v=1614614128" style="text-decoration: underline;">FW21 Order Sheet</a>. 
+</div>
+
+{% include "footer" %}
+
+<script>
+ $('.header-fullsite-fixed').addClass('header-fullsite').removeClass('header-fullsite-fixed');
+</script>
+
+<script>
+  var mySwiper = new Swiper ('.swiper-container', {
+    direction: 'horizontal',
+    loop: true,
+    grabCursor: true,
+    speed: 700,
+    autoHeight: true,
+    
+    keyboard: {
+      onlyInViewport: true
+    },
+
+    pagination: {
+        el: '.swiper-pagination',
+        type: 'fraction',
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+
+
+  })
+  </script>

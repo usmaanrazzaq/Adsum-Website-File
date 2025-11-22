@@ -1,0 +1,206 @@
+{% include "loading" %}
+
+<style>
+  .graphics-article-title {
+    display: block;
+    position: absolute;
+    text-align: center;
+    font-size: 20px;
+    top: 43px;
+    width: 100%;
+    opacity: 1;
+    -moz-transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+  }
+  
+  .blog-img-caption {
+    top: 10px;
+  }
+  
+  .gallery {
+    min-height: 10px;
+  }
+
+  @media (max-width: 900px) {
+    .graphics-article-title {
+      font-size: 18px;
+      line-height: 26px;
+      top: 67px;
+    }    
+  }
+</style>
+
+<div class="graphics-article-title" >
+  FW20 Totes + Socks
+</div>
+<div class="centered-article-text" style="padding-top: 10px;">
+  <p>
+    Socks and totes are the unsung workhorses of our FW20 collection.  
+  </p> 
+  <p>
+    Let’s start with the humble tote. 
+    A simple object that’s become increasingly essential with NY state's recent ban on plastic bags. 
+    Sure, you can buy a plastic one from Key Foods with birthday balloons printed on it that you’ll use once and then throw away, but why not be a good citizen and get something you’ll reuse. 
+    Ours are made in the USA of organic cotton, have self-fabric handles, and have heavy thread tex chain stitching throughout so can load it up with plenty of gear and not worry about a strap busting. Subtle tonal branding is on all 3 colorways.
+  </p>
+</div>
+
+<div class="left-50" style="opacity: 1;">
+  <div class="img-left-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A8907.jpg?v=1603310559" class="img-left ss16-preview">
+    <div class="blog-img-caption"></div>
+  </div>
+</div>
+<div class="right-50 float-right" style="opacity: 1;">
+    <div class="img-right-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A8893.jpg?v=1603311589" class="img-right ss16-preview">
+      <div class="blog-img-caption"></div>
+  	</div>
+</div>
+
+<div class="clearfix lb-extra-spacing"></div>
+<div class="clearfix lb-extra-spacing"></div>
+
+<div class="left-50" style="opacity: 1;">
+  <div class="img-left-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A8935-3.jpg?v=1603310556" class="img-left ss16-preview">
+    <div class="blog-img-caption"></div>
+  </div>
+</div>
+<div class="right-50 float-right" style="opacity: 1;">
+    <div class="img-right-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A8869.jpg?v=1603310558" class="img-right ss16-preview">
+      <div class="blog-img-caption"></div>
+  	</div>
+</div>
+
+<div class="clearfix lb-extra-spacing"></div>
+
+<div class="centered-article-text">
+  <p style="font-size: 14px; line-height: 20px; max-width: 500px; margin: 20px auto;">
+ 	Our socks are woven in Japan by vintage machines assembled in the 1970s. It’s not the most efficient, producing only 50 pairs a day, but that’s the price to pay for this kind of thickness and durability. 
+    Natural materials and high quality yarns produce what we think are the best sport socks in the world. 
+    If there was one product that stuck to our ethos of “if you can’t do it right, don’t do it.“, these socks are probably it. 
+    The Core Logo sock features intarsia knit artwork for a traditional look or the Classic Comfort sock for a more modern dual rib knit construction and direct embroidery art.
+  </p>
+</div>
+
+<div class="max-width-1000" style="opacity: 1;">
+    <img class="center-single ss16-preview" src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A9123.jpg?v=1603310559">
+</div>
+
+<div class="clearfix lb-extra-spacing"></div>
+
+<div class="left-50" style="opacity: 1;">
+  <div class="img-left-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/IMG_9136-2.jpg?v=1603318718" class="img-left ss16-preview">
+    <div class="blog-img-caption"></div>
+  </div>
+</div>
+<div class="right-50 float-right" style="opacity: 1;">
+    <div class="img-right-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A8986.jpg?v=1603310558" class="img-right ss16-preview">
+      <div class="blog-img-caption"></div>
+  	</div>
+</div>
+
+<div class="clearfix lb-extra-spacing"></div>
+<div class="clearfix lb-extra-spacing"></div>
+
+<div class="max-width-1000" style="opacity: 1;">
+    <img class="center-single ss16-preview" src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A9003.jpg?v=1603310558">
+</div>
+
+
+
+<div class="centered-article-text">
+  <p style="font-size: 14px; line-height: 20px; max-width: 500px; margin: 20px auto;">
+    If you enjoy the simple things in life, get yourself a really nice pair of socks and bag you can rely on.
+  </p>
+</div>
+
+  <div class="featured-products-title">
+    Featured Products
+  </div>
+
+
+<div id="products" class="gallery">
+{% for product in collections.fw20-totes-and-socks.products %}
+  {% include 'bold-product' with product, hide_action: 'skip' %}
+	<div class="product5">
+  		<a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}">  
+      
+        <img data-sizes="auto"
+             src="{{ product.images.first | product_img_url: '1x1' }}" 
+             data-src="{{ product.images.first | product_img_url: '1800x1800' }}"
+             data-srcset="{{ product.images.first | product_img_url: '600x600' }} 300w,
+                          {{ product.images.first | product_img_url: '1200x1200' }} 600w,
+                          {{ product.images.first | product_img_url: '1800x1800' }} 900w"
+             class="lazyload" style="display: block; width: 100%; height: 100%;" alt="{{ product.title | strip_html | escape }}"/>
+        <img src="{{ product.images[1] | product_img_url: '1x1' }}" data-src="{{ product.images[1] | product_img_url: '2048x2048' }}" class="collection-product-hover lazyload" alt="{{ product.images[1].alt | escape }}" />
+    
+        <div class="product_info_content">
+          <div class="product-info-content-wrap">
+			{%if product.available == true %}           
+            <div class="gallery-product-wrap">
+              <div class="gallery-product-title">
+                {{ product.title }}
+              </div>
+              <div class="gallery-product-price" style="padding-top: 0px;">
+                {% if product.compare_at_price_max > product.price %}
+                <del class="sale">{{ product.compare_at_price_max | money }}</del>
+                {% endif %}
+                {{ product.price | money }}
+              </div>
+            </div>
+			{% endif %}
+			{%if product.available == false %}
+             <div class="gallery-product-wrap">         
+               <div class="sold-out">Sold Out</div>
+             </div>
+			{% endif %}
+          </div>
+        </div>
+  		</a>
+	</div>
+{% endfor %}
+</div>
+
+<a href="/collections/fw20-drop-1" class="shop-button-photo-story">Shop All FW20 Drop 1</a>
+
+<div class="postnav">
+	<a href="{{ blog.previous_article }}" class="btn" style="float: left">Previous Post</a>
+    {% if blog.next_article %}
+	<a href="{{ blog.next_article }}" class="btn" style="float: right">Next Post</a>
+    {% endif %}
+</div>
+
+{% include "footer" %}
+
+<script type="text/javascript">  
+  $('.header-fullsite-fixed').addClass('header-fullsite').removeClass('header-fullsite-fixed');
+</script>
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    window.setTimeout(function(){
+        $(".index-scroll-arrow").addClass("visible");
+    },2500);
+});
+</script>
+
+<script type="text/javascript">
+$(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 10) {
+        $(".index-scroll-arrow-img").addClass("hide4");
+    } else {
+        $(".index-scroll-arrow-img").removeClass("hide4");
+    }
+});
+</script>

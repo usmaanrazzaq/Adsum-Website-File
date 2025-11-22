@@ -1,0 +1,36 @@
+#banner .images {
+	filter: progid:DXImageTransform.Microsoft.gradient(
+		enabled='true',
+		startColorstr={{ settings.gradient_color }},
+		endColorstr={{ settings.bg_color }},
+		GradientType=0
+	); 
+	z-index: 0;
+}
+
+#currencies .middle  {
+    border-left: none;
+}
+
+<!-- fix IE "black box" problems with PNG images when opacity is being animated -->
+#banner .images img {background:#efefef url(h300.png) repeat-x 0 -22px;}
+
+<!--[if lt IE 9]>
+.small, .small:visited {padding: 5px 5px; }
+<![endif]-->
+
+<!--[if lt IE 8]>
+.small, .small:visited {padding: 5px 5px; }
+<![endif]-->
+
+<!--[if lt IE 7]>
+.small, .small:visited {padding: 4px 5px; }
+h1 span {background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="{{ 'gradient.png' | asset_url }}, sizingMethod='scale');}
+div.simple_overlay { background-image: url(overlay_IE6.gif); color: #fff;} 
+ 
+/* default close button positioned on upper right corner */ 
+div.simple_overlay div.close {background-image: url(overlay_close_IE6.gif);}
+
+.gallery .product {padding:0 2px;}
+<![endif]-->
+

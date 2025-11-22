@@ -1,0 +1,5 @@
+<ul id="breadcrumb">
+	<li><a href="/" title="Home"><img src="{{ 'home.png' | asset_url }}" alt="Home" class="home" /></a></li>
+	{% if collection %}<li>{{ collection.title | escape | link_to: collection.url }}</li>{% endif %}
+	{% if product %}<li>{{ product.title | escape }}</li>{% endif %}
+</ul>

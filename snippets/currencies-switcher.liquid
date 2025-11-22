@@ -1,0 +1,31 @@
+<span id="currencies">
+<span data-currency="USD" class="{% if shop.currency == 'USD' %}selected {% endif %}middle">$</span>
+  <span data-currency="EUR" class="{% if shop.currency == 'EUR' %}selected {% endif %}left">€</span>
+  <span data-currency="GBP" class="{% if shop.currency == 'GBP' %}selected {% endif %}middle">₤</span>
+  <span data-currency="JPY" class="{% if shop.currency == 'JPY' %}selected {% endif %}right">¥</span>
+  <!-- <span data-currency="CAD" class="{% if shop.currency == 'CAD' %}selected {% endif %}right">CAD</span>
+  <span data-currency="AUD" class="{% if shop.currency == 'AUD' %}selected {% endif %}middle">AUD</span> -->
+</span>
+
+<style>
+#currencies {
+    display: inline-block;
+    color: #888;
+    font-size: 11px;
+    line-height: 14px;
+    cursor: pointer;
+}
+#currencies span {
+    display: inline-block;
+    padding: 0px 0 0 5px;
+    margin: 0px 0 0 0;
+    border: none;
+    background: transparent;
+}
+
+#currencies .selected {
+    font-weight:normal;
+    color: #000;
+    background: none;
+}
+</style>

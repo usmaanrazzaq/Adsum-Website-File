@@ -1,0 +1,93 @@
+{% include "loading" %}
+
+<script type="text/javascript">
+$(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 10) {
+        $(".index-scroll-arrow-img").addClass("hide3");
+    } else {
+        $(".index-scroll-arrow-img").removeClass("hide3");
+    }
+});
+</script>
+
+
+<div class="index-scroll-arrow">
+  <div class="index-scroll-arrow-img">↓</div>
+  <div class="scroll-down">
+  	Scroll down
+  </div>
+</div>
+
+
+  
+
+<div style="
+            position: relative; 
+            height: 100vh; 
+            width: 100%; 
+            overflow: hidden;
+            background: black;
+  			background: url(https://cdn.shopify.com/s/files/1/0664/2387/files/rober-frank-cover2.jpg?9689041629509323326);
+  			background-repeat: no-repeat;
+  			background-position: center center;
+  			-webkit-background-size: cover;
+  			-moz-background-size: cover;
+  			-o-background-size: cover;
+  			background-size: cover;">
+  <div class="centered-article-title robert-frank-title">
+  	Robert Frank
+    <h2 class="centered-article-title-secondary">
+      An American
+    </h2>   
+  </div>
+</div>
+
+<div class="centered-article-text">
+  <p>
+    Next year will mark 60 years since the publication of Robert Frank’s <em>The Americans</em>. That’s plenty enough time to grow boring in. Yet, flick through the pages today, and it still seems to portray the America we’re familiar with. Pick it up and sniff it, it’s got that ‘smell the street’ quality that <a href="https://www.google.com/search?q=Bruce+Gilden&safe=off&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiRyIitw-PUAhWIaz4KHfpKB30Q_AUICigB&biw=1440&bih=766" target="_blank">Bruce Gilden</a> so often rattles on about. Every picture plays a role. It’s the distillation of 28,000 frames down into 83 black and white images. Of which there are no weak ones.
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/robert-frank-cinema.jpg?13815727853290428339">
+    <div class="blog-img-caption">Drive-in movie, Detroit 1955.</div>
+  <p>
+    When it came time to publish <em>The Americans</em>, only Robert Delpire in Paris would take it. American publishers were too scared. So Frank sought an advocate. The US version had an introduction by Jack Kerouac, a man who’d been through the heart of America and come out to tell his own tale. Jack thought Frank had ‘sucked a sad poem out of America.’ You don’t just have a tale of New York and LA, but everything in between as well.
+  </p>
+  <p>
+    Fittingly the man behind the work is an obtuse sort. He’s ‘an outsider by temperament and design.’ To make the kind of work he does you have to be. He’s definitely not the sort of man that pulls punches. In Frank’s work there is little romanticism, and he portrays what he sees, not what he hopes to. You don’t get a sense of any personal connections in <em>The Americans</em>, this is not about finding people at their most beautiful but instead capturing moments.
+  </p>
+  	<img src="https://cdn.shopify.com/s/files/1/0664/2387/files/robert-frank-funeral.jpg?4212924238608749918">
+  	<div class="blog-img-caption">Funeral – St Helena, South Carolina, 1955.</div>
+  <div class="article-image-table" style="display: table; width: 100%;">
+    <div class="article-img-table-cell-50">
+  		<img src="https://cdn.shopify.com/s/files/1/0664/2387/files/robert-frank-starlet.jpg?9802367664178477160">
+    	<div class="blog-img-caption">Movie Premiere, Hollywood, 1955. <br/><br/>A great example for the early criticisms of Frank's photographs. The dominant subject in the foreground of the photo is blurred and the focus is given to the common folks eager faces in the back. A complete refersal of the standard "proper" photograph.</div>
+    </div>
+    <div class="article-img-table-cell-50">
+      	<img src="https://cdn.shopify.com/s/files/1/0664/2387/files/robert-frank-san.jpg?8834461167693761782">
+    	<div class="blog-img-caption">San Fransisco, 1956. <br/><br/>An odd framing of a couple in San Francisco that breaks the rules of classic photography, but, in doing so, creates a photograph so much more dynamic and interesting than what had been done previously.  </div>
+    </div>
+  </div>
+  <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/robert-frank-gas.jpg?9293926946460796588">
+  <div class="blog-img-caption">Santa Fe, 1955. <br/><br/>An endlessly American photograph of a gas station that would no doubt go on to influence Ed Ruscha.</div>
+  <p>
+    Frank’s work didn’t stop with <em>The Americans</em>. In fact it doesn’t just stop with photography. He’s also at times been a filmmaker. Famously, his 1972 documentary <a href="https://www.youtube.com/watch?v=FQeZPrQFwlk" target="_blank"><em>Cocksucker Blues</em></a>, showing The Rolling Stones on tour, was barred from release. With the band deeming the behaviour that Frank had captured too revealing.
+  </p>
+  <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/robert-frank-mick-jagger.jpg?10493816696898295689">
+  <div class="blog-img-caption">Frank conversing with Mick Jagger during the filming of <em>Cocksucker Blues</em>.</div>
+  <p>
+    It’s the sense of adventure we love in Frank. Even if it comes with a tinge of loneliness. The idea of being out in the belly of the beast and coming back with a tale to tell. 
+  </p>
+   <p class="credits" style="padding: 0px;">Words by: DK Woon</p>
+</div>
+
+{% include "footer" %}
+
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    window.setTimeout(function(){
+        $(".index-scroll-arrow").addClass("visible");
+    },2500);
+});
+</script>

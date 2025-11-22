@@ -1,0 +1,390 @@
+<style>
+  .sort-by--container{
+    /* position: fixed; */
+    padding: 98px 40px 0 240px;
+    bottom: 40px;
+    font-size: 11px;
+    line-height: 17px;
+    display: flex;
+    /* flex-direction: column; */
+    gap: 12px;
+  }
+  .sort-by--container > label{
+    font-weight: 400;
+  }
+/* The container must be positioned relative: 
+  .sort-by--container {
+    position: relative;
+    z-index: -1;
+  }
+*/
+  .sort-by--container select {
+    display: none; /*hide original SELECT element: */
+  } 
+/* Style the arrow inside the select element: */
+  .select-selected {
+    width: auto;
+    vertical-align: inherit;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -webkit-padding-end: 26px;
+    -moz-padding-end: 26px;
+    -webkit-padding-start: 0px;
+    -moz-padding-start: 0px;
+    background: url("https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-down-arrow.png?13323966206718309846") no-repeat;
+    background-size: 10px;
+    background-position: 100% 6px;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: 0px;
+    border-radius: 0px;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+    color: #000;
+    font-weight: 400!important;
+    margin: 0;
+    overflow: hidden;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition: all .3s ease;
+  }
+/* Point the arrow upwards when the select box is open (active): */
+  .select-selected.select-arrow-active:after {
+  }
+/* style the items (options), including the selected item: */
+  .select-items div, .select-selected {
+    color: #000;
+    cursor: pointer;
+  }
+  .select-items div:hover, .select-selected:hover {
+    opacity: 0.5;
+  }
+  .select-items div:active, .select-selected:active {
+    opacity: 0.3;
+  }
+  .select-items > div{
+    padding: 0px 5px 10px;
+  }
+/* Style items (options): */
+  .select-items {
+    /* position: absolute; */
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    height: 144px;
+    transition: 0.3s ease;
+    opacity: 1; 
+  }
+/* Hide the items when the select box is closed: */
+  .select-hide {
+    /*display: none;*/
+    height: 0px;
+    transition: 0.3s ease;
+    opacity: 0;
+  }
+  .select-items div:hover, .same-as-selected {
+    opacity: 0.5;
+  }
+  .select-items div:active {
+    opacity: 0.3;
+  }
+  
+  @media (max-width: 900px) {
+    .sort-by--container {
+      font-size: 10px;
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top:30px;
+      display: flex;
+      gap: 10px;
+      position: static;
+    }
+    .collection-grid {
+      padding-top: 20px;
+    }
+  }
+</style>
+
+
+{% include "loading" %}
+
+{% comment %}
+<p class="marquee">
+  <span>
+    <strong style="color: #1f4493;">MEMORIAL DAY SALE:</strong> Up to 50% off all of SS25
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    —
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <strong style="color: #1f4493;">MEMORIAL DAY SALE:</strong> Up to 50% off all of SS25
+    &nbsp;&nbsp;&nbsp;&nbsp;
+  </span>
+</p>
+{% endcomment %}
+
+{% paginate collection.products by 500 %}
+
+<h1 class="collection-title">{{ collection.title }}</h1>
+{% comment %}
+<form class="filter-form" style="position: absolute; top: 40px; left: 800px;">
+  {%- for filter in collection.filters -%}
+    <details class="filter-group">
+      <summary class="filter-group-summary">
+        <div>
+          <span>{{ filter.label }}</span>
+
+          {%- if filter.active_values.size > 0 -%}
+            <span>({{ filter.active_values.size }})</span>
+          {%- endif -%}
+        </div>
+      </summary>
+
+      <div class="filter-group-display">
+        <div class="filter-group-display__header">
+          <span class="filter-group-display__header-selected">{{ filter.active_values.size }} selected</span>
+
+          {%- if filter.active_values.size > 0 -%}
+            <a href="{{ filter.url_to_remove }}" class="filter-group-display__header-reset">Reset</a>
+          {%- endif -%}
+        </div>
+
+        {%- case filter.type -%}
+          {%- when 'boolean' or 'list' -%}
+            <ul class="filter-group-display__list">
+              {%- for filter_value in filter.values -%}
+                <li class="filter-group-display__list-item">
+                  <label for="Filter-{{ filter.param_name }}-{{ forloop.index }}">
+                  <input type="checkbox"
+                    name="{{ filter_value.param_name }}"
+                    value="{{ filter_value.value }}"
+                    id="Filter-{{ filter.param_name }}-{{ forloop.index }}"
+                    {% if filter_value.active -%}checked{%- endif %}
+                    {% if filter_value.count == 0 and filter_value.active == false -%}disabled{%- endif %}
+                  >{{ filter_value.label }}</label>
+                </li>
+              {%- endfor -%}
+            </ul>
+
+            <div class="filter-group-display__submit">
+              <input type="submit" value="Apply">
+            </div>
+          {%- when 'price_range' -%}
+            <div class="filter-group-display__price-range">
+              <div class="filter-group-display__price-range-from">
+                <span>{{ cart.currency.symbol }}</span>
+
+                <input name="{{ filter.min_value.param_name }}"
+                  id="Filter-{{ filter.min_value.param_name }}"
+                  {% if filter.min_value.value -%}
+                    value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"
+                  {%- endif %}
+                  type="number"
+                  placeholder="0"
+                  min="0"
+                  max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                >
+
+                <label for="Filter-{{ filter.min_value.param_name }}">From</label>
+              </div>
+              <div class="filter-group-display__price-range-to">
+                <span>{{ cart.currency.symbol }}</span>
+
+                <input name="{{ filter.max_value.param_name }}"
+                  id="Filter-{{ filter.max_value.param_name }}"
+                  {% if filter.max_value.value -%}
+                    value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"
+                  {%- endif %}
+                  type="number"
+                  placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                  min="0"
+                  max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                >
+
+                <label for="Filter-{{ filter.max_value.param_name }}">To</label>
+              </div>
+            </div>
+
+            <div class="filter-group-display__submit">
+              <input type="submit" value="Apply">
+            </div>
+        {%- endcase -%}
+      </div>
+    </details>
+  {%- endfor -%}
+
+  <div class="active-filters">
+    <a href="{{ collection.url }}?sort_by={{ collection.sort_by }}" class="active-filters__clear">Clear all</a>
+
+    {%- for filter in collection.filters -%}
+      {%- if filter.type == "price_range" -%}
+        {%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
+          <a class="active-filters__remove-filter" href="{{ filter.url_to_remove }}">
+            {%- assign min_value = filter.min_value.value | default: 0 -%}
+            {%- assign max_value = filter.max_value.value | default: filter.range_max -%}
+            {{ min_value | money }} - {{ max_value | money }} X
+          </a>
+        {%- endif -%}
+      {%- else -%}
+        {%- for filter_value in filter.active_values -%}
+          <a class="active-filters__remove-filter" href="{{ filter_value.url_to_remove }}">
+            {{ filter.label }}: {{ filter_value.label }} X
+          </a>
+        {%- endfor -%}
+      {%- endif- %}
+    {%- endfor -%}
+  </div>
+</form>
+{% endcomment %}
+  
+<div class="sort-by--container">
+  <label for="sort-by">Sort by:</label> 
+  <select id="sort-by" class="sort-by">
+    <option value="manual" {% if 'manual' == collection.sort_by %}selected="selected"{% endif %}>Featured</option>
+    <option value="best-selling" {% if 'best-selling' == collection.sort_by %}selected="selected"{% endif %}>Popular</option>
+    <option value="created-descending" {% if 'created-descending' == collection.sort_by %}selected="selected"{% endif %}>New</option>
+    <option value="price-ascending" {% if 'price-ascending' == collection.sort_by %}selected="selected"{% endif %}>Price: Low to High</option>
+    <option value="price-descending" {% if 'price-descending' == collection.sort_by %}selected="selected"{% endif %}>Price: High to Low</option>
+    {% comment %}
+    {% for option in collection.sort_options %}
+      <option value="{{ option.value }}"{% if option.value == collection.sort_by %} selected{% endif %}>{{ option.name }}</option>
+    {% endfor %}
+    {% endcomment %}  
+  </select>
+</div>
+
+{% if settings.collection_pagination %}
+<small>Showing items {{ paginate.current_offset | plus: 1 }}-{% if paginate.next %}{{ paginate.current_offset | plus: paginate.page_size }}{% else %}{{ paginate.items }}{% endif %} of {{ paginate.items }}.</small>
+{% endif %}
+
+<div id="products" class="collection-grid {{ collection.title | handleize }}">
+{% if collection.products.size == 0 %}
+	<p>There are currently no products in this collection. Please check back later.</p>
+{% else %}
+	{% include "gallery" %}
+{% endif %}
+
+{% if paginate.pages > 1 %}
+	<div id="paginate">
+		{{ paginate | default_pagination }}
+	</div>
+{% endif %}
+
+{% endpaginate %}
+</div>
+
+<div style="padding: 100px 0 0 0;"></div>
+
+{% include "footer" %}
+<script type="text/javascript">
+// Save existing sort parameters
+Shopify.queryParams = {};
+if(location.search.length) {
+for(var aKeyValue, i = 0, aCouples = location.search.substr(1).split('&'); i < aCouples.length; i++) {
+aKeyValue = aCouples[i].split('=');
+if (aKeyValue.length > 1) {
+Shopify.queryParams[decodeURIComponent(aKeyValue[0])] = decodeURIComponent(aKeyValue[1]);
+}
+}
+}
+// Add existing sort parameters to current URL
+document.querySelector('.sort-by').addEventListener('change', function(e) {
+var value = e.currentTarget.value;
+Shopify.queryParams.sort_by = value;
+location.search = new URLSearchParams(Shopify.queryParams).toString();
+});
+
+var x, i, j, l, ll, selElmnt, a, b, c;
+/* Look for any elements with the class "sort-by--container": */
+x = document.getElementsByClassName("sort-by--container");
+l = x.length;
+for (i = 0; i < l; i++) {
+  selElmnt = x[i].getElementsByTagName("select")[0];
+  ll = selElmnt.length;
+  /* For each element, create a new DIV that will act as the selected item: */
+  a = document.createElement("DIV");
+  a.setAttribute("class", "select-selected");
+  a.setAttribute("value", "best-selling")
+  a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+  x[i].appendChild(a);
+  /* For each element, create a new DIV that will contain the option list: */
+  b = document.createElement("DIV");
+  b.setAttribute("class", "select-items select-hide");
+  for (j = 1; j < ll; j++) {
+    /* For each option in the original select element,
+    create a new DIV that will act as an option item: */
+    c = document.createElement("DIV");
+    c.innerHTML = selElmnt.options[j].innerHTML;
+    c.setAttribute("id", selElmnt.options[j].value)
+    c.addEventListener("click", function(e) {
+        /* When an item is clicked, update the original select box,
+        and the selected item: */
+        var y, i, k, s, h, sl, yl;
+        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+        sl = s.length;
+        h = this.parentNode.previousSibling;
+        for (i = 0; i < sl; i++) {
+          if (s.options[i].innerHTML == this.innerHTML) {
+            s.selectedIndex = i;
+            h.innerHTML = this.innerHTML;
+            y = this.parentNode.getElementsByClassName("same-as-selected");
+            yl = y.length;
+            for (k = 0; k < yl; k++) {
+              y[k].removeAttribute("class");
+            }
+            this.setAttribute("class", "same-as-selected");
+            break;
+          }
+        }
+      
+      var value2 = e.currentTarget.id;
+      console.log(e.currentTarget.id);
+Shopify.queryParams.sort_by = value2;
+location.search = new URLSearchParams(Shopify.queryParams).toString();
+        h.click();
+    });
+    b.appendChild(c);
+  }
+  x[i].appendChild(b);
+  a.addEventListener("click", function(e) {
+    /* When the select box is clicked, close any other select boxes,
+    and open/close the current select box: */
+    e.stopPropagation();
+    closeAllSelect(this);
+    this.nextSibling.classList.toggle("select-hide");
+    this.classList.toggle("select-arrow-active");
+  });
+}
+
+function closeAllSelect(elmnt) {
+  /* A function that will close all select boxes in the document,
+  except the current select box: */
+  var x, y, i, xl, yl, arrNo = [];
+  x = document.getElementsByClassName("select-items");
+  y = document.getElementsByClassName("select-selected");
+  xl = x.length;
+  yl = y.length;
+  for (i = 0; i < yl; i++) {
+    if (elmnt == y[i]) {
+      arrNo.push(i)
+    } else {
+      y[i].classList.remove("select-arrow-active");
+    }
+  }
+  for (i = 0; i < xl; i++) {
+    if (arrNo.indexOf(i)) {
+      x[i].classList.add("select-hide");
+    }
+  }
+}
+
+/* If the user clicks anywhere outside the select box,
+then close all select boxes: */
+document.addEventListener("click", closeAllSelect);
+
+  
+</script>

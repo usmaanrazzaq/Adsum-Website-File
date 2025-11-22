@@ -1,0 +1,63 @@
+{% include "loading" %}
+
+
+
+<div class="index-scroll-arrow">
+  <div class="index-scroll-arrow-img">↓</div>
+  <div class="scroll-down">
+  	Scroll down
+  </div>
+</div>
+
+
+<div class="article-main-image">
+  <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_Graham_Hamilton_4.jpg?289" style="display: block; width: 100%; height: auto; max-width: 1000px; margin: 0 auto; padding-top: 50px;" alt="Adsum Kennedy Magazine 1">
+  <div class="centered-article-title robert-frank-title" style="color: #000;">
+  	  SS19 by Marcelo Gomes
+    <!--<h2 class="centered-article-title-secondary">
+       
+    </h2> -->   
+  </div>
+</div>  
+
+
+<div class="centered-article-text">
+<p>
+    
+  </p>
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_Graham_Hamilton_10_ALMOST.jpg?276">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_Graham_Hamilton_48.jpg?276">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_Graham_Hamilton_33_CROP.jpg?276">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_Graham_Hamilton_-_11-of-18.jpg?320">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_Graham_Hamilton_-_10-of-18_-optimized.jpg?318">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_Alec_Priester_1_CROP_BURNT.jpg?276">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_Alec_Priester_21.jpg?289">
+  <p class="credits" style="padding: 0px; text-align: center;">
+      Photography: <a href="http://marcelogom.es" target="_blank">Marcelo Gomes</a><br/>
+      Models: Graham Hamilton & Alec Priester
+  </p>
+</div>
+
+{% include "footer" %}
+
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    window.setTimeout(function(){
+        $(".index-scroll-arrow").addClass("visible");
+    },2500);
+});
+</script>
+
+<script type="text/javascript">
+$(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 10) {
+        $(".index-scroll-arrow-img").addClass("hide3");
+    } else {
+        $(".index-scroll-arrow-img").removeClass("hide3");
+    }
+});
+</script>

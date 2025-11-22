@@ -1,0 +1,58 @@
+{% include "loading" %}
+
+<script type="text/javascript">
+$(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 10) {
+        $(".index-scroll-arrow-img").addClass("hide3");
+    } else {
+        $(".index-scroll-arrow-img").removeClass("hide3");
+    }
+});
+</script>
+
+
+<div class="index-scroll-arrow">
+  <div class="index-scroll-arrow-img">↓</div>
+  <div class="scroll-down">
+  	Scroll down
+  </div>
+</div>
+
+
+<div class="mundial-main-image article-main-image">
+  <div class="centered-article-title robert-frank-title" style="color: #000;">
+  	  Sunday Best
+    <h2 class="centered-article-title-secondary">
+      A new editorial shot at the Hackney Marshes in London for Issue 012 of Mundial Magazine.
+    </h2>   
+  </div>
+</div>  
+
+
+<div class="centered-article-text">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/mundial-adsum-2.jpg?2751712511822907534" style="max-width: 1000px; 0 auto;">
+  <div class="blog-img-caption">1. <a href="https://adsumnyc.com/collections/fw17/products/crewneck-sweatshirt" target="_blank">Japanese Reverse Weave Fleece Crewneck Sweatshirt</a> — 2. <a href="https://adsumnyc.com/collections/fw17/products/crewneck-sweatshirt" target="_blank">Japanese Reverse Weave Fleece Sweatpant</a> — 3. <a href="https://adsumnyc.com/collections/fw17/products/vest-olive" target="_blank">Olive Vest</a></div>
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/mundial-adsum-3.jpg?2751712511822907534" style="max-width: 1000px; 0 auto;">
+  <div class="blog-img-caption">1. <a href="https://adsumnyc.com/collections/fw17/products/coaches-jacket-olive" target="_blank">Olive Coaches Jacket</a> — 2. <a href="https://adsumnyc.com/collections/fw17/products/tuxedo-pants-tan-cord" target="_blank">Tan Corduroy Tuxedo Pants</a></div>
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/mundial-adsum-4.jpg?2751712511822907534" style="max-width: 1000px; 0 auto;">
+  <div class="blog-img-caption">1. <a href="https://adsumnyc.com/collections/fw17/products/jetty-jacket-navy" target="_blank">Dark Navy Jetty Jacket</a> — 2. <a href="https://adsumnyc.com/collections/fw17/products/workshirt-fuzz" target="_blank">Flannel Fuzz Workshirt</a> — 3. <a href="https://adsumnyc.com/collections/fw17/products/workshirt-fuzz" target="_blank">Brown Pique Longsleeve</a></div>
+    <p class="credits" style="padding: 0px;">
+      Photography: <a href="https://jackrjohnstone.com/" target="_blank">Jack Johnstone</a><br/>
+      Styling: <a href="https://www.instagram.com/dan_sandison/?hl=en" target="_blank">Dan Sandison</a> & <a href="http://mundialmag.com/author/james-b/" target="_blank">James Bird</a><br/>
+      Model: <a href="https://www.instagram.com/ladilsak/" target="_blank">Ladi Kazeem</a>
+  </p>
+</div>
+
+{% include "footer" %}
+
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    window.setTimeout(function(){
+        $(".index-scroll-arrow").addClass("visible");
+    },2500);
+});
+</script>

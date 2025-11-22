@@ -1,0 +1,61 @@
+{% include "loading" %}
+
+<script type="text/javascript">
+$(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 10) {
+        $(".index-scroll-arrow-img").addClass("hide3");
+    } else {
+        $(".index-scroll-arrow-img").removeClass("hide3");
+    }
+});
+</script>
+
+
+<div class="index-scroll-arrow">
+  <div class="index-scroll-arrow-img">↓</div>
+  <div class="scroll-down">
+  	Scroll down
+  </div>
+</div>
+
+
+<div class="article-main-image">
+  <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Kennedy-No.7-Adsum.v2-1.jpg?12326826284867100256" style="display: block; width: 100%; height: auto; max-width: 1000px; margin: 0 auto; padding-top: 50px;" alt="Adsum Kennedy Magazine 1">
+  <div class="centered-article-title robert-frank-title" style="color: #000;">
+  	  A Beautiful Day in the Neighborhood
+    <!--<h2 class="centered-article-title-secondary">
+       Howdy neighbors. On a recent Fall afternoon in Brooklyn, Jima stopped by the Adsum office to see how the upstart label spends their day. Greenpoint, the neighborhood of Adsum, is a mix of old Polish spots and newer bars & restaurants; it’s cool but in a sleepy, understated way. A perfect home for a label that works hard to create a laidback look. What follows is a snapshot of the day in the life of the Adsum team—a game of catch to start the day, fabric meetings in the studio (a former pencil factory from the 1920s), a walk to the local grocery store, and moms homemade jam.
+    </h2> -->   
+  </div>
+</div>  
+
+
+<div class="centered-article-text">
+  <p>
+    Howdy neighbors. On a recent Fall afternoon in Brooklyn, Jima stopped by the Adsum office to see how the upstart label spends their day. Greenpoint, the neighborhood of Adsum, is a mix of old Polish spots and newer bars & restaurants; it’s cool but in a sleepy, understated way. A perfect home for a label that works hard to create a laidback look. What follows is a snapshot of the day in the life of the Adsum team—a game of catch to start the day, fabric meetings in the studio (a former pencil factory from the 1920s), a walk to the local grocery store, and moms homemade jam.
+  </p>
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Kennedy-No.7-Adsum.v2-2.jpg?12326826284867100256">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Kennedy-No.7-Adsum.v2-3.jpg?12326826284867100256">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Kennedy-No.7-Adsum.v2-4.jpg?3956655016967946422">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Kennedy-No.7-Adsum.v2-5.jpg?12326826284867100256">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Kennedy-No.7-Adsum.v2-6.jpg?2321021029226612606">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Kennedy-No.7-Adsum.v2-7.jpg?12966954429734364810">
+  <p class="credits" style="padding: 0px;">
+      Photography: <a href="https://www.instagram.com/jimagraphy" target="_blank">Atsushi Nishijima</a><br/>
+      Featured in: <a href="http://kennedymagazine.com/" target="_blank">Kennedy</a>
+    </p>
+</div>
+
+{% include "footer" %}
+
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    window.setTimeout(function(){
+        $(".index-scroll-arrow").addClass("visible");
+    },2500);
+});
+</script>

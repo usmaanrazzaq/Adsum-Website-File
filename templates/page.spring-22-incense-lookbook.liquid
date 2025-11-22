@@ -1,0 +1,120 @@
+{% include "loading" %}
+
+<style>
+  #img-1 {
+    display: block; width: 100%; height: auto;
+  }
+  #img-1-2 {
+    display: none; width: 100%; height: auto;
+  }
+  #img-2 {
+    display: block; max-width: 900px; width: 100%; height: auto; padding: 100px;
+  }
+  #img-3 {
+    display: block; width: 100%; height: auto;
+  }
+  #img-4 {
+    display: block; width: 100%; max-width: 900px; height: auto; margin: 0 auto; padding: 100px;
+  }
+  #img-5 {
+    display: block; width: 100%; max-width: 1600px; height: auto; margin: 0 auto; padding: 0px;
+  }
+  #img-6 {
+    display: block; width: 100%; max-width: 1200px; height: auto; margin: 0 0 0 auto; padding: 100px;
+  }
+  .gallery {
+    min-height: 0;
+  }
+  @media (max-width: 900px) {
+    #img-1 {
+      display: none;
+    }
+    #img-1-2 {
+    display: block;
+  }
+    .graphics-article-title {
+      padding-top: 46px;
+    }
+    #img-1, #img-2, #img-3, #img-4, #img-5, #img-6 {
+      padding: 0px;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    
+  }
+</style>
+
+<div class="graphics-article-title" >
+ {{ article.title }}
+</div>
+
+
+<img id="img-1" src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-incense-header.jpg?v=1645193494">
+
+<img id="img-1-2" src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-incense-header-mobile.jpg?v=1645193850">
+
+<img id="img-2" src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-incense-2_6eb72821-1970-4dd7-b1c2-a628a40dde9c.jpg?v=1644870748">
+
+<img id="img-3" src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-incense-5-3.jpg?v=1644868318">
+
+<img id="img-4" src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-incense-5-4.jpg?v=1645194602">
+
+<img id="img-5" src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-incense-5-5.jpg?v=1644871237">
+
+<img id="img-6" src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-incense-5-6.jpg?v=1644873078">
+
+
+
+
+
+<div class="featured-products-title">
+	Featured Products
+</div>
+
+<div id="products" class="gallery">
+{% for product in collections.ss22-incense.products %}
+	<div class="product6">
+  		<a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}">  
+      
+        <img data-sizes="auto"
+             src="{{ product.images.first | product_img_url: '1x1' }}" 
+             data-src="{{ product.images.first | product_img_url: '1800x1800' }}"
+             data-srcset="{{ product.images.first | product_img_url: '600x600' }} 300w,
+                          {{ product.images.first | product_img_url: '1200x1200' }} 600w,
+                          {{ product.images.first | product_img_url: '1800x1800' }} 900w"
+             class="lazyload" style="display: block; width: 100%; height: 100%;" alt="{{ product.title | strip_html | escape }}"/>
+        <img src="{{ product.images[1] | product_img_url: '1x1' }}" data-src="{{ product.images[1] | product_img_url: '2048x2048' }}" class="collection-product-hover lazyload" alt="{{ product.images[1].alt | escape }}" />
+    
+        <div class="product_info_content">
+          <div class="product-info-content-wrap">
+			{%if product.available == true %}           
+            <div class="gallery-product-wrap">
+              <div class="gallery-product-title">
+                {{ product.title }}
+              </div>
+              <div class="gallery-product-price" style="padding-top: 0px;">
+                {% if product.compare_at_price_max > product.price %}
+                <del class="sale">{{ product.compare_at_price_max | money }}</del>
+                {% endif %}
+                {{ product.price | money }}
+              </div>
+            </div>
+			{% endif %}
+			{%if product.available == false %}
+             <div class="gallery-product-wrap">         
+               <div class="sold-out">Sold Out</div>
+             </div>
+			{% endif %}
+          </div>
+        </div>
+  		</a>
+	</div>
+{% endfor %}
+</div>
+
+{% include "footer" %}
+
+<script type="text/javascript">  
+  $('.header-fullsite-fixed').addClass('header-fullsite').removeClass('header-fullsite-fixed');
+</script>  

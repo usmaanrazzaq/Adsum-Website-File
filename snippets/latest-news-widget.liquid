@@ -1,0 +1,7 @@
+<h4><a href="/blogs/news.atom" title="Keep up to date with the latest {{ shop.name }} news"><img src="{{ 'rss_16.png' | asset_url }}" alt="Subscribe to our RSS Feed" class="rssfeed"/></a> Latest News</h4>
+{% for article in blogs.news.articles limit: 2 %}
+<div class="post-article">
+	<h3 class="post-title ellipsis"><a href="{{ article.url }}">{{ article.title | escape }}</a></h3>
+	<p class="post-snippet">{{ article.content | strip_html | truncatewords: 50 }}</p>
+</div>
+{% endfor %}

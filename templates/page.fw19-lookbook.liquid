@@ -1,0 +1,74 @@
+{% section 'fw19-carousel-css'%}
+
+{% include "loading" %}
+
+<div class="index-scroll-arrow">
+  <div class="index-scroll-arrow-img" style="font-size: 28px;">↓</div>
+  <div class="scroll-down">
+  	Scroll down
+  </div>
+</div>
+
+
+
+
+<div style="position: relative">
+  <div class="video">
+    <video autoplay="autoplay" preload="auto" loop muted playsinline poster="https://cdn.shopify.com/s/files/1/0664/2387/files/poster.jpg?9727">
+      <source src="https://cdn.shopify.com/s/files/1/0664/2387/files/fw19-lookbook-video-5.mp4?9730" type="video/mp4">
+    </video>
+  </div>
+  
+  <div class="fw19-title">
+    FW19
+  </div>
+
+</div>
+
+{% section 'fw19-carousel' %}
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		window.setTimeout(function(){
+			$(".index-scroll-arrow").addClass("visible");
+		},2500);
+	});
+
+	$(window).scroll(function() {	
+      
+		var scroll = $(window).scrollTop();
+		if (scroll >= 10) {
+				$(".index-scroll-arrow-img").addClass("hide3");
+		} else {
+				$(".index-scroll-arrow-img").removeClass("hide3");
+		}
+      
+		if ($(window).scrollTop() > 10 ){
+            $('.header-fullsite-fixed').addClass('hide3');
+            $('.ss17-deschutes-wrapper').addClass('hide3');
+		} else {
+            $('.header-fullsite-fixed').removeClass('hide3');
+            $('.ss17-deschutes-wrapper').removeClass('hide3');
+		};  
+      
+       $(".deschutes-secondary").addClass("hide3");
+       $(".carousel-control").addClass("hide3");
+       $(".footer_new4").addClass("hide3");
+       if($(window).scrollTop() + $(window).height() > ($(document).height() - 20) ) {
+           $(".deschutes-secondary").removeClass("hide3");
+           $(".carousel-control").removeClass("hide3");
+           $(".footer_new4").removeClass("hide3");
+       }
+	});
+</script>
+
+
+              

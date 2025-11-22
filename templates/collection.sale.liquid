@@ -1,0 +1,34 @@
+{% include "loading" %}
+<!--
+<p class="marquee">
+  <span>Enter code <strong>LORIMER</strong> at checkout for 40% off.&nbsp;&nbsp;&nbsp;&nbsp;—&nbsp;&nbsp;&nbsp;&nbsp;Enter code <strong>LORIMER</strong> at checkout for 40% off.&nbsp;&nbsp;&nbsp;&nbsp;—&nbsp;&nbsp;&nbsp;&nbsp;Enter code <strong>LORIMER</strong> at checkout for 40% off.</span>
+</p>
+-->
+{% paginate collection.products by 500 %}
+
+<h1 class="collection-title">{{ collection.title }}</h1>
+
+{% if settings.collection_pagination %}
+<small>Showing items {{ paginate.current_offset | plus: 1 }}-{% if paginate.next %}{{ paginate.current_offset | plus: paginate.page_size }}{% else %}{{ paginate.items }}{% endif %} of {{ paginate.items }}.</small>
+{% endif %}
+
+<div id="products" class="collection-grid {{ collection.title | handleize }}">
+{% if collection.products.size == 0 %}
+	<p>There are currently no products in this collection. Please check back later.</p>
+{% else %}
+	{% include "gallery-2" %}
+{% endif %}
+
+{% if paginate.pages > 1 %}
+	<div id="paginate">
+		{{ paginate | default_pagination }}
+	</div>
+{% endif %}
+
+{% endpaginate %}
+  
+</div>
+
+<div style="padding: 100px 0 0 0;"></div>
+
+{% include "footer" %}

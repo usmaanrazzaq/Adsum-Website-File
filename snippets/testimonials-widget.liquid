@@ -1,0 +1,26 @@
+<h4><a href="{{ blogs.testimonials.url }}">Testimonials</a></h4>
+{% assign blog = blogs.testimonials %}
+{% if blog.articles.size > 0 %}
+	{% for article in blog.articles limit: 2 %}
+	<div class="testimonial">
+		<blockquote>{{ article.content | strip_html | truncatewords: 24 }}</blockquote>
+		<div class="post-title ellipsis"><a href="{{ article.url }}">{{ article.title }}</a></div>
+	</div>
+	{% endfor %}
+{% else %}	
+	<div class="instructions">
+	<p>Instructions for the Testimonials Widget</p>
+	<ol>
+		<li>Create a blog called Testimonials</li>
+		<li>Create an article for each testimonial.</li>
+		<li>The title of the article should contain the name of the person making the testimonial:
+			<ul>
+				<li>You can optionally include a date using:<br/><code>&lt;span class="date">May 18, 2010&lt;/span></code></li>
+				<li>You can optionally include a location:<br/><code>&lt;span class="location">Newbury, Porridge&lt;/span></code></li>
+				<li>Full example for a title:<br/>Gavin Terrill, <code>&lt;span class="date">May 18, 2010&lt;/span></code>, <code>&lt;span class="location">Hickles, Pickles USA&lt;/span></code></li>
+			</ul>
+		</li>
+		<li>The quote should be in the article content</p>
+	</ol>
+	</div>
+{% endif %}	

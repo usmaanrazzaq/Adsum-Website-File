@@ -1,0 +1,125 @@
+<style>
+  .community-header {
+    font-size: 14px;
+    max-width: 589px;
+    line-height: 146%;
+    padding-bottom: 100px;
+  }
+  .community-grid {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: min-content;
+    column-gap: 20px;
+    row-gap: 92px;
+  }
+  .bts-grid {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: min-content;
+    column-gap: 20px;
+    row-gap: 92px;
+  }
+  .community-cell {
+    display: flex;
+    justify-content: top;
+    grid-column: span 1;
+    flex-direction: column;
+  }
+  .community-cell img {
+    display: block; 
+    width: 100%;
+  }
+
+  @media (max-width: 700px) {
+    .community-grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: min-content;
+    }
+    .community-header {
+        font-size: 14px;
+        padding-bottom: 90px;
+    }
+    .community-cell {
+      grid-column: span 2;
+  }
+  
+</style>
+
+{% include "loading" %}
+
+<div class="page-padding">
+
+  <h1 class="page-title">Adidas Samba Millennium Campaign</h1>
+
+  <div class="community-header">
+    At the center of the campaign is the tagline “Good for a Millennium”. It came from our feelings about the shoe; that it’s an all-time design and it will look good now just as it will next year and the year after that. Taking that idea to its extreme, we put the Millennium in different time periods; whether it was a woman in the 1800s, a cowboy from the American West, or a Knight of the Round Table, it always looks good. 
+  </div>
+  
+  <div class="community-grid">
+    <div class="community-cell">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adidas-4x5-6.jpg?v=1700161774" loading="lazy">
+    </div>
+    <div class="community-cell">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adidas-4x5-9.jpg?v=1700161774" loading="lazy">
+    </div>
+    <div class=community-cell>
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adidas-4x5-3.jpg?v=1700161772" loading="lazy">
+    </div>
+    <div class=community-cell>
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adidas-4x5-11.jpg?v=1700161773" loading="lazy">
+    </div>
+    <div class=community-cell>
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adidas-4x5-1.jpg?v=1700161773" loading="lazy" alt="Adsum + Adidas Samba Millennium Campaign">
+    </div>
+    <div class=community-cell >
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adidas-4x5-4.jpg?v=1700161773" loading="lazy" alt="Adsum + Adidas Samba Millennium Campaign">
+    </div>
+    <div class=community-cell>
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adidas-4x5-10.jpg?v=1700161773" loading="lazy" alt="Adsum + Adidas Samba Millennium Campaign">
+    </div>
+    <div class=community-cell>
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adidas-4x5-2.jpg?v=1700161772" loading="lazy" alt="Adsum + Adidas Samba Millennium Campaign">
+    </div>
+    <div class=community-cell>
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adidas-4x5-8.jpg?v=1700161772" loading="lazy" alt="Adsum + Adidas Samba Millennium Campaign">
+    </div>
+    <div class=community-cell>
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adidas-4x5-7.jpg?v=1700161774" loading="lazy" alt="Adsum + Adidas Samba Millennium Campaign">
+    </div>
+  </div>
+<!--
+  <h1 class="page-title">Behind The Scenes</h1>
+
+  <div class="community-header">
+    A few snaps from the photoshoot. Simpler than our <a href="">Gramicci Shoot</a> but no less fun.
+  </div>
+
+   <div class="bts-grid">
+    <div class="community-cell">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/kjbIMG_9379.jpg?v=1700166574" loading="lazy">
+    </div>
+     <div class="community-cell">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/aaaIMG_1240.jpg?v=1700168023" loading="lazy">
+    </div>
+     <div class="community-cell">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/IMG_1668_1_-opti.jpg?v=1700166574" loading="lazy">
+    </div>
+     <div class="community-cell">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/IMG_1670_1_-opti.jpg?v=1700166574" loading="lazy">
+    </div>
+     
+   </div>
+-->
+  
+</div>
+  
+  <div class="postnav">
+	<a href="{{ blog.previous_article }}" class="btn" style="float: left">Previous Post</a>
+    {% if blog.next_article %}
+	<a href="{{ blog.next_article }}" class="btn" style="float: right">Next Post</a>
+    {% endif %}
+  </div>
+
+{% include "footer" %}

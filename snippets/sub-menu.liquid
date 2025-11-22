@@ -1,0 +1,14 @@
+{% capture h %}{{ sub-menu.title | handleize }}{% endcapture %}{% assign sublist = linklists[h] %}
+{% if h == '' %}{% assign found = false %}{% comment %}Sub-menus with non latin characters in the title (e.g. '頁') are given a handle "link-list-n". Use a brute-force search for them...{% endcomment %}
+{% for n in (0..99) %}{% unless found %}{% capture h %}link-list{% unless forloop.first %}-{{ n }}{% endunless %}{% endcapture %}
+	{% if linklists[h].title == sub-menu.title %}{% assign found = true  %}{% assign sublist = linklists[h] %}{% endif %}{% endunless %}
+{% endfor %}{% endif %}
+{% if sublist.links.size > 0 %}
+<ul class="sub-menu">
+	{% for sublink in sublist.links %}
+		<li><a href="{{ sublink.url }}">{{ sublink.title | escape }}</a>
+		{% include 'sub-menu' with sublink %}
+		</li>
+	{% endfor %}
+</ul>
+{% endif %}	

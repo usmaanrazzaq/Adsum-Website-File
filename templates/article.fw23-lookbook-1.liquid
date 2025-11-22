@@ -1,0 +1,328 @@
+{% include "loading" %}
+
+ <style>
+  .grid-1 {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    padding: 120px 50px;
+    justify-items: center;
+    row-gap: 5px;
+    column-gap: 10px;
+    max-width: 1800px;
+    margin: 0 auto;
+    place-content: center;
+  }
+   .cell-1, .cell-2 {
+     grid-column: span 1;
+     display: flex;
+     align-self: center;
+   }
+   .solo-image {
+     padding: 120px 0;
+     max-width: 500px; display: block; margin: 0 auto;
+   }
+  .lookbook-caption {
+    line-height: 14px;
+    font-size: 10px;
+    text-align: center;
+    max-width: 300px;
+    color: #000;
+    display: block;
+    font-weight: 400;
+    align-self: auto;
+    padding-top: 20px;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 1400px) {
+  .grid-1 {
+    padding: 40px 40px;
+  }
+}
+@media (max-width: 1000px) {
+  .grid-1 {
+    padding: 40px 0px;
+  }
+}
+@media (max-width: 900px) {
+  .lookbook-caption {
+    grid-column: span 2;
+  }
+  .cell-1, .cell-2 {
+  }
+  .lookbook-collection-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0px 10px 40px 10px;
+  }
+}
+@media (max-width: 500px) {
+  .cell-mobile {
+    grid-column: 1 / span 2!important;
+  }
+  .solo-image:first-of-type {
+        padding-top: 45px;
+  }
+  .fw22-title {
+    font-size: 38px;
+  }
+  .fall-22-lookbook-header {
+    height: 75vh; 
+    width: 100%; 
+    background-image: url('https://cdn.shopify.com/s/files/1/0664/2387/files/cover-mobile-9B3A0568.jpg?v=1664562268'); 
+  }
+  .grid-1 {
+    margin: 0px;
+    grid-template-columns: repeat(2, 1fr);
+    padding-top: 0px;
+  }
+  .grid-1:first-of-type {
+  }
+  .cell-1, .cell-2 {
+    grid-column: span 2;
+  }
+}
+</style>
+
+
+{% include "loading" %}
+
+<div class="header-fullsite-fixed">
+  
+  <a href="http://www.adsumnyc.com" class="Adsum"  title="Adsum">
+          <svg class="adsum-logotype" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 81 20.1" style="enable-background:new 0 0 81 20.1;" xml:space="preserve">
+            <g>
+                <path d="M80.6,7.8c-0.3-0.7-0.6-1.2-1.1-1.6c-0.5-0.4-1-0.7-1.7-0.9c-0.6-0.2-1.3-0.3-2.1-0.3c-1,0-1.9,0.2-2.6,0.7
+                    c-0.7,0.5-1.3,1-1.7,1.7c-0.4-0.9-1-1.5-1.7-1.9c-0.7-0.4-1.6-0.5-2.5-0.5c-0.9,0-1.8,0.2-2.5,0.6c-0.7,0.4-1.4,1-1.9,1.7h0V5.5h0
+                    h-3.7h-0.2V13c0,1.5-0.2,2.5-0.7,3.1c-0.5,0.6-1.3,1-2.3,1c-0.9,0-1.6-0.3-2-0.9c-0.4-0.6-0.6-1.5-0.6-2.6V5.5h-3.9v8.8
+                    c0,0.9,0.1,1.7,0.2,2.4c0.2,0.7,0.4,1.3,0.8,1.9c0.4,0.5,0.9,0.9,1.6,1.2c0.7,0.3,1.5,0.4,2.6,0.4c0.8,0,1.6-0.2,2.4-0.6
+                    c0.8-0.4,1.4-1,1.9-1.8h0.1v2h0h3.7H63v-8.3c0-0.7,0.1-1.3,0.3-1.7c0.2-0.4,0.4-0.8,0.7-1c0.3-0.2,0.6-0.4,0.9-0.5
+                    c0.3-0.1,0.5-0.1,0.7-0.1c0.6,0,1.1,0.1,1.4,0.3c0.3,0.2,0.6,0.5,0.7,0.8c0.1,0.4,0.2,0.7,0.2,1.1c0,0.4,0,0.8,0,1.3v8H72v-8
+                    c0-0.4,0-0.9,0.1-1.3c0.1-0.4,0.2-0.8,0.4-1.2C72.7,9,73,8.7,73.3,8.5c0.3-0.2,0.8-0.3,1.3-0.3s1,0.1,1.3,0.3
+                    c0.3,0.2,0.6,0.4,0.7,0.7c0.2,0.3,0.3,0.7,0.3,1.1c0,0.4,0.1,0.9,0.1,1.4v8.1H81v-9.6C81,9.3,80.9,8.5,80.6,7.8z"/>
+                <path d="M11.9,0l7.4,19.8h-4.5l-1.5-4.4H5.9l-1.6,4.4H0L7.5,0H11.9z M12.2,12.1L9.7,4.9H9.6l-2.6,7.3H12.2z"/>
+                <path d="M29.4,18c-0.5,0.8-1.1,1.3-1.8,1.7c-0.7,0.3-1.6,0.5-2.5,0.5c-1.1,0-2-0.2-2.8-0.6c-0.8-0.4-1.5-1-2-1.7
+                    c-0.5-0.7-0.9-1.5-1.2-2.5c-0.3-0.9-0.4-1.9-0.4-2.9c0-1,0.1-1.9,0.4-2.8c0.3-0.9,0.7-1.7,1.2-2.4c0.5-0.7,1.2-1.2,2-1.6
+                    C23,5.3,23.9,5.1,25,5.1c0.8,0,1.7,0.2,2.4,0.5c0.8,0.4,1.4,0.9,1.8,1.6h0.1V0h3.9v19.8h-3.7L29.4,18L29.4,18z M29.3,10.9
+                    c-0.1-0.5-0.3-1-0.6-1.4c-0.3-0.4-0.6-0.8-1-1C27.2,8.2,26.7,8,26,8c-0.6,0-1.2,0.1-1.6,0.4c-0.4,0.3-0.8,0.6-1.1,1
+                    c-0.3,0.4-0.5,0.9-0.6,1.5c-0.1,0.5-0.2,1.1-0.2,1.7c0,0.6,0.1,1.1,0.2,1.7c0.1,0.6,0.3,1,0.6,1.5c0.3,0.4,0.6,0.8,1.1,1.1
+                    c0.4,0.3,1,0.4,1.6,0.4c0.6,0,1.2-0.1,1.6-0.4c0.4-0.3,0.8-0.6,1-1c0.3-0.4,0.4-0.9,0.6-1.5c0.1-0.6,0.2-1.1,0.2-1.7
+                    C29.4,12,29.4,11.4,29.3,10.9z"/>
+                <path d="M38.6,16.2c0.2,0.3,0.4,0.6,0.7,0.7c0.3,0.2,0.6,0.3,1,0.4c0.4,0.1,0.7,0.1,1.1,0.1c0.3,0,0.6,0,0.9-0.1
+                    c0.3-0.1,0.6-0.2,0.8-0.3c0.2-0.1,0.5-0.3,0.6-0.6c0.2-0.2,0.2-0.5,0.2-0.9c0-0.6-0.4-1-1.2-1.3c-0.8-0.3-1.9-0.6-3.3-0.9
+                    c-0.6-0.1-1.1-0.3-1.7-0.5c-0.5-0.2-1-0.4-1.5-0.7c-0.4-0.3-0.8-0.6-1-1.1c-0.3-0.4-0.4-1-0.4-1.6c0-0.9,0.2-1.7,0.5-2.3
+                    c0.4-0.6,0.8-1.1,1.4-1.4c0.6-0.3,1.3-0.6,2-0.7c0.7-0.1,1.5-0.2,2.3-0.2c0.8,0,1.5,0.1,2.3,0.2c0.7,0.1,1.4,0.4,2,0.7
+                    c0.6,0.4,1,0.8,1.4,1.4c0.4,0.6,0.6,1.3,0.7,2.2h-3.7c-0.1-0.8-0.3-1.3-0.9-1.5c-0.5-0.3-1.1-0.4-1.8-0.4c-0.2,0-0.5,0-0.7,0
+                    c-0.3,0-0.5,0.1-0.7,0.2c-0.2,0.1-0.4,0.2-0.5,0.4C39,8.5,38.9,8.7,38.9,9c0,0.4,0.1,0.6,0.4,0.9c0.3,0.2,0.6,0.4,1,0.5
+                    c0.4,0.1,0.9,0.3,1.4,0.4c0.5,0.1,1.1,0.2,1.6,0.4c0.6,0.1,1.1,0.3,1.7,0.5s1,0.4,1.5,0.7c0.4,0.3,0.8,0.7,1,1.1
+                    c0.3,0.5,0.4,1,0.4,1.7c0,0.9-0.2,1.7-0.6,2.4c-0.4,0.6-0.9,1.2-1.5,1.5c-0.6,0.4-1.3,0.7-2.1,0.8c-0.8,0.2-1.6,0.2-2.4,0.2
+                    c-0.8,0-1.6-0.1-2.4-0.2c-0.8-0.2-1.5-0.4-2.1-0.8c-0.6-0.4-1.1-0.9-1.5-1.5c-0.4-0.6-0.6-1.4-0.7-2.4h3.7
+                    C38.4,15.6,38.5,15.9,38.6,16.2z"/>
+            </g>
+          </svg>
+  </a>
+
+</div>
+
+<div class="grid-1">
+  <div class="cell-mobile" style="grid-column: 5 / span 4; display: flex; align-self: center;">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A2277.jpg?v=1694633521" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+  </div>
+  <div class="cell-mobile" style="grid-column: 5 / span 4; grid-row: 2; max-width: 300px; margin: 0 auto; padding: 20px 20px 0 20px; text-align: center;">
+    <div style="font-size:14px; font-weight: 600;">Fall/Winter 23 I Lookbook</div>
+    <div style="font-size:10px; padding-top: 4px; line-height: 13px;/* font-family: times, serif; */">
+      Shot on Perry in Greenpoint<br>
+      Sept. 1, 2023
+    </div>
+  </div>
+</div>
+
+  <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 3 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A3399.jpg?v=1694718084" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="cell-mobile" style="grid-column: 7 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A3492.jpg?v=1694718084" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 5 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A2508-2.jpg?v=1694633927" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 3 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A2634.jpg?v=1694634494" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="cell-mobile" style="grid-column: 7 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A2615.jpg?v=1694634494" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 5 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A4753.jpg?v=1694798492" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 3 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A3239.jpg?v=1694723732" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="cell-mobile" style="grid-column: 7 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A3307.jpg?v=1694790412" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 3 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A2709.jpg?v=1694790740" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div> 
+    <div class="cell-mobile" style="grid-column: 7 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A2682.jpg?v=1694635783" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 5 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A3542-2.jpg?v=1694799709" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 3 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A3792.jpg?v=1694638176" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="cell-mobile" style="grid-column: 7 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A3676.jpg?v=1695046565" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+  </div>
+
+
+  <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 3 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A3884.jpg?v=1694716325" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="cell-mobile" style="grid-column: 7 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A3927.jpg?v=1694716326" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 5 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A4417.jpg?v=1694720838" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 3 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A2893-2.jpg?v=1694716325" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="cell-mobile" style="grid-column: 7 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A2915.jpg?v=1694716325" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 5 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A2864-2.jpg?v=1694793049" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 3 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A4284.jpg?v=1694716325" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="cell-mobile" style="grid-column: 7 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A4212.jpg?v=1694716326" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 5 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A4136.jpg?v=1694716326" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 3 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A2985.jpg?v=1694717449" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="cell-mobile" style="grid-column: 7 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A3173.jpg?v=1694717450" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 5 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A4687.jpg?v=1694723731" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 3 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A2110.jpg?v=1694799709" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="cell-mobile" style="grid-column: 7 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A2165.jpg?v=1694799709" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-mobile" style="grid-column: 5 / span 4; display: flex; align-self: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A4966.jpg?v=1695046048" loading="lazy" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+  </div>
+
+</div>
+
+{% include "footer" %}
+
+{% comment %}
+<div class="featured-products-title">
+	SS23 Part 3
+</div>
+
+<div id="products" class="lookbook-collection-grid {{ collection.title | handleize }}">
+  {% for product in collections.ss23drop3.products %}
+  	<div class="collection-grid-item">
+      <a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}">  
+        <div style="position: relative;">
+          <img data-sizes="auto"
+               src="{{ product.images.first | product_img_url: '1x1' }}" 
+               data-src="{{ product.images.first | product_img_url: '1024x1024' }}"
+               data-srcset="{{ product.images.first | product_img_url: '600x600' }} 300w,
+                            {{ product.images.first | product_img_url: '1200x1200' }} 600w,
+                            {{ product.images.first | product_img_url: '1800x1800' }} 900w"
+               alt="{{ product.title | strip_html | escape }}" class="lazyload" style="display: block; width: 100%; height: 100%;" />
+          <img data-sizes="auto"
+               src="{{ product.images[1] | product_img_url: '1x1' }}" 
+               data-src="{{ product.images[1] | product_img_url: '1024x1024' }}" 
+               data-srcset="{{ product.images[1] | product_img_url: '600x600' }} 300w,
+                            {{ product.images[1] | product_img_url: '1200x1200' }} 600w,
+                            {{ product.images[1] | product_img_url: '1800x1800' }} 900w"
+               alt="{{ product.images[1].alt | escape }}" class="collection-product-hover lazyload"/>
+        </div>
+        <div class="product_info_content">
+            {%if product.available == true %}
+                <div class="gallery-product-title">
+                    {{ product.title }}
+                </div>
+                <div class="gallery-product-price">
+                    {% if product.compare_at_price_max > product.price %}
+                        <del class="sale">{{ product.compare_at_price_max | money }}</del>
+                    {% endif %}
+                    {{ product.price | money }}
+                </div>
+            {% endif %}
+            {%if product.available == false %}    
+                <span style="color: red; text-decoration: uppercase;">Sold Out</span>
+            {% endif %}
+        </div>          
+      </a>
+    </div>
+{% endfor %}
+</div>
+
+{% endcomment %}

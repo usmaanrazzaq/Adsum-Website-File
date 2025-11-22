@@ -1,0 +1,349 @@
+{% include "loading" %}
+
+<style>
+  .graphics-article-title {
+    display: block;
+    color: #000;
+    position: absolute;
+    text-align: center;
+    font-size: 20px;
+    top: 43px;
+    left: 0px;
+    width: 100%;
+    opacity: 1;
+    -moz-transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+  }
+  
+  .recommend-wrapper {
+    padding: 100px 200px 40px;
+    max-width: 1600px;
+    margin: 0px auto;
+    display: block;
+  }
+  
+  .intro-column-block {
+    column-count: 2;
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  .main-column-block {
+    column-count: 3;
+    font-size: 11px;
+    line-height: 14px;
+    padding: 0px 0px 40px;
+    border-bottom: 1px solid #000;
+    column-gap: 20px;
+  }
+  
+  .recommend-img {
+    display: block;
+    width: 100%;
+    max-width: 600px; 
+    padding: 40px; 
+    margin: 0 auto;
+  }
+  
+  .recommend-wrapper h2 {
+    font-size: 20px;
+    line-height: 22px;
+    padding-bottom: 0px;
+  }
+  
+  .recommend-wrapper p {
+  	font-size: 10px; 
+    font-style: italic;
+    padding-bottom: 4px;
+    margin-bottom: 20px;
+  }
+  
+  .category-title {
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight: 600;
+    background-color: #000;
+    color: #fff;
+    padding: 0px 4px 0px;
+    margin: 10px 0 4px 0;
+  }
+  
+  .main-column-block a {
+    text-decoration: underline;
+  }
+  
+  .recommendation {
+    padding-top: 4px;
+    line-height: 15px;
+  }
+  
+  @media (max-width: 900px) {
+    
+    .recommend-wrapper {
+      padding: 100px 20px 40px;
+    }
+    
+    .main-column-block {
+      column-count: 2;
+      padding: 80px 30px;
+    }
+    
+    .recommend-img {
+      padding: 40px 0px;
+      max-width: 100%;
+    }
+    
+  }
+  
+  @media (max-width: 500px) {
+    .intro-column-block {
+    column-count: 1;
+    font-size: 14px;
+    line-height: 20px;
+  }
+    .main-column-block {
+      column-count: 1;
+      padding: 0px 0px 40px 0;
+    }
+    .recommendation {
+      padding-top: 10px;
+      line-height: 16px;
+    }
+    .category-title {
+    margin: 20px 0 0px 0;
+}
+  }
+</style>
+
+
+<div class="recommend-wrapper">
+
+<div class="graphics-article-title" >
+  Adsum Activity Stimulus
+</div>
+
+<div class="intro-column-block">
+  If you're staying at home more, or just need some recommendations on seemingly endless content available these days, the Adsum team has sat down to point you to some music, movies, and reading we've enjoyed recently. 
+  Whether you like Disney animation, Québécois cookbooks, or movies about robots trying to become human, we're confident there's something below you will enjoy. 
+</div>
+
+<img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-53121906822.jpg?v=1590065822"
+     class="recommend-img">
+
+
+<div class="main-column-block">
+  <h2>Pete Macnee</h2>
+  <p>Founder/Head Designer</p>
+  <div class="category-title">Listen</div>
+  <div class="recommendation">
+  1. <a href="https://open.spotify.com/track/68ayQGQUDSHhDeWxQP7IoX?si=WQWq3JwmRT-LM6Cswk36iw" target="_blank">John Prine - Taking a Walk</a> 
+  - I was lucky enough to see John Prine at Massey Hall in Toronto with my pops and brother. He’s a true American treasure and one of the best song writers ever and we lost him to COVID.
+  </div>
+  <div class="recommendation">
+  2. <a href="https://www.youtube.com/watch?v=p6TrQzNTrRA" target="_blank">Jadakiss - We Gonna Make It (feat. Styles P)</a> 
+  - It’s how we need to live right now. The sample is from Samual Johnathan Johnson “My Music”. Undoubtedly a classic.
+  </div>
+  <div class="recommendation">
+  3. <a href="https://www.youtube.com/watch?v=1TkeETW9DVU&feature=emb_title" target="_blank">Blake Mills - Summer All Over</a> 
+  - I’m not sure how I came across Blake Mills but I’ve been able to witness his growth as a solo musician and producer for a while now. He’s one of the best living guitarists and is great guy. His new album featuring this song just came out. Have a listen.
+  </div>
+  
+  <div class="category-title">Watch</div>
+  <div class="recommendation">
+  1. <a href="https://www.rottentomatoes.com/m/1196003_princess_and_the_frog" target="_blank">The Princess and the Frog</a> 
+  - Beautiful animation and captures some elements of NOLA’s vibe. It’s scored by Randy Newman and has a track or two by Dr. John.
+  </div>
+  <div class="recommendation">
+  2. <a href="https://www.rottentomatoes.com/m/the_ballad_of_buster_scruggs" target="_blank">The Ballad of Buster Scruggs </a> 
+  - It’s a beautiful movie by the Coen Brothers about multiple adventures that take place in the wild west.
+  </div>
+  <div class="recommendation">
+  3. <a href="https://www.rottentomatoes.com/m/all_for_one_2017" target="_blank">All for One </a> 
+  - Passed to me by a bud who road bikes. (I haven’t watched it yet but I’m hoping it sheds light on the UCI World Championships and the sport in general for me).
+  </div>
+  
+  <div class="category-title">Read</div>
+  <div class="recommendation">
+  1. <a href="https://smile.amazon.com/Trout-Fly-Lee-Wulff/dp/1558210768/ref=smi_www_rco2_go_smi_g8217842112?_encoding=UTF8&%2AVersion%2A=1&%2Aentries%2A=0&ie=UTF8" target="_blank">Trout on a Fly by Lee Wulff</a> 
+  - Lee Wulff and his wife are really important figures in fly fishing. It’s a must read if you fly fish. 
+  </div>
+  <div class="recommendation">
+  2. <a href="https://smile.amazon.com/Landscape-Painting-Now-Todd-Bradway/dp/1942884265/ref=sr_1_1?dchild=1&keywords=Landscape+Painting+Now+From+Pop+Abstraction+to+New+Romanticism&qid=1589227702&s=books&sr=1-1" target="_blank">Landscape Painting Now From Pop Abstraction to New Romanticism</a> 
+  - The title says it all. It’s a beautiful coffee table book that may introduce you to some new artists you haven’t heard of.
+  </div>
+  <div class="recommendation">
+  3. <a href="https://www.amazon.com/Joe-Jones-Novel-Anne-Lamott/dp/1593760035" target="_blank">Joe Jones by Anne Lamott</a> 
+  - I asked my father what kind of stuff he was into around my birth in 1986. He mentioned this book and a few songs that are etched in his memory.
+  </div>
+
+</div>
+  
+<img src="https://m.media-amazon.com/images/M/MV5BMTMxOTkwOTczMl5BMl5BanBnXkFtZTcwNjIyNTgwMw@@._V1_SY1000_CR0,0,1726,1000_AL_.jpg"
+     class="recommend-img">
+  
+<div class="main-column-block">
+  <h2>Christian Rice</h2>
+  <p>Partner/Art Director</p>
+  
+  <div class="category-title">Listen</div>
+  <div class="recommendation">
+  1. <a href="https://open.spotify.com/playlist/3yENeorqFgA5INKrQzBKVp?si=cT58wAHGSp-vSG9hEeOQWA" target="_blank">WTNG 89.9FM: Solid Bronze - Various Artists</a> 
+  - As a teenager I considered soft-rock a direct attack on all ethos we should be upholding and a sign of a weak-minded society bent on cowardly escapism. I’m past 30 now and all I want to listen to is some unknown band named Greenflow whisper “dodo dodo do” in my ear to the most restrained trombone stabs ever recorded. Put together by The Numero Group who unearth lost music and reissuie it, this is their “ode to radio station compilations of yore” and covers genres like “hot tub soul” and “yacht rock”.
+ </div>
+  <div class="recommendation">
+  2. <a href="https://www.youtube.com/watch?v=b0SrmA01Qpk" target="_blank">Daft Punk 1997 Essential Mix</a> 
+  - This was around the time I first found out about dance music and it will be forever the sound that I judge good dance music against. They inexplicably put a speech by Martin Luther King Jr. in the middle of the mix… but y’know... they’re French. 
+  </div>
+  <div class="recommendation">
+  3. <a href="https://www.bbc.co.uk/sounds/play/m000hhrn" target="_blank">Jamie XX 2020 Essential Mix</a> 
+  - 9 years after his first and well-loved essential mix, Jamie XX returns with a signature sprawling mix that bounces from the master of repetition Philip Glass, to Genesis’ Peter Gabriel, to Nigerian multi instrumentalist Fela Kuti, to the moody electronic he is most often associated with. Can pretty much send this one into space to let aliens know what music sounds like.
+  </div>
+  
+  <div class="category-title">Watch</div>
+  <div class="recommendation">
+  1. <a href="https://www.rottentomatoes.com/m/bloodsport" target="_blank">Bloodsport</a> 
+    - This movie has a 29% on Metacritic. Clearly the people who rated this are the same type of twat who comments on the quality of the acting and the believability of the plot lines of movies like the Fast and the Furious. The “Muscles from Brussels” Jean Claude Van Damme stars in this bat shit crazy story about an American soldier going to Hong Kong to be accepted into a secret martial arts competition. Why? Who knows and who cares. Go back to a time when everyone was in a constant state of being slightly sweaty and no one knew anything about MMA. See also: <i>Road House</i>.
+    <div class="recommendation">
+  2. <a href="https://www.rottentomatoes.com/m/for_love_or_money_1993" target="_blank">For Love or Money</a> 
+      - This is basically Macaulay Caulkin’s <i>Richy Rich</i> for 20 something yuppies, starring Michael J. Fox. Again, you’ll have to ignore the 37% on Rotten Tomatoes by people who probably call movies “films”. Fox plays a hotel concierge who dreams of opening his own hotel on Roosevelt Island but needs an investor. Cue typical handsome 90s villain with slick backed hair and a seductive girlfriend. The movies full of great shots of 90s New York and the fashion of the times. It gets bonus points for being girlfriend friendly, which means you might actually get away with watching it over Bloodsport.
+  </div>
+  <div class="recommendation">
+  3. <a href="https://www.rottentomatoes.com/m/electroma" target="_blank">Electroma</a> 
+  - If you have any leftover shake or drying up psychedelics, give this a shot. It’s essentially one long movie-length music video directed by Daft Punk. Instead of a vehicle for their own music, they curate a list of some of their favorite songs and influences and set it over a nutty story of robots trying to become human. If you can’t watch robots driving a 1987 black Ferrari 412 driving through the Californian desert to Todd Rundgren’s “International Feel” for 3 minutes straight, you might want to pass. 
+  </div>
+  
+  <div class="category-title">Read</div>
+  <div class="recommendation">
+  1. <a href="https://smile.amazon.com/Siddhartha-Dover-Thrift-Editions-Hermann-ebook/dp/B008TVM0GO/ref=sr_1_3?crid=1KVM5QB6G8OES&dchild=1&keywords=siddartha+hesse+herman&qid=1589291779&s=books&sprefix=siddartha%2Cstripbooks%2C137&sr=1-3" target="_blank">Siddhartha by Hermann Hesse</a> 
+  - A simple and short book about the meaning of life and how best to approach it by one of the best writers to ever do it. Inspired countless artists and songs including Nick Drake's “River Man”. Pretty much whenever someone references a river it’s because of this book.
+  </div>
+  <div class="recommendation">
+  2. <a href="https://smile.amazon.com/Grid-systems-graphic-design-communication/dp/3721201450" target="_blank">Grid Systems by Josef Müller-Brockmann </a> 
+  - The graphic design bible. Very dry and probably will not appeal to anyone other than graphic designers (my dad who loves dry books by Germans put it down after 30 minutes and said “I don’t get the appeal.”), but when I found it, I wanted to hold it in the air like Simba in The Lion King.
+  </div>
+  <div class="recommendation">
+  3. <a href="https://smile.amazon.com/20th-Century-Rock-Roll-Alternative/dp/189652219X" target="_blank">20th Century Rock and Roll: Alternative Rock by Alan Cross</a> 
+  - Growing up in Toronto I would religiously listen to Alan Cross’ Ongoing History of New Music radio show on 102.1 The Edge. Who else would do a two part series entitled “The Weird World of Scott Weiland” (remember, you would have to wait a week to hear the second show of insane stories about Scott). Well this is the book version of that with tons of well researched stories that you probably don’t know, about all the music you should know.
+  </div>
+  </div>
+  
+</div>
+  
+<img src="https://cdn.shopify.com/s/files/1/0664/2387/files/ss8763id_081_w1600.jpg?v=1589298334"
+     class="recommend-img">
+  
+<div class="main-column-block">  
+  <h2>Matt Petruccione</h2>
+  <p>Partner/Production Lead</p>
+  
+  <div class="category-title">Listen</div>
+  <div class="recommendation">
+  1. <a href="https://aquariumdrunkard.com/2020/03/27/radio-free-aquarium-drunkard/" target="_blank">Radio Free by Aquarium Drunkard</a> 
+  - A continuous loop of tunes from my favorite music source. Past mixes, shows and recordings culminated from their 15+ years of existence.
+  </div>
+  <div class="recommendation">
+  2. <a href="https://www.nts.live/shows/blue-note-80/episodes/jeff-garlin-4th-december-2019" target="_blank">Blue Note 80: Jeff Garland NTS mix</a> 
+  - Legendary Jeff Garland spins his favorite tracks from the Blue Note label.
+  </div>
+  <div class="recommendation">
+  3. <a href="https://www.mixcloud.com/whimworld/" target="_blank">whim.world Mixcloud</a> 
+  - Friends of mine who run Whim Golf in Chicago and also make great mixes in their free time. 
+  </div>
+  
+  <div class="category-title">Watch</div>
+  <div class="recommendation">
+  1. <a href="https://www.imdb.com/title/tt0075675/" target="_blank">The American Friend</a> 
+  - American Ex-pat (Dennis Hopper) living in Hamburg plays a forged art dealer who calls on his terminally ill friend to carry out a hit for one of his gangster comrades. Available on the Criterion Channel app.
+  <div class="recommendation">
+  2. <a href="https://www.youtube.com/watch?v=vTxRsYurA7Q" target="_blank">And1 Mixtape Tour Vol. 5</a> 
+  - Probably my favorite basketball video ever. Largely shaped the way a lot of basketball highlights are filmed today.
+  </div>
+  <div class="recommendation">
+  3. <a href="https://www.youtube.com/channel/UCZEPItn2Nb62Zso5eohHAAA" target="_blank">BBC Documentary YouTube Channel</a> 
+  - Essential pre-bedtime viewing for me. You’re bound to find something that’ll catch your interest.
+  </div>
+  
+  <div class="category-title">Read</div>
+  <div class="recommendation">
+  1. <a href="https://smile.amazon.com/Consider-Lobster-Essays-Foster-Wallace/dp/0316013323" target="_blank">Consider the Lobster by David Foster Wallace</a> 
+  - A collection of essays by the legend DFW. Funny, honest and thought-provoking.
+  </div>
+  <div class="recommendation">
+  2. <a href="https://smile.amazon.com/Astral-Weeks-Secret-History-1968-ebook/dp/B073R31SP7/ref=sr_1_1?dchild=1&keywords=astral+weeks&qid=1589297000&s=books&sr=1-1" target="_blank">Astral Weeks: A Secret History of 1968 by Ryan H. Walsh</a> 
+  - This book dives heavily into the counter-culture scene of Boston in 1968, which I personally knew zero about before this. A lot of the themes end up revolving around the creation and inspiration of Van Morrisons Astral Weeks album.
+  </div>
+  <div class="recommendation">
+  3. <a href="https://smile.amazon.com/Joe-Beef-Surviving-Apocalypse-Cookbook-ebook/dp/B079KS7TB1/ref=sr_1_1?dchild=1&keywords=Joe+Beef%3A+Surviving+the+Apocalypse%3A&qid=1589297027&s=books&sr=1-1" target="_blank">Joe Beef: Surviving the Apocalypse: Another Cookbook of Sorts by David McMillan, Frederic Morin and Meredith Erickson</a> 
+  - This one seems fitting for the times. Containing traditional French/Quebecois recipes, dinner party essentials and general rules and guidelines for dining- I’ve always appreciated these guys’ approach to cooking and eating comfortably.
+  </div>
+  </div>
+  
+</div> 
+  
+<img src="https://s3.amazonaws.com/criterion-production/janus_stills/2056-/877id_654_039_w1600.jpg"
+     class="recommend-img">
+  
+<div class="main-column-block" style="border-bottom: 0px;">  
+  <h2>Tommy Wan</h2>
+  <p>Operations/Finance</p>
+  
+  <div class="category-title">Listen</div>
+  <div class="recommendation">
+  1. <a href="https://www.youtube.com/watch?v=dRBYsINSUZ0" target="_blank">The Crusaders & Randy Crawford - Street Life (Live)</a> 
+  - “I play the street life…” Randy’s voice got me hooked the instant she started humming, also a very nice instrumental solo in the middle which is not included in other versions on most streaming services. “Street life, it's the only life I know.” It really is the only life I know!
+  </div>
+  <div class="recommendation">
+  2. <a href="https://www.youtube.com/watch?v=6E0oGIWpiGs" target="_blank">YoungBloodZ -  85</a> 
+  - Late 90s and early 00s Atlanta Rap is quite underrated, especially with YoungBloodZ’s voice and melody. You’ll want to play this song on repeat nonstop, like I do as well!
+  </div>
+  <div class="recommendation">
+  3. <a href="https://www.youtube.com/watch?v=T_PANWkHTT8" target="_blank">Mobb Deep - Drink Away the Pain</a> 
+  - Queensbridge’s finest… I couldn’t have possibly recommended music without including the Infamous. Crazy that 25 years later, the album is still fresh. Oh, and you like ATCQ’s flow? Q-Tip, Prodigy, and Havoc got you covered on all grounds with this tune. “I sip away the liquor and drink away the pain.” I’m sure most of you out there are doing this every night, or day nowadays. 
+  </div>
+  
+  <div class="category-title">Watch</div>
+  <div class="recommendation">
+  1. <a href="https://www.rottentomatoes.com/m/godfather" target="_blank">The Godfather</a> 
+  - Please do not talk to me if you like any of the sequels shot and made for commercial purposes! The specific shots, character building, and language in the first Godfather is all you’ll need to know about the Italian-American mafia.
+  <div class="recommendation">
+  2. <a href="https://www.rottentomatoes.com/m/divorce_italian_style" target="_blank">Divorzio all’italiana (Divorce Italian Style)</a> 
+  - A classic “love story” set in Sicily. A black and white picture that is not only entertaining, but quite intriguing as well. Without going into the details and spoiling the movie, the picture is more than just presenting a simple story, it is also commenting on the “code of honor” marital laws that had existed in Sicily up until mid-1970s.
+  </div>
+  <div class="recommendation">
+  3. <a href="https://www.youtube.com/watch?v=PkDd-eOtIow&feature=emb_logo" target="_blank">Potluck</a> 
+  - A skate video that I find myself watching over and over again in the past two months, so I downloaded a copy from YouTube… You can also go watch here in the link. It’s young, raw, and all that. Gets you psyched to go out and skate as well, not right now but when COVID is over!
+  </div> 
+  <div class="category-title">Read</div>
+  <div class="recommendation">
+  1. <a href="https://smile.amazon.com/dp/B009GJ0YWK/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1" target="_blank">The Sicilian by Mario Puzo</a> 
+  - I know I said earlier that you probably shouldn’t watch Godfather II, but definitely grab the book that the film was based on. The incredible details about each character can be a little too much, and it’s a long book. But what better thing do you have planned at home than to read?! (Smoke weed)
+  </div>
+  <div class="recommendation">
+  2. <a href="https://www.antennebooks.com/product/lightning-archives-vintage-champion/" target="_blank">Vintage “Champion” Index by Lightning Japan</a> 
+  - Are you always on the search for a vintage Champion Reverse Weave? I know I am, and I never find any. So flipping through the pages of this book is the only option I have. Close to 300 pages worth of Champion products rarely seen before, I’m sure you will love them too.
+  </div>
+  <div class="recommendation">
+  3. <a href="https://www.target.com/p/the-sopranos-family-cookbook-by-artie-bucco-allen-rucker-michele-scicolone-david-chase/-/A-11997565?ref=tgt_adv_XS000000&AFID=google_pla_df&fndsrc=tgtao&CPNG=PLA_Entertainment%2BShopping&adgroup=SC_Entertainment&LID=700000001170770pgs&network=g&device=c&location=9004331&ds_rl=1246978&ds_rl=1248099&gclid=EAIaIQobChMIpvHhupGx6QIVloTICh12CAkIEAQYAiABEgIRX_D_BwE&gclsrc=aw.ds" target="_blank">Sopranos’ Family Cookbook</a> 
+  - Want to learn more about how polpetti and chicken cutlets are made? Or what the hell is going on in the back of Satriale’s? You can find the book on eBay.
+  </div>
+  </div>
+  
+</div> 
+  
+</div>
+
+<div class="postnav">
+	<a href="{{ blog.previous_article }}" class="btn" style="float: left">Previous Post</a>
+    {% if blog.next_article %}
+	<a href="{{ blog.next_article }}" class="btn" style="float: right">Next Post</a>
+    {% endif %}
+</div>
+
+{% include "footer" %}
+
+<script type="text/javascript">  
+  $('.header-fullsite-fixed').addClass('header-fullsite').removeClass('header-fullsite-fixed');
+</script>

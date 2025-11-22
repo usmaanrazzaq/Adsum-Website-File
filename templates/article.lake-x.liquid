@@ -1,0 +1,82 @@
+{% include "loading" %}
+
+<script type="text/javascript">
+$(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 10) {
+        $(".index-scroll-arrow-img").addClass("hide3");
+    } else {
+        $(".index-scroll-arrow-img").removeClass("hide3");
+    }
+});
+</script>
+
+
+<div class="index-scroll-arrow">
+  <div class="index-scroll-arrow-img">↓</div>
+  <div class="scroll-down">
+  	Scroll down
+  </div>
+</div>
+
+
+    
+
+<div style="position: relative;">
+  <iframe id="video"src="https://www.youtube.com/embed/GDv1mmFGIEs?rel=0&amp;controls=0&amp;showinfo=0;autoplay=1" frameborder="0" allowfullscreen></iframe>
+  <div class="lake-x-title">
+  	Lake X
+  </div>
+</div>
+
+<div class="lake-x-text">
+  <p>
+    Fishing is often an exercise in escape. Whether it is an escape from the grind of the city, work deadlines, social duties, or just the humdrum of your average day. Similarly, it would be naive to deny that at least a small part of the thrill of going on a boat is escaping the land where most of these pressures are located. It is with this idea in mind that E. Carl Kiekhaefer, president of Kiekhaefer Marine (which would later become Mercury Marine), prepared his single engine plane in search of an aquatic refuge. He was searching for someplace extremely private where people could neither see nor hear what he was planning—a secret test facility for marine engines.
+  </p>
+  	<img src="https://cdn.shopify.com/s/files/1/0664/2387/files/mercury-2.jpg?8825184252776991616">
+    <div class="blog-img-caption">The "Banana Peel" being put to the test at Lake X.</div>
+  <p>
+    This fateful flight would later lead to Kiekhaefer and a small team spotting Lake Conlin, a 1,400 acre lake surrounded by 11,000 acres of woods and swampland. It was also the home to many of Florida’s more sinister ancestral inhabitants including alligators, snakes, and panthers. Normally feared, these animals would act as natural security guards for what would come to be known as “Lake X”; a name the Kiekhaefer team used during purchase negotiations to protect proceedings from any would-be competitors or unwanted eyes. 
+  </p>
+  <p>
+    Soon after it’s purchase in 1957, development began on the site including the construction of seawalls, boat launches, offices and a six-room housing quarters to accommodate late night and overnight stays. The construction crew slept in on-site trailers, ate meals in tents, and we’re given strict orders to reveal nothing about any activities on the lake.
+  </p>
+  	<img src="https://cdn.shopify.com/s/files/1/0664/2387/files/mercury-3.jpg?2451464438579021401" style="max-width: 500px;">
+  	<div class="blog-img-caption">An aerial photo of Lake X showing how the facility was organized during the 1960s.</div>
+  <p>
+    Once completed, Lake X served as a temporary home to a select few seeking to experiment with and improve the performance of their boats. Race teams and boat builders of all kinds sought time there, searching for another 1 or 2 mph and leaving with the much coveted <a href="http://www.offshoreonly.com/forums/attachments/general-boating-discussion/164090d1126064898-dialed-lake-x-dialedinlogo.jpg" target="_blank">“Dialed in at Lake X” decal</a> that announced to everyone in the know that you were a serious performance boater. Essentially, it was the marine precursor to the number of car companies and people proudly displaying stickers informing people that their vehicle had been tested on the <a href="http://st.automobilemag.com/uploads/sites/11/2012/07/Vauxhall-Corsa-VXR-Nurburgring-Edition-sticker.jpg" target="_blank">Nürburgring</a>. 
+  </p>
+  	<img src="https://cdn.shopify.com/s/files/1/0664/2387/files/mercury-4.jpg?16405882907574659191" style="max-width: 500px;">
+    <div class="blog-img-caption">An old Mercury ad touting the credentials of the rigorous testing done at Lake X.</div>
+  <p>
+    One of the more noteworthy trials done at the lake was “Operation Atlas”, Kiekhaefer’s imaginative and bold response to criticism over the longevity of Mercury motors. Essentially, Operation Atlas was an “around the world” endurance run of two boats sporting Mercury Mark 75 Outboards. It was an undeniable success with the lead boat completing its 4,526th  and final lap (25,003 miles) after 34 days, 11 hours, 47 minutes and 5.4 seconds of non-stop operation. Operation Atlas was only one of many tests done at the barbed wire protected facility and, for over 47 years, Lake X served as important testing site (and marketing tool) for Mercury until its eventual closure in 2001.
+  </p>
+  	<img src="https://cdn.shopify.com/s/files/1/0664/2387/files/mercury-1.jpg?12591326891414724856">
+  	<div class="blog-img-caption">A photo of the in motion fueling process during Operation Atlas.</div>
+  <p>
+    The story of Lake X and Mercury is what inspired the <a href="https://adsumnyc.com/collections/ss17/products/50hp-tee" target="_blank">50HP tee shirt</a> in our SS17 collection. Featuring an iconic Mercury motor stripe pattern and the colors of early outboard boat motors, it’s our small ode to an origin story that we think Steelhead Joe would have admired as much as we do.
+  </p>
+  <p class="credits" style="padding: 0px;">Words by: <a href="http://www.christianrichardrice.com/">Christian Rice</a></p>
+  <a href="/collections/ss17" class="shop-button-photo-story">Shop Spring Summer '17</a>
+</div>
+
+{% include "footer" %}
+
+<script type="text/javascript">
+  $(function(){
+    $('#video').css({ width: $(window).innerWidth() + 'px', height: $(window).innerHeight() + 'px' });
+
+    $(window).resize(function(){
+      $('#video').css({ width: $(window).innerWidth() + 'px', height: $(window).innerHeight() + 'px' });
+    });
+  });
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    window.setTimeout(function(){
+        $(".index-scroll-arrow").addClass("visible");
+    },2500);
+});
+</script>

@@ -1,0 +1,369 @@
+<style>
+  * {
+    scroll-behavior: smooth;
+  }
+  .blog-link {
+    text-align: center;
+    font-size: 13px;
+    max-width: 420px;
+    background-color: #fff;
+    color: #000;
+    padding: 10px 20px;
+    margin: 0 auto;
+    display: block;
+    border: 1px solid #000;
+    margin-bottom: 80px;
+  }
+  .blog-link:hover {
+    background-color: #000;
+    color: #fff;
+  }
+  .grid-container {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 10px;
+    display: grid;
+    margin: 94px 40px 0 257px;
+    scroll-behavior: smooth;
+  }
+  .caption-title {
+    font-weight: 600;
+    padding-bottom: 12px;
+    max-width: 420px;
+    line-height: 1.4em;
+  }
+  .caption-text{
+    max-width: 420px;
+    line-height: 1.4em;
+  }
+  .section-big-text{
+    grid-column: span 6;
+    font-size: 24px;
+  }
+  
+  .full-container{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-row: repeat(16, 1fr);
+    min-height: 100vh;
+    width: 100vw;
+  }
+  .full-image{
+    grid-column: 1 / span 12;
+    grid-row: 1 / span 16;
+    z-index: 1;
+    object-fit: cover;
+    width: 100vw;
+    height: 90vh;
+  }
+  .fullAnnotations{
+    display: inline;
+    z-index: 2;
+    
+  }
+  .fullAnnotations1{
+    grid-column: 4 / span 2;
+    grid-row: 3 / span 1;
+  }
+  .fullAnnotations2{
+    grid-column: 8 / span 2;
+    grid-row: 7 / span 1;
+  }
+  
+  .hero-image{
+    grid-column: 6 / span 7;
+    width: 100%;
+    grid-row: span 6;
+    max-height: calc(100vh - 124px);
+    object-fit: cover;
+  }
+  .hero-title {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  .hero-text {
+    grid-column: 1 / span 4;
+    font-size: 12px;
+  }
+  .hero-button {
+    grid-column: 1 / span 2;
+    position: sticky;
+    top: 50px;
+  }
+  .hero-button-overview {
+    margin: 41px 0 5px 0;
+    font-weight: 600;
+    grid-column: 1 / span 1;
+    position: sticky;
+    top: 60px;
+    height: auto;
+  }
+  .hero-paragraph {
+    line-height: 18px;
+  }
+  .section-header {
+    font-weight: 600;
+    grid-column: 1 / span 1;
+    position: sticky;
+    top: 60px;
+    height: auto;
+    padding-bottom: 40px;
+  }
+  .section-bullet {
+    position: sticky;
+    grid-column: 1 / span 4 ;
+    margin-bottom: 10px;
+    height: 15px;
+    line-height: 15px;
+  }
+  .section-bullet a {
+  }
+  .section-bullet a:hover {
+    color: grey;
+    text-decoration: underline;
+  }
+  .section-header0 {
+    top: 102px;
+  }
+  .section-bullet0 {
+    top: 117px;
+  }
+  .section-header1{
+    top: 211px;
+  }
+  .section-bullet1{
+    top: 226px;
+  }
+  .section-bullet2{
+    top: 241px;
+  }
+  .section-bullet3{
+    top:256px;
+  }
+  .section-header2{
+    top: 291px;
+  }
+  .section-bullet4{
+    top: 306px;
+  }
+  .section-bullet5{
+    top: 321px;
+  }
+    .section-bullet6{
+    top: 336px;
+  }
+
+  .section-images{
+    grid-column: 3 / span 10;
+    grid-template-columns: repeat(6, 1fr);
+    display: grid;
+    column-gap: 10px;
+    padding-bottom: 80px;
+  }
+  .three-across img{
+    grid-column: span 2;
+    width: 100%;
+    margin-block: 10px;
+  }
+    .three-across a{
+    grid-column: span 3;
+    width: 100%;
+    margin-block: 10px;
+  }
+  .one-across img{
+    grid-column: span 4;
+    height: 50vh;
+    width: 100%;
+    object-fit: cover;
+  }
+
+    @media (max-width: 900px) {
+      .hero-title{
+        font-size: 36px;
+        font-weight: normal;
+        margin-top: 20px;
+        margin-bottom: 15px;
+      }
+      .hero-text{
+        grid-column: 1 / span 12;
+        font-size: 12px;
+      }
+      .hero-image{
+          grid-column: 1 / span 12;
+          grid-row: 1;
+      }
+      .hero-button{
+        grid-column: 1 / span 4;
+        position: inherit;
+      }
+      .grid-container{
+        grid-template-columns: repeat(12, 1fr);
+        column-gap: 0px;
+        grid-row-gap: 0px;
+        display: grid;
+        margin: 50px 20px 0 20px; 
+      }
+      .section-images{
+        grid-column: 1 / span 12;
+        padding-bottom: 40px;
+      }
+      .section-header{
+        position: initial;
+        padding-bottom: 0px;
+      }
+      .section-header{
+        position: initial;
+        padding-bottom: 10px;
+      }
+      .section-bullet{
+        position: static;
+        height: 100%;
+      }
+      .hero-button-overview {
+        position: initial;
+      }
+      .one-across img{
+        grid-column: span 6;
+        height: 25vh;
+        width: 100%;
+        object-fit: cover;
+      }
+        .three-across img{
+        grid-column: span 3;
+        width: 100%;
+        margin-top: 0px;
+      }
+    }   
+    @media (max-width: 400px) { 
+      .blog-link {
+        margin: 0 20px 80px;
+      }
+    }
+</style>
+
+<div class="grid-container">
+
+
+
+
+
+  
+  <div class="hero-text">
+    <div class="hero-title">SS23 Bags</div>
+    <div class="hero-paragraph">
+      We think of bags as essential as clothing. We wouldn’t leave the house without either. Our range has been built to cover all the scenarios we find ourselves leaving for: work, travel, and leisure.<br><br>Grab the Duffel for weekend trips, the GP Backpack as the perfect travel companion or daily go-to, the Zip Tote as our commuter bag, the Fishing Sling for when you’re hanging around town, and the Walnut Bag to keep in your back pocket for light errands.
+    </div>
+  </div>
+
+  <img class="hero-image" src="https://cdn.shopify.com/s/files/1/0664/2387/files/111111Bags-Shoot0078-_1.jpg?v=1677789006" alt="" />
+
+  <a class="hero-button blog-excerpt-link" href="https://adsumnyc.com/collections/accessories">Shop SS23 Bags</a>
+  <div class="section-header0 hero-button-overview">Selection</div>
+  <div class="section-bullet section-bullet0 hero-button">
+    <a href="https://adsumnyc.com/products/duffel-black-1">Duffle</a><br>
+    <a href="https://adsumnyc.com/products/gp-backpack-black">Backpack</a><br>
+    <a href="https://adsumnyc.com/products/fishing-sling-black">Fishing Sling</a><br>
+    <a href="https://adsumnyc.com/products/zip-tote-grey">Sling Tote</a><br>
+    <a href="https://adsumnyc.com/products/walnut-bag-coyote">Walnut Tote</a>
+  </div>
+        <div class="section-images three-across">
+          <a href="https://adsumnyc.com/products/duffel-black-1"> 
+            <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-duffel-black.jpg?v=1676045458" alt="Duffle - Black" />
+            <div class="caption-title">Great for throwing in the trunk or stuffing in the overhead compartment.</div> <div class="caption-text">This is our weekend to week long travel bag. The wide mouth U shaped opening lets you see everything you've packed and the exterior pockets keep small things organized. This season we used a backside laminated heavy denier recycled fabric which provides structure and keeps the contents of the bag dry if you get caught in the rain.</div>
+          </a>
+          <a href="https://adsumnyc.com/products/gp-backpack-black">
+            <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/SS23-118-gp-backpack-black-1_de9053d3-d72e-4f99-a24d-2b55937e716d.jpg?v=1676319903" alt="GP Backpack - Black" />
+            <div class="caption-title">Our first backpack style. Better than whatever you're using now.</div> <div class="caption-text">Daypack sized, 22L, the GP Backpack is good travel companion that will fit most lap top sizes in foam backed stow pocket located within the main compartment. The front of the pack has a reverse coil YKK zip that splits the entire oval shaped alternate stow section. Within the alt stow section there is a security pocket for valuables and loose items. We think it's the perfect sized backpack.</div>
+          </a>
+          <a href="https://adsumnyc.com/products/fishing-sling-black">
+            <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-bags-fishing-sling-black.jpg?v=1676045466" alt="Fishing Sling - Black" />
+            <div class="caption-title">Works hard as a commuter pack whether you're biking or jamming yourself into a subway on the way to work.</div> <div class="caption-text">Our SS23 fishing sling is a small waist or shoulder carry pack that works well for day hikes or light stowage for a work commute. Fishing slings are helpful on the water as an additional stowage point other than a vest where all things are at a fisherman’s fingertips with easy access.</div>
+            
+          </a>
+          <a href="https://adsumnyc.com/products/sling-tote-purple">
+            <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-bags-sling-tote-purple.jpg?v=1676045469" alt="Sling Tote - Purple" />
+            <div class="caption-title">Good for city excursions.</div><div class="caption-text">The Zip Tote is constructed from a ripstop dobby cloth and features a removable heavy webbing shoulder strap with anodized aluminum hardware. Inside there is a zip closure stash pocket. The bag can be packed away inside of a duffel or backpack quite easily.</div>
+          </a>
+          <a href="https://adsumnyc.com/products/zip-tote-grey">
+            <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-bags-sling-tote-silver-3.jpg?v=1676045473" alt="Sling Tote - Silver" />
+            <div class="caption-title">Good for city excursions. In grey.</div><div class="caption-text">The Zip Tote is constructed from a ripstop dobby cloth and features a removable heavy webbing shoulder strap with anodized aluminum hardware. Inside there is a zip closure stash pocket. The bag can be packed away inside of a duffel or backpack quite easily.</div>
+          </a>
+          <a href="https://adsumnyc.com/products/walnut-bag-coyote">
+            <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-bags-walnut-bag.jpg?v=1676045447" alt="Walnut Tote - Coyote" />
+            <div class="caption-title">One of our most used bags.</div><div class="caption-text">We like to use the walnut tote when we are going on a quick grocery run and don't want to carry a bigger bag under our arm. With the Walnut tote you can just fold up and stick it in your pocket.</div>
+          </a>
+        </div>
+
+    <div class="section-header section-header1">Details</div>
+      <div class="section-bullet section-bullet1"><a href="#section-bullet1-images">Annodized Metal Hardware</a></div>
+        <div class="section-images three-across" id="section-bullet1-images">
+          <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-sling-tote-purple-detail-3.jpg?v=1675969510" alt="Purple Zip Tote Metal Pulls" />
+          <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-duffel-black-detail-2.jpg?v=1675969504" alt="" />
+          <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/zip-tote-silver-detail-2.jpg?v=1675969529" alt="" />
+        </div>
+
+      <div class="section-bullet section-bullet2"><a href="#section-bullet2-images">Multiple Storage Sizes</a></div>
+        <div class="section-images three-across" id="section-bullet2-images">
+          <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/image-_1_-opt.jpg?v=1677525231" alt="" />
+          <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-fishing-tote-black-detail-2_da9cd7f8-63f4-44fb-936d-03f1f7bf09ea.jpg?v=1676322924" alt="" />
+
+
+        </div>
+
+
+  
+        <div class="section-bullet section-bullet3"><a href="#section-bullet3-images">Elastic Loop</a></div>
+        <div class="section-images three-across" id="section-bullet3-images">
+            <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-walnut-tote-detail-3.jpg?v=1675979830" alt="" />
+            <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-bags-walnut-bag-folded.jpg?v=1675979838" alt="Walnut Bag - Folded" />
+          </div>
+
+        
+
+
+  
+
+      <div class="section-header section-header2">Fabric</div>
+      <div class="section-bullet section-bullet4"><a href="#section-bullet4-images">Micro Nylon Ripstop</a></div>
+        <div class="section-images one-across" id="section-bullet4-images">
+          <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-sling-tote-purple-detail-1.jpg?v=1675978526" alt="" /> 
+        </div>
+
+      <div class="section-bullet section-bullet5"><a href="#section-bullet5-images">High density micro ripstop</a></div>
+        <div class="section-images one-across" id="section-bullet5-images">
+          <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-walnut-tote-detail-4.jpg?v=1675978382" alt="" />
+        </div>
+
+      <div class="section-bullet section-bullet6"><a href="#section-bullet6-images">Heavy laminated pack cloth</a></div>
+        <div class="section-images one-across" id="section-bullet6-images">
+          <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-duffel-black-detail-3.jpg?v=1676320102" alt="" />
+        </div>
+
+</div>
+
+  <a href="/collections/accessories" class="blog-link">Shop SS23 Bags</a>
+
+
+
+        {{ 'gsap.min.js' | asset_url | script_tag }}
+        {{ 'ss23-accessories-focus.js' | asset_url | script_tag }}
+
+
+
+
+
+<!--
+<a href="/collections/fw20" class="shop-button-photo-story">Shop All</a>
+-->
+<div class="postnav">
+  <a href="{{ blog.previous_article }}" class="btn" style="float: left">Previous Post</a>
+    {% if blog.next_article %}
+  <a href="{{ blog.next_article }}" class="btn" style="float: right">Next Post</a>
+    {% endif %}
+</div>
+
+
+
+
+{% include "footer" %}
+
+ 

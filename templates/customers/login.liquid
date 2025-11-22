@@ -1,0 +1,122 @@
+<div class="page-padding">
+
+  <div class="page-title">
+    Members Only
+  </div>
+  
+  <div class="members-description">
+    Sign up and gain access to members only sales and promotions. Be the first to hear about new product releases, upcoming parties and events. 
+    <br/><br/>
+    <span style="font-weight: 600;">Sign in or join below.</span>
+  </div>
+                                          
+                                          
+  {% form 'customer_login' %}
+  
+  <input type="hidden" name="checkout_url" value="/collections/members-only" />
+  
+  {{ form.errors | default_errors }}
+  
+  <div class="member-table">
+    
+    <div class="member-table-cell sign-in">
+      
+      <div id="login_email" class="clearfix large_form">
+        <input type="email" value="" name="customer[email]" class="input-field members-input" />
+        <br/>
+        <label for="customer_email" class="login members-label">Email Address</label>
+      </div>
+
+      {% if form.password_needed %}
+
+      <br/>
+
+      <input type="password" value="" name="customer[password]" class="input-field members-input" />
+      <br/>
+      <label for="customer_password" class="login members-label">Password</label>
+
+      {% endif %}
+
+      <input class="button-sign-in members-button" type="submit" value="Sign In" />
+
+      
+        <a class="forgot-password" href="#" onclick="showRecoverPasswordForm();return false;">
+          Forgot your password?
+        </a>
+
+
+      {% endform %}
+
+      {% comment %}
+        Recover Password Form
+      {% endcomment %}
+
+      <div id="recover-password" style='display:none'>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <h2 style="color: green; font-size: 16px;">Reset Password</h2>
+        <p class="note">Enter your email below and we will send you an email to reset your password.</p>
+
+        {% form 'recover_customer_password' %}
+
+        {{ form.errors | default_errors }}
+
+        <br/>
+        <br/>
+
+        <div id="recover_email" class="clearfix large_form">
+          <input type="email" value="" name="email" id="recover-email" class="input-field members-input" />
+          <br/>
+          <label for="email" class="login members-label">Email</label>
+        </div>
+
+        <input class="button-sign-in members-button" type="submit" value="Submit"/>
+
+        <a href="#" onclick="hideRecoverPasswordForm();return false;" class="button-sign-in members-button">Cancel</a>
+
+        {% endform %}
+      </div>
+
+    </div>
+    
+    <div style="display: table-cell; width: 10%; text-align: center; vertical-align: middle; text-transform: uppercase; font-weight: 600;">
+      or
+    </div>
+    
+    <div class="member-table-cell">
+      
+      {% if shop.checkout.guest_login %}
+
+      <!--
+      {% form 'guest_login' %}
+      <input class="button-sign-in" type="submit" value="Continue as a Guest" />
+      {% endform %}
+	  -->
+      
+      {% endif %}
+
+      {% if shop.customer_accounts_optional %}
+        {{ "Join" | customer_register_link }}
+      {% endif %}
+      
+    </div>
+
+  </div>
+
+</div>
+
+<script type="text/javascript">
+  function showRecoverPasswordForm() {
+    document.getElementById('recover-password').style.display = 'block';
+    document.getElementById('customer').style.display='none';
+  }
+
+  function hideRecoverPasswordForm() {
+    document.getElementById('recover-password').style.display = 'none';
+    document.getElementById('customer').style.display = 'block';
+  }
+
+  if (window.location.hash == '#recover') { showRecoverPasswordForm() }
+</script>

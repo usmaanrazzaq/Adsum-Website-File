@@ -1,0 +1,191 @@
+{% include "loading" %}
+
+<style>
+  .graphics-article-title {
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    padding: 43px 20px 0 20px;
+    width: 100%;
+    max-width: 440px;
+    line-height: 26px;
+    margin: 0 auto;
+    opacity: 1;
+    -moz-transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+  }
+  
+  
+  .blog-img-caption {
+    top: 10px;
+  }
+  
+  .gallery {
+    min-height: 10px;
+  }
+
+  @media (max-width: 900px) {
+    .graphics-article-title {
+      font-size: 18px;
+      line-height: 26px;
+      top: 67px;
+    }    
+  }
+</style>
+
+<div class="graphics-article-title" >
+ Young Coffee + Adsum
+</div>
+<div class="centered-article-text">
+  <p>
+    Caramel, Milk Chocolate, Apricot.
+    <br/><br/> 
+    We teamed up with our friends at <a href="https://www.instagram.com/drinkyoungcoffee/" target="_blank">Young Coffee</a> on a custom blend of beans from Costa Rica and Nicaragua with a honey process. Medium roast and super smooth. Along with the coffee we also have heavyweight tees and hoodies from Canada, and tea towels from India. And with Klean Kanteen we did 8 oz. tumblers and a 32 oz. storage container, both stainless steel and insulated. 
+    <br/><br/>
+    Quality drip, enjoy in repetition.
+    <br/><br/>
+    Join us for coffee this weekend, March 27 & 28th, at the <a href="https://www.google.com/maps/place/Adsum/@40.7192507,-73.959998,15z/data=!4m12!1m6!3m5!1s0x0:0x4d3adc17a7395b35!2sAdsum!8m2!3d40.7193218!4d-73.959921!3m4!1s0x0:0x4d3adc17a7395b35!8m2!3d40.7193218!4d-73.959921" target="_blank">Adsum shop</a> in Brooklyn. 
+    <br/><br/>    
+    Saturday and Sunday from 10AM-2PM at 97 N 7th St. 
+  </p>   
+</div>
+
+<div class="max-width-900" style="opacity: 1;">
+    <img class="center-single ss16-preview" src="https://cdn.shopify.com/s/files/1/0664/2387/files/1_adsumyc_hires.jpg?v=1616703905" alt="Adsum + Young Coffee">
+</div>
+
+<div class="clearfix lb-extra-spacing"></div>
+
+<div class="left-50" style="opacity: 1;">
+  <div class="img-left-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/4_adsumyc_hires.jpg?v=1616703904" class="img-left ss16-preview" alt="Adsum + Young Coffee">
+    <div class="blog-img-caption"></div>
+  </div>
+</div>
+<div class="right-50 float-right" style="opacity: 1;">
+    <div class="img-right-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/3_adsumyc_hires.jpg?v=1616703905" class="img-right ss16-preview" alt="Adsum + Young Coffee">
+      <div class="blog-img-caption"></div>
+    </div>
+</div>
+
+<div class="clearfix lb-extra-spacing"></div>
+<div class="clearfix lb-extra-spacing"></div>
+
+<div class="max-width-900" style="opacity: 1;">
+    <img class="center-single ss16-preview" src="https://cdn.shopify.com/s/files/1/0664/2387/files/7_adsumyc_hires.jpg?v=1616703905" alt="Adsum + Young Coffee">
+</div>
+
+<div class="clearfix lb-extra-spacing"></div>
+
+<div class="left-50" style="opacity: 1;">
+  <div class="img-left-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/5_adsumyc_hires.jpg?v=1616703905" class="img-left ss16-preview" alt="Adsum + Young Coffee">
+    <div class="blog-img-caption"></div>
+  </div>
+</div>
+<div class="right-50 float-right" style="opacity: 1;">
+    <div class="img-right-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/10_adsumyc_hires.jpg?v=1616703905" class="img-right ss16-preview" alt="Adsum + Young Coffee">
+      <div class="blog-img-caption"></div>
+    </div>
+</div>
+
+<div class="clearfix lb-extra-spacing"></div>
+<div class="clearfix lb-extra-spacing"></div>
+
+<div class="max-width-800" style="opacity: 1;">
+    <img class="center-single ss16-preview" src="https://cdn.shopify.com/s/files/1/0664/2387/files/2_adsumyc_hires.jpg?v=1616703905" alt="Adsum + Young Coffee">
+</div>
+
+<div class="clearfix lb-extra-spacing"></div>
+
+<div class="max-width-800" style="opacity: 1;">
+    <img class="center-single ss16-preview" src="https://cdn.shopify.com/s/files/1/0664/2387/files/8_adsumyc_hires.jpg?v=1616703904" alt="Adsum + Young Coffee">
+</div>
+
+  <div class="featured-products-title">
+    Featured Products
+  </div>
+
+
+<div id="products" class="gallery">
+{% for product in collections.youngcoffeefeatured.products %}
+  {% include 'bold-product' with product, hide_action: 'skip' %}
+  <div class="product5">
+      <a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}">  
+      
+        <img data-sizes="auto"
+             src="{{ product.images.first | product_img_url: '1x1' }}" 
+             data-src="{{ product.images.first | product_img_url: '1800x1800' }}"
+             data-srcset="{{ product.images.first | product_img_url: '600x600' }} 300w,
+                          {{ product.images.first | product_img_url: '1200x1200' }} 600w,
+                          {{ product.images.first | product_img_url: '1800x1800' }} 900w"
+             class="lazyload" style="display: block; width: 100%; height: 100%;" alt="{{ product.title | strip_html | escape }}"/>
+        <img src="{{ product.images[1] | product_img_url: '1x1' }}" data-src="{{ product.images[1] | product_img_url: '2048x2048' }}" class="collection-product-hover lazyload" alt="{{ product.images[1].alt | escape }}" />
+    
+        <div class="product_info_content">
+          <div class="product-info-content-wrap">
+      {%if product.available == true %}           
+            <div class="gallery-product-wrap">
+              <div class="gallery-product-title">
+                {{ product.title }}
+              </div>
+              <div class="gallery-product-price" style="padding-top: 0px;">
+                {% if product.compare_at_price_max > product.price %}
+                <del class="sale">{{ product.compare_at_price_max | money }}</del>
+                {% endif %}
+                {{ product.price | money }}
+              </div>
+            </div>
+      {% endif %}
+      {%if product.available == false %}
+             <div class="gallery-product-wrap">         
+               <div class="sold-out">Sold Out</div>
+             </div>
+      {% endif %}
+          </div>
+        </div>
+      </a>
+  </div>
+{% endfor %}
+</div>
+<!--
+<a href="/collections/fw20" class="shop-button-photo-story">Shop All FW20</a>
+-->
+<div class="postnav">
+  <a href="{{ blog.previous_article }}" class="btn" style="float: left">Previous Post</a>
+    {% if blog.next_article %}
+  <a href="{{ blog.next_article }}" class="btn" style="float: right">Next Post</a>
+    {% endif %}
+</div>
+
+{% include "footer" %}
+
+<script type="text/javascript">  
+  $('.header-fullsite-fixed').addClass('header-fullsite').removeClass('header-fullsite-fixed');
+</script>
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    window.setTimeout(function(){
+        $(".index-scroll-arrow").addClass("visible");
+    },2500);
+});
+</script>
+
+<script type="text/javascript">
+$(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 10) {
+        $(".index-scroll-arrow-img").addClass("hide4");
+    } else {
+        $(".index-scroll-arrow-img").removeClass("hide4");
+    }
+});
+</script>

@@ -1,0 +1,110 @@
+{% include "loading" %}
+
+<div class="page-padding">
+
+<h1 class="page-title">News</h1>
+  
+<!--
+    <div class="stuff-main">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-a.png?6800285118298018702" class="stuff-a">
+       
+      <div class="stuff-main-caption">
+		<div class="stuff-main-caption-title">
+          96 Degrees In The Shade
+        </div>
+        <div class="stuff-main-caption-secondary"> 
+          An impromptu editorial of warm weather highlights from SS17 shot in Williamsburg, Brooklyn.<br/>
+        </div>
+        <a href="/blogs/news/96-degrees-in-the-shade" class="stuff-see-more-main" target="_blank">See More</a>
+      </div>
+    </div>
+-->
+  
+  	{% paginate blog.articles by settings.blog_article_page_size %}
+    
+  	{% for article in blog.articles  %}
+  
+  <div class="{% cycle 'big', 'medium-left', 'medium-right' %}">
+    
+      <div class="blog-post-table">
+
+        <div class="blog-text">
+
+          <div class="blog-category">
+            {% if article.tags.size > 0 %}
+              {% for tag in article.tags %}{{ tag}}
+                {% unless forloop.last %},&nbsp;
+                {% endunless %}
+              {% endfor %}
+            {% endif %}
+          </div>
+
+          <div class="blog-article-title">
+            {{ article.title }}
+          </div>
+
+          <div class="blog-excerpt">
+            {{ article.excerpt }}
+            <a href="{{ article.url }}" class="blog-read-more">
+              Read more
+            </a>
+          </div>
+          
+        </div>
+	
+        <div class="blog-image">
+
+              {% if article.image %}
+                    {% assign featured_image_src = article | img_url: '1024x1024' %}
+              {% endif %}
+
+
+              {% unless featured_image_src == blank %}
+          
+                <div class="blog-image-child">
+                	<img class="lazyload" src="{{ article.image.src | img_url: '100x' }}" data-src="{{ article.image.src | img_url: '2048x2048'}}"/>
+          		</div>
+
+        <!--
+                <div class="blog-image-child">
+                    {{ featured_image_src | img_tag: article.title }}
+                </div>
+     
+          -->
+              {% endunless %}
+			
+        </div>
+          
+        </div>
+	
+      </div>
+    {% endfor %}
+
+    
+  	{% if paginate.pages > 1 %}
+    	<div id="paginate">
+          <strong>Page:</strong> {{ paginate | default_pagination }}
+  		</div>
+  	{% endif %}
+    
+  	{% endpaginate %}
+
+</div>
+
+{% include "footer" %}
+
+
+
+<script type="text/javascript">
+$(".blog-post-table").click(function() {
+  window.location = $(this).find("a").attr("href"); 
+  return false;
+});
+</script>
+
+<script type="text/javascript">
+$(".stuff-main").click(function() {
+  window.location = $(this).find("a").attr("href"); 
+  return false;
+});
+</script>

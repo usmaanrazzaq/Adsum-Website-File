@@ -1,0 +1,75 @@
+<style>
+  .search-title {
+    position: relative;
+    top: 0px;
+    left: 10px;
+    font-size: 14px;
+    line-height: 14px;
+    padding: 0 0 10px 0;
+    margin: 0;
+    font-weight: 400;
+  }
+</style>
+
+{% include "loading" %}
+
+<h1 class="collection-title">Search</h1>
+
+<div id="adsumspace">
+<div class="gallery">
+{% if search.performed %}
+{% paginate search.results by 20 %}
+{% if search.results == empty %}  
+	<div class="no-matches">No matches found for "{{search.terms | escape}}"</div>
+{% else %}  
+	<h1 class="search-title">Results for: "{{search.terms | escape}}"</h1>
+	
+	{% for item in search.results %} 
+	
+      {% if item.object_type == 'product' and item.tags contains 'hidesearch' %}
+      {% else %}
+
+      {% include 'bold-product' with item, hide_action: 'skip' %}
+
+                        <a href="{{ item.url }}" alt="{{ item.title | escape }}">
+                            <div class="search-product">
+                              {{ item.images.first | product_img_url: '1024x1024' | img_tag }}
+                              <div class="product_info_content">
+                                <div class="gallery-product-title">
+                                    {{ item.title | link_to: item.url }}
+                                </div>
+                                <div class="gallery-product-price">
+                                    {% if item.compare_at_price_max > product.price %}
+                                    <del class="sale">{{ item.compare_at_price_max | money }}</del>
+                                    {% endif %}
+                                {{ item.price | money }}
+                                </div>
+                                <!--<br/>{{ item.content | strip_html | truncatewords: 25 | highlight: search.terms }} -->
+                              </div>
+  							</div>
+                        </a>
+
+      {% endif %}
+
+	{% endfor %}
+	
+	<div class="paginate clearfix" id="paginate" style="font-size: 16px;">
+		{{ paginate | default_pagination }}
+	</div>
+  
+{% endif %}
+{% endpaginate %}
+{% else %}
+  No results.
+  <!--
+	<h1>Search</h1>
+	<form method="get" action="/search">
+		<input id="search-input" type="text" name="q" />
+		<input id="search-button" type="submit" class="small awesome" value="Search" />
+	</form>
+	-->
+{% endif %}
+</div>
+</div>
+
+{% include "footer" %}

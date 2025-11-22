@@ -1,0 +1,240 @@
+ <style>
+  .grid-1 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 120px 200px;
+    justify-items: center;
+    row-gap: 5px;
+    column-gap: 10px;
+    max-width: 1400px;
+    margin: 0 auto;
+    place-content: center;
+  }
+   .cell-1, .cell-2 {
+     grid-column: span 1;
+     display: flex;
+     align-self: center;
+   }
+   .solo-image {
+     padding: 120px 0;
+     max-width: 500px; display: block; margin: 0 auto;
+   }
+  .lookbook-caption {
+    line-height: 14px;
+    font-size: 10px;
+    text-align: center;
+    max-width: 300px;
+    color: #000;
+    display: block;
+    font-weight: 400;
+    align-self: auto;
+    padding-top: 20px;
+    margin: 0 auto;
+  }
+  .lookbook-shop-link {
+    border: 1px solid #000;
+    padding: 11px 21px;
+    margin: 0 auto 200px auto;
+    display: block;
+    max-width: 240px;
+    text-align: center;
+    font-size: 13px;
+    line-height: 17px;
+  }
+   .lookbook-shop-link:hover {
+    background-color: #000;
+     color: #fff;
+  }
+}
+@media (max-width: 1400px) {
+  .grid-1 {
+    padding: 40px 40px;
+  }
+}
+@media (max-width: 1000px) {
+  .grid-1 {
+    padding: 40px 0px;
+  }
+}
+@media (max-width: 900px) {
+  .lookbook-caption {
+    grid-column: span 2;
+  }
+  .cell-1, .cell-2 {
+  }
+  .lookbook-collection-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0px 10px 40px 10px;
+  }
+}
+@media (max-width: 500px) {
+  .solo-image:first-of-type {
+        padding-top: 45px;
+  }
+  .fw22-title {
+    font-size: 38px;
+  }
+  .fall-22-lookbook-header {
+    height: 75vh; 
+    width: 100%; 
+    background-image: url('https://cdn.shopify.com/s/files/1/0664/2387/files/cover-mobile-9B3A0568.jpg?v=1664562268'); 
+  }
+  .grid-1 {
+    margin: 0px;
+  }
+  .cell-1, .cell-2 {
+    grid-column: span 2;
+  }
+}
+</style>
+
+{% comment %}
+{% include "loading" %}
+
+
+<div class="fall-22-lookbook-header">
+  <div class="header-text">
+    <div class="fw22-title">Fall Ball</div>
+    <div style="line-height: 12px;">
+      Fall 2022 Lookbook<br>
+      Long Island, NY
+    </div>
+  </div>
+</div>
+<div class="scrolldown">
+  Scroll Down
+</div>
+{% endcomment %}
+
+  <div class="solo-image">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/acwewa02760011-Recovered1.jpg?v=1670874946" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+      <div style="max-width: 400px; margin: 0 auto; padding: 18px 20px; text-align: center;">
+        <div style="font-size:11px; font-weight: 600;">Adsum + Nanga 2022 Capsule Lookbook</div>
+        <div style="font-size:10px; padding-top: 4px; line-height: 13px;/* font-family: times, serif; */">A three piece capsule collection celebrating the benefits of Japanese down<br>
+        Shot in Lower East Side, NYC on Tom Wright<br>
+        December 2, 2022</div>
+      </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A1891.jpg?v=1670870249" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="cell-2">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/02760007.jpg?v=1670870249" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="lookbook-caption">
+       
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/small-9B3A2301.jpg?v=1670875674" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="cell-2">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/small-9B3A2237.jpg?v=1670875922" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="lookbook-caption">
+       
+      </div>
+  </div>
+  
+
+  <div class="solo-image" style="max-width: 500px; display: block; margin: 0 auto;">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/small-9B3A2187.jpg?v=1670876077" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    <div class="lookbook-caption">
+        
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/02760016-Recovered.jpg?v=1670870248" style="display: block; width: 100%; height: auto; margin: 0 auto;"> 
+    </div>
+    <div class="cell-2">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A2468.jpg?v=1670870251" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="lookbook-caption">
+        
+    </div>
+    <div class="lookbook-caption">
+        
+    </div>
+  </div>
+
+  <div class="grid-1">
+    <div class="cell-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/small-9B3A9553.jpg?v=1670876485" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="cell-2">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/small-9B3A9580.jpg?v=1670876485" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="lookbook-caption">
+       
+    </div>
+  </div>
+  
+
+  <div class="grid-1">
+    <div class="cell-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/small-9B3A9627.jpg?v=1670876776" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="cell-2">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/small-9B3A9681.jpg?v=1670876776" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+    </div>
+    <div class="lookbook-caption">
+       
+    </div>
+  </div>
+
+  <a href="/collections/adsum-nanga-capsule" class="lookbook-shop-link">Shop Adsum + Nanga Capsule</a>
+
+{% comment %}
+<div class="featured-products-title">
+	Fall 2022 Collection
+</div>
+
+<div id="products" class="lookbook-collection-grid {{ collection.title | handleize }}">
+  {% for product in collections.ss22garden.products %}
+  	<div class="collection-grid-item">
+      <a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}">  
+        <div style="position: relative;">
+          <img data-sizes="auto"
+               src="{{ product.images.first | product_img_url: '1x1' }}" 
+               data-src="{{ product.images.first | product_img_url: '1024x1024' }}"
+               data-srcset="{{ product.images.first | product_img_url: '600x600' }} 300w,
+                            {{ product.images.first | product_img_url: '1200x1200' }} 600w,
+                            {{ product.images.first | product_img_url: '1800x1800' }} 900w"
+               alt="{{ product.title | strip_html | escape }}" class="lazyload" style="display: block; width: 100%; height: 100%;" />
+          <img data-sizes="auto"
+               src="{{ product.images[1] | product_img_url: '1x1' }}" 
+               data-src="{{ product.images[1] | product_img_url: '1024x1024' }}" 
+               data-srcset="{{ product.images[1] | product_img_url: '600x600' }} 300w,
+                            {{ product.images[1] | product_img_url: '1200x1200' }} 600w,
+                            {{ product.images[1] | product_img_url: '1800x1800' }} 900w"
+               alt="{{ product.images[1].alt | escape }}" class="collection-product-hover lazyload"/>
+        </div>
+        <div class="product_info_content">
+            {%if product.available == true %}
+                <div class="gallery-product-title">
+                    {{ product.title }}
+                </div>
+                <div class="gallery-product-price">
+                    {% if product.compare_at_price_max > product.price %}
+                        <del class="sale">{{ product.compare_at_price_max | money }}</del>
+                    {% endif %}
+                    {{ product.price | money }}
+                </div>
+            {% endif %}
+            {%if product.available == false %}    
+                <span style="color: red; text-decoration: uppercase;">Sold Out</span>
+            {% endif %}
+        </div>          
+      </a>
+    </div>
+{% endfor %}
+</div>
+{% endcomment %}
+
+{% include "footer" %}

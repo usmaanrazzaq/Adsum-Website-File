@@ -1,0 +1,290 @@
+{% include 'bold-product' with product, hide_action: 'break' %}{% if bold_hidden_product %}{% break %}{%endif %}
+
+<script type="text/javascript">
+
+
+  
+  (function ($, F) {
+    F.transitions.resizeIn = function() {
+        var previous = F.previous,
+            current  = F.current,
+            startPos = previous.wrap.stop(true).position(),
+            endPos   = $.extend({opacity : 1}, current.pos);
+
+        startPos.width  = previous.wrap.width();
+        startPos.height = previous.wrap.height();
+
+        previous.wrap.stop(true).trigger('onReset').remove();
+
+        delete endPos.position;
+
+        current.inner.hide();
+
+        current.wrap.css(startPos).animate(endPos, {
+            duration : current.nextSpeed,
+            easing   : current.nextEasing,
+            step     : F.transitions.step,
+            complete : function() {
+                F._afterZoomIn();
+
+                current.inner.fadeIn("slow");
+            }
+        });
+    };
+
+}(jQuery, jQuery.fancybox));
+
+$(".fancybox")
+    .attr('rel', 'gallery')
+    .fancybox({
+  		padding : 0 ,
+        nextMethod : 'resizeIn',
+        nextSpeed  : 250,
+  		openSpeed : 'slow',
+  		openEffect : 'fade',
+  		aspectRatio : true,
+		prevMethod : false,
+  
+  autoHeight : true,
+  fitToView : false,
+  maxWidth : "90%",
+        
+        helpers : {
+			title : null  	
+        }
+    });
+
+
+</script>
+
+
+{% layout 'shop' %}
+
+{% include "loading" %}
+
+ 
+<div class="mobile-product">
+  
+  <h1 style="padding: 50px 20px 0; font-size: 14px; text-align:center;">{{ product.title }}</h1>
+  
+  <div style="padding: 4px 20px 14px 20px;; font-size: 11px; text-align:center;">
+    {% if product.compare_at_price_max > product.price %}
+    	<span style="text-decoration: line-through; padding-right: 10px; color: #ee5943!important;">{{ product.compare_at_price_max | money }}</span>
+    {% endif %}
+  	${{ product.price | money_without_currency }}
+  </div>
+  
+  <div class="my-slider">
+    <ul>
+      {% for image in product.images  %}
+      <li> 
+          <div style="display: inline-block; width: 100%; height: 100%; vertical-align: middle;">
+          	<a class="fancybox crosshair" href="{{ image | product_img_url: 'master' }}" rel="images" title="{{ product.title | strip_html | escape }}">
+              <img src="{{ image | product_img_url: 'master' }}" alt="{{ product.title | escape }}" class="mobile-product-images" />
+          	</a>
+          </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  
+</div>
+         
+
+<div class="product-page-table">
+<div class="product-page-image-column mobile-hide">
+<div class="product-page-image-column-mobile">
+    {% for tag in product.tags %}
+    {% if tag == 'show-image' %}
+    {% if settings.show_product_show_image %}
+    <a class="fancybox" href="{{ image | product_img_url: 'master' }}" title="{{ product.title | strip_html | escape }}"><img src="{{ 'product_show_image.png' | asset_url }}" class="product-hover-image" style="display: block; margin: 0 auto;" alt="{{ product.title | strip_html | escape }}"/></a>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+  
+  {% if product.images.size > 1 %}
+  
+  {% for image in product.images  %}
+  <div class="image">
+    <a class="fancybox crosshair" href="{{ image | product_img_url: 'master' }}" rel="images" title="{{ product.title | strip_html | escape }}">
+      <img src="{{ image | product_img_url: 'master' }}" alt="{{ product.title | escape }}" class="product-thumb {% cycle 'first', '', '', 'last' %}" style="display: block; margin: 0 auto;"/>
+    </a>
+  </div>
+  {% endfor %}
+  
+  {% endif %}
+</div>
+</div>
+          
+
+  
+<div class="product-info-column">
+  <h1 class="product-title2 mobile-hide">{{ product.title }}</h1>
+
+  <div class="product-description mobile-hide">
+    <div id="product-description" class="description">
+      {{ product.description }}
+    </div>
+  </div>
+
+  <div style="float:left; width:100%;">
+    <div id="product-price" class="price mobile-hide">
+      <div class="product-info-title">
+        Price:
+      </div>
+      <div class="product-info-variable2">
+        	{% if product.compare_at_price_max > product.price %}
+            <span style="text-decoration: line-through; padding-right: 10px; color: #ee5943!important;">{{ product.compare_at_price_max | money }}</span>
+            {% endif %}
+        {{ product.price | money }}
+      </div>
+      <div style="clear: both;"></div>
+    </div>
+
+      
+      
+        
+   <div style="width:100%">
+        <div id="purchase-wrapper">
+          <div style="padding: 24px; text-align: center; font-size: 16px; border: 1px solid #000; margin: 20px 0;">
+         	 Adsum In-Store Exclusive
+          </div>
+        </div>
+      </div>
+    
+    
+    <div id="product-description" class="description desktop-hide">
+      {{ product.description }}
+    </div>
+    
+    
+    <div class="product-free-shipping" style="padding-bottom: 10px;">
+      <strong>FREE</strong> US shipping on orders over $25<br/>
+      <strong>FREE</strong> international shipping on all orders over $250<br/>
+    </div>
+    
+    <a href="#" class="product-info-link" data-featherlight="#fl_product_readmore" data-featherlight-variant="product_readmore">
+      Sizing Chart
+    </a>
+    
+    <a href="#" class="product-info-link" data-featherlight="#fl_product_shipping" data-featherlight-variant="product_readmore">
+      Shipping/Returns
+    </a>
+    
+    
+  </div>
+</div>
+</div>
+
+
+{% include "product-lightbox" %}
+ 
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+		jQuery(document).ready(function($) {
+			$('.my-slider').unslider({ 
+              arrows: false,
+   
+              speed: 1000,
+
+    
+             });
+		});
+</script>
+
+
+
+<script type="text/javascript">  
+  
+// Prevent form submission without user selecting a size     
+  $( "#first-form" ).submit(function( event ) {
+
+      if ($('input:radio:checked').length > 0) {
+        return;
+
+      } else {
+
+        var itemsize = $('form input[type=radio]:checked');
+
+        $('.size-title').html('PLEASE SELECT A SIZE').addClass('reminder');     
+        $('.content3').addClass('reminder').addClass("expanded");
+        $('.product-size').addClass('no-size');
+
+        event.preventDefault();
+      }
+  });
+
+  $(window).scroll(function() {
+
+      if ($(window).scrollTop() > 52 ){
+
+          $('.product-info-column2').addClass('fixed2');
+
+    } else {
+
+      $('.product-info-column2').removeClass('fixed2');
+
+      };   	
+  });
+
+  $(window).scroll(function() {
+
+      if ($(window).scrollTop() > 200 ){
+
+          $('.product-right2').addClass('fixed2');
+
+    } else {
+
+      $('.product-right2').removeClass('fixed2');
+
+      };   	
+  });
+
+  $(document).ready(function(){
+    $('.variant_title').each(function(){
+    	var index = $(this).text().indexOf('/');
+        var variantString = $(this).text();
+        var newString = variantString.substring(0, index);
+        var colorString = variantString.substring(index + 2, variantString.length);
+      console.log(newString + " " + colorString);
+      $(this).html(newString + "<div class='variant_color'>" + colorString + "</div>");
+    });
+
+    
+     
+    $('.sold_out').each(function(){
+    	var index = $(this).text().indexOf('/');
+        var variantString = $(this).text();
+        var newString = variantString.substring(0, index);
+        var colorString = variantString.substring(index + 2, variantString.length);
+      console.log(newString + " " + colorString);
+      $(this).html(newString + "<div class='variant_color'>" + colorString + "</div>");
+    });
+   
+    
+    
+  });
+                             		
+</script>
+  
+<style>
+.variant_title {
+display: inline;
+}
+.variant_color {
+  display: none;
+}
+</style>

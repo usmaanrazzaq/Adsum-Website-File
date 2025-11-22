@@ -1,0 +1,134 @@
+<style>
+  .pw-route-protection.desktop-align-right {
+    justify-content: flex-start;
+  }
+</style>
+
+{% include "loading" %}
+
+<div class="page-padding">
+
+  <div class="page-title">
+    Cart
+  </div>
+{% if cart.item_count == 0 %}
+  <p class="cart-empty" style="padding: 0 0 65vh 0;">
+    Your shopping cart is empty.
+    <br/><br/>
+    <a href="/shop" style="text-decoration: underline;">Return to shop.</a>
+  </p>
+{% else %}
+<script type="text/javascript">
+function remove_item(id) {
+	document.getElementById('updates_'+id).value = 0;
+	document.getElementById('cartform').submit();
+}
+</script>
+<form action="{{ routes.cart_url }}" method="post" id="cartform" class="clearfix">
+	<div>
+	{% for item in cart.items %}
+      
+      {% include 'bold-cart-item' with item %}
+	
+		<div class="cart-block">
+			<div class="cart-images">
+				<a href="{{ item.product.url }}" title="{{ item.title | escape }}">
+                  <img src="{{ item.product.images.first | product_img_url: '1024x1024' }}" alt="{{ item.title | escape }}" class="cart-image" />
+				</a>
+			</div>
+			<div class="cart-desc">
+			  	Product: <a href="{{ item.product.url }}">{{ item.product.title }}</a>
+              <br/>
+              	Size: <span class='size_color'>{{ item.variant.title }}</span>
+              <br/>
+              	Price: {{ item.line_price | money }}
+              <br/>
+              	<div style="float: left; padding-right: 10px;">Quantity:</div>
+              	<input type="text" size="2" name="updates[{{item.variant.id}}]" id="updates_{{ item.variant.id }}" value="{{ item.quantity }}" onfocus="this.select();" class="item-update-{{ item.variant.id }} cart_quantity" {{ bold_qty_attr }} />
+              	<a class="cart-remove-button" href="#" onclick="remove_item({{ item.variant.id }}); return false;">Remove</a>
+				<input type="submit" name="update" value="Update" class="cart-update-button" />
+			</div>
+		</div>
+	
+      
+	{% endfor %}
+	</div>
+	{% unless settings.cart_note == '' %}
+	<div id="cart-note">
+		<label for="note">{{ settings.cart_note }}</label>
+		<textarea name="note" id="note" rows="3" cols="60">{{ cart.note }}</textarea>
+	</div>
+	{% endunless %}
+	{% unless settings.cart_agree == '' %}
+	<div id="cart-agree">
+		<input type="checkbox" id="agree"/><label for="agree">{{ settings.cart_agree }}</label>
+	</div>
+	{% endunless %}
+
+  	<div class="subtotal">Subtotal: {{ cart.total_price | money }}</div>
+  
+     <div style="font-size: 11px; padding-top: 10px; color: #666; line-height: 15px; ">
+      <br>
+       <span style="color: red;">* All sale and discounted items are final sale.</span>
+    </div>
+  
+	<!-- Route Code Edited 07/22/2021 -->
+    <div class="route-div"></div>
+    <!-- Route Code End -->
+	
+  	<input type="submit" name="checkout" value="Checkout" class="checkout" />
+  <!--
+  	{% if additional_checkout_buttons %}
+      <div class="additional-checkout-buttons"> 
+
+        {{ content_for_additional_checkout_buttons }}
+      </div>
+      <div class="cart-warning">
+              </div>
+    {% endif %}
+  
+
+  	<a href="https://adsumnyc.com/collections/all" class="continue-shopping-button">
+    	Continue Shopping
+  	</a>
+  -->
+
+</form>
+  
+  
+  
+  
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		{% unless settings.cart_agree == '' %}
+		$("#cartform").submit(function(e) {
+			if (!$('#agree').is(':checked')) {
+				alert("Please ensure you check the agreement checkbox");
+				return false;
+			}
+		});
+		{% endunless %}
+      
+      $('.size_color').each(function(){
+    	var index = $(this).text().indexOf('/');
+        var variantString = $(this).text();
+        var newString = variantString.substring(0, index);
+        var colorString = variantString.substring(index + 2, variantString.length);
+        $(this).html("<div class='variant_color'>" + colorString + "</div>");
+    });      
+            
+
+	});
+</script>
+{% endif %}
+</div>
+
+{% include "footer" %}
+<style>
+.variant_title {
+	display: none;
+}
+.variant_color {
+  display: inline;
+}
+  </style>

@@ -1,0 +1,584 @@
+{% include "loading" %}
+
+<style>
+  #products-title-alignment{
+    padding: 100px 40px 40px 240px;
+    margin: 0 auto;
+  }
+  .grid-container{
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 10px;
+    grid-row-gap: 80px;
+    display: grid;
+    margin: 94px 40px 0 257px;
+    grid-template-rows: calc(100vh - 94px);
+
+  }
+
+  h1{
+    font-size: 22px;
+    line-height: 22px;
+    letter-spacing: .02em;
+    text-transform: capitalize;
+    padding: 0 0 36px 0;
+    margin: 0;
+    font-weight: 400;
+  }
+.shop-arrow{
+  margin-top: 0;
+  padding-bottom: 8px;
+}
+
+
+
+  p{
+    margin-top: -4px;
+    font-size: 16px;
+    line-height: 26px;
+  }
+  .cover-image{
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+  }
+
+
+  .first-block-text{
+    grid-column: 1 / span 5;
+    grid-row: 1;
+    align-self: end;
+    display: flex;
+    flex-flow: column;
+    padding-bottom: 32px;
+  }
+
+  .first-image{
+    grid-column: 7 / span 6;
+    grid-row: 1;
+    padding-bottom: 32px;
+  }
+.body-text-grid-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 10px;
+    row-gap: 0px;
+    padding: 100px 40px 40px 240px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+
+.body-text{
+  grid-column: 1; 
+}
+
+
+.preview-image{
+  max-width: 70px;
+}
+.product-preview{
+  display: flex;
+  margin-bottom: 20px;
+  column-gap: 10px;
+}
+.product-preview-text{
+  align-self: flex-end;
+}
+
+
+  .collection-grid-item {
+    grid-column: span 1;
+  }
+  .centered-article-text {
+    font-size: 12px;
+    width: 600px;
+    margin: 0 auto;
+    line-height: 18px;
+  }
+  .article-collection-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 16px;
+      row-gap: 20px;
+      padding: 20px 40px 40px 240px;
+      max-width: 100%;
+      margin: 0 auto;
+  }
+  .graphics-article-title {
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    padding: 43px 20px 0 20px;
+    width: 100%;
+    max-width: 440px;
+    line-height: 26px;
+    margin: 0 auto;
+    opacity: 1;
+    -moz-transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+  }
+  
+  /*.cover-image {
+    padding: 100px 0;
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 600px;
+    margin: 0 auto;
+  }*/
+
+  .page-grid-1 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 10px;
+    row-gap: 0px;
+    padding: 100px 40px 40px 240px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .page-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 10px;
+    row-gap: 0px;
+    padding: 100px 40px 40px 240px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .page-grid-item-3 {
+    grid-column: span 1;
+    display: flex;  
+    flex-direction: column; 
+    align-self: center;
+  }
+
+  .middle-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+    .page-grid-item-3-2 {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    grid-column: span 2;
+    display: flex;  
+    flex-direction: column; 
+    align-self: center;
+  }
+
+  .page-grid-item-1 {
+    grid-column: span 1;
+    display: flex;  
+    flex-direction: column; 
+    align-self: center;
+  }
+  .page-grid-item-2 {
+    grid-column: span 1;
+    display: flex;  
+    flex-direction: column; 
+    align-self: center;
+  }
+  
+  .image-1 {
+
+  }
+  
+  .image-2 {
+    padding: 0px;
+  }
+  
+  .image-3 {
+    padding: 80px;
+  }
+  
+  .image-4 {
+    align-self: center;
+  }
+  
+  .image-5 {
+    padding: 100px;
+  }
+  
+  .image-6 {
+    padding: 60px;
+  }
+  
+  .image-7 {
+    align-self: center;
+    margin: 0 auto;
+    padding: 120px 0px 60px 240px;
+  }
+  
+  .image-8 {
+    align-self: center;
+    padding: 0px;
+  }
+  
+  .caption {
+    padding-top: 6px;
+    font-size: 10px;
+    line-height: 14px;
+  }
+  
+  /*
+  .page-grid-item-2 {
+    grid-column: span 12;
+    background-image: url(https://cdn.shopify.com/s/files/1/0664/2387/files/Look1_21-optimized.jpg?v=1619637250); 
+    background-size: cover; 
+    display: flex;
+    background-position: center center; 
+    height: 100%;
+  }
+  */  
+  
+  .lookbook-shop-button {
+    border: 1px solid #000;
+    background-color: #fff;
+    color: #000;
+    max-width: 500px;
+    display: block;
+    margin: 0 auto;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px 10px;
+    margin-bottom: 160px;
+  }
+  .lookbook-shop-button:active, .lookbook-shop-button:hover {
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #000;
+  }
+  .image-15 {
+      padding: 40px;
+    }
+  .image-16 {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .image-22 {
+    max-width: 500px; 
+    margin: 0 auto; 
+    padding-top: 80px;
+  }
+  .image-23 {
+    max-width: 2000px; margin: 0 auto; padding: 80px;
+  }
+
+  @media (max-width: 900px) {
+
+
+
+  .page-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+    column-gap: 0px;
+    row-gap: 5px;
+    padding: 100px 5px 40px 5px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .page-grid-item-3 {
+    grid-column: span 2;
+    display: flex;  
+    flex-direction: column; 
+    align-self: center;
+    max-width: 700px;
+    grid-row: 2;
+
+  }
+
+  .middle-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+    .page-grid-item-3-2 {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    grid-column: span 4;
+    display: flex;  
+    flex-direction: column; 
+    align-self: center;
+    grid-row: 1;
+
+  }
+
+
+  #products-title-alignment{
+    padding: 100px 40px 40px 40px;
+  }
+
+.product-preview-text{
+  margin-top: 0px;
+  align-self: end;
+  margin-left: 10px;
+
+}
+
+.image-7{
+  padding: 80px 6px 0px;
+}
+.grid-container{
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 0px;
+    grid-row-gap: 10px;
+    display: grid;
+    margin: 50px 10px 0 10px;
+    grid-template-rows: 65vh 
+}
+
+  .first-block-text{
+    grid-column: 1 / span 12;
+    grid-row: 2;
+    align-self: end;
+    display: flex;
+    flex-flow: column;
+    padding-bottom: 32px;
+  }
+
+  .first-image{
+    grid-column: 1 / span 12;
+    grid-row: 1 ;
+    padding-bottom: 32px;
+  }
+
+
+      .centered-article-text {
+      width: 100%;
+    }
+     .article-collection-grid {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 16px;
+      row-gap: 20px;
+      padding: 20px;
+    }
+    .new-centered-article-text {
+      padding-top: 140px!important;
+    }
+    .graphics-article-title {
+      font-size: 18px;
+      line-height: 26px;
+      top: 67px;
+      padding-top: 80px;
+    }
+    .cover-image {
+      padding-top: 0px;
+      width: 100%;
+    }
+    .body-text-grid-container {
+      display: block;
+      max-width: 550px;
+      padding: 80px 6px 0px;
+      column-gap: 0px;
+    }
+
+
+    .page-grid-1 {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 80px 6px 0px;
+      column-gap: 0px;
+    }
+    .page-grid-item-1 {
+      grid-column: span 1;
+    }
+    .page-grid-item-2 {
+      grid-column: span 1;
+    }
+    
+    .image-1 {
+      grid-column: span 1; 
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .image-1, .image-12, .image-6, .image-5, .image-11, .image-7, .image-9, .image-2, .image-13, .image-8 {
+      grid-column: span 2;
+    }
+    .image-1 img {
+      padding-top: 6px;
+    }
+
+    .lookbook-shop-button {
+    }
+    
+  }
+</style>
+
+<div class="grid-container">
+
+  <!--SECTION 1-->
+    <div class="heading first-block-text" >
+
+      <h1>Trip to Dia: Beacon for High Summer</h1>
+      <p>For Adsum’s third release of the SS22 season, we focus on our European manufacturing partnership to bring a selection of luxurious and utilitarian garments, all part of the High Summer release. The lookbook was shot in and around a trip up to Dia: Beacon from Grand Central Station, a common, almost rite of passage trip, for creatives living in New York City.</p>
+    </div>
+
+    <img class="cover-image first-image" src="https://cdn.shopify.com/s/files/1/0664/2387/files/MG_7532-opt.jpg?v=1655146688" alt="Dia: Beacon Foliage">
+
+</div>
+
+  <!--END OF SECTTION 1-->
+
+  <!--<img src="https://cdn.shopify.com/s/files/1/0664/2387/files/cover_MG_7532.jpg?v=1653422436" class="cover-image">-->
+
+<div class="page-grid-1">
+    <div class="page-grid-item-1 image-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/MG_7401.jpg?v=1653421754" style="display: block; width:100%; height: auto;">
+    </div>
+    <div class="page-grid-item-2 image-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Look1_003.jpg?v=1653421753" style="display: block; width:100%; height: auto;">
+    </div>
+</div>
+<div class="page-grid-1">
+    <div class="page-grid-item-1 image-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Look1_009.jpg?v=1653421753" style="display: block; width:100%; height: auto;">
+    </div>
+    <div class="page-grid-item-2 image-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Look1_050.jpg?v=1653421753" style="display: block; width:100%; height: auto;">
+    </div>
+</div>
+<div class="body-text-grid-container">
+  <div class="product-preview">
+    <a href="https://adsumnyc.com/products/gd-m97-jacket-golden-moss">
+      <img class="preview-image" src="https://cdn.shopify.com/s/files/1/0664/2387/products/GARMENT-DYED-PACK0287-m97-golden-moss.jpg?v=1652715798">
+    </a>
+    <div class="product-preview-text">
+      <a class="blog-excerpt-link shop-arrow" href="https://adsumnyc.com/products/gd-m97-jacket-golden-moss">Shop M97 Jacket</a>
+      <a class="product-price" href="https://adsumnyc.com/products/gd-m97-jacket-golden-moss" class="product-title">$355</a>
+    </div>
+  </div>
+  <p class="body-text">The M97 Jacket, Expedition Short and Pant are garment dyed using this special nylon blend fabric. The whole piece is cut and sewn then dyed using a unique synthetic garment dye technique. All three styles share stamped black metal high shine buttons that won’t ever break. We recreated this group of Adsum styles as a foray into European manufacturing and nylon blend fabric development.</p>
+</div>
+
+<div class="page-grid-3">
+  <div class="page-grid-item-3">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/MG_7930.jpg?v=1653421753" style="display: block; width:100%; height: auto; margin: 0 auto;">
+  </div>
+
+  <div class="page-grid-item-3-2">
+    <img class="middle-image"src="https://cdn.shopify.com/s/files/1/0664/2387/files/MG_8007-opt.jpg?v=1655922790" style="display: block; width:100%; margin: 0 auto;">
+  </div>
+  <div class="page-grid-item-3">
+    <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/MG_7866-opt.jpg?v=1655923261" style="display: block; width:100%; height: auto; margin: 0 auto;">
+  </div>
+
+</div>
+
+</div>
+
+<div class="page-grid-1">
+    <div class="page-grid-item-1 image-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Look2_019.jpg?v=1653421753" style="display: block; width:100%; height: auto;">
+    </div>
+    <div class="page-grid-item-2 image-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Look2_014.jpg?v=1653421753" style="display: block; width:100%; height: auto;">
+    </div>
+</div>
+<div class="body-text-grid-container">
+  <div class="product-preview">
+    <a href="https://adsumnyc.com/collections/high-summer/products/hogan-pant-summer-beige">
+      <img class="preview-image" src="https://cdn.shopify.com/s/files/1/0664/2387/products/GARMENT-DYED-PACK0239-hogan-pant-beige.jpg?v=1652715787">
+    </a>
+    <div class="product-preview-text">
+      <a class="blog-excerpt-link shop-arrow" href="https://adsumnyc.com/collections/high-summer/products/hogan-pant-summer-beige">Shop Hogan Pants</a>
+      <a class="product-price" href="https://adsumnyc.com/collections/high-summer/products/hogan-pant-summer-beige" class="product-title">$165</a>
+    </div>
+  </div>
+  <p class="body-text">Our Hogan Pant has been remade for the High Summer using a super soft summer twill. The fabric is made from a fine combed cotton yarn woven into a 295 GSM twill. We tried to pivot away from the normal crispness of our classic cotton twill base quality to offer our classic pant style in a beautiful fabric that is notably soft when you grab a handful of it. We used traditional dyed corozo nut buttons and embellished the back right upper pocket area with a black tonal engravers stamp logo label on all colorways.</p>
+</div>
+
+<div class="image-7">
+  <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/MG_8342.jpg?v=1653421753" style="display: block; width:100%; height: auto; max-width: 700px; margin: 0 auto;">
+  <p class="caption" style="max-width: 700px; margin: 0 auto;"></p>
+</div>
+
+<div class="page-grid-1">
+    <div class="page-grid-item-1 image-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Look3_010.jpg?v=1653421753" style="display: block; width:100%; height: auto;">
+    </div>
+    <div class="page-grid-item-2 image-1">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Look3_004.jpg?v=1653421753" style="display: block; width:100%; height: auto;">
+    </div>
+</div>
+
+<div class="body-text-grid-container">
+  <div class="product-preview">
+    <a href="https://adsumnyc.com/collections/high-summer/products/expedition-short-dark-green">
+      <img class="preview-image" src="https://cdn.shopify.com/s/files/1/0664/2387/products/GARMENT-DYED-PACK0255-EXPEDITION-SHORT-OLIVE.jpg?v=1652715990">
+    </a>
+    <div class="product-preview-text">
+      <a class="blog-excerpt-link shop-arrow" href="https://adsumnyc.com/collections/high-summer/products/expedition-short-dark-green">Shop Expedition Shorts</a>
+      <a class="product-price" href="https://adsumnyc.com/collections/high-summer/products/expedition-short-dark-green" class="product-title">$175</a>
+    </div>
+  </div>
+  <p class="body-text">The Expedition Short is our relaxed fit dual rear patch pocket short. Its front pockets are angled to reference OG fatigue style bottoms. The large rear patch pockets have angled corners and are reinforced with bar tacs at the opening pressure points. Both the inseam and outseam feature dual needle chainstitching for added seam strength.</p>
+</div>
+
+<div class="image-7">
+  <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Look4_011.jpg?v=1653421753" style="display: block; width:100%; height: auto; max-width: 700px; margin: 0 auto;">
+</div>
+
+<div class="featured-products-title" id="products-title-alignment">
+  High Summer Release
+</div>
+
+<div id="products" class="article-collection-grid {{ collection.title | handleize }}">
+  {% for product in collections.highsummer.products %}
+    <div class="collection-grid-item">
+      <a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}">  
+        <div style="position: relative;">
+          <img data-sizes="auto"
+               src="{{ product.images.first | product_img_url: '1x1' }}" 
+               data-src="{{ product.images.first | product_img_url: '1024x1024' }}"
+               data-srcset="{{ product.images.first | product_img_url: '600x600' }} 300w,
+                            {{ product.images.first | product_img_url: '1200x1200' }} 600w,
+                            {{ product.images.first | product_img_url: '1800x1800' }} 900w"
+               alt="{{ product.title | strip_html | escape }}" class="lazyload" style="display: block; width: 100%; height: 100%;" />
+          <img data-sizes="auto"
+               src="{{ product.images[1] | product_img_url: '1x1' }}" 
+               data-src="{{ product.images[1] | product_img_url: '1024x1024' }}" 
+               data-srcset="{{ product.images[1] | product_img_url: '600x600' }} 300w,
+                            {{ product.images[1] | product_img_url: '1200x1200' }} 600w,
+                            {{ product.images[1] | product_img_url: '1800x1800' }} 900w"
+               alt="{{ product.images[1].alt | escape }}" class="collection-product-hover lazyload"/>
+        </div>
+        <div class="product_info_content">
+            {%if product.available == true %}
+                <div class="gallery-product-title">
+                    {{ product.title }}
+                </div>
+                <div class="gallery-product-price">
+                    {% if product.compare_at_price_max > product.price %}
+                        <del class="sale">{{ product.compare_at_price_max | money }}</del>
+                    {% endif %}
+                    {{ product.price | money }}
+                </div>
+            {% endif %}
+            {%if product.available == false %}    
+                <span style="color: red; text-decoration: uppercase;">Sold Out</span>
+            {% endif %}
+        </div>          
+      </a>
+    </div>
+{% endfor %}
+</div>
+
+<!--
+<a href="/collections/fw20" class="shop-button-photo-story">Shop All</a>
+-->
+<div class="postnav">
+  <a href="{{ blog.previous_article }}" class="btn" style="float: left">Previous Post</a>
+    {% if blog.next_article %}
+  <a href="{{ blog.next_article }}" class="btn" style="float: right">Next Post</a>
+    {% endif %}
+</div>
+
+{% include "footer" %}

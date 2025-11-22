@@ -1,0 +1,156 @@
+{% include "loading" %}
+
+<style>
+  .graphics-article-title {
+    display: block;
+    color: black;
+    position: absolute;
+    text-align: center;
+    font-size: 20px;
+    top: 43px;
+    width: 100%;
+    opacity: 1;
+    -moz-transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+  }
+  
+  #main-image {
+  	display: block; 
+    width: 100%; 
+    height: auto;
+  }
+  
+  #blog-table-cell {
+    display: table-cell; 
+    vertical-align: middle; 
+    font-size: 14px; 
+    line-height: 22px; 
+    width: 50%;
+  }
+  
+  #blog-table-cell-text {
+    max-width: 500px; 
+    margin: 20px auto;
+  }
+
+  @media (max-width: 900px) {
+    .graphics-article-title {
+      font-size: 18px;
+      line-height: 26px;
+      top: 67px;
+    }
+    #main-image {
+      margin-top: 46px;
+    }
+    #blog-table-cell {
+      display: table-footer-group; 
+    }
+    #blog-table-cell-text { 
+      padding: 0 20px;
+      margin: 80px auto 0;
+    }
+  }
+</style>
+
+<div class="graphics-article-title" >
+  Sound of Sunshine Mix
+  <div style="font-size: 12px; line-height: 14px; max-width: 223px; margin: 6px auto; padding-top: 6px; border-top: 1px solid #000;">
+  A mix inspired by the heyday of radio by Jeremy Anderegg.
+  </div>
+</div>
+<div>
+  <img id="main-image" src="https://cdn.shopify.com/s/files/1/0664/2387/files/aaaaPW_Jeremy_Adsum-6.jpg?v=1599139662" alt="Sound of Sunshine Mix - Adsum">
+</div>
+<div class="centered-article-text">
+  <p>
+    What exactly is the sound of sunshine? We reached out to friend of the brand and frequent Lot Radio contributor, Jeremy Anderegg, to see what he thought. What does he imagine when he thinks of the heyday of radio and the sounds you’d want to hear coming out of a car on a hot summer’s day.
+His answer, in the form of a new mix, nailed it for us. Bring a little light into your day and listen to it below.
+  </p>
+</div>
+
+<div class="clearfix"></div>
+
+<div class="left-50" style="opacity: 1;">
+  <div class="img-left-wrapper max-width-800">
+      <img src="//cdn.shopify.com/s/files/1/0664/2387/files/PW_Jeremy_Adsum-2.jpg?v=1599077468" alt="Sound of Sunshine Mix Coffee Mug - Adsum" class="img-left ss16-preview">
+  </div>
+</div>
+
+<div class="right-50 float-right" style="opacity: 1;">
+    <div class="img-right-wrapper max-width-800">
+      <img src="//cdn.shopify.com/s/files/1/0664/2387/files/PW_Jeremy_Adsum-5_2943ffdd-64de-4a13-8808-9fe05ef1d542.jpg?v=1599077478" alt="Sound of Sunshine Slipmat - Adsum" class="img-right ss16-preview">
+  	</div>
+</div>
+
+<div class="clearfix"></div>
+
+<div class="centered-article-text" style=" text-align: center;">
+  <p>
+    <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" 
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/886423723&color=%23faff00&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"></iframe>
+      <strong>Tracklist:</strong><br>
+    	Karin Jones - Ready, Ready Love<br>
+		Matt Covington - We Got One<br>
+		Arnold Blair - Trying to Get Next to You<br>
+		Plush - We've Got the Love<br>
+		Roz Ryan - Put Love Back<br>
+		Leroy Hutson - All Because of You<br>
+		The McCrays - Lost In Loving You<br>
+		Ben E. King - Spoiled<br>
+		Lowrell - Mellow, Mellow Right On <br>
+		Al Johnson with Jean Carn - I’m Back For More<br>
+		Survival Kit - Daybreak<br>
+		Candy Bowman - Since I Found You (Love Is Better Than Ever)<br>
+		Brief Encounter - Human<br>
+		The Dynamic Superiors - Hit And Run Lover<br>
+		Donnell Pitman - A Taste Of Honey<br>
+		Rita Wright - Love Is All You Need<br>
+    Earth Wind And Fire - My Love<br>
+    Donna Mcghee - It Ain’t No Big Thing<br>
+    Mellaa - Free<br>
+    <br>
+  </p>
+</div>
+
+
+<div class="max-width-900" style="opacity: 1;">
+    <img class="center-single ss16-preview" src="//cdn.shopify.com/s/files/1/0664/2387/files/PW_Jeremy_Adsum-3_ded6234d-82e2-45d9-a510-26a952111cef.jpg?v=1599077483" alt="Sound of Sunshine Mug - Adsum">
+</div>
+
+<div class="postnav">
+	<a href="{{ blog.previous_article }}" class="btn" style="float: left">Previous Post</a>
+    {% if blog.next_article %}
+	<a href="{{ blog.next_article }}" class="btn" style="float: right">Next Post</a>
+    {% endif %}
+</div>
+
+{% include "footer" %}
+
+<script type="text/javascript">  
+  $('.header-fullsite-fixed').addClass('header-fullsite').removeClass('header-fullsite-fixed');
+  $(".header-fullsite"));
+</script>
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    window.setTimeout(function(){
+        $(".index-scroll-arrow").addClass("visible");
+    },2500);
+});
+</script>
+
+<script type="text/javascript">
+$(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 10) {
+        $(".index-scroll-arrow-img").addClass("hide4");
+    } else {
+        $(".index-scroll-arrow-img").removeClass("hide4");
+    }
+});
+</script>

@@ -1,0 +1,102 @@
+<style>
+  .first-level-link a {
+    display: block;
+  } 
+  .shop a {
+    padding-top: 10px;
+  }
+  .dropdown-child {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute; 
+    top: -10px; 
+    left: 80px; 
+    padding: 10px 20px; 
+    width: 280px;
+  }  
+  .menu-link {
+    display: inline-block;
+    line-height: 17px;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 400;
+    letter-spacing: .02em;
+    font-size: 11px;
+    list-style-type: none;
+  }
+  .menu-link a:hover {
+    color: #666;
+  }
+  .menu-link:hover > .dropdown-child {
+    opacity: 1;
+    visibility: visible;
+    left: 70px;
+    width: 162px;
+    -moz-transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+  }
+  .shop, .footwear, .menu-link .classics {
+    padding-bottom: 10px;
+  }
+  .menu-link .all, .menu-link .classics {
+    padding-top: 10px;
+  }
+  .sale {
+    color: red;
+  }
+  .menu-to-white .menu-link a {
+    color: #fff;
+  }
+  .menu-to-white .menu-link a:hover {
+    color: #666;
+  }
+  
+@media (max-width: 900px) {
+  .menu-link {
+    line-height: 27px;
+    letter-spacing: .02em;
+    font-size: 18px;
+  }
+  .dropdown-child {
+    opacity: 1;
+    visibility: visible;
+    position: inherit;
+  }
+  .second-level-link {
+    font-size: 14px;
+  }
+  .lookbooks, .lookbooks + .dropdown-child {
+    display: none!important;
+  }
+}
+</style>
+
+<ul class="menu nav-link-wrapper">
+  {% for link in linklists.main-menu.links %}
+    <span class="nav-link-wrapper">
+      <li class="menu-link first-level-link" style="display: block;">
+        <a href="{{ link.url }}" class="{{ link.title | downcase }}">{{ link.title }}</a>
+        {% if link.links.size > 0 %}     
+            <ul class="menu dropdown-child">
+              {% for child_link in link.links %}
+                <li class="menu-link second-level-link" style="display: block;">
+                  <a href="{{ child_link.url }}" class="{{ child_link.title | downcase }}">{{ child_link.title }}</a>
+                  {% if child_link.links.size > 0 %}
+                    <ul class="menu dropdown-grandchild">
+                      {% for grandchild_link in child_link.links %}
+                        <li class="menu-link">
+                          <a href="{{ grandchild_link.url }}">{{ grandchild_link.title }}</a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul> 
+        {% endif %}
+      </li>
+    </span>
+  {% endfor %}  
+</ul>

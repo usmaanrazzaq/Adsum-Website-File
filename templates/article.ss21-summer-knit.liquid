@@ -1,0 +1,278 @@
+{% include "loading" %}
+
+<style>
+  .article-collection-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 16px;
+    row-gap: 20px;
+    padding: 20px 40px 40px 40px;
+  }
+  
+  .graphics-article-title {
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    padding: 43px 20px 0 20px;
+    width: 100%;
+    max-width: 440px;
+    line-height: 26px;
+    margin: 0 auto;
+    opacity: 1;
+    -moz-transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+  }
+  
+  .centered-article-text {
+    font-size: 12px;
+  }
+  
+  .blog-img-caption {
+    top: 10px;
+  }
+  
+  .gallery {
+    min-height: 10px;
+  }
+
+  @media (max-width: 900px) {
+    .graphics-article-title {
+      font-size: 17px;
+      line-height: 26px;
+      text-align: left;
+      padding: 80px 20px 0px;
+      font-weight: 500;
+      max-width: 580px;
+    }  
+    .article-collection-grid {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 16px;
+      row-gap: 20px;
+      padding: 20px;
+    }
+  }
+</style>
+
+<div class="graphics-article-title" >
+ {{ article.title }}
+</div>
+<span class="new-centered-article-text">
+	We all live for new development here. The process of sampling and refining new and existing pieces is one of the most exciting parts of running a clothing company. In our summer custom knit category, we have the pique knit long sleeve, rugby shirt, and 3/4 snap sweatshirt; all new development for us. 
+</span>
+
+<div class="left-50" style="opacity: 1;">
+  <div class="img-left-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/31232_AWI_Adsum-31232_AWI_Adsum_002-31232_AWI_Adsum_002_01.jpg?v=1626284842" class="img-left ss16-preview">
+    <div class="blog-img-caption"></div>
+  </div>
+</div>
+<div class="right-50 float-right" style="opacity: 1;">
+    <div class="img-right-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/31232_AWI_Adsum-31232_AWI_Adsum_013-31232_AWI_Adsum_013_24.jpg?v=1626284842" class="img-right ss16-preview">
+      <div class="blog-img-caption"></div>
+    </div>
+</div>
+
+<div class="clearfix lb-extra-spacing"></div>
+<div class="clearfix lb-extra-spacing"></div>
+
+<!--
+<div class="left-50" style="opacity: 1;">
+  <div class="img-left-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/31232_AWI_Adsum-31232_AWI_Adsum_010-31232_AWI_Adsum_010_15.jpg?v=1626285569" class="img-left ss16-preview">
+    <div class="blog-img-caption"></div>
+  </div>
+</div>
+<div class="right-50 float-right" style="opacity: 1;">
+    <div class="img-right-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/31232_AWI_Adsum-31232_AWI_Adsum_012-31232_AWI_Adsum_012_20.jpg?v=1626285945" class="img-right ss16-preview">
+      <div class="blog-img-caption"></div>
+    </div>
+</div>
+-->
+
+<div class="max-width-800" style="opacity: 1;">
+    <img class="center-single ss16-preview" src="https://cdn.shopify.com/s/files/1/0664/2387/files/31232_AWI_Adsum-31232_AWI_Adsum_010-31232_AWI_Adsum_010_15.jpg?v=1626285569">
+</div>
+
+<span class="new-centered-article-text">
+  After making a long sleeve pique tee back in ss17, we were inundated with “what is pique?” questions. A staple fabric in preppier circles, pique is a cotton weave knit characterized by raised parallel cords that gives the material a subtle pattern and texture. The type of fabric developed by Rene Lacoste as a response to previous tennis attire being too heavy and uncomfortable, and debuted at the 1926 US Open championship. 
+	<br><br>
+  Pique was used because of its breathability, durability, comfort, and ease of care. The textures and patterns of pique vary depending on style. Ours uses a heavier knit gauge but with larger gaps in the pattern and smooth long staple cotton yarn, it's perfect for the spring/summer temps, and even into the fall. After knitting and linking the shirt we garment dyed each piece to our seasonal color palette in a softer color saturation. 
+</span>
+
+<div class="left-50" style="opacity: 1;">
+  <div class="img-left-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/31232_AWI_Adsum-31232_AWI_Adsum_011-31232_AWI_Adsum_011_07.jpg?v=1626285588" class="img-left ss16-preview">
+    <div class="blog-img-caption"></div>
+  </div>
+</div>
+<div class="right-50 float-right" style="opacity: 1;">
+    <div class="img-right-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/31232_AWI_Adsum-31232_AWI_Adsum_011-31232_AWI_Adsum_011_20.jpg?v=1626286313" class="img-right ss16-preview">
+      <div class="blog-img-caption"></div>
+    </div>
+</div>
+
+<div class="clearfix lb-extra-spacing"></div>
+<div class="clearfix lb-extra-spacing"></div>
+<!--
+<div class="left-50" style="opacity: 1;">
+  <div class="img-left-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/31232_AWI_Adsum-31232_AWI_Adsum_016-31232_AWI_Adsum_016_04.jpg?v=1626286958" class="img-left ss16-preview">
+    <div class="blog-img-caption"></div>
+  </div>
+</div>
+<div class="right-50 float-right" style="opacity: 1;">
+    <div class="img-right-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/31232_AWI_Adsum-31232_AWI_Adsum_014-31232_AWI_Adsum_014_32.jpg?v=1626286958" class="img-right ss16-preview">
+      <div class="blog-img-caption"></div>
+    </div>
+</div>
+-->
+<div class="max-width-700" style="opacity: 1;">
+    <img class="center-single ss16-preview" src="https://cdn.shopify.com/s/files/1/0664/2387/files/31232_AWI_Adsum-31232_AWI_Adsum_016-31232_AWI_Adsum_016_04.jpg?v=1626286958">
+</div>
+
+<span class="new-centered-article-text">
+    We’ve done rugby shirts in the past but we had the appetite to make them even better so we moved to production to a company in Canada who has been producing field quality rugbys for over 40 years. Rugby shirts or jerseys were developed out of hard wearing jersey fabric to reduce rips during a game if a player missed a tackle and only got a handful of jersey. Typically rugby’s have rubber buttons to minimize injuries on the pitch, but as we gave up our game days back in high school, we’ve used a smooth action Vislon zip which is much easier to do up compared to the buttons and lays more flat on the placket. We recommend washing and wearing heavily.
+</span>
+
+
+<div class="max-width-500" style="opacity: 1;">
+    <img class="center-single ss16-preview" src="https://cdn.shopify.com/s/files/1/0664/2387/files/image-_8_-optimized.jpg?v=1626291512">
+</div>
+
+<!--
+<div class="left-50" style="opacity: 1;">
+  <div class="img-left-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/31232_AWI_Adsum-31232_AWI_Adsum_001-31232_AWI_Adsum_001_09.jpg?v=1626287500" class="img-left ss16-preview">
+    <div class="blog-img-caption"></div>
+  </div>
+</div>
+<div class="right-50 float-right" style="opacity: 1;">
+    <div class="img-right-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/31232_AWI_Adsum-31232_AWI_Adsum_001-31232_AWI_Adsum_001_07.jpg?v=1626287500" class="img-right ss16-preview">
+      <div class="blog-img-caption"></div>
+    </div>
+</div>
+-->
+
+<div class="clearfix lb-extra-spacing"></div>
+
+
+<div class="left-50" style="opacity: 1;">
+  <div class="img-left-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/31232_AWI_Adsum-31232_AWI_Adsum_008-31232_AWI_Adsum_008_15.jpg?v=1626288086" class="img-left ss16-preview">
+    <div class="blog-img-caption"></div>
+  </div>
+</div>
+<div class="right-50 float-right" style="opacity: 1;">
+    <div class="img-right-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/31232_AWI_Adsum-31232_AWI_Adsum_016-31232_AWI_Adsum_016_35.jpg?v=1626288085" class="img-right ss16-preview">
+      <div class="blog-img-caption"></div>
+    </div>
+</div>
+
+<div class="clearfix lb-extra-spacing"></div>
+
+<span class="new-centered-article-text">
+    Also made in Canada, our 3/4 snap front sweatshirt is the perfect thing to reach for on crisper nights or when you’re by the water. It’s made from 400GSM open end heavyweight french terry which gives it ample durability. Also, because of the nature of the french terry weave, allows it to sit up off the skin, and the dry handfeel of the open end cotton; it won’t run as warm as a fleece. You’ll also notice our use of flatlock stitching. It’s a special sewing machine that not a lot of factories have. The stitch type is prized for its durability and ability to stretch which is why it is commonly used on yoga pants and even neoprene wet suits.
+</span>
+
+<div class="max-width-800" style="opacity: 1;">
+    <img class="center-single ss16-preview" src="https://cdn.shopify.com/s/files/1/0664/2387/files/31232_AWI_Adsum-31232_AWI_Adsum_010-31232_AWI_Adsum_010_02.jpg?v=1626288277">
+</div>
+
+<div class="clearfix lb-extra-spacing"></div>
+
+<!--
+<span class="new-centered-article-text" style="font-size: 10px; color: #aaa;">
+	Matt is 6'1" and 185 lbs. and wears Larges in tops & bottoms and S/M in the bucket hat.
+</span>
+-->
+
+<div class="featured-products-title">
+	Featured Products
+</div>
+
+
+<div id="products" class="article-collection-grid {{ collection.title | handleize }}">
+  {% for product in collections.summer-2021-custom-sew-knit.products %}
+  	<div class="collection-grid-item">
+      <a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}">  
+        <div style="position: relative;">
+          <img data-sizes="auto"
+               src="{{ product.images.first | product_img_url: '1x1' }}" 
+               data-src="{{ product.images.first | product_img_url: '1024x1024' }}"
+               data-srcset="{{ product.images.first | product_img_url: '600x600' }} 300w,
+                            {{ product.images.first | product_img_url: '1200x1200' }} 600w,
+                            {{ product.images.first | product_img_url: '1800x1800' }} 900w"
+               alt="{{ product.title | strip_html | escape }}" class="lazyload" style="display: block; width: 100%; height: 100%;" />
+          <img data-sizes="auto"
+               src="{{ product.images[1] | product_img_url: '1x1' }}" 
+               data-src="{{ product.images[1] | product_img_url: '1024x1024' }}" 
+               data-srcset="{{ product.images[1] | product_img_url: '600x600' }} 300w,
+                            {{ product.images[1] | product_img_url: '1200x1200' }} 600w,
+                            {{ product.images[1] | product_img_url: '1800x1800' }} 900w"
+               alt="{{ product.images[1].alt | escape }}" class="collection-product-hover lazyload"/>
+        </div>
+        <div class="product_info_content">
+            {%if product.available == true %}
+                <div class="gallery-product-title">
+                    {{ product.title }}
+                </div>
+                <div class="gallery-product-price">
+                    {% if product.compare_at_price_max > product.price %}
+                        <del class="sale">{{ product.compare_at_price_max | money }}</del>
+                    {% endif %}
+                    {{ product.price | money }}
+                </div>
+            {% endif %}
+            {%if product.available == false %}    
+                <span style="color: red; text-decoration: uppercase;">Sold Out</span>
+            {% endif %}
+        </div>          
+      </a>
+    </div>
+{% endfor %}
+</div>
+
+<a href="/collections/summer-2021" class="shop-button-photo-story">Shop All Summer 2021</a>
+
+<div class="postnav">
+  <a href="{{ blog.previous_article }}" class="btn" style="float: left">Previous Post</a>
+    {% if blog.next_article %}
+  <a href="{{ blog.next_article }}" class="btn" style="float: right">Next Post</a>
+    {% endif %}
+</div>
+
+{% include "footer" %}
+
+<script type="text/javascript">  
+  $('.header-fullsite-fixed').addClass('header-fullsite').removeClass('header-fullsite-fixed');
+</script>
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    window.setTimeout(function(){
+        $(".index-scroll-arrow").addClass("visible");
+    },2500);
+});
+</script>
+
+<script type="text/javascript">
+$(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 10) {
+        $(".index-scroll-arrow-img").addClass("hide4");
+    } else {
+        $(".index-scroll-arrow-img").removeClass("hide4");
+    }
+});
+</script>

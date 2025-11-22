@@ -1,0 +1,226 @@
+{% include "loading" %}
+
+<style>
+
+  .grid-container{
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 20px;
+    grid-row-gap: 80px;
+    display: grid;
+    margin: 94px 40px 0 240px;
+    grid-template-rows: calc(100vh - 94px) 70vh 100vh;
+  }
+
+  h1{
+    font-size: 22px;
+    line-height: 22px;
+    letter-spacing: .02em;
+    text-transform: capitalize;
+    padding: 0 0 36px 0;
+    margin: 0;
+    font-weight: 400;
+  }
+
+  p{
+    margin-top: -4px;
+    font-size: 16px;
+    line-height: 26px;
+  }
+  .cover-image{
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+  }
+
+
+  .first-block-text{
+    grid-column: 1 / span 5;
+    grid-row: 1;
+    align-self: end;
+    display: flex;
+    flex-flow: column;
+    padding-bottom: 32px;
+  }
+
+  .first-image{
+    grid-column: 7 / span 6;
+    grid-row: 1;
+    padding-bottom: 32px;
+  }
+.product-title{
+    font-size: 16px;
+    line-height: 22px;
+    padding: 0 0 36px 0;
+    margin: 0;
+    font-weight: 400;
+}
+.product-price{
+    font-size: 13px;
+    line-height: 21px;
+    display: block;
+    padding-top: ;
+    padding-bottom: 26px;
+}
+.product-description{
+    margin-top: -4px;
+    font-size: 13px;
+    line-height: 21px;
+}
+
+.second-block-text{
+    grid-column: 1 / span 4;
+    grid-row: 2;
+    align-self: end;
+    display: flex;
+    flex-flow: column;
+}
+.preview-image{
+  width: 80px;
+  padding-bottom: 26px;
+  object-fit: cover;
+  object-position: center;
+
+}
+.second-block-image-1{
+  grid-column: 5 / span 4;
+  grid-row: 2;
+}
+
+.second-block-image-2{
+  grid-column: 9 / span 4;
+  grid-row: 2;
+}
+
+.third-block-text{
+    grid-column: 1 / span 4;
+    grid-row: 3;
+    display: flex;
+    flex-flow: column;
+}
+
+.third-block-image-1{
+  grid-column: 5 / span 8;
+  grid-row: 3;
+}
+
+
+
+</style>
+
+<div class="grid-container">
+
+  <!--SECTION 1-->
+    <div class="heading first-block-text" >
+
+      <h1>Trip to Dia: Beacon for High Summer</h1>
+      <p>For Adsum’s third release of the SS22 season, we focus on our European manufacturing partnership to bring a selection of luxurious and utilitarian garments, all part of the High Summer release. The lookbook was shot in and around a trip up to Dia: Beacon from Grand Central Station, a common, almost rite of passage trip, for creatives living in New York City.</p>
+    </div>
+
+    <img class="cover-image first-image" src="https://cdn.shopify.com/s/files/1/0664/2387/files/MG_7401.jpg?v=1653421754">
+
+  <!--SECTION 2-->
+    <div class="product-write-up second-block-text">
+      <a href="https://adsumnyc.com/products/gd-m97-jacket-golden-moss">
+        <img class="preview-image" src="https://cdn.shopify.com/s/files/1/0664/2387/products/GARMENT-DYED-PACK0287-m97-golden-moss.jpg?v=1652715798">
+      </a>
+      <div class="product-heading">
+        <a class="product-title" href="https://adsumnyc.com/products/gd-m97-jacket-golden-moss" class="product-title">GD M97 Jacket</a>
+        <a class="product-price" href="https://adsumnyc.com/products/gd-m97-jacket-golden-moss" class="product-title">$355</a>
+      </div>
+      <a class="product-description">The Garment Dyed M97 Jacket. Contructed from a 70% cotton 30% nylon blend canvas. It’s far from a workwear duck canvas jacket. The fabric we used has a hand that is cool and smooth to touch with a 240 GSM weight. We sourced it from a famous outerwear mill located near the shores of Lake Como, Italy.</a>
+    </div>
+    <img class="cover-image second-block-image-1" src="https://cdn.shopify.com/s/files/1/0664/2387/files/Look1_003.jpg?v=1653421753">
+    <img class="cover-image second-block-image-2" src="https://cdn.shopify.com/s/files/1/0664/2387/products/GARMENT-DYED-PACK0287-m97-golden-moss.jpg?v=1652715798">
+
+
+
+
+  <!--SECTION 3-->
+    <div class="product-write-up third-block-text">
+      <a href="https://adsumnyc.com/products/gd-m97-jacket-golden-moss">
+        <img class="preview-image" src="https://cdn.shopify.com/s/files/1/0664/2387/products/GARMENT-DYED-PACK0287-m97-golden-moss.jpg?v=1652715798">
+      </a>
+      <div class="product-heading">
+        <a class="product-title" href="https://adsumnyc.com/products/gd-m97-jacket-golden-moss" class="product-title">GD M97 Jacket</a>
+        <a class="product-price" href="https://adsumnyc.com/products/gd-m97-jacket-golden-moss" class="product-title">$355</a>
+      </div>
+      <a class="product-description">The Garment Dyed M97 Jacket. Contructed from a 70% cotton 30% nylon blend canvas. It’s far from a workwear duck canvas jacket. The fabric we used has a hand that is cool and smooth to touch with a 240 GSM weight. We sourced it from a famous outerwear mill located near the shores of Lake Como, Italy.</a>
+    </div>
+    <img class="cover-image third-block-image-1" src="https://cdn.shopify.com/s/files/1/0664/2387/files/Look2_014.jpg?v=1653421753">
+
+  </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+    <!--
+<div class="featured-products-title">
+	High Summer Release
+</div>
+
+<div id="products" class="article-collection-grid {{ collection.title | handleize }}">
+  {% for product in collections.highsummer.products %}
+  	<div class="collection-grid-item">
+      <a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}">  
+        <div style="position: relative;">
+          <img data-sizes="auto"
+               src="{{ product.images.first | product_img_url: '1x1' }}" 
+               data-src="{{ product.images.first | product_img_url: '1024x1024' }}"
+               data-srcset="{{ product.images.first | product_img_url: '600x600' }} 300w,
+                            {{ product.images.first | product_img_url: '1200x1200' }} 600w,
+                            {{ product.images.first | product_img_url: '1800x1800' }} 900w"
+               alt="{{ product.title | strip_html | escape }}" class="lazyload" style="display: block; width: 100%; height: 100%;" />
+          <img data-sizes="auto"
+               src="{{ product.images[1] | product_img_url: '1x1' }}" 
+               data-src="{{ product.images[1] | product_img_url: '1024x1024' }}" 
+               data-srcset="{{ product.images[1] | product_img_url: '600x600' }} 300w,
+                            {{ product.images[1] | product_img_url: '1200x1200' }} 600w,
+                            {{ product.images[1] | product_img_url: '1800x1800' }} 900w"
+               alt="{{ product.images[1].alt | escape }}" class="collection-product-hover lazyload"/>
+        </div>
+        <div class="product_info_content">
+            {%if product.available == true %}
+                <div class="gallery-product-title">
+                    {{ product.title }}
+                </div>
+                <div class="gallery-product-price">
+                    {% if product.compare_at_price_max > product.price %}
+                        <del class="sale">{{ product.compare_at_price_max | money }}</del>
+                    {% endif %}
+                    {{ product.price | money }}
+                </div>
+            {% endif %}
+            {%if product.available == false %}    
+                <span style="color: red; text-decoration: uppercase;">Sold Out</span>
+            {% endif %}
+        </div>          
+      </a>
+    </div>
+{% endfor %}
+</div>
+-->
+<!--
+<a href="/collections/fw20" class="shop-button-photo-story">Shop All</a>
+-->
+<div class="postnav">
+  <a href="{{ blog.previous_article }}" class="btn" style="float: left">Previous Post</a>
+    {% if blog.next_article %}
+  <a href="{{ blog.next_article }}" class="btn" style="float: right">Next Post</a>
+    {% endif %}
+</div>
+
+
+{% include "footer" %}
+
+<script type="text/javascript">  
+//  $('.header-fullsite-fixed').addClass('header-fullsite').removeClass('header-fullsite-fixed');
+</script>

@@ -1,0 +1,184 @@
+{% include "loading" %}
+
+<style>
+  .graphics-article-title {
+    display: block;
+    position: absolute;
+    text-align: center;
+    font-size: 20px;
+    
+    top: 43px;
+    width: 100%;
+    opacity: 1;
+    -moz-transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+  }
+
+  @media (max-width: 900px) {
+    .graphics-article-title {
+      font-size: 18px;
+      line-height: 26px;
+      top: 67px;
+    }    
+  }
+</style>
+
+<div class="graphics-article-title" >
+  TW Fleece Popover + Fleece Pants
+</div>
+<div class="centered-article-text" style="padding-top: 10px;">
+  <p>
+    We had a curiously warm day two weeks ago in Williamsburg, so we headed down the street from our store on North 7th to the Bushwick Inlet park area to take some pictures for this week’s product feature, the TW Fleece Popover and Fleece Pants. The east river was glass calm and there wasn’t a flutter of a breeze in the air. Christmas in BK has officially started with the arrival of the month long residency of the Christmas tree salesmen replacing where Shmorgasborg usually takes place.
+  </p> 
+</div>
+
+<div class="left-50" style="opacity: 1;">
+  <div class="img-left-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-twfleece-9B3A5499.jpg?v=1575579256" class="img-left ss16-preview">
+  </div>
+</div>
+
+<div class="right-50 float-right" style="opacity: 1;">
+    <div class="img-right-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-twfleece-9B3A5530.jpg?v=1575579904" class="img-right ss16-preview">
+  	</div>
+</div>
+
+<div class="clearfix lb-extra-spacing"></div>
+
+<div class="centered-article-text">
+  <p style="font-size: 14px; line-height: 20px; max-width: 500px; margin: 20px auto;">
+    The TW Popover fleece is cut from a heavyweight low pile polyester fleece in two colorways, black and beige. In comparison to the flop neck fleece style, the wrist and waist are finished with a clean elastic binding. All 5 zippers on the TW fleece popover are #5 sized YKK. However, the center front zipper is a locking Vislon YKK and the hand pocket and armpit zips are coil zippers.
+  </p> 
+</div>
+
+<div class="left-50" style="opacity: 1;">
+  <div class="img-left-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-twfleece-9B3A5876.jpg?v=1575580949" class="img-left ss16-preview">
+  </div>
+</div>
+
+<div class="right-50 float-right" style="opacity: 1;">
+    <div class="img-right-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-twfleece-9B3A5724.jpg?v=1575580718" class="img-right ss16-preview">
+  	</div>
+</div>
+ 
+<div class="clearfix lb-extra-spacing"></div>
+
+<div class="centered-article-text">
+ <p style="font-size: 14px; line-height: 20px; max-width: 500px; margin: 20px auto;">
+    Both colorways feature an interior contrast collar section that that folds over the top edge of the collar to a 3/4” high coverstitch finish. Because of the zips and heavyweight fleece we find that the TW fleece can be treated as a light outerwear piece and does a good job being popped over a core logo hoodie or flannel workshirt. It’s a fantastic winter running companion. 
+ </p>
+  <p>
+    Part of the FW19’s second delivery, the fleece sweatpant is a polyester fleece iteration of a cotton sweat pant that we made in our FW17 season. We kept the cut and sew panel detailing on the side seam which typically has rib in place of the self fabric that exists on the fleece pant. Taking a more technical approach to redesigning the pant we substituted the original cotton drawcords on the waistband and replaced them with elastic cording tethered by a two hole nylon cord lock.
+  </p>
+</div>
+
+<div class="left-50" style="opacity: 1;">
+  <div class="img-left-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-twfleece-9B3A5793.jpg?v=1575581906" class="img-left ss16-preview">
+  </div>
+</div>
+
+<div class="right-50 float-right" style="opacity: 1;">
+    <div class="img-right-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-twfleece-9B3A5814-color.jpg?v=1575582915" class="img-right ss16-preview">
+  	</div>
+</div>
+
+<div class="clearfix lb-extra-spacing"></div>
+
+<div class="centered-article-text">
+  <p style="font-size: 14px; line-height: 20px; max-width: 500px; margin: 20px auto;">
+  	The ankle hems also feature cinchable hidden anchored cord locks to cut out draft on chilly days. Many classic cotton sweatpants feature a hidden jersey coin pocket that are sometimes sewn into the front waistband. We took the idea of a “coin pocket” or media pocket and put it on the back side of the pant with a snap fastener made out of the same Japanese grosgrain found on the placket of our Expedition Jacket.  We’ve had success wearing the fleece pant on its own but they are truly amazing thermal layering pants that work hard to keep you warm when put on under a shell pant or inside a pair of waders during the early spring fly fishing season.
+  <p style="font-size: 12px; color: #666; line-height: 20px; max-width: 500px; margin: 20px auto;">
+      *Model is 6'2" and 160 lbs. and is wearing Large TW Fleece and X-Large Sweatpants.
+  </p>
+</div>
+
+  <div class="featured-products-title">
+    Featured Products
+  </div>
+
+
+<div id="products" class="gallery">
+{% for product in collections.fw19twfleece.products %}
+  {% include 'bold-product' with product, hide_action: 'skip' %}
+	<div class="product5">
+  		<a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}">  
+      
+        <img data-sizes="auto"
+             src="{{ product.images.first | product_img_url: '1x1' }}" 
+             data-src="{{ product.images.first | product_img_url: '1800x1800' }}"
+             data-srcset="{{ product.images.first | product_img_url: '600x600' }} 300w,
+                          {{ product.images.first | product_img_url: '1200x1200' }} 600w,
+                          {{ product.images.first | product_img_url: '1800x1800' }} 900w"
+             class="lazyload" style="display: block; width: 100%; height: 100%;" alt="{{ product.title | strip_html | escape }}"/>
+        <img src="{{ product.images[1] | product_img_url: '1x1' }}" data-src="{{ product.images[1] | product_img_url: '2048x2048' }}" class="collection-product-hover lazyload" alt="{{ product.images[1].alt | escape }}" />
+    
+        <div class="product_info_content">
+          <div class="product-info-content-wrap">
+			{%if product.available == true %}           
+            <div class="gallery-product-wrap">
+              <div class="gallery-product-title">
+                {{ product.title }}
+              </div>
+              <div class="gallery-product-price" style="padding-top: 0px;">
+                {% if product.compare_at_price_max > product.price %}
+                <del class="sale">{{ product.compare_at_price_max | money }}</del>
+                {% endif %}
+                {{ product.price | money }}
+              </div>
+            </div>
+			{% endif %}
+			{%if product.available == false %}
+             <div class="gallery-product-wrap">         
+               <div class="sold-out">Sold Out</div>
+             </div>
+			{% endif %}
+          </div>
+        </div>
+  		</a>
+	</div>
+{% endfor %}
+</div>
+
+<a href="/collections/all" class="shop-button-photo-story">Shop All FW19</a>
+
+<div class="postnav">
+	<a href="{{ blog.previous_article }}" class="btn" style="float: left">Previous Post</a>
+    {% if blog.next_article %}
+	<a href="{{ blog.next_article }}" class="btn" style="float: right">Next Post</a>
+    {% endif %}
+</div>
+
+{% include "footer" %}
+
+<script type="text/javascript">  
+  $('.header-fullsite-fixed').addClass('header-fullsite').removeClass('header-fullsite-fixed');
+</script>
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    window.setTimeout(function(){
+        $(".index-scroll-arrow").addClass("visible");
+    },2500);
+});
+</script>
+
+<script type="text/javascript">
+$(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 10) {
+        $(".index-scroll-arrow-img").addClass("hide4");
+    } else {
+        $(".index-scroll-arrow-img").removeClass("hide4");
+    }
+});
+</script>

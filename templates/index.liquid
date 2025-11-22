@@ -1,0 +1,1280 @@
+<style>
+    .fw22-link {
+      align-content: end;
+      padding: 40px;
+      line-height: 20px;
+    }
+    .fw22-link:hover {
+      opacity: 0.5;
+    }
+
+
+    .gramicci-link {
+      grid-row: 2; grid-column: span 6; height: 5vh; font-size: 20px;
+    }
+    .gramicci-link:hover {
+      color: #c8c8c8 !important;
+    }
+    .fw25-img {
+    background-image: url({{ 'ADSUM_14457.jpg' | asset_url }});
+    background-size: cover;
+    background-position: center;
+  }
+
+    .fw25-img-2 {
+    background-image: url({{ 'ADSUM_14496.jpg' | asset_url }});
+    background-size: cover;
+    background-position: center;
+  }
+    .gramicci-img {
+      background: url('https://cdn.shopify.com/s/files/1/0664/2387/files/SHOE_001_HERO.jpg?v=1756741557') no-repeat;
+      background-size: cover;
+      background-position: center center;
+    }
+    .gramicci-img-2 {
+      background: url('https://cdn.shopify.com/s/files/1/0664/2387/files/sanders-website-4.jpg?v=1760467806') no-repeat;
+      /*background: url('https://cdn.shopify.com/s/files/1/0664/2387/files/sanders-website-2.jpg?v=1760467872') no-repeat;*/
+      /*background: url('https://cdn.shopify.com/s/files/1/0664/2387/files/sanders-website-3.jpg?v=1760467872') no-repeat;*/
+      background-size: cover;
+      background-position: center center;
+    }
+    .first-block-img {
+      grid-column: span 12;
+      background-size: cover;
+      display: flex;
+      background-position: center center;
+      transition: all .3s ease;
+      height: 100vh;
+    }
+    .first-block-img-2 {
+      grid-column: span 12;
+      background-size: cover;
+      display: flex;
+      background-position: center center;
+      transition: all .3s ease;
+      height: 100vh;
+    }
+    .index-grid-1 {
+      display: grid;
+      grid-template-columns: repeat(24, 1fr);
+      padding: 0px;
+      grid-auto-rows: min-content;
+      transition: all .3s ease;
+    }
+  @media (max-width: 900px) {
+    .index-grid-1 {
+      grid-template-columns: repeat(12, 1fr);
+      padding: 0 0 20px;
+      row-gap: 20px;
+    }
+    .first-block-img {
+      grid-column: span 12;
+      height: calc(80vh);
+    }
+    .gramicci-img-2 {
+      display: none;
+    }
+    .gramicci-link {
+      grid-column: span 12;
+      padding: 0 20px;
+      height: auto;
+    }
+    .gramicci-link:nth-of-type(3) {
+      grid-row: 2;
+    }
+    .gramicci-link:nth-of-type(4) {
+      grid-row: 3;
+    }
+      .gramicci-link:nth-of-type(5) {
+      grid-row: 4;
+    }
+  }
+    .single-centered-img-2 {
+      grid-row: 1 / span 3; grid-column: 8 / span 10; display: flex; align-items: center; justify-content: center; object-position: center; overflow: hidden; width: 100%;
+    }
+    .single-centered-img-wrapper {
+      grid-row: 1; grid-column: 9 / span 8; object-fit: scale-down; max-height: 70vh; object-position: center; display: flex; background-position: center center; cursor: pointer; transition: all .3s ease; overflow: hidden; margin: 0 auto;
+    }
+    .single-centered-img {
+      grid-row: 1; grid-column: 9 / span 8; object-fit: scale-down; display: flex; background-position: center center; cursor: pointer; transition: all .3s ease; overflow: hidden; margin: 0 auto; object-position: bottom;
+    }
+    .single-centered-title {
+      font-weight: 500; padding-top: 20px; grid-row: 2; grid-column: 9 / span 3; width: 100%;  display: flex; align-items: flex-start;
+    }
+    .single-centered-copy {
+      padding-top: 22px; font-size: 12px; line-height: 16px; grid-row: 2; grid-column: 12 / span 5; width: 100%; display: flex; align-items: flex-start;
+    }
+    .single-centered-signup {
+      font-size: 12px; text-decoration: none; margin-top: 10px; grid-row: 3; grid-column: 12 / span 5; width: 100%; display: flex; align-items: flex-start;
+    }
+    .header-mobile {
+      background: none;
+    }
+    .cool {
+      background: #fff!important;
+    }
+    div, div:hover {
+      transition: all .3s ease-in-out;
+    }
+    .signup-form {
+      text-decoration: none;
+      grid-row: 3;
+      grid-column: 1 / span 3;
+      justify-self: flex-start;
+    }
+    #index .footer {
+      margin-top: 0px;
+    }
+    .lookbook-link {
+      grid-row: 2;
+      grid-column: 15 / span 3;
+    }
+    .index-link {
+      color: #fff;
+      background: #000;
+      border: 1px solid #000;
+      font-size: 12px;
+      padding: 8px 10px;
+      text-align: center;
+      width: 100%;
+      min-width: 50px;
+      max-height: 30px;
+      margin-right: auto;
+    }
+    .index-link:hover {
+      color: #000;
+      background-color: transparent;
+    }
+    .shop-link {
+      grid-row: 2;
+      grid-column: 12 / span 3;
+    }
+    .shop-link-1 {
+      color: white;
+      background: #000;
+      border: 1px solid #000;
+
+      grid-column: 1 / span 4;
+    }
+    .shop-sale-button {
+      background-color: #d00;
+      border: 1px solid #d00;
+    }
+    .shop-link-1:hover {
+      border: 1px solid black;
+      background-color: transparent;
+      color: black;
+    }
+    .lookbook-link-1 {
+      grid-row: 3;
+      grid-column: 4 / span 3;
+    }
+    .shop-link-2 {
+      color: white;
+      background: #000;
+      border: 1px solid #000;
+      grid-row: 3;
+      grid-column: 12 / span 5;
+    }
+    .lookbook-link-2 {
+      grid-column: 12 / span 5;
+    }
+    .index-grid {
+      display: grid;
+      grid-template-columns: repeat(24, 1fr);
+      grid-template-rows: 1fr;
+      column-gap: 14px;
+      padding: 40px;
+      row-gap: 5px;
+      height: 100vh;
+      justify-items: left;
+      place-content: flex-end;
+    }
+    .index-grid-fiftyfifty, .index-grid-noroll {
+      display: grid;
+      grid-template-columns: repeat(24, 1fr);
+      grid-template-rows: 1fr;
+      column-gap: 0px;
+      padding: 0px;
+      row-gap: 5px;
+      height: 100vh;
+      place-content: flex-end;
+      transition: all .3s ease;
+    }
+    .fiftyfifty-cell-1 {
+      grid-column: span 12;
+      background-size: cover;
+      display: grid;
+      transition: all .3s ease;
+      padding: 40px;
+      grid-auto-rows: min-content;
+      align-content: end;
+      row-gap: 5px;
+      background-color: #fff;
+      height: 100%;
+    }
+    .fiftyfifty-cell-2 {
+      grid-column: span 12;
+      display: flex;
+      transition: all .3s ease;
+      height: 100%;
+    }
+    .late-deliveries-bg {
+      background: url('https://cdn.shopify.com/s/files/1/0664/2387/files/web-9B3A3983.jpg?v=1712003730') no-repeat;
+      background-size: cover;
+      background-position: center center;
+    }
+    .noroll-cell-1 {
+      grid-column: span 12;
+      /* background: url('https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-noroll-laydown-grid.jpg?v=1705435675') no-repeat; */
+      background-size: cover;
+      display: grid;
+      background-position: center center;
+      transition: all .3s ease;
+      padding: 40px;
+      grid-auto-rows: min-content;
+      align-content: end;
+      row-gap: 5px;
+      background-color: #eee;
+      height: 100%;
+    }
+    .noroll-cell-2 {
+      grid-column: span 12;
+      background: url('https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-noroll-website-1.jpg?v=1705433681') no-repeat;
+      background-size: cover;
+      display: flex;
+      background-position: center center;
+      transition: all .3s ease;
+      height: 100%;
+    }
+    .noroll-link {
+      font-size: 26px;
+      line-height: 45px;
+      display: flex;
+      align-items: end;
+      padding: 24px 40px;
+      color: #000;
+      letter-spacing: -0.01em;
+    }
+    .noroll-link:hover {
+      color: grey;
+    }
+    .reebok {
+      background: url('https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-reebok-club-c-mid-ii-closeup-website.jpg?v=1702307683') no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+    .adidas {
+      background: url('https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-adidas-samba-millennium-landing-page-launch8.jpg?v=1699995784') no-repeat;
+      background-size: cover;
+      background-position: center bottom;
+      background-color: #fd0000;
+      color: #fff;
+    }
+    .ss24-bg {
+      background: url('https://cdn.shopify.com/s/files/1/0664/2387/files/MTG_ADSUM_HR_16_ALT.jpg?v=1713447041');
+      background-size: cover;
+      background-position: center;
+    }
+    .fw23-bg {
+      background: url('https://cdn.shopify.com/s/files/1/0664/2387/files/9B3A5842-website-landing.jpg?v=1698871431');
+      background-size: cover;
+      background-position: center;
+    }
+    .elac-bg {
+      /* background: url('https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-bg-4-9B3A8214.jpg?v=1709836938'); */
+      background: url('https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-elac-product-front-bg.jpg?v=1709841341');
+      background-size: cover;
+      background-position: center;
+    }
+    .gramicci-bg {
+      background: url('https://cdn.shopify.com/s/files/1/0664/2387/files/aUntitled_Session0094-2.jpg?v=1733238246');
+      background-size: cover;
+      background-position: center;
+    }
+    .gramicci-bg .title-1, .gramicci-bg .copy-1 {
+      color: #fff;
+    }
+    .primary-block-img-wrapper {
+      grid-row: 1;
+      grid-column: 8 / span 10;
+      object-fit: scale-down;
+      object-position: center;
+      display: flex;
+      max-width: 100%;
+      background-position: center center;
+      cursor: pointer;
+      transition: all .3s ease;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+    .primary-block-img-wrapper:hover + .timex-title, .primary-block-img-wrapper:hover + .timex-title + .timex-copy, .primary-block-img-wrapper:hover + .timex-title + .timex-copy + .timex-shop-link  {
+      color: grey;
+      cursor: pointer;
+      transition: all .1s ease;
+    }
+    .primary-block-img {
+      object-fit: scale-down;
+      width: 100%;
+      margin: 0 auto;
+      object-position: bottom;
+    }
+    .index-title {
+      font-weight: 500;
+      width: 100%;
+      display: flex;
+      align-items: flex-end;
+      line-height: 20px;
+    }
+    .index-copy {
+      padding: 4px 0 20px 0;
+      font-size: 12px;
+      line-height: 16px;
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+    }
+    .title-adidas {
+      font-size: 42px;
+      letter-spacing: -0.03em;
+      font-weight: 600;
+      grid-column: span 24;
+      text-align: center;
+      line-height: normal;
+      align-self: end;
+      display: block;
+    }
+    .shop-link-adidas {
+      background-color: #000;
+      border: 1px solid #000;
+      color: #fff;
+      max-width: 256px;
+      grid-column: span 24;
+    }
+    .shop-link-adidas:hover {
+      color: #000;
+    }
+    .title-1 {
+      grid-column: 1 / span 6;
+    }
+    .copy-1 {
+      grid-column: 1 / span 6;
+      max-width: 400px;
+    }
+    .title-2 {
+      grid-row: 1;
+      grid-column: 1 / span 4;
+    }
+    .copy-2 {
+      grid-row: 2;
+      grid-column: 1 / span 6;
+    }
+    .primary-block-1 {
+      grid-row: 1;
+      grid-column: 9 / span 8;
+      object-fit: scale-down;
+      object-position: center;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background-position: center center;
+      cursor: pointer;
+      transition: all .3s ease;
+      overflow: hidden;
+      margin: 0 auto;
+      align-self: center;
+      justify-self: center;
+    }
+    .secondary-block-1 {
+      align-self: flex-start;
+      grid-row: 1;
+      grid-column: 5 / span 8;
+      object-fit: scale-down;
+      object-position: center;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background-position: center center;
+      cursor: pointer;
+      transition: all .3s ease;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+    .secondary-block-2 {
+      align-self: flex-start;
+      grid-row: 1;
+      grid-column: 13 / span 8;
+      object-fit: scale-down;
+      object-position: center;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background-position: center center;
+      cursor: pointer;
+      transition: all .3s ease;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+    .secondary-block-1:hover, .secondary-block-1:active, .secondary-block-2:hover, .secondary-block-2:active  {
+      color: #aaa;
+    }
+    .secondary-block-img-1 {
+      object-position: bottom;
+      grid-column: span 3;
+    }
+    .secondary-block-title {
+      font-weight: 500;
+      line-height: 1.2em;
+      padding-top: 20px;
+      padding-right: 10px;
+      grid-row: 2;
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+    }
+    .secondary-block-copy {
+      padding-top: 23px;
+      font-size: 12px;
+      line-height: 16px;
+      grid-row: 2;
+      grid-column: span 2;
+      width: 100%;
+      display: grid;
+      align-items: flex-start;
+    }
+    .secondary-block-link {
+      font-size: 12px;
+      text-decoration: underline;
+      margin-top: 10px;
+      grid-row: 3;
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      grid-column: 2;
+      line-height: 18px;
+    }
+    .secondary-block-link:hover {
+      color: grey;
+      text-decoration: none;
+    }
+    .index-grid-1:nth-of-type(2), .index-grid-1:nth-of-type(4) {
+      padding-top: 0px;
+      column-gap: 0px;
+      padding-bottom: 90px;
+    }
+    .index-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(24, 1fr);
+      column-gap: 14px;
+      padding: 40px;
+      row-gap: 5px;
+      height: 100vh;
+      grid-auto-rows: min-content;
+    }
+    .primary-block-img {
+      opacity: 0;
+    }
+    .index-blog-block-wrapper {
+      padding: 40px 40px 20px 40px;
+    }
+    .index-featured-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 14px;
+      row-gap: 40px;
+    }
+    input[type=email] {
+      padding: 0 0 0 10px!important;
+      border-right: 0px!important;
+      align-self: center;
+    }
+    .index-footer-links-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      height: 300px;
+      margin-top: 40px;
+    }
+    .index-footer-links-grid .item {
+      grid-column: span 1;
+      text-align: center;
+      font-size: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .index-footer-links-grid .item:hover {
+      color: #ccc;
+    }
+    .sale {
+      background-color: white;
+    }
+    .title-sale {
+      color: #d00;
+      font-size: 62px;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: -0.03em;
+      display: block;
+      text-align: left;
+      grid-column: span 24;
+      align-self: center;
+    }
+    .title-sale:hover {
+      color: black;
+    }
+    .copy-sale {
+      color: #000;
+      grid-row: 2;
+      grid-column: 1 / span 6;
+      padding: 0px;
+    }
+    .shop-link-sale {
+      color: #fff;
+      background-color: #000;
+      border: 1px solid #000;
+      padding: 8px 10px;
+      grid-column: 7 / span 4;
+    }
+    .shop-link-sale:hover {
+      color:#000;
+    }
+
+  @media (max-width: 900px) {
+    .title-sale {
+      font-size: 42px;
+    }
+    .index-featured-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .index-grid {
+      height: 90vh;
+      grid-template-columns: repeat(6, 1fr);
+      padding: 20px 20px 24px 20px;
+    }
+    .index-grid-primary {
+      height: 100vh;
+      grid-template-columns: repeat(4, 1fr);
+      background-position: 50% 50%;
+      padding: 20px;
+    }
+    .reebok-grid {
+      padding: 45px 20px 24px 20px;
+    }
+    .reebok-concrete {
+      padding: 0px;
+      grid-row: 1 / span 1;
+    }
+    .reebok-grid > .title-1 {
+      grid-row: 2;
+      padding-top: 12px;
+    }
+    .reebok-grid > .copy-1 {
+      grid-row: 3;
+    }
+    .reebok-grid > .shop-link-1 {
+      grid-row: 4;
+    }
+    .index-grid-fiftyfifty, .index-grid-noroll {
+      grid-template-columns: repeat(12, 1fr);
+      row-gap: 0px;
+      height: 90vh;
+    }
+    .fiftyfifty-cell-1, .noroll-cell-1 {
+      grid-row: 2;
+      padding: 38px 20px 40px 20px;
+    }
+    .fiftyfifty-cell-2, .noroll-cell-2 {
+      grid-row: 1;
+    }
+    .late-deliveries-bg {
+      background: url('https://cdn.shopify.com/s/files/1/0664/2387/files/web-9B3A3983.jpg?v=1712003730') no-repeat;
+      background-size: cover;
+      background-position: center center;
+    }
+    .index-blog-block-wrapper {
+      padding: 40px 20px 20px 20px;
+    }
+    .single-centered-img-2 {
+      grid-column: 1 / span 6;
+      margin: 25px 0 20px 0;
+    }
+    .single-centered-img-wrapper {
+      grid-column: 1 / span 6;
+    }
+    .single-centered-img {
+      grid-column: 1 / span 6;
+    }
+    .single-centered-title {
+      grid-column: 1 / span 6;
+      grid-row: 2;
+    }
+    .single-centered-copy {
+      grid-column: 1 / span 6;
+      grid-row: 3;
+    }
+    .single-centered-signup {
+      grid-column: 1 / span 6;
+      grid-row: 4;
+    }
+    .elac-bg {
+      background: url('https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-elac-product-front-both-1.jpg?v=1709567847');
+      background-size: cover;
+      background-position: center;
+      height: 85vh;
+    }
+    .title-sale {
+      grid-column: span 6;
+    }
+    .sale {
+      height: 80vh;
+    }
+    .reebok {
+      height: 90vh;
+      padding: 20px 20px 40px 20px;
+      background: url('https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-reebok-club-c-mid-ii-closeup-phone.jpg?v=1702313445');
+      background-size: cover;
+    }
+    .fw23-bg {
+      height: 90vh;
+      padding: 20px 20px 40px 20px;
+      color: #fff;
+    }
+    .adidas {
+      height: 90vh;
+      padding: 20px 20px 40px 20px;
+      background-position: 50% -80px;
+    }
+    .ss23-index {
+      background: url('https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-ss23-Untitled_Catalog3530.jpg?v=1694100160');
+      background-size: cover;
+      background-position: center;
+    }
+    .archive-index {
+     /* background: url('https://cdn.shopify.com/s/files/1/0664/2387/files/adsum-archive-insta4.jpg?v=1689691000'); */
+      background-size: cover;
+      background-position: center;
+    }
+    .shop-link-1 {
+      grid-column: 1 / span 3;
+    }
+    .lookbook-link-1 {
+      grid-row: 3;
+      grid-column: 4 / span 3;
+    }
+    .shop-link-2 {
+      grid-row: 4;
+      grid-column: 1 / span 2;
+    }
+    .lookbook-link-2 {
+      grid-row: 3;
+      grid-column: 3 / span 2;
+    }
+    .ss24-img {
+        align-items: baseline;
+      }
+  }
+
+  @media (max-width: 500px) {
+    .single-centered-img-2 {
+      align-items: center;
+    }
+    .timex-copy {
+      grid-column: span 4;
+    }
+    .secondary-block-title {
+      font-size: 15px;
+       padding-top: 14px;
+    }
+    .secondary-block-copy {
+      font-size: 10px;
+      line-height: 13px;
+    }
+    .secondary-block-link {
+      font-size: 10px;
+      margin-top: 6px;
+    }
+    .index-footer-links-grid {
+      font-size: 18px;
+      padding: 20px;
+      height: 84px;
+      margin-top: 90px;
+      grid-gap: 4px;
+    }
+    .index-footer-links-grid .item {
+      font-size: 20px;
+      padding: 10px 20px;
+      color: #fff;
+      background-color: #000;
+    }
+    .blog-index-grid {
+      grid-template-columns: repeat(1, 1fr); padding: 0px; column-gap: 10px;
+    }
+  }
+
+  .collection-bento {
+      display: flex;
+      gap: 0px;
+      align-items: flex-start;
+      justify-content: center;
+      width: 100%;
+      padding: 80px 20px 0;
+      max-width: 1440px;
+      margin: 0 auto;
+      margin-top: 25px;
+  }
+
+  .bento-left {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      width: 726px;
+      height: 100%;
+      flex-shrink: 0;
+      overflow: hidden;
+  }
+
+  .bento-item {
+      background-color: #f2f2f2;
+      height: 525px;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+  }
+
+  .bento-image-container {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 422px;
+      height: 680px;
+  }
+
+  .bento-image-container img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      max-width: none;
+      object-fit: cover;
+      object-position: 50% 50%;
+      pointer-events: none;
+  }
+
+  .bento-right {
+      position: relative;
+      width: 716px;
+      height: 1055px;
+      flex-shrink: 0;
+  }
+
+  .bento-main-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+  }
+
+  .bento-main-image img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      max-width: none;
+      object-fit: cover;
+      object-position: 50% 50%;
+      pointer-events: none;
+  }
+
+  .shop-collection-link {
+      position: absolute;
+      left: 34px;
+      top: 1006px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      text-decoration: none;
+      color: #000;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      white-space: nowrap;
+      z-index: 10;
+  }
+
+  .arrow-icon {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+  }
+
+  .shop-collection-link:hover {
+      opacity: 0.7;
+  }
+
+  @media (max-width: 1440px) {
+      .collection-bento {
+          padding: 0 20px;
+      }
+  }
+
+  @media (max-width: 1024px) {
+      .collection-bento {
+          flex-direction: column;
+          gap: 24px;
+          padding: 0 20px;
+      }
+
+      .bento-left {
+          width: 100%;
+          max-width: 726px;
+      }
+
+      .bento-right {
+          width: 100%;
+          max-width: 716px;
+          height: auto;
+          aspect-ratio: 716 / 1074;
+      }
+
+      .shop-collection-link--desktop {
+          left: 20px;
+          top: auto;
+          bottom: 20px;
+      }
+  }
+
+  @media (max-width: 768px) {
+      .collection-bento {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .bento-left {
+          gap: 20px;
+      }
+
+      .bento-item {
+          height: 400px;
+      }
+
+      .bento-image-container {
+          width: 320px;
+          height: 480px;
+      }
+    }
+
+   @media (max-width: 768px) {
+  
+    .collection-bento .bento-right { display: none !important; }
+
+  
+  .collection-bento .bento-left .bento-item:last-child { position: relative !important; }
+
+  
+  .shop-collection-link--desktop { display: none !important; }
+
+  
+  .collection-bento .bento-item { position: relative; }
+
+
+.fw22-link--bento {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  color: #000;
+  text-decoration: none;
+  border-radius: 4px;
+  padding: 10px 12px;           
+  line-height: 20px;
+  z-index: 10;
+}
+}
+  
+
+
+  @media (max-width: 480px) {
+      .collection-bento {
+          gap: 15px;
+          padding: 0 10px;
+      }
+
+      .bento-left {
+          gap: 15px;
+      }
+
+      .bento-item {
+          height: 300px;
+      }
+
+      .bento-image-container {
+          width: 240px;
+          height: 360px;
+      }
+
+      .shop-collection-link {
+          font-size: 16px;
+          padding: 6px;
+          gap: 8px;
+          left: 10px;
+          bottom: 10px;
+      }
+
+      .arrow-icon {
+          width: 16px;
+          height: 16px;
+      }
+  }
+
+
+  .featured-collection {
+      background-color: #fff;
+      padding: 80px 20px 120px;
+  }
+
+  .featured-wrapper {
+      max-width: 1440px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+  }
+
+  .featured-header h2 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: #000;
+  }
+
+  .featured-grid {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      justify-content: center;
+      width: 100%;
+  }
+
+  .featured-card {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 350px;
+      flex-shrink: 0;
+  }
+
+  .featured-card-image {
+      background-color: #f2f2f2;
+      border-radius: 2px;
+      position: relative;
+      aspect-ratio: 405 / 605;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+  }
+
+  .featured-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      pointer-events: none;
+  }
+
+  .featured-card-title {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      color: #000;
+  }
+
+  .featured-button {
+      align-self: flex-start;
+      border: 0.5px solid #2b2b2b;
+      background-color: #fff;
+      color: #2b2b2b;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 16px;
+      text-decoration: none;
+      padding: 10px 25px;
+      transition: opacity 0.2s ease;
+      width: 300px;
+      text-align: center;
+      cursor: pointer;
+  }
+
+  .featured-button:hover {
+      opacity: 0.7;
+      background-color: #000;
+      color: #fff;
+  }
+
+  @media (max-width: 1024px) {
+      .featured-collection {
+          padding: 60px 20px 80px;
+      }
+
+      .featured-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+      }
+
+      .featured-card {
+          width: 100%;
+      }
+
+      .featured-button {
+          align-self: center;
+      }
+  }
+
+  @media (max-width: 640px) {
+      .featured-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 15px;
+      }
+
+      .featured-card {
+          width: 100%;
+      }
+
+      .featured-card-title {
+          font-size: 18px;
+      }
+
+      .featured-button {
+          width: 100%;
+      }
+  }
+
+  
+
+.collection-bento .bento-item { position: relative; }
+
+/* Global placement for the bento CTA */
+.fw22-link--bento {
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+  color: #000;
+  text-decoration: none;
+  border-radius: 4px;
+  padding: 10px 12px;
+  line-height: 20px;
+  z-index: 10;
+}
+.fw22-link--bento:hover { opacity: 0.7; }
+
+/* Tighten on small screens */
+@media (max-width: 768px) {
+  .fw22-link--bento { left: 16px; bottom: 16px; }
+}
+</style>
+
+{% comment %}
+  <p class="marquee">
+    <span>
+      <strong style="color: red;">BOXING DAY SALE:</strong> Enter code <strong>BOXINGDAY24</strong> at checkout for 30% off
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      —
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <strong style="color: red;">BOXING DAY SALE:</strong> Enter code <strong>BOXINGDAY24</strong>  at checkout for 30% off
+      &nbsp;&nbsp;&nbsp;&nbsp;
+    </span>
+  </p>
+{% endcomment %}
+
+<div class="index-grid-1">
+  <div class="first-block-img fw25-img">
+    <a href="/collections/all" class="fw22-link">
+      New Products Available Now<br>
+      → Shop Collection
+    </a>
+  </div>
+  <div class="first-block-img-2 fw25-img-2"></div>
+</div>
+{% comment %}
+  <div class="index-grid-1">
+    <div class="first-block-img gramicci-img">
+      <a href="/products/adsum-sanders-derbyshire-derby" class="fw22-link">
+        Adsum + Sanders Now Live<br>
+        → Shop Shoe
+      </a>
+    </div>
+    <div class="first-block-img-2 gramicci-img-2">
+    </div>
+  </div>
+{% endcomment %}
+
+<section class="collection-bento">
+  <div class="bento-left">
+    <div class="bento-item">
+      <div class="bento-image-container">
+        <img
+          src="{{ 'ADSUM_FW25-SS26_FLATS16333.jpg' | asset_url }}"
+          alt="Product Image 1"
+          width="422"
+          height="680"
+          loading="lazy"
+        >
+      </div>
+    </div>
+
+    <div class="bento-item">
+  <div class="bento-image-container">
+    <img
+      src="{{ 'ADSUM_FW25-SS26_FLATS16632STORY.jpg' | asset_url }}"
+      alt="Product Image 2"
+      width=""
+      height=""
+      loading="lazy"
+    >
+  </div>
+
+  
+  <a href="{{ collections['tops'].url | default: '/collections/tops' }}"
+     class="fw22-link fw22-link--bento"
+     aria-label="Shop FW25 Shirting">
+    Shop Waffle Hoodie<br>
+    → Shop Collection
+  </a>
+</div>
+  </div>
+
+  <div class="bento-right">
+    <div class="bento-main-image">
+      <img
+        src="{{ 'ADSUM_14671.jpg' | asset_url }}"
+        alt="Model Image"
+      >
+    </div>
+
+      {% comment %}
+       <a href="/collections/all" class="shop-collection-link shop-collection-link--desktop">
+      <svg class="arrow-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.5 15L12.5 10L7.5 5" 
+              stroke="black" 
+              stroke-width="2" 
+              stroke-linecap="round"
+              stroke-linejoin="round" />
+      </svg>
+      <span>Shop Collection</span>
+    </a>
+    {% endcomment %}
+     {% comment %}
+    {% assign target = collections['fw25-sweaters'] %}
+<a href="{{ target.url | default: routes.collections_url | append: '/all' }}" class="shop-collection-link" aria-label="Shop collection">
+  <svg class="arrow-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M7.5 15L12.5 10L7.5 5" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
+  <span>Shop Collection</span>
+</a>
+{% endcomment %}
+    
+  </div>
+</section>
+
+<div id="index-featured-products" class="index-blog-block-wrapper ">
+  <div class="index-news-title">Featured</div>
+  <div class="index-featured-grid">
+    {% for product in collections.featured.products limit: 9 %}
+      <div class="index-featured-item">
+        <a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}">
+          <div style="position: relative;">
+            <img
+              data-sizes="auto"
+              src="{{ product.images.first | product_img_url: '1x1' }}"
+              data-src="{{ product.images.first | product_img_url: '1024x1024' }}"
+              data-srcset="
+                {{ product.images.first | product_img_url: '600x600' }} 300w,
+                {{ product.images.first | product_img_url: '1200x1200' }} 600w,
+                {{ product.images.first | product_img_url: '1800x1800' }} 900w
+              "
+              alt="{{ product.title | strip_html | escape }}"
+              class="lazyload"
+              style="display: block; width: 100%; height: 100%;"
+            >
+            <img
+              data-sizes="auto"
+              src="{{ product.images[1] | product_img_url: '1x1' }}"
+              data-src="{{ product.images[1] | product_img_url: '1024x1024' }}"
+              data-srcset="
+                {{ product.images[1] | product_img_url: '600x600' }} 300w,
+                {{ product.images[1] | product_img_url: '1200x1200' }} 600w,
+                {{ product.images[1] | product_img_url: '1800x1800' }} 900w
+              "
+              alt="{{ product.images[1].alt | escape }}"
+              class="collection-product-hover lazyload"
+            >
+          </div>
+          <div class="product_info_content">
+            {% if product.available == true %}
+              <div class="gallery-product-title">
+                {{ product.title }}
+              </div>
+              <div class="gallery-product-price">
+                {% if product.compare_at_price_max > product.price %}
+                  <del class="sale-price">{{ product.compare_at_price_max | money }}</del>
+                {% endif %}
+                {{ product.price | money }}
+              </div>
+            {% endif %}
+            {% if product.available == false %}
+              <div class="sold-out">Sold Out</div>
+            {% endif %}
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+  <a href="/collections/all" class="index-more-link"> See All </a>
+</div>
+
+<div class="index-blog-block-wrapper" style="padding-bottom: 60px;">
+  <div class="index-news-title">
+    <a href="/blogs/news">The News</a>
+  </div>
+  <div class="blog-index-grid">
+    {% for article in blogs.news.articles limit: 6 %}
+      <div class="blog-index-item">
+        <a href="{{ article.url }}">
+          <div class="blog-image-index" style="background-image: url('{{ article | img_url: '1024x1024' }}')"></div>
+          <div class="index-blog-title">
+            {{ article.title }}
+          </div>
+          <div class="index-blog-body">
+            {{ article.excerpt }}
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+  <a href="/blogs/news" class="index-more-link"> See All The News </a>
+</div>
+
+{% include 'footer' %}
+
+{% comment %}{% include "loading" %} {% endcomment %}s
+
+<script>
+  $('.header-fullsite-fixed').addClass('header-fullsite').removeClass('header-fullsite-fixed');
+  // $('.header-fullsite').addClass('menu-to-white'); //
+</script>
+
+<script type="text/javascript">
+  $(window).load(function () {
+    setTimeout(function () {
+      // $('.index-grid-1').addClass("shrink");
+      // $('.first-block-img').addClass("shrink");
+      $('.index-second-block').addClass('shrink');
+    }, 3500);
+    setTimeout(function () {
+      $('.index-update').addClass('visible');
+    }, 5500);
+  });
+</script>

@@ -1,0 +1,220 @@
+{% include "loading" %}
+
+<style>
+  .article-collection-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 16px;
+    row-gap: 20px;
+    padding: 20px 40px 40px 40px;
+  }
+  
+  .graphics-article-title {
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    padding: 43px 20px 0 20px;
+    width: 100%;
+    max-width: 440px;
+    line-height: 26px;
+    margin: 0 auto;
+    opacity: 1;
+    -moz-transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+  }
+  
+  .centered-article-text {
+    font-size: 12px;
+  }
+  
+  .blog-img-caption {
+    top: 10px;
+  }
+  
+  .gallery {
+    min-height: 10px;
+  }
+
+  @media (max-width: 900px) {
+    .graphics-article-title {
+      font-size: 17px;
+      line-height: 26px;
+      text-align: left;
+      padding: 80px 20px 0px;
+      font-weight: 500;
+      max-width: 580px;
+    }  
+    .article-collection-grid {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 16px;
+      row-gap: 20px;
+      padding: 20px;
+    }
+  }
+</style>
+
+<div class="graphics-article-title" >
+ {{ article.title }}
+</div>
+<span class="new-centered-article-text">
+Temperatures are spiking all over the US this week so there is no more pining for warm weather, it is here. Shorts and tees are the most you will want to be wearing while the current heatwave blows through town. 
+<br><br>
+Most things designed at Adsum have a considered end use in mind. This goes for all of the shorts we currently have available. Here is a quick outline of features, design purpose and anything else that comes to mind without regurgitating the features section from our product page.
+</span>
+
+<div class="left-50" style="opacity: 1;">
+  <div class="img-left-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Look3_39.jpg?v=1624992774" class="img-left ss16-preview">
+    <div class="blog-img-caption"></div>
+  </div>
+</div>
+<div class="right-50 float-right" style="opacity: 1;">
+    <div class="img-right-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Look3_31.jpg?v=1624992774" class="img-right ss16-preview">
+      <div class="blog-img-caption"></div>
+    </div>
+</div>
+
+<div class="clearfix lb-extra-spacing"></div>
+
+<span class="new-centered-article-text">
+    The Site Shorts. Hardwearing, useful, do-anything. Made from 100% nylon our site shorts are high abrasion resistant, quick drying  and the fabric will hold its dyed color for a very long time in comparison to a natural fiber short. Every pocket has drainage holes so we wear them without undies and swim in them. Give it a try.
+</span>
+
+<div class="left-50" style="opacity: 1;">
+  <div class="img-left-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Look2_33.jpg?v=1624993818" class="img-left ss16-preview">
+    <div class="blog-img-caption"></div>
+  </div>
+</div>
+<div class="right-50 float-right" style="opacity: 1;">
+    <div class="img-right-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Look2_30.jpg?v=1624999473" class="img-right ss16-preview">
+      <div class="blog-img-caption"></div>
+    </div>
+</div>
+
+<div class="clearfix lb-extra-spacing"></div>
+<div class="clearfix lb-extra-spacing"></div>
+
+<div class="max-width-800" style="opacity: 1;">
+    <img class="center-single ss16-preview" src="https://cdn.shopify.com/s/files/1/0664/2387/files/Look2_05.jpg?v=1624995056">
+</div>
+
+<span class="new-centered-article-text">
+    The Bank Short. Classic, baggy, no frills comfort. Our bank short are cut baggy and have a large amount of stretchability on the waistband. Side pockets are positioned high on the side seam for clean appearance. The cut and bagginess of the Bank Short reminds us of a longer classic rugby short style which were made of hard wearing twills and cut with large opening to accommodate for movement on the rugby field.
+</span>
+
+<div class="left-50" style="opacity: 1;">
+  <div class="img-left-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Look1_07_c880a287-cb73-45e2-8d27-758adf1376d1.jpg?v=1624996949" class="img-left ss16-preview">
+    <div class="blog-img-caption"></div>
+  </div>
+</div>
+<div class="right-50 float-right" style="opacity: 1;">
+    <div class="img-right-wrapper max-width-800">
+      <img src="https://cdn.shopify.com/s/files/1/0664/2387/files/Look1_24.jpg?v=1624996949" class="img-right ss16-preview">
+      <div class="blog-img-caption"></div>
+    </div>
+</div>
+
+<div class="clearfix lb-extra-spacing"></div>
+<div class="clearfix lb-extra-spacing"></div>
+
+<div class="max-width-600" style="opacity: 1;">
+    <img class="center-single ss16-preview" src="https://cdn.shopify.com/s/files/1/0664/2387/files/Look3_37_3dc7c1bb-dec7-4391-8f83-83bb7887ea49.jpg?v=1625000405">
+</div>
+
+<span class="new-centered-article-text">
+    Summer art tees are screenprinted on our beefier 100% cotton tees and made in Canada. The "Florida" tee references our love of collegiate inspired art and colors with custom lettering in a two color print. The “Chex” art inspiration comes from eating snack mix at the turn on a golf course or from a ziploc sitting in the passenger seat on a road trip. All tees are not created equal and after years of tweaking our block we've arrived at we think of as a classic American fit. We've also added double XL to sizes to cover our bigger friends and for anyone wanting an extra baggy fit.
+</span>
+
+
+<span class="new-centered-article-text" style="font-size: 10px; color: #aaa;">
+	Matt is 6'1" and 185 lbs. and wears Larges in tops & bottoms and S/M in the bucket hat.
+</span>
+
+<div class="featured-products-title">
+	Featured Products
+</div>
+
+
+<div id="products" class="article-collection-grid {{ collection.title | handleize }}">
+  {% for product in collections.ss21-summer-shorts-tees.products %}
+  	<div class="collection-grid-item">
+      <a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}">  
+        <div style="position: relative;">
+          <img data-sizes="auto"
+               src="{{ product.images.first | product_img_url: '1x1' }}" 
+               data-src="{{ product.images.first | product_img_url: '1024x1024' }}"
+               data-srcset="{{ product.images.first | product_img_url: '600x600' }} 300w,
+                            {{ product.images.first | product_img_url: '1200x1200' }} 600w,
+                            {{ product.images.first | product_img_url: '1800x1800' }} 900w"
+               alt="{{ product.title | strip_html | escape }}" class="lazyload" style="display: block; width: 100%; height: 100%;" />
+          <img data-sizes="auto"
+               src="{{ product.images[1] | product_img_url: '1x1' }}" 
+               data-src="{{ product.images[1] | product_img_url: '1024x1024' }}" 
+               data-srcset="{{ product.images[1] | product_img_url: '600x600' }} 300w,
+                            {{ product.images[1] | product_img_url: '1200x1200' }} 600w,
+                            {{ product.images[1] | product_img_url: '1800x1800' }} 900w"
+               alt="{{ product.images[1].alt | escape }}" class="collection-product-hover lazyload"/>
+        </div>
+        <div class="product_info_content">
+            {%if product.available == true %}
+                <div class="gallery-product-title">
+                    {{ product.title }}
+                </div>
+                <div class="gallery-product-price">
+                    {% if product.compare_at_price_max > product.price %}
+                        <del class="sale">{{ product.compare_at_price_max | money }}</del>
+                    {% endif %}
+                    {{ product.price | money }}
+                </div>
+            {% endif %}
+            {%if product.available == false %}    
+                <span style="color: red; text-decoration: uppercase;">Sold Out</span>
+            {% endif %}
+        </div>          
+      </a>
+    </div>
+{% endfor %}
+</div>
+
+<a href="/collections/summer-2021" class="shop-button-photo-story">Shop All Summer 2021</a>
+
+<div class="postnav">
+  <a href="{{ blog.previous_article }}" class="btn" style="float: left">Previous Post</a>
+    {% if blog.next_article %}
+  <a href="{{ blog.next_article }}" class="btn" style="float: right">Next Post</a>
+    {% endif %}
+</div>
+
+{% include "footer" %}
+
+<script type="text/javascript">  
+  $('.header-fullsite-fixed').addClass('header-fullsite').removeClass('header-fullsite-fixed');
+</script>
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    window.setTimeout(function(){
+        $(".index-scroll-arrow").addClass("visible");
+    },2500);
+});
+</script>
+
+<script type="text/javascript">
+$(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 10) {
+        $(".index-scroll-arrow-img").addClass("hide4");
+    } else {
+        $(".index-scroll-arrow-img").removeClass("hide4");
+    }
+});
+</script>
