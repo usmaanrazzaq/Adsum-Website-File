@@ -242,6 +242,10 @@
 {% endcomment %}
   
 <div class="sort-by--container">
+  <div style="display:flex; gap: 5px; align-items: center;">
+      <label for="size-filter">Filter Size:</label>
+      <input type="text" id="size-filter" placeholder="e.g. S, M" style="border: none; border-bottom: 1px solid #000; background: transparent; font-size: 11px; width: 60px; outline: none;">
+  </div>
   <label for="sort-by">Sort by:</label> 
   <select id="sort-by" class="sort-by">
     <option value="manual" {% if 'manual' == collection.sort_by %}selected="selected"{% endif %}>Featured</option>
@@ -385,6 +389,62 @@ function closeAllSelect(elmnt) {
 /* If the user clicks anywhere outside the select box,
 then close all select boxes: */
 document.addEventListener("click", closeAllSelect);
+
+/* Size Filter Logic */
+var sizeInput = document.getElementById('size-filter');
+if(sizeInput){
+  function applySizeFilter() {
+    var filter = sizeInput.value.toLowerCase().trim();
+    var products = document.querySelectorAll('.collection-grid-item, .product4');
+    
+    for (var i = 0; i < products.length; i++) {
+      var product = products[i];
+      var sizesAttr = product.getAttribute('data-available-sizes') || "";
+      // Split by comma, and map to trimmed values for clean comparison
+      var sizes = sizesAttr.split(',').map(function(s) { return s.trim(); });
+      
+      var match = false;
+      if (filter === "") {
+        match = true;
+      } else {
+        // Strict match first (e.g. user typed "s", we look for "s")
+        // If no strict match, check if any size STARTS with the filter (e.g. user typed "sm", we match "small")
+        for(var j=0; j<sizes.length; j++){
+           var s = sizes[j];
+           if(s === filter){
+             match = true; 
+             break;
+           }
+        }
+        // Fallback: exact match is better, but if they type "sm" we should match "small"
+        if (!match && filter.length > 1) {
+            for(var j=0; j<sizes.length; j++){
+                var s = sizes[j];
+                if(s.indexOf(filter) === 0){ // startsWith
+                    match = true; 
+                    break;
+                }
+            }
+        }
+      }
+
+      if (match) {
+        product.style.display = "";
+      } else {
+        product.style.display = "none";
+      }
+    }
+  }
+
+  // Filter on Enter key
+  sizeInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+      e.preventDefault(); // Prevent form submission if inside a form
+      applySizeFilter();
+      sizeInput.blur(); // Optional: remove focus after entering
+    }
+  });
+}
 
   
 </script>
