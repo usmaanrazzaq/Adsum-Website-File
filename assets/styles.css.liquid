@@ -18,8 +18,10 @@
 
 html {
   font-family: sans-serif;
-  font-size: 10px
-  width: 100%; 
+  font-size: 10px;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   -ms-touch-action: manipulation;
   touch-action: manipulation;
   -ms-text-size-adjust: 100%;
@@ -36,8 +38,8 @@ body {
     margin: 0;
 	color: #000;
   	line-height: 1;
-	overflow-x: hidden;
   	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    overflow-x: hidden;
 }
 
 a {
@@ -1052,6 +1054,29 @@ img.lazyload:not([src]) {
 	width: auto; 
 	margin: 0 auto;
 }
+
+
+.header-fullsite-fixed {
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* Menu: hide inner scrollbar while keeping it scrollable */
+.menu {
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* IE/Edge */
+}
+
+.menu-link a.black.friday {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 17px;
+  display: inline-block;
+  overflow: hidden;
+}
+
+
 
 @media (max-width: 900px) {
   .fw18-sale-image-wrapper {
@@ -2347,6 +2372,10 @@ h4.address_title {
     transition: all .2s ease-in-out;
 }
 
+/* Chrome, Safari, Edge */
+.menu::-webkit-scrollbar {
+  display: none;
+}
 @media (max-width: 900px) {
   #page-ss18-chehalis-lookbook .ss18-2 {
   	padding-top: 80px;

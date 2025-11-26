@@ -6,6 +6,7 @@
     font-size: 11px;
     line-height: 17px;
     display: flex;
+    align-items: center;
     /* flex-direction: column; */
     gap: 12px;
   }
@@ -95,12 +96,45 @@
     opacity: 0.3;
   }
   
+  /* Size Filter Styles */
+  .size-filter-input {
+    width: 70px;
+    padding: 0;
+    font-size: 11px;
+    font-family: inherit;
+    font-weight: 400;
+    border: none;
+    background: transparent;
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+  .size-filter-input:focus {
+    border-bottom: 1px solid #999;
+  }
+  .size-filter-input::placeholder {
+    color: #999;
+  }
+  .filter-divider {
+    color: #ccc;
+    margin: 0 8px;
+  }
+  .collection-grid-item.size-hidden {
+    display: none !important;
+  }
+
   @media (max-width: 900px) {
+    .size-filter-input {
+      width: 60px;
+      font-size: 10px;
+    }
+    .filter-divider {
+      margin: 0 5px;
+    }
     .sort-by--container {
       font-size: 10px;
       padding-left: 20px;
       padding-right: 20px;
-      padding-top:30px;
+      padding-top: 15px;
       display: flex;
       gap: 10px;
       position: static;
@@ -242,6 +276,9 @@
 {% endcomment %}
   
 <div class="sort-by--container">
+  <label for="size-filter">Size:</label>
+  <input type="text" id="size-filter" class="size-filter-input" placeholder="S, M, L..." autocomplete="off" />
+  <span class="filter-divider">|</span>
   <label for="sort-by">Sort by:</label> 
   <select id="sort-by" class="sort-by">
     <option value="manual" {% if 'manual' == collection.sort_by %}selected="selected"{% endif %}>Featured</option>
@@ -385,6 +422,61 @@ function closeAllSelect(elmnt) {
 /* If the user clicks anywhere outside the select box,
 then close all select boxes: */
 document.addEventListener("click", closeAllSelect);
+
+/* Size Filter Functionality */
+(function() {
+  var sizeFilterInput = document.getElementById('size-filter');
+  var debounceTimer;
+  
+  if (sizeFilterInput) {
+    sizeFilterInput.addEventListener('input', function() {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(function() {
+        filterBySize(sizeFilterInput.value.trim().toUpperCase());
+      }, 150);
+    });
+  }
+  
+  function filterBySize(filterValue) {
+    var products = document.querySelectorAll('.collection-grid-item');
+    
+    products.forEach(function(product) {
+      if (!filterValue) {
+        // No filter - show all products
+        product.classList.remove('size-hidden');
+        return;
+      }
+      
+      // Parse filter input - support comma or space separated values
+      var filterSizes = filterValue.split(/[,\s]+/).filter(function(s) { return s.length > 0; });
+      
+      // Only check AVAILABLE variants (.variant_title), not sold out ones (.sold_out)
+      var availableVariants = product.querySelectorAll('.variant_title');
+      var hasMatchingSize = false;
+      
+      availableVariants.forEach(function(variant) {
+        // Get the text content and extract just the size
+        var fullText = variant.textContent.trim().toUpperCase();
+        // The size is the first line (after gallery.liquid script processes it)
+        var sizeText = fullText.split('\n')[0].trim();
+        
+        // Check each filter size for a match
+        filterSizes.forEach(function(filterSize) {
+          // Check if the size contains the filter value
+          if (sizeText.indexOf(filterSize) !== -1) {
+            hasMatchingSize = true;
+          }
+        });
+      });
+      
+      if (hasMatchingSize) {
+        product.classList.remove('size-hidden');
+      } else {
+        product.classList.add('size-hidden');
+      }
+    });
+  }
+})();
 
   
 </script>
