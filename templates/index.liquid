@@ -1,4 +1,33 @@
 <style>
+    /* White right-nav elements for black background hero */
+    #index .right-nav,
+    #index .right-nav .search,
+    #index .right-nav .desktop-search,
+    #index #eyebrow-cart,
+    #index .currency-picker {
+      color: #fff;
+    }
+    #index .right-nav .search-input,
+    #index .right-nav .search-input-btn {
+      color: #fff;
+      border-color: #fff;
+    }
+    #index .right-nav .search-input::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+    #index .right-nav .search-input-btn:hover {
+      background-color: #fff;
+      color: #000;
+    }
+    /* Country switcher white text */
+    #index #country-switcher,
+    #index #country-switcher .disclosure__button,
+    #index localization-form,
+    #index localization-form .disclosure,
+    #index localization-form .disclosure__button {
+      color: #fff;
+    }
+
     .fw22-link {
       align-content: end;
       padding: 40px;
@@ -16,15 +45,192 @@
       color: #c8c8c8 !important;
     }
     .fw25-img {
-    background-image: url({{ 'ADSUM_14457.jpg' | asset_url }});
+    background-color: #000;
     background-size: cover;
     background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
   }
 
     .fw25-img-2 {
     background-image: url({{ 'ADSUM_14496.jpg' | asset_url }});
     background-size: cover;
     background-position: center;
+  }
+
+    .hero-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 38px 14px;
+    box-sizing: border-box;
+  }
+
+    .hero-image-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 559px;
+    height: 100%;
+    max-height: 839px;
+  }
+
+    .hero-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+    .hero-title {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 128px;
+    color: #f70000;
+    white-space: nowrap;
+    z-index: 2;
+    letter-spacing: -0.02em;
+  }
+
+    .hero-info-box {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 237px;
+  }
+
+    .hero-info-title {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: #fff;
+    line-height: normal;
+  }
+
+    .hero-info-copy {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #fff;
+    line-height: normal;
+  }
+
+    .hero-shop-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    color: #2b2b2b;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    padding: 9px 25px;
+    width: 212px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+    .hero-shop-btn:hover {
+    background-color: #2b2b2b;
+    color: #fff;
+  }
+
+  @media (max-width: 900px) {
+    .hero-title {
+      font-size: 48px;
+      white-space: normal;
+      text-align: center;
+      width: 90%;
+      line-height: 1.1;
+    }
+    .hero-image-wrapper {
+      width: 70%;
+      max-width: 350px;
+      height: 60%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .hero-info-box {
+      width: 100%;
+      padding: 0 20px;
+      align-items: flex-start;
+      text-align: left;
+    }
+    .hero-container {
+      padding: 40px 20px;
+      align-items: flex-end;
+      justify-content: flex-end;
+    }
+    .hero-shop-btn {
+      width: auto;
+      max-width: 280px;
+    }
+    /* Mobile header white styles (menu closed) */
+    #index .header-mobile {
+      background: transparent;
+    }
+    #index .header-mobile .hamburger-inner,
+    #index .header-mobile .hamburger-inner::before,
+    #index .header-mobile .hamburger-inner::after {
+      background-color: #fff;
+      transition: background-color 0.3s ease;
+    }
+    #index .header-mobile .mobile-cart,
+    #index .header-mobile .cart-count {
+      color: #fff;
+      transition: color 0.3s ease;
+    }
+    #index .mobile-logo-image {
+      filter: brightness(0) invert(1);
+      transition: filter 0.3s ease;
+    }
+    
+    /* Mobile header black styles (menu open - .cool class applied) */
+    #index .header-mobile.cool .hamburger-inner,
+    #index .header-mobile.cool .hamburger-inner::before,
+    #index .header-mobile.cool .hamburger-inner::after {
+      background-color: #000;
+    }
+    #index .header-mobile.cool .mobile-cart,
+    #index .header-mobile.cool .cart-count {
+      color: #000;
+    }
+    #index .header-mobile.cool .mobile-logo-image {
+      filter: none;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .hero-title {
+      font-size: 32px;
+    }
+    .hero-info-title {
+      font-size: 16px;
+    }
+    .hero-info-copy {
+      font-size: 14px;
+    }
+    .hero-shop-btn {
+      font-size: 16px;
+      width: 100%;
+    }
+    .hero-image-wrapper {
+      width: 85%;
+      max-width: 300px;
+      height: 65%;
+    }
   }
     .gramicci-img {
       background: url('https://cdn.shopify.com/s/files/1/0664/2387/files/SHOE_001_HERO.jpg?v=1756741557') no-repeat;
@@ -39,7 +245,7 @@
       background-position: center center;
     }
     .first-block-img {
-      grid-column: span 12;
+      grid-column: span 24;
       background-size: cover;
       display: flex;
       background-position: center center;
@@ -47,12 +253,7 @@
       height: 100vh;
     }
     .first-block-img-2 {
-      grid-column: span 12;
-      background-size: cover;
-      display: flex;
-      background-position: center center;
-      transition: all .3s ease;
-      height: 100vh;
+      display: none;
     }
     .index-grid-1 {
       display: grid;
@@ -1090,10 +1291,17 @@
 
 <div class="index-grid-1">
   <div class="first-block-img fw25-img">
-    <a href="/collections/all" class="fw22-link">
-      New Products Available Now<br>
-      → Shop Collection
-    </a>
+    <div class="hero-container">
+      <div class="hero-image-wrapper">
+        <img src="{{ '9B3A2811.jpg' | asset_url }}" alt="Black Friday Sale" loading="eager">
+      </div>
+      <h1 class="hero-title">Black Friday Sale</h1>
+      <div class="hero-info-box">
+        <p class="hero-info-title">Black Friday Sale</p>
+        <p class="hero-info-copy">Shop the collection now using code: THANKS15 to get 15%.</p>
+        <a href="/collections/sale" class="hero-shop-btn">Shop Sale</a>
+      </div>
+    </div>
   </div>
   <div class="first-block-img-2 fw25-img-2"></div>
 </div>
@@ -1263,7 +1471,7 @@
 
 <script>
   $('.header-fullsite-fixed').addClass('header-fullsite').removeClass('header-fullsite-fixed');
-  // $('.header-fullsite').addClass('menu-to-white'); //
+  $('.header-fullsite').addClass('menu-to-white');
 </script>
 
 <script type="text/javascript">
