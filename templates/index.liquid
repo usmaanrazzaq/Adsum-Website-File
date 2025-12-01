@@ -1,31 +1,343 @@
 <style>
-    /* White right-nav elements for black background hero */
+    /* Fix double scrollbar issue */
+    html {
+      overflow-x: hidden;
+      overflow-y: scroll;
+    }
+    
+    body#index {
+      height: auto !important;
+      min-height: 100vh;
+      overflow: initial !important;
+    }
+    
+    body#index #content {
+      overflow: visible;
+    }
+
+    /* Cyber Monday Hero Styles */
+    .cyber-monday-hero {
+      background-color: #efefef;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 76px 55px;
+      box-sizing: border-box;
+      grid-column: span 24;
+      overflow: hidden;
+    }
+
+    .cyber-monday-collage {
+      position: relative;
+      width: 100%;
+      max-width: 907px;
+      height: 693px;
+      margin: 0 auto;
+    }
+
+    .cyber-window {
+      position: absolute;
+      background-color: #f2f2f2;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0px 4px 30.5px 2px rgba(0, 0, 0, 0.25);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cyber-window-header {
+      background-color: #dfdfdf;
+      padding: 6px 8px;
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .cyber-traffic-lights {
+      display: flex;
+      gap: 2px;
+    }
+
+    .cyber-light {
+      width: 5px;
+      height: 5px;
+      border-radius: 100px;
+      border: 0.2px solid rgba(43, 43, 43, 0.5);
+    }
+
+    .cyber-light-red {
+      background-color: #f70000;
+    }
+
+    .cyber-light-yellow {
+      background-color: #fffb00;
+    }
+
+    .cyber-light-green {
+      background-color: #00d343;
+    }
+
+    .cyber-window-content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .cyber-window-content img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .cyber-window-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .cyber-window-link:hover {
+      opacity: 0.85;
+    }
+
+    .cyber-window-content-centered {
+      flex-direction: column;
+      gap: 10px;
+      padding: 25px 30px;
+    }
+
+    .cyber-window-content-duo {
+      flex-direction: row;
+    }
+
+    .cyber-window-content-duo .cyber-window-link {
+      width: 50%;
+    }
+
+    /* Window 1: Pants - Top Left */
+    .cyber-window-1 {
+      left: 15px;
+      top: 0;
+      width: 333px;
+      height: 310px;
+    }
+
+    .cyber-window-1 .cyber-window-content img {
+      width: auto;
+      max-width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* Window 6: Accessory - Top Center */
+    .cyber-window-6 {
+      left: 307px;
+      top: 22px;
+      width: 202px;
+      height: 133px;
+      z-index: 2;
+    }
+
+    .cyber-window-6 .cyber-window-content img {
+      object-fit: contain;
+      width: auto;
+      max-width: 100%;
+      height: 100%;
+    }
+
+    /* Window 2: Bag - Right Side */
+    .cyber-window-2 {
+      left: 563px;
+      top: 139px;
+      width: 344px;
+      height: 238px;
+    }
+
+    .cyber-window-2 .cyber-window-content img {
+      object-fit: contain;
+      width: auto;
+      max-width: 100%;
+      height: 100%;
+    }
+
+    /* Window 5: Logo + Cyber Monday - Center */
+    .cyber-window-5 {
+      left: 283px;
+      top: 237px;
+      width: 317px;
+      height: 159px;
+      z-index: 3;
+    }
+
+    .cyber-logo-link {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .cyber-logo {
+      width: 75px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .cyber-monday-text {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 500;
+      font-size: 20px;
+      color: #f70000;
+      white-space: nowrap;
+    }
+
+    /* Window 4: Two Models - Bottom Left Large */
+    .cyber-window-4 {
+      left: 0;
+      top: 367px;
+      width: 566px;
+      height: 326px;
+    }
+
+    /* Window 3: Shoe - Bottom Right */
+    .cyber-window-3 {
+      left: 591px;
+      top: 458px;
+      width: 288px;
+      height: 143px;
+    }
+
+    .cyber-window-3 .cyber-window-content {
+      padding: 25px 58px;
+    }
+
+    .cyber-window-3 .cyber-window-content img {
+      object-fit: contain;
+      width: auto;
+      max-width: 100%;
+      height: 100%;
+    }
+
+    /* Responsive styles for Cyber Monday hero */
+    @media (max-width: 1024px) {
+      .cyber-monday-hero {
+        padding: 60px 30px;
+      }
+
+      .cyber-monday-collage {
+        transform: scale(0.75);
+        transform-origin: center center;
+        height: 520px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .cyber-monday-hero {
+        padding: 40px 20px;
+        min-height: auto;
+      }
+
+      .cyber-monday-collage {
+        position: relative;
+        width: 100%;
+        height: auto;
+        max-width: 400px;
+        transform: none;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .cyber-window {
+        position: relative;
+        left: auto !important;
+        top: auto !important;
+        width: 100% !important;
+        height: auto !important;
+      }
+
+      .cyber-window-1,
+      .cyber-window-2,
+      .cyber-window-6 {
+        display: none;
+      }
+
+      .cyber-window-5 {
+        order: 1;
+        height: 140px !important;
+      }
+
+      .cyber-window-4 {
+        order: 2;
+        height: 250px !important;
+      }
+
+      .cyber-window-3 {
+        order: 3;
+        height: 120px !important;
+      }
+
+      .cyber-window-3 .cyber-window-content {
+        padding: 15px 30px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .cyber-monday-hero {
+        padding: 30px 15px;
+      }
+
+      .cyber-monday-collage {
+        gap: 12px;
+      }
+
+      .cyber-monday-text {
+        font-size: 16px;
+      }
+
+      .cyber-logo {
+        width: 60px;
+      }
+
+      .cyber-window-4 {
+        height: 200px !important;
+      }
+    }
+
+    /* Override nav colors for light background */
     #index .right-nav,
     #index .right-nav .search,
     #index .right-nav .desktop-search,
     #index #eyebrow-cart,
     #index .currency-picker {
-      color: #fff;
+      color: #000;
     }
     #index .right-nav .search-input,
     #index .right-nav .search-input-btn {
-      color: #fff;
-      border-color: #fff;
+      color: #000;
+      border-color: #000;
     }
     #index .right-nav .search-input::placeholder {
-      color: rgba(255, 255, 255, 0.7);
+      color: rgba(0, 0, 0, 0.7);
     }
     #index .right-nav .search-input-btn:hover {
-      background-color: #fff;
-      color: #000;
+      background-color: #000;
+      color: #fff;
     }
-    /* Country switcher white text */
+    /* Country switcher black text */
     #index #country-switcher,
     #index #country-switcher .disclosure__button,
     #index localization-form,
     #index localization-form .disclosure,
     #index localization-form .disclosure__button {
-      color: #fff;
+      color: #000;
     }
 
     .fw22-link {
@@ -177,27 +489,27 @@
       width: auto;
       max-width: 280px;
     }
-    /* Mobile header white styles (menu closed) */
+    /* Mobile header styles for light background */
     #index .header-mobile {
       background: transparent;
     }
     #index .header-mobile .hamburger-inner,
     #index .header-mobile .hamburger-inner::before,
     #index .header-mobile .hamburger-inner::after {
-      background-color: #fff;
+      background-color: #000;
       transition: background-color 0.3s ease;
     }
     #index .header-mobile .mobile-cart,
     #index .header-mobile .cart-count {
-      color: #fff;
+      color: #000;
       transition: color 0.3s ease;
     }
     #index .mobile-logo-image {
-      filter: brightness(0) invert(1);
+      filter: none;
       transition: filter 0.3s ease;
     }
     
-    /* Mobile header black styles (menu open - .cool class applied) */
+    /* Mobile header styles (menu open - .cool class applied) */
     #index .header-mobile.cool .hamburger-inner,
     #index .header-mobile.cool .hamburger-inner::before,
     #index .header-mobile.cool .hamburger-inner::after {
@@ -1290,20 +1602,109 @@
 {% endcomment %}
 
 <div class="index-grid-1">
-  <div class="first-block-img fw25-img">
-    <div class="hero-container">
-      <div class="hero-image-wrapper">
-        <img src="{{ '9B3A2811.jpg' | asset_url }}" alt="Black Friday Sale" loading="eager">
+  <div class="cyber-monday-hero">
+    <div class="cyber-monday-collage">
+      <!-- Window 1: Pants - Top Left -->
+      <div class="cyber-window cyber-window-1">
+        <div class="cyber-window-header">
+          <div class="cyber-traffic-lights">
+            <span class="cyber-light cyber-light-red"></span>
+            <span class="cyber-light cyber-light-yellow"></span>
+            <span class="cyber-light cyber-light-green"></span>
+          </div>
+        </div>
+        <div class="cyber-window-content">
+          <a href="/collections/all" class="cyber-window-link">
+            <img src="{{ 'ADSUM_FW25-SS26_FLATS16353.jpg' | asset_url }}" alt="Pants" loading="eager">
+          </a>
+        </div>
       </div>
-      <h1 class="hero-title">Black Friday Sale</h1>
-      <div class="hero-info-box">
-        <p class="hero-info-title">Black Friday Sale</p>
-        <p class="hero-info-copy">Shop the Adsum 2025 Black Friday Warehouse Sale here.</p>
-        <a href="/collections/fw25-black-friday-sale" class="hero-shop-btn">Shop Sale</a>
+
+      <!-- Window 6: Accessory - Top Center -->
+      <div class="cyber-window cyber-window-6">
+        <div class="cyber-window-header">
+          <div class="cyber-traffic-lights">
+            <span class="cyber-light cyber-light-red"></span>
+            <span class="cyber-light cyber-light-yellow"></span>
+            <span class="cyber-light cyber-light-green"></span>
+          </div>
+        </div>
+        <div class="cyber-window-content">
+          <a href="/collections/all" class="cyber-window-link">
+            <img src="{{ 'ADSUM_FW25-SS26_FLATS16395.jpg' | asset_url }}" alt="Accessory" loading="eager">
+          </a>
+        </div>
+      </div>
+
+      <!-- Window 2: Bag - Right Side -->
+      <div class="cyber-window cyber-window-2">
+        <div class="cyber-window-header">
+          <div class="cyber-traffic-lights">
+            <span class="cyber-light cyber-light-red"></span>
+            <span class="cyber-light cyber-light-yellow"></span>
+            <span class="cyber-light cyber-light-green"></span>
+          </div>
+        </div>
+        <div class="cyber-window-content">
+          <a href="/collections/all" class="cyber-window-link">
+            <img src="{{ 'ADSUM_FW25-SS26_FLATS16401.jpg' | asset_url }}" alt="Bag" loading="eager">
+          </a>
+        </div>
+      </div>
+
+      <!-- Window 5: Logo + Cyber Monday - Center -->
+      <div class="cyber-window cyber-window-5">
+        <div class="cyber-window-header">
+          <div class="cyber-traffic-lights">
+            <span class="cyber-light cyber-light-red"></span>
+            <span class="cyber-light cyber-light-yellow"></span>
+            <span class="cyber-light cyber-light-green"></span>
+          </div>
+        </div>
+        <div class="cyber-window-content cyber-window-content-centered">
+          <a href="/collections/cyber-monday" class="cyber-window-link cyber-logo-link">
+            <img src="{{ 'checkout_logo.png' | asset_url }}" alt="Adsum" class="cyber-logo">
+            <span class="cyber-monday-text">Cyber Monday</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Window 4: Two Models - Bottom Left Large -->
+      <div class="cyber-window cyber-window-4">
+        <div class="cyber-window-header">
+          <div class="cyber-traffic-lights">
+            <span class="cyber-light cyber-light-red"></span>
+            <span class="cyber-light cyber-light-yellow"></span>
+            <span class="cyber-light cyber-light-green"></span>
+          </div>
+        </div>
+        <div class="cyber-window-content cyber-window-content-duo">
+          <a href="/collections/all" class="cyber-window-link">
+            <img src="{{ 'ADSUM_14457.jpg' | asset_url }}" alt="Model 1" loading="eager">
+          </a>
+          <a href="/collections/all" class="cyber-window-link">
+            <img src="{{ 'ADSUM_14496.jpg' | asset_url }}" alt="Model 2" loading="eager">
+          </a>
+        </div>
+      </div>
+
+      <!-- Window 3: Shoe - Bottom Right -->
+      <div class="cyber-window cyber-window-3">
+        <div class="cyber-window-header">
+          <div class="cyber-traffic-lights">
+            <span class="cyber-light cyber-light-red"></span>
+            <span class="cyber-light cyber-light-yellow"></span>
+            <span class="cyber-light cyber-light-green"></span>
+          </div>
+        </div>
+        <div class="cyber-window-content cyber-window-content-centered">
+          <a href="/collections/all" class="cyber-window-link">
+            <img src="{{ 'ADSUM_FW25-SS26_FLATS16333.jpg' | asset_url }}" alt="Shoe" loading="eager">
+          </a>
+        </div>
       </div>
     </div>
   </div>
-  <div class="first-block-img-2 fw25-img-2"></div>
 </div>
 {% comment %}
   <div class="index-grid-1">
@@ -1471,7 +1872,7 @@
 
 <script>
   $('.header-fullsite-fixed').addClass('header-fullsite').removeClass('header-fullsite-fixed');
-  $('.header-fullsite').addClass('menu-to-white');
+  // Light background - no white menu needed
 </script>
 
 <script type="text/javascript">
