@@ -622,6 +622,130 @@
       grid-auto-rows: min-content;
       transition: all .3s ease;
     }
+
+    /* Hero Header Styles */
+    .hero-header {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      max-height: 1135px;
+      grid-column: span 24;
+      background-color: #e8e8e8;
+    }
+
+    .hero-header-panel {
+      height: 100%;
+      position: relative;
+      flex: 1;
+      overflow: hidden;
+      background-color: #e8e8e8;
+    }
+
+    .hero-header-panel img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      max-width: none;
+      object-fit: cover;
+      object-position: 50% 50%;
+      pointer-events: none;
+    }
+
+    .hero-header-panel:last-child img {
+      object-position: 50% 30%;
+    }
+
+    .hero-header-overlay {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      padding: 32px;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .hero-header-title {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      color: #000;
+      line-height: 1.4;
+    }
+
+    .hero-header-link {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      color: #000;
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+      display: inline-block;
+    }
+
+    .hero-header-link:hover {
+      opacity: 0.6;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-header {
+        height: 90vh;
+        max-height: 900px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-header {
+        height: 85vh;
+        max-height: 700px;
+      }
+
+      /* Hide right panel on mobile */
+      .hero-header-panel:last-child {
+        display: none;
+      }
+
+      .hero-header-panel {
+        flex: 1;
+        width: 100%;
+      }
+
+      .hero-header-overlay {
+        padding: 24px;
+      }
+
+      .hero-header-title {
+        font-size: 15px;
+      }
+
+      .hero-header-link {
+        font-size: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-header {
+        height: 80vh;
+        max-height: 600px;
+      }
+
+      .hero-header-overlay {
+        padding: 20px;
+      }
+
+      .hero-header-title {
+        font-size: 14px;
+      }
+
+      .hero-header-link {
+        font-size: 14px;
+      }
+    }
   @media (max-width: 900px) {
     .index-grid-1 {
       grid-template-columns: repeat(12, 1fr);
@@ -1650,110 +1774,16 @@
 {% endcomment %}
 
 <div class="index-grid-1">
-  <div class="cyber-monday-hero">
-    <div class="cyber-monday-collage">
-      <!-- Window 1: Pants - Top Left -->
-      <div class="cyber-window cyber-window-1">
-        <div class="cyber-window-header">
-          <div class="cyber-traffic-lights">
-            <span class="cyber-light cyber-light-red"></span>
-            <span class="cyber-light cyber-light-yellow"></span>
-            <span class="cyber-light cyber-light-green"></span>
-          </div>
-        </div>
-        <div class="cyber-window-content">
-          <a href="/collections/all" class="cyber-window-link">
-            <img src="{{ 'ADSUM_FW25-SS26_FLATS16353.jpg' | asset_url }}" alt="Pants" loading="eager">
-          </a>
-        </div>
+  <div class="hero-header" data-name="Hero-Header" data-node-id="170:4">
+    <div class="hero-header-panel" data-name="ADSUM_14457 1" data-node-id="170:5">
+      <img src="{{ 'ADSUM_14457.jpg' | asset_url }}" alt="New Product Available Now" loading="eager">
+      <div class="hero-header-overlay">
+        <div class="hero-header-title">New Product Available Now</div>
+        <a href="/collections/all" class="hero-header-link">→ Shop New Styles</a>
       </div>
-
-      <!-- Window 6: Accessory - Top Center -->
-      <div class="cyber-window cyber-window-6">
-        <div class="cyber-window-header">
-          <div class="cyber-traffic-lights">
-            <span class="cyber-light cyber-light-red"></span>
-            <span class="cyber-light cyber-light-yellow"></span>
-            <span class="cyber-light cyber-light-green"></span>
-          </div>
-        </div>
-        <div class="cyber-window-content">
-          <a href="/collections/all" class="cyber-window-link">
-            <img src="{{ 'ADSUM_FW25-SS26_FLATS16395.jpg' | asset_url }}" alt="Accessory" loading="eager">
-          </a>
-        </div>
-      </div>
-
-      <!-- Window 2: Bag - Right Side -->
-      <div class="cyber-window cyber-window-2">
-        <div class="cyber-window-header">
-          <div class="cyber-traffic-lights">
-            <span class="cyber-light cyber-light-red"></span>
-            <span class="cyber-light cyber-light-yellow"></span>
-            <span class="cyber-light cyber-light-green"></span>
-          </div>
-        </div>
-        <div class="cyber-window-content">
-          <a href="/collections/all" class="cyber-window-link">
-            <img src="{{ 'ADSUM_FW25-SS26_FLATS16632STORY.jpg' | asset_url }}" alt="Bag" loading="eager">
-          </a>
-        </div>
-      </div>
-
-      <!-- Window 5: Logo + Cyber Monday - Center -->
-      <div class="cyber-window cyber-window-5">
-        <div class="cyber-window-header">
-          <div class="cyber-traffic-lights">
-            <span class="cyber-light cyber-light-red"></span>
-            <span class="cyber-light cyber-light-yellow"></span>
-            <span class="cyber-light cyber-light-green"></span>
-          </div>
-        </div>
-        <div class="cyber-window-content cyber-window-content-centered">
-          <a href="/collections/cyber-monday" class="cyber-window-link cyber-logo-link">
-            <span class="cyber-adsum-text">Adsum</span>
-            <span class="cyber-monday-text">Cyber Monday</span>
-          </a>
-          <p class="cyber-promo-text">
-            Use code <span class="cyber-promo-code">FREESHIPCM</span> for free U.S. shipping on every order. FW25 pieces remain <span class="cyber-promo-code">15% off</span> with <span class="cyber-promo-code">THANKS15</span>. Last chance to pick up fall gear before the sale wraps.
-          </p>
-        </div>
-      </div>
-
-      <!-- Window 4: Two Models - Bottom Left Large -->
-      <div class="cyber-window cyber-window-4">
-        <div class="cyber-window-header">
-          <div class="cyber-traffic-lights">
-            <span class="cyber-light cyber-light-red"></span>
-            <span class="cyber-light cyber-light-yellow"></span>
-            <span class="cyber-light cyber-light-green"></span>
-          </div>
-        </div>
-        <div class="cyber-window-content cyber-window-content-duo">
-          <a href="/collections/all" class="cyber-window-link">
-            <img src="{{ 'ADSUM_14457.jpg' | asset_url }}" alt="Model 1" loading="eager">
-          </a>
-          <a href="/collections/all" class="cyber-window-link">
-            <img src="{{ 'ADSUM_14496.jpg' | asset_url }}" alt="Model 2" loading="eager">
-          </a>
-        </div>
-      </div>
-
-      <!-- Window 3: Shoe - Bottom Right -->
-      <div class="cyber-window cyber-window-3">
-        <div class="cyber-window-header">
-          <div class="cyber-traffic-lights">
-            <span class="cyber-light cyber-light-red"></span>
-            <span class="cyber-light cyber-light-yellow"></span>
-            <span class="cyber-light cyber-light-green"></span>
-          </div>
-        </div>
-        <div class="cyber-window-content cyber-window-content-centered">
-          <a href="/collections/all" class="cyber-window-link">
-            <img src="{{ 'ADSUM_FW25-SS26_FLATS16642STORY.jpg' | asset_url }}" alt="Product" loading="eager">
-          </a>
-        </div>
-      </div>
+    </div>
+    <div class="hero-header-panel" data-name="ADSUM_14457 2" data-node-id="170:6">
+      <img src="{{ 'ADSUM_14496.jpg' | asset_url }}" alt="Product Detail" loading="eager">
     </div>
   </div>
 </div>
