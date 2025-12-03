@@ -1411,8 +1411,8 @@
       flex-direction: column;
       gap: 5px;
       width: 726px;
+      max-width: 50%;
       height: 100%;
-      flex-shrink: 0;
       overflow: hidden;
   }
 
@@ -1447,8 +1447,8 @@
   .bento-right {
       position: relative;
       width: 716px;
+      max-width: 50%;
       height: 1055px;
-      flex-shrink: 0;
   }
 
   .bento-main-image {
@@ -1513,12 +1513,12 @@
 
       .bento-left {
           width: 100%;
-          max-width: 726px;
+          max-width: 100%;
       }
 
       .bento-right {
           width: 100%;
-          max-width: 716px;
+          max-width: 100%;
           height: auto;
           aspect-ratio: 716 / 1074;
       }
@@ -1552,31 +1552,11 @@
     }
 
    @media (max-width: 768px) {
-  
     .collection-bento .bento-right { display: none !important; }
-
-  
-  .collection-bento .bento-left .bento-item:last-child { position: relative !important; }
-
-  
-  .shop-collection-link--desktop { display: none !important; }
-
-  
-  .collection-bento .bento-item { position: relative; }
-
-
-.fw22-link--bento {
-  position: absolute;
-  left: 16px;
-  bottom: 16px;
-  color: #000;
-  text-decoration: none;
-  border-radius: 4px;
-  padding: 10px 12px;           
-  line-height: 20px;
-  z-index: 10;
-}
-}
+    .collection-bento .bento-left .bento-item:last-child { position: relative !important; }
+    .shop-collection-link--desktop { display: none !important; }
+    .collection-bento .bento-item { position: relative; }
+  }
   
 
 
@@ -1740,23 +1720,41 @@
 
 .collection-bento .bento-item { position: relative; }
 
-/* Global placement for the bento CTA */
+/* Global placement for the bento CTA - stays fixed within bounds */
 .fw22-link--bento {
   position: absolute;
   left: 24px;
+  right: 24px;
   bottom: 24px;
+  width: auto;
   color: #000;
   text-decoration: none;
   border-radius: 4px;
-  padding: 10px 12px;
+  padding: 10px 0;
   line-height: 20px;
   z-index: 10;
+  font-size: 14px;
 }
 .fw22-link--bento:hover { opacity: 0.7; }
 
-/* Tighten on small screens */
+/* Tablet and smaller */
 @media (max-width: 768px) {
-  .fw22-link--bento { left: 16px; bottom: 16px; }
+  .fw22-link--bento { 
+    left: 16px; 
+    right: 16px;
+    bottom: 16px;
+    font-size: 13px;
+  }
+}
+
+/* Small screens */
+@media (max-width: 480px) {
+  .fw22-link--bento { 
+    left: 12px; 
+    right: 12px;
+    bottom: 12px;
+    font-size: 12px;
+  }
 }
 </style>
 
