@@ -331,37 +331,13 @@ $(".fancybox")
       };   	
   });
 
-  $(document).ready(function(){
-    $('.variant_title').each(function(){
-    	var index = $(this).text().indexOf('/');
-        var variantString = $(this).text();
-        var newString = variantString.substring(index + 2, variantString.length);
-        var colorString = variantString.substring(0, index);
-      console.log(newString + " " + colorString);
-      $(this).html(newString + "<div class='variant_color'>" + colorString + "</div>");
-    });
-  
-    $('.sold_out').each(function(){
-    	var index = $(this).text().indexOf('/');
-        var variantString = $(this).text();
-        var newString = variantString.substring(index + 2, variantString.length);
-        var colorString = variantString.substring(0, index);
-      console.log(newString + " " + colorString);
-      $(this).html(newString + "<div class='variant_color'>" + colorString + "</div>");
-    });
-   
-    
-    
-  });
+});
                              		
 </script>
   
 <style>
 .variant_title {
-display: inline;
-}
-.variant_color {
-  display: none;
+  display: inline;
 }
 </style>
 
