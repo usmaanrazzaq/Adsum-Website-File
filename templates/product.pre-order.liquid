@@ -200,6 +200,14 @@ $(".fancybox")
       {% endif %}
       
       <div class="product-size">
+        {% assign first_color = product.variants.first.option1 %}
+        {% assign has_multiple_colors = false %}
+        {% for variant in product.variants %}
+          {% if variant.option1 != first_color %}
+            {% assign has_multiple_colors = true %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
         <ul id="variants">
           {% for variant in product.variants %}
           {% unless product.title contains 'Diamond Popover' and variant.title == 'BLACK / S' %}
@@ -208,7 +216,7 @@ $(".fancybox")
             <input type="radio" name="id" value="{{variant.id}}" id="radio_{{variant.id}}" {%if forloop.first%} {%endif%} />
             <label for="radio_{{variant.id}}">
               
-              <div class='variant_title'>{{ variant.title | split: ' / ' | last }}</div>
+              <div class='variant_title'>{% if has_multiple_colors %}{{ variant.title }}{% else %}{{ variant.title | split: ' / ' | last }}{% endif %}</div>
               {% assign variant = product.variants.first %}
               {% if variant.available %}
               {% if variant.inventory_management != ''  %}
@@ -217,7 +225,7 @@ $(".fancybox")
               {% endif %}
             </label>        
             {% else %}
-            <span class="sold_out">{{ variant.title | split: ' / ' | last }}</span>
+            <span class="sold_out">{% if has_multiple_colors %}{{ variant.title }}{% else %}{{ variant.title | split: ' / ' | last }}{% endif %}</span>
             {% endif %}
           </li>
           {% endunless %}
