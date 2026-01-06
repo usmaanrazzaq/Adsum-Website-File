@@ -623,157 +623,158 @@
       transition: all .3s ease;
     }
 
-    /* Boxing Day Hero Styles */
-    .boxing-day-hero {
+    /* FW25 Hero Styles */
+    .fw25-hero {
       position: relative;
       width: 100%;
       height: 100vh;
-      max-height: 1135px;
+      max-height: 982px;
       grid-column: span 24;
       overflow: hidden;
+      background-color: #fff;
     }
 
-    .boxing-day-hero-bg {
+    .fw25-hero-image-container {
       position: absolute;
-      inset: 0;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 675px;
+      height: 900px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 10px;
+    }
+
+    .fw25-hero-image {
       width: 100%;
       height: 100%;
-      max-width: none;
       object-fit: cover;
       object-position: 50% 50%;
       pointer-events: none;
     }
 
-    .boxing-day-title {
+    .fw25-hero-cta {
       position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-weight: 400;
-      font-size: 96px;
-      color: #a40101;
-      white-space: nowrap;
-      line-height: normal;
-    }
-
-    .boxing-day-cta {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      top: calc(50% + 80px);
+      left: 65px;
+      bottom: 80px;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      align-items: flex-start;
       gap: 10px;
       padding: 0 10px;
       width: 338px;
     }
 
-    .boxing-day-promo {
+    .fw25-hero-title {
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-weight: 400;
-      font-size: 24px;
-      color: #fff;
-      text-align: center;
+      font-size: 16px;
+      color: #2b2b2b;
       line-height: normal;
       width: 100%;
     }
 
-    .boxing-day-shop-link {
+    .fw25-hero-shop-link {
       display: flex;
       align-items: center;
-      justify-content: center;
       gap: 10px;
-      padding: 10px 25px;
+      padding: 10px 10px;
       text-decoration: none;
       transition: opacity 0.3s ease;
+      width: 100%;
     }
 
-    .boxing-day-shop-link:hover {
+    .fw25-hero-shop-link:hover {
       opacity: 0.7;
     }
 
-    .boxing-day-shop-link svg {
+    .fw25-hero-shop-link svg {
       width: 15px;
       height: auto;
       flex-shrink: 0;
     }
 
-    .boxing-day-shop-text {
+    .fw25-hero-shop-text {
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-weight: 400;
-      font-size: 20px;
-      color: #fff;
+      font-size: 14px;
+      color: #2b2b2b;
       white-space: nowrap;
       line-height: normal;
+      text-align: left;
     }
 
     @media (max-width: 1024px) {
-      .boxing-day-hero {
+      .fw25-hero {
         height: 90vh;
-        max-height: 900px;
+        max-height: 850px;
       }
 
-      .boxing-day-title {
-        font-size: 72px;
+      .fw25-hero-image-container {
+        width: 500px;
+        height: 700px;
       }
 
-      .boxing-day-cta {
-        top: calc(50% + 60px);
+      .fw25-hero-cta {
+        left: 40px;
+        bottom: 60px;
       }
     }
 
     @media (max-width: 768px) {
-      .boxing-day-hero {
+      .fw25-hero {
         height: 85vh;
-        max-height: 700px;
+        max-height: 750px;
       }
 
-      .boxing-day-title {
-        font-size: 48px;
-        white-space: normal;
-        text-align: center;
+      .fw25-hero-image-container {
         width: 90%;
-        padding: 0 20px;
+        max-width: 450px;
+        height: 600px;
       }
 
-      .boxing-day-cta {
-        top: calc(50% + 50px);
-        width: 90%;
+      .fw25-hero-cta {
+        left: 20px;
+        bottom: 40px;
+        width: calc(100% - 40px);
         max-width: 338px;
       }
 
-      .boxing-day-promo {
-        font-size: 18px;
+      .fw25-hero-title {
+        font-size: 20px;
       }
 
-      .boxing-day-shop-text {
-        font-size: 16px;
+      .fw25-hero-shop-text {
+        font-size: 18px;
       }
     }
 
     @media (max-width: 480px) {
-      .boxing-day-hero {
+      .fw25-hero {
         height: 80vh;
-        max-height: 600px;
+        max-height: 650px;
       }
 
-      .boxing-day-title {
-        font-size: 36px;
+      .fw25-hero-image-container {
+        width: 85%;
+        max-width: 320px;
+        height: 450px;
       }
 
-      .boxing-day-cta {
-        top: calc(50% + 40px);
+      .fw25-hero-cta {
+        left: 15px;
+        bottom: 30px;
       }
 
-      .boxing-day-promo {
+      .fw25-hero-title {
+        font-size: 18px;
+      }
+
+      .fw25-hero-shop-text {
         font-size: 16px;
-      }
-
-      .boxing-day-shop-text {
-        font-size: 14px;
       }
     }
   @media (max-width: 900px) {
@@ -1802,16 +1803,17 @@
 {% endcomment %}
 
 <div class="index-grid-1">
-  <div class="boxing-day-hero" data-name="Hero-Header" data-node-id="312:3">
-    <img class="boxing-day-hero-bg" src="{{ 'boxing-day-hero.jpg' | asset_url }}" alt="Boxing Day Sale" loading="eager">
-    <h1 class="boxing-day-title" data-node-id="312:61">Boxing Day Sale</h1>
-    <div class="boxing-day-cta" data-node-id="317:77">
-      <p class="boxing-day-promo" data-node-id="317:78">Shop the Sale using code BOXINGDAY25</p>
-      <a href="/collections/all" class="boxing-day-shop-link" data-node-id="317:79">
-        <svg width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg" data-node-id="317:80">
-          <path d="M1 4H14M14 4L11 1M14 4L11 7" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <div class="fw25-hero" data-name="Hero-Header" data-node-id="373:47">
+    <div class="fw25-hero-image-container" data-node-id="373:68">
+      <img class="fw25-hero-image" src="{{ 'fw25-hero-jacket.png' | asset_url }}" alt="FW25 Collection" loading="eager" data-node-id="373:69">
+    </div>
+    <div class="fw25-hero-cta" data-node-id="373:63">
+      <p class="fw25-hero-title" data-node-id="373:64">Shop FW25 Collection</p>
+      <a href="/collections/all" class="fw25-hero-shop-link" data-node-id="373:65">
+        <svg width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg" data-node-id="373:66">
+          <path d="M1 4H14M14 4L11 1M14 4L11 7" stroke="#2b2b2b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        <span class="boxing-day-shop-text" data-node-id="317:81">Shop Now</span>
+        <span class="fw25-hero-shop-text" data-node-id="373:67">Shop Now</span>
       </a>
     </div>
   </div>
