@@ -663,7 +663,7 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 10px;
+      gap: 5px;
       padding: 0 10px;
       width: 338px;
     }
@@ -726,61 +726,72 @@
 
     @media (max-width: 768px) {
       .fw25-hero {
-        height: 85vh;
-        max-height: 750px;
+        height: auto;
+        max-height: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 20px 40px;
       }
 
       .fw25-hero-image-container {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
         width: 90%;
         max-width: 450px;
-        height: 600px;
+        height: auto;
+        aspect-ratio: 675 / 900;
       }
 
       .fw25-hero-cta {
-        left: 20px;
-        bottom: 40px;
-        width: calc(100% - 40px);
-        max-width: 338px;
+        position: relative;
+        left: auto;
+        bottom: auto;
+        width: 100%;
+        max-width: 450px;
+        padding: 15px 0 0;
+        gap: 5px;
       }
 
       .fw25-hero-title {
-        font-size: 20px;
+        font-size: 16px;
       }
 
       .fw25-hero-shop-text {
-        font-size: 18px;
+        font-size: 14px;
       }
     }
 
     @media (max-width: 480px) {
       .fw25-hero {
-        height: 80vh;
-        max-height: 650px;
+        padding: 15px 15px 30px;
       }
 
       .fw25-hero-image-container {
-        width: 85%;
-        max-width: 320px;
-        height: 450px;
+        width: 100%;
+        max-width: 100%;
       }
 
       .fw25-hero-cta {
-        left: 15px;
-        bottom: 30px;
+        max-width: 100%;
+        padding: 10px 0 0;
+        gap: 5px;
       }
 
       .fw25-hero-title {
-        font-size: 18px;
+        font-size: 16px;
       }
 
       .fw25-hero-shop-text {
-        font-size: 16px;
+        font-size: 14px;
       }
     }
   @media (max-width: 900px) {
     .index-grid-1 {
       grid-template-columns: repeat(12, 1fr);
-      padding: 0 0 20px;
+      padding: 40px 0 20px;
       row-gap: 20px;
     }
     .first-block-img {
