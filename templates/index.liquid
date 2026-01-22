@@ -623,24 +623,23 @@
       transition: all .3s ease;
     }
 
-    /* FW25 Hero Styles */
-    .fw25-hero {
+    /* EOS Sale Hero Styles */
+    .eos-sale-hero {
       position: relative;
       width: 100%;
-      height: 100vh;
-      max-height: 982px;
+      height: 982px;
       grid-column: span 24;
       overflow: hidden;
       background-color: #fff;
     }
 
-    .fw25-hero-image-container {
+    .eos-hero-gallery {
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
-      width: 675px;
-      height: 900px;
+      width: 1512px;
+      height: 982px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -648,18 +647,52 @@
       padding: 10px;
     }
 
-    .fw25-hero-image {
+    .eos-hero-gallery-inner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .eos-hero-side-column {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .eos-hero-side-image {
+      width: 270px;
+      height: 359px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .eos-hero-side-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: 50% 50%;
       pointer-events: none;
     }
 
-    .fw25-hero-cta {
+    .eos-hero-center-image {
+      width: 546px;
+      height: 728px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .eos-hero-center-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+    }
+
+    .eos-hero-cta {
       position: absolute;
-      left: 65px;
-      bottom: 80px;
+      left: 35px;
+      bottom: 88px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -668,123 +701,181 @@
       width: 338px;
     }
 
-    .fw25-hero-title {
+    .eos-hero-shop-btn {
+      margin-top: 5px;
+    }
+
+    .eos-hero-title {
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-weight: 400;
-      font-size: 16px;
+      font-size: 18px;
       color: #2b2b2b;
       line-height: normal;
       width: 100%;
     }
 
-    .fw25-hero-shop-link {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 10px;
-      text-decoration: none;
-      transition: opacity 0.3s ease;
+    .eos-hero-subtitle {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      color: #2b2b2b;
+      line-height: normal;
       width: 100%;
     }
 
-    .fw25-hero-shop-link:hover {
-      opacity: 0.7;
+    .eos-hero-shop-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background-color: #2b2b2b;
+      color: #fff;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      padding: 10px 20px;
+      width: 70%;
+      text-decoration: none;
+      text-align: center;
+      transition: all 0.3s ease;
     }
 
-    .fw25-hero-shop-link svg {
+    .eos-hero-shop-btn:hover {
+      background-color: #444;
+      color: #fff;
+    }
+
+    .eos-hero-shop-btn svg {
       width: 15px;
       height: auto;
       flex-shrink: 0;
     }
 
-    .fw25-hero-shop-text {
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-weight: 400;
-      font-size: 14px;
-      color: #2b2b2b;
-      white-space: nowrap;
-      line-height: normal;
-      text-align: left;
-    }
-
-    @media (max-width: 1024px) {
-      .fw25-hero {
-        height: 90vh;
-        max-height: 850px;
+    @media (max-width: 1200px) {
+      .eos-sale-hero {
+        height: 850px;
       }
 
-      .fw25-hero-image-container {
-        width: 500px;
-        height: 700px;
+      .eos-hero-gallery {
+        width: 100%;
+        height: 850px;
+        transform: translate(-50%, -50%) scale(0.85);
       }
 
-      .fw25-hero-cta {
+      .eos-hero-cta {
         left: 40px;
         bottom: 60px;
       }
     }
 
-    @media (max-width: 768px) {
-      .fw25-hero {
-        height: auto;
-        max-height: none;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 20px 20px 40px;
+    @media (max-width: 1024px) {
+      .eos-sale-hero {
+        height: 750px;
       }
 
-      .fw25-hero-image-container {
-        position: relative;
-        left: auto;
-        top: auto;
-        transform: none;
-        width: 90%;
-        max-width: 450px;
-        height: auto;
-        aspect-ratio: 675 / 900;
+      .eos-hero-gallery {
+        height: 750px;
+        transform: translate(-50%, -50%) scale(0.7);
       }
 
-      .fw25-hero-cta {
-        position: relative;
-        left: auto;
-        bottom: auto;
-        width: 100%;
-        max-width: 450px;
-        padding: 15px 0 0;
-        gap: 5px;
+      .eos-hero-cta {
+        left: 30px;
+        bottom: 50px;
+        width: 300px;
       }
 
-      .fw25-hero-title {
-        font-size: 16px;
+      .eos-hero-title {
+        font-size: 20px;
       }
 
-      .fw25-hero-shop-text {
+      .eos-hero-subtitle {
         font-size: 14px;
       }
     }
 
-    @media (max-width: 480px) {
-      .fw25-hero {
-        padding: 15px 15px 30px;
+    @media (max-width: 768px) {
+      .eos-sale-hero {
+        height: auto;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 100px 20px 40px;
       }
 
-      .fw25-hero-image-container {
+      .eos-hero-gallery {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
         width: 100%;
+        height: auto;
+        padding: 0;
+      }
+
+      .eos-hero-gallery-inner {
+        justify-content: center;
+      }
+
+      .eos-hero-side-column {
+        display: none;
+      }
+
+      .eos-hero-center-image {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        aspect-ratio: 546 / 728;
+      }
+
+      .eos-hero-cta {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        width: 100%;
+        max-width: 400px;
+        padding: 25px 0 0;
+        gap: 10px;
+      }
+
+      .eos-hero-title {
+        font-size: 20px;
+      }
+
+      .eos-hero-subtitle {
+        font-size: 14px;
+      }
+
+      .eos-hero-shop-btn {
+        font-size: 14px;
+        padding: 12px 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .eos-sale-hero {
+        padding: 80px 15px 30px;
+      }
+
+      .eos-hero-center-image {
         max-width: 100%;
       }
 
-      .fw25-hero-cta {
+      .eos-hero-cta {
         max-width: 100%;
-        padding: 10px 0 0;
-        gap: 5px;
+        padding: 20px 0 0;
       }
 
-      .fw25-hero-title {
-        font-size: 16px;
+      .eos-hero-title {
+        font-size: 18px;
       }
 
-      .fw25-hero-shop-text {
+      .eos-hero-subtitle {
+        font-size: 13px;
+      }
+
+      .eos-hero-shop-btn {
         font-size: 14px;
       }
     }
@@ -1814,17 +1905,45 @@
 {% endcomment %}
 
 <div class="index-grid-1">
-  <div class="fw25-hero" data-name="Hero-Header" data-node-id="373:47">
-    <div class="fw25-hero-image-container" data-node-id="373:68">
-      <img class="fw25-hero-image" src="{{ 'fw25-hero-jacket.png' | asset_url }}" alt="FW25 Collection" loading="eager" data-node-id="373:69">
+  <div class="eos-sale-hero" data-name="Hero-Header">
+    <div class="eos-hero-gallery">
+      <div class="eos-hero-gallery-inner">
+        <!-- Left side product images -->
+        <div class="eos-hero-side-column">
+          <div class="eos-hero-side-image">
+            <img src="{{ 'eos-hero-left-top.png' | asset_url }}" alt="End of Season Sale Product" loading="eager">
+          </div>
+          <div class="eos-hero-side-image">
+            <img src="{{ 'eos-hero-left-bottom.png' | asset_url }}" alt="End of Season Sale Product" loading="eager">
+          </div>
+        </div>
+        
+        <!-- Center main image -->
+        <div class="eos-hero-center-image">
+          <img src="{{ 'eos-hero-center.png' | asset_url }}" alt="End of Season Sale" loading="eager">
+        </div>
+        
+        <!-- Right side product images -->
+        <div class="eos-hero-side-column">
+          <div class="eos-hero-side-image">
+            <img src="{{ 'eos-hero-right-top.png' | asset_url }}" alt="End of Season Sale Product" loading="eager">
+          </div>
+          <div class="eos-hero-side-image">
+            <img src="{{ 'eos-hero-right-bottom.png' | asset_url }}" alt="End of Season Sale Product" loading="eager">
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="fw25-hero-cta" data-node-id="373:63">
-      <p class="fw25-hero-title" data-node-id="373:64">Shop FW25 Collection</p>
-      <a href="/collections/all" class="fw25-hero-shop-link" data-node-id="373:65">
-        <svg width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg" data-node-id="373:66">
-          <path d="M1 4H14M14 4L11 1M14 4L11 7" stroke="#2b2b2b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- CTA Section -->
+    <div class="eos-hero-cta">
+      <p class="eos-hero-title">Shop End of Season Sale</p>
+      <p class="eos-hero-subtitle">Up to 30% off FW25 collection</p>
+      <a href="/collections/all" class="eos-hero-shop-btn">
+        <span>Shop Now</span>
+        <svg width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 4H14M14 4L11 1M14 4L11 7" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        <span class="fw25-hero-shop-text" data-node-id="373:67">Shop Now</span>
       </a>
     </div>
   </div>
