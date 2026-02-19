@@ -720,7 +720,7 @@
       font-size: 14px;
       color: #2b2b2b;
       line-height: normal;
-      width: 100%;
+      width: 80%;
     }
 
     .eos-hero-shop-btn {
@@ -770,18 +770,48 @@
 
     @media (max-width: 1024px) {
       .eos-sale-hero {
-        height: 750px;
+        height: auto;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 100px 24px 40px;
       }
 
       .eos-hero-gallery {
-        height: 750px;
-        transform: translate(-50%, -50%) scale(0.7);
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        width: 100%;
+        height: auto;
+        padding: 0;
+      }
+
+      .eos-hero-gallery-inner {
+        justify-content: center;
+      }
+
+      .eos-hero-side-column {
+        display: none;
+      }
+
+      .eos-hero-center-image {
+        width: 100%;
+        max-width: 460px;
+        height: auto;
+        aspect-ratio: 546 / 728;
       }
 
       .eos-hero-cta {
-        left: 30px;
-        bottom: 50px;
-        width: 300px;
+        position: relative;
+        left: auto;
+        bottom: auto;
+        width: 100%;
+        max-width: 460px;
+        padding: 25px 0 0;
+        gap: 10px;
       }
 
       .eos-hero-title {
@@ -1911,25 +1941,25 @@
         <!-- Left side product images -->
         <div class="eos-hero-side-column">
           <div class="eos-hero-side-image">
-            <img src="{{ 'eos-hero-left-top.png' | asset_url }}" alt="End of Season Sale Product" loading="eager">
+            <img src="{{ 'eos-hero-left-top-fw25.jpg' | asset_url }}" alt="End of Season Sale Product" loading="eager">
           </div>
           <div class="eos-hero-side-image">
-            <img src="{{ 'eos-hero-left-bottom.png' | asset_url }}" alt="End of Season Sale Product" loading="eager">
+            <img src="{{ 'eos-hero-left-bottom-fw25.jpg' | asset_url }}" alt="End of Season Sale Product" loading="eager">
           </div>
         </div>
         
         <!-- Center main image -->
         <div class="eos-hero-center-image">
-          <img src="{{ 'eos-hero-center.png' | asset_url }}" alt="End of Season Sale" loading="eager">
+          <img src="{{ 'eos-hero-center-fw25.jpg' | asset_url }}" alt="End of Season Sale" loading="eager">
         </div>
         
         <!-- Right side product images -->
         <div class="eos-hero-side-column">
           <div class="eos-hero-side-image">
-            <img src="{{ 'eos-hero-right-top.png' | asset_url }}" alt="End of Season Sale Product" loading="eager">
+            <img src="{{ 'eos-hero-right-top-fw25.jpg' | asset_url }}" alt="End of Season Sale Product" loading="eager">
           </div>
           <div class="eos-hero-side-image">
-            <img src="{{ 'eos-hero-right-bottom.png' | asset_url }}" alt="End of Season Sale Product" loading="eager">
+            <img src="{{ 'eos-hero-right-bottom-fw25.jpg' | asset_url }}" alt="End of Season Sale Product" loading="eager">
           </div>
         </div>
       </div>
@@ -1938,7 +1968,7 @@
     <!-- CTA Section -->
     <div class="eos-hero-cta">
       <p class="eos-hero-title">Shop End of Season Sale</p>
-      <p class="eos-hero-subtitle">Up to 40% off FW25 collection</p>
+      <p class="eos-hero-subtitle">Final markdowns up to the 50% off FW25 collection.</p>
       <a href="/collections/all" class="eos-hero-shop-btn">
         <span>Shop Now</span>
         <svg width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg">
