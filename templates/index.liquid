@@ -359,33 +359,64 @@
       }
     }
 
-    /* Override nav colors for light background */
+    /* Homepage nav starts white over hero, transitions to black below hero */
     #index .right-nav,
     #index .right-nav .search,
     #index .right-nav .desktop-search,
     #index #eyebrow-cart,
-    #index .currency-picker {
-      color: #000;
-    }
-    #index .right-nav .search-input,
-    #index .right-nav .search-input-btn {
-      color: #000;
-      border-color: #000;
-    }
-    #index .right-nav .search-input::placeholder {
-      color: rgba(0, 0, 0, 0.7);
-    }
-    #index .right-nav .search-input-btn:hover {
-      background-color: #000;
-      color: #fff;
-    }
-    /* Country switcher black text */
+    #index .currency-picker,
     #index #country-switcher,
     #index #country-switcher .disclosure__button,
     #index localization-form,
     #index localization-form .disclosure,
     #index localization-form .disclosure__button {
       color: #000;
+      transition: color 0.3s ease;
+    }
+    #index .right-nav .search-input,
+    #index .right-nav .search-input-btn {
+      color: #000;
+      border-color: #000;
+      transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+    }
+    #index .right-nav .search-input::placeholder {
+      color: rgba(0, 0, 0, 0.7);
+      transition: color 0.3s ease;
+    }
+    #index .right-nav .search-input-btn:hover {
+      background-color: #000;
+      color: #fff;
+    }
+    #index .mobile-logo-image {
+      filter: none;
+      transition: filter 0.3s ease;
+    }
+    #index.index-hero-light-nav .right-nav,
+    #index.index-hero-light-nav .right-nav .search,
+    #index.index-hero-light-nav .right-nav .desktop-search,
+    #index.index-hero-light-nav #eyebrow-cart,
+    #index.index-hero-light-nav .currency-picker,
+    #index.index-hero-light-nav #country-switcher,
+    #index.index-hero-light-nav #country-switcher .disclosure__button,
+    #index.index-hero-light-nav localization-form,
+    #index.index-hero-light-nav localization-form .disclosure,
+    #index.index-hero-light-nav localization-form .disclosure__button {
+      color: #fff;
+    }
+    #index.index-hero-light-nav .right-nav .search-input,
+    #index.index-hero-light-nav .right-nav .search-input-btn {
+      color: #fff;
+      border-color: #fff;
+    }
+    #index.index-hero-light-nav .right-nav .search-input::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+    #index.index-hero-light-nav .right-nav .search-input-btn:hover {
+      background-color: #fff;
+      color: #000;
+    }
+    #index.index-hero-light-nav .mobile-logo-image {
+      filter: brightness(0) invert(1);
     }
 
     .fw22-link {
@@ -623,290 +654,157 @@
       transition: all .3s ease;
     }
 
-    /* EOS Sale Hero Styles */
-    .eos-sale-hero {
+    /* ELAC hero (Figma node 580:2) */
+    .elac-hero {
       position: relative;
       width: 100%;
-      height: 982px;
+      height: 880px;
       grid-column: span 24;
       overflow: hidden;
-      background-color: #fff;
+      background-color: #000;
+      background-image: url("https://www.figma.com/api/mcp/asset/f7b9b547-6a13-4b93-83e1-d667be234d54");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
     }
 
-    .eos-hero-gallery {
+    .elac-hero::after {
+      content: "";
       position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 1512px;
-      height: 982px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      padding: 10px;
-    }
-
-    .eos-hero-gallery-inner {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .eos-hero-side-column {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .eos-hero-side-image {
-      width: 270px;
-      height: 359px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .eos-hero-side-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.18) 0%, rgba(0, 0, 0, 0.38) 100%);
       pointer-events: none;
     }
 
-    .eos-hero-center-image {
-      width: 546px;
-      height: 728px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .eos-hero-center-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      pointer-events: none;
-    }
-
-    .eos-hero-cta {
+    .elac-hero-content {
       position: absolute;
-      left: 35px;
-      bottom: 88px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 5px;
+      left: 60px;
+      bottom: 75px;
+      width: 300px;
       padding: 0 10px;
-      width: 338px;
-    }
-
-    .eos-hero-shop-btn {
-      margin-top: 5px;
-    }
-
-    .eos-hero-title {
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-weight: 400;
-      font-size: 18px;
-      color: #2b2b2b;
-      line-height: normal;
-      width: 100%;
-    }
-
-    .eos-hero-subtitle {
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-weight: 400;
-      font-size: 14px;
-      color: #2b2b2b;
-      line-height: normal;
-      width: 80%;
-    }
-
-    .eos-hero-shop-btn {
       display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 2;
+    }
+
+    .elac-hero-title {
+      margin: 0;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 1;
+      color: #fff;
+    }
+
+    .elac-hero-copy {
+      margin: 0;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 1.1;
+      color: #fff;
+      max-width: 280px;
+    }
+
+    .elac-hero-shop-btn {
+      padding: 9px 15px;
+      background-color: #fff;
+      color: #2b2b2b;
+      width: 155px;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 8px;
+      text-decoration: none;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      line-height: 1;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .elac-hero-shop-btn:hover {
       background-color: #2b2b2b;
       color: #fff;
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-weight: 400;
-      font-size: 14px;
-      padding: 10px 20px;
-      width: 70%;
-      text-decoration: none;
-      text-align: center;
-      transition: all 0.3s ease;
     }
 
-    .eos-hero-shop-btn:hover {
-      background-color: #444;
-      color: #fff;
+    .elac-hero-shop-btn:hover .elac-hero-shop-btn-arrow path {
+      stroke: #fff;
     }
 
-    .eos-hero-shop-btn svg {
+    .elac-hero-shop-btn-arrow {
       width: 15px;
-      height: auto;
+      height: 8px;
       flex-shrink: 0;
     }
 
-    @media (max-width: 1200px) {
-      .eos-sale-hero {
-        height: 850px;
-      }
+    .elac-hero-shop-btn-arrow path {
+      transition: stroke 0.3s ease;
+    }
 
-      .eos-hero-gallery {
-        width: 100%;
-        height: 850px;
-        transform: translate(-50%, -50%) scale(0.85);
-      }
-
-      .eos-hero-cta {
-        left: 40px;
-        bottom: 60px;
+    @media (max-width: 1100px) {
+      .elac-hero {
+        height: 82vh;
+        min-height: 680px;
       }
     }
 
-    @media (max-width: 1024px) {
-      .eos-sale-hero {
-        height: auto;
+    @media (max-width: 900px) {
+      #index #content > .index-grid-1:first-of-type {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+      #index .header-mobile {
+        z-index: 30;
+      }
+      #index.index-hero-light-nav .header-mobile .hamburger-inner,
+      #index.index-hero-light-nav .header-mobile .hamburger-inner::before,
+      #index.index-hero-light-nav .header-mobile .hamburger-inner::after {
+        background-color: #fff;
+      }
+      #index.index-hero-light-nav .header-mobile .mobile-cart,
+      #index.index-hero-light-nav .header-mobile .cart-count {
+        color: #fff;
+      }
+      .elac-hero {
+        height: 100vh;
+        height: 100svh;
         min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 100px 24px 40px;
       }
-
-      .eos-hero-gallery {
-        position: relative;
-        left: auto;
-        top: auto;
-        transform: none;
-        width: 100%;
-        height: auto;
-        padding: 0;
+      .elac-hero-content {
+        left: 24px;
+        bottom: 50px;
       }
-
-      .eos-hero-gallery-inner {
-        justify-content: center;
-      }
-
-      .eos-hero-side-column {
-        display: none;
-      }
-
-      .eos-hero-center-image {
-        width: 100%;
-        max-width: 460px;
-        height: auto;
-        aspect-ratio: 546 / 728;
-      }
-
-      .eos-hero-cta {
-        position: relative;
-        left: auto;
-        bottom: auto;
-        width: 100%;
-        max-width: 460px;
-        padding: 25px 0 0;
-        gap: 10px;
-      }
-
-      .eos-hero-title {
-        font-size: 20px;
-      }
-
-      .eos-hero-subtitle {
-        font-size: 14px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .eos-sale-hero {
-        height: auto;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 100px 20px 40px;
-      }
-
-      .eos-hero-gallery {
-        position: relative;
-        left: auto;
-        top: auto;
-        transform: none;
-        width: 100%;
-        height: auto;
-        padding: 0;
-      }
-
-      .eos-hero-gallery-inner {
-        justify-content: center;
-      }
-
-      .eos-hero-side-column {
-        display: none;
-      }
-
-      .eos-hero-center-image {
-        width: 100%;
-        max-width: 400px;
-        height: auto;
-        aspect-ratio: 546 / 728;
-      }
-
-      .eos-hero-cta {
-        position: relative;
-        left: auto;
-        bottom: auto;
-        width: 100%;
-        max-width: 400px;
-        padding: 25px 0 0;
-        gap: 10px;
-      }
-
-      .eos-hero-title {
-        font-size: 20px;
-      }
-
-      .eos-hero-subtitle {
-        font-size: 14px;
-      }
-
-      .eos-hero-shop-btn {
-        font-size: 14px;
-        padding: 12px 20px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .eos-sale-hero {
-        padding: 80px 15px 30px;
-      }
-
-      .eos-hero-center-image {
-        max-width: 100%;
-      }
-
-      .eos-hero-cta {
-        max-width: 100%;
-        padding: 20px 0 0;
-      }
-
-      .eos-hero-title {
+      .elac-hero-title {
         font-size: 18px;
       }
-
-      .eos-hero-subtitle {
-        font-size: 13px;
-      }
-
-      .eos-hero-shop-btn {
+      .elac-hero-copy {
         font-size: 14px;
+      }
+      .elac-hero-shop-btn {
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .elac-hero {
+        min-height: 100vh;
+        min-height: 100svh;
+        background-position: 58% center;
+      }
+      .elac-hero-content {
+        left: 14px;
+        right: 14px;
+        bottom: 30px;
+        width: auto;
+        padding: 0;
+      }
+      .elac-hero-copy {
+        max-width: 250px;
+      }
+      .elac-hero-shop-btn {
+        padding: 7px 16px;
+        font-size: 12px;
       }
     }
   @media (max-width: 900px) {
@@ -1935,44 +1833,14 @@
 {% endcomment %}
 
 <div class="index-grid-1">
-  <div class="eos-sale-hero" data-name="Hero-Header">
-    <div class="eos-hero-gallery">
-      <div class="eos-hero-gallery-inner">
-        <!-- Left side product images -->
-        <div class="eos-hero-side-column">
-          <div class="eos-hero-side-image">
-            <img src="{{ 'eos-hero-left-top-fw25.jpg' | asset_url }}" alt="End of Season Sale Product" loading="eager">
-          </div>
-          <div class="eos-hero-side-image">
-            <img src="{{ 'eos-hero-left-bottom-fw25.jpg' | asset_url }}" alt="End of Season Sale Product" loading="eager">
-          </div>
-        </div>
-        
-        <!-- Center main image -->
-        <div class="eos-hero-center-image">
-          <img src="{{ 'eos-hero-center-fw25.jpg' | asset_url }}" alt="End of Season Sale" loading="eager">
-        </div>
-        
-        <!-- Right side product images -->
-        <div class="eos-hero-side-column">
-          <div class="eos-hero-side-image">
-            <img src="{{ 'eos-hero-right-top-fw25.jpg' | asset_url }}" alt="End of Season Sale Product" loading="eager">
-          </div>
-          <div class="eos-hero-side-image">
-            <img src="{{ 'eos-hero-right-bottom-fw25.jpg' | asset_url }}" alt="End of Season Sale Product" loading="eager">
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <!-- CTA Section -->
-    <div class="eos-hero-cta">
-      <p class="eos-hero-title">Shop End of Season Sale</p>
-      <p class="eos-hero-subtitle">Final markdowns up to the 50% off FW25 collection.</p>
-      <a href="/collections/all" class="eos-hero-shop-btn">
+  <div class="elac-hero" data-name="Hero-Header">
+    <div class="elac-hero-content">
+      <p class="elac-hero-title">Adsum + ELAC NAVA100</p>
+      <p class="elac-hero-copy">We have partnered with ELAC to design our take on the NAVA100</p>
+      <a href="/collections/all" class="elac-hero-shop-btn">
         <span>Shop Now</span>
-        <svg width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M1 4H14M14 4L11 1M14 4L11 7" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <svg class="elac-hero-shop-btn-arrow" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M1 4H14M14 4L11 1M14 4L11 7" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </a>
     </div>
@@ -2145,7 +2013,31 @@
 
 <script>
   $('.header-fullsite-fixed').addClass('header-fullsite').removeClass('header-fullsite-fixed');
-  // Light background - no white menu needed
+  (function () {
+    var heroNavOffset = 120;
+
+    function updateIndexHeaderTheme() {
+      var $hero = $('.elac-hero');
+      if (!$hero.length) {
+        return;
+      }
+
+      var heroBottom = $hero.offset().top + $hero.outerHeight() - heroNavOffset;
+      var shouldUseWhiteNav = $(window).scrollTop() < heroBottom;
+      var $header = $('.header-fullsite, .header-fullsite-fixed');
+
+      if (shouldUseWhiteNav) {
+        $header.addClass('menu-to-white').removeClass('menu-to-black');
+        $('#index').addClass('index-hero-light-nav');
+      } else {
+        $header.addClass('menu-to-black').removeClass('menu-to-white');
+        $('#index').removeClass('index-hero-light-nav');
+      }
+    }
+
+    updateIndexHeaderTheme();
+    $(window).on('scroll resize', updateIndexHeaderTheme);
+  })();
 </script>
 
 <script type="text/javascript">
