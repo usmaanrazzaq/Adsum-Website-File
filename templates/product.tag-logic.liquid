@@ -160,14 +160,23 @@ $(".fancybox")
       {% endif %}
       
       <div class="product-size">
+        {% assign first_color = product.variants.first.option1 %}
+        {% assign has_multiple_colors = false %}
+        {% for variant in product.variants %}
+          {% if variant.option1 != first_color %}
+            {% assign has_multiple_colors = true %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
         <ul id="variants">
           {% for variant in product.variants %}
+          {% unless product.title contains 'Diamond Popover' and variant.title == 'BLACK / S' %}
           <li style="display: relative;">
             {% if variant.available == true %}
             <input type="radio" name="id" value="{{variant.id}}" id="radio_{{variant.id}}" {%if forloop.first%} {%endif%} />
             <label for="radio_{{variant.id}}">
               
-              <div class='variant_title'>{{ variant.title }}</div>
+              <div class='variant_title'>{% if has_multiple_colors %}{{ variant.title }}{% else %}{{ variant.title | split: ' / ' | last }}{% endif %}</div>
               {% assign variant = product.variants.first %}
               {% if variant.available %}
               {% if variant.inventory_management != ''  %}
@@ -176,9 +185,10 @@ $(".fancybox")
               {% endif %}
             </label>        
             {% else %}
-            <span class="sold_out">{{ variant.title }}</span>
+            <span class="sold_out">{% if has_multiple_colors %}{{ variant.title }}{% else %}{{ variant.title | split: ' / ' | last }}{% endif %}</span>
             {% endif %}
           </li>
+          {% endunless %}
           {% endfor %}
         </ul>
         
@@ -293,37 +303,13 @@ $(".fancybox")
       };   	
   });
 
-  $(document).ready(function(){
-    $('.variant_title').each(function(){
-    	var index = $(this).text().indexOf('/');
-        var variantString = $(this).text();
-        var newString = variantString.substring(index + 2, variantString.length);
-        var colorString = variantString.substring(0, index);
-      console.log(newString + " " + colorString);
-      $(this).html(newString + "<div class='variant_color'>" + colorString + "</div>");
-    });
-  
-    $('.sold_out').each(function(){
-    	var index = $(this).text().indexOf('/');
-        var variantString = $(this).text();
-        var newString = variantString.substring(index + 2, variantString.length);
-        var colorString = variantString.substring(0, index);
-      console.log(newString + " " + colorString);
-      $(this).html(newString + "<div class='variant_color'>" + colorString + "</div>");
-    });
-   
-    
-    
-  });
+});
                              		
 </script>
   
 <style>
 .variant_title {
-display: inline;
-}
-.variant_color {
-  display: none;
+  display: inline;
 }
 </style>
 

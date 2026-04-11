@@ -1,31 +1,422 @@
 <style>
-    /* White right-nav elements for black background hero */
+    /* Fix double scrollbar issue */
+    html {
+      overflow-x: hidden;
+      overflow-y: scroll;
+    }
+    
+    body#index {
+      height: auto !important;
+      min-height: 100vh;
+      overflow: initial !important;
+    }
+    
+    body#index #content {
+      overflow: visible;
+    }
+
+    /* Cyber Monday Hero Styles */
+    .cyber-monday-hero {
+      background-color: #efefef;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 76px 55px;
+      box-sizing: border-box;
+      grid-column: span 24;
+      overflow: hidden;
+    }
+
+    .cyber-monday-collage {
+      position: relative;
+      width: 100%;
+      max-width: 907px;
+      height: 693px;
+      margin: 0 auto;
+    }
+
+    .cyber-window {
+      position: absolute;
+      background-color: #f2f2f2;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0px 4px 30.5px 2px rgba(0, 0, 0, 0.25);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cyber-window-header {
+      background-color: #dfdfdf;
+      padding: 6px 8px;
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .cyber-traffic-lights {
+      display: flex;
+      gap: 2px;
+    }
+
+    .cyber-light {
+      width: 5px;
+      height: 5px;
+      border-radius: 100px;
+      border: 0.2px solid rgba(43, 43, 43, 0.5);
+    }
+
+    .cyber-light-red {
+      background-color: #f70000;
+    }
+
+    .cyber-light-yellow {
+      background-color: #fffb00;
+    }
+
+    .cyber-light-green {
+      background-color: #00d343;
+    }
+
+    .cyber-window-content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .cyber-window-content img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .cyber-window-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .cyber-window-link:hover {
+      opacity: 0.85;
+    }
+
+    .cyber-window-content-centered {
+      flex-direction: column;
+      gap: 10px;
+      padding: 25px 30px;
+    }
+
+    .cyber-window-content-duo {
+      flex-direction: row;
+    }
+
+    .cyber-window-content-duo .cyber-window-link {
+      width: 50%;
+    }
+
+    /* Window 1: Pants - Top Left */
+    .cyber-window-1 {
+      left: 15px;
+      top: 0;
+      width: 333px;
+      height: 310px;
+    }
+
+    .cyber-window-1 .cyber-window-content img {
+      width: auto;
+      max-width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* Window 6: Accessory - Top Center */
+    .cyber-window-6 {
+      left: 307px;
+      top: 22px;
+      width: 202px;
+      height: 133px;
+      z-index: 2;
+    }
+
+    .cyber-window-6 .cyber-window-content img {
+      object-fit: contain;
+      width: auto;
+      max-width: 100%;
+      height: 100%;
+    }
+
+    /* Window 2: Bag - Right Side */
+    .cyber-window-2 {
+      left: 563px;
+      top: 139px;
+      width: 344px;
+      height: 238px;
+    }
+
+    .cyber-window-2 .cyber-window-content img {
+      object-fit: contain;
+      width: auto;
+      max-width: 100%;
+      height: 100%;
+    }
+
+    /* Window 5: Logo + Cyber Monday - Center */
+    .cyber-window-5 {
+      left: 283px;
+      top: 207px;
+      width: 317px;
+      height: 200px;
+      z-index: 3;
+    }
+
+    .cyber-window-5 .cyber-window-content-centered {
+      gap: 5px;
+      padding: 15px 20px;
+    }
+
+    .cyber-logo-link {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+    }
+
+    .cyber-logo {
+      width: 28px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .cyber-adsum-text {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      color: #000;
+      white-space: nowrap;
+    }
+
+    .cyber-monday-text {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 700;
+      font-size: 32px;
+      color: #f70000;
+      white-space: nowrap;
+    }
+
+    .cyber-promo-text {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 400;
+      font-size: 11px;
+      color: #2b2b2b;
+      text-align: center;
+      line-height: 1.4;
+      max-width: 260px;
+    }
+
+    .cyber-promo-code {
+      color: #f70000;
+      font-weight: 700;
+    }
+
+    /* Window 4: Two Models - Bottom Left Large */
+    .cyber-window-4 {
+      left: 0;
+      top: 367px;
+      width: 566px;
+      height: 326px;
+    }
+
+    /* Window 3: Shoe - Bottom Right */
+    .cyber-window-3 {
+      left: 591px;
+      top: 458px;
+      width: 288px;
+      height: 143px;
+    }
+
+    .cyber-window-3 .cyber-window-content {
+      padding: 15px 30px;
+    }
+
+    .cyber-window-3 .cyber-window-content img {
+      object-fit: contain;
+      width: auto;
+      max-width: 100%;
+      height: 100%;
+      transform: scale(1.5);
+    }
+
+    /* Responsive styles for Cyber Monday hero */
+    @media (max-width: 1024px) {
+      .cyber-monday-hero {
+        padding: 60px 30px;
+      }
+
+      .cyber-monday-collage {
+        transform: scale(0.75);
+        transform-origin: center center;
+        height: 520px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .cyber-monday-hero {
+        padding: 40px 20px;
+        min-height: auto;
+      }
+
+      .cyber-monday-collage {
+        position: relative;
+        width: 100%;
+        height: auto;
+        max-width: 400px;
+        transform: none;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .cyber-window {
+        position: relative;
+        left: auto !important;
+        top: auto !important;
+        width: 100% !important;
+        height: auto !important;
+      }
+
+      .cyber-window-1,
+      .cyber-window-2,
+      .cyber-window-3,
+      .cyber-window-6 {
+        display: none;
+      }
+
+      .cyber-window-5 {
+        order: 1;
+        height: auto !important;
+        min-height: 160px;
+        width: 85% !important;
+        margin: 0 auto;
+      }
+
+      .cyber-promo-text {
+        font-size: 10px;
+        max-width: 100%;
+        padding: 0 10px;
+      }
+
+      .cyber-window-4 {
+        order: 2;
+        height: 250px !important;
+      }
+
+      .cyber-window-3 {
+        order: 3;
+        height: 120px !important;
+      }
+
+      .cyber-window-3 .cyber-window-content {
+        padding: 15px 30px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .cyber-monday-hero {
+        padding: 30px 15px;
+      }
+
+      .cyber-monday-collage {
+        gap: 12px;
+      }
+
+      .cyber-adsum-text {
+        font-size: 14px;
+      }
+
+      .cyber-monday-text {
+        font-size: 22px;
+      }
+
+      .cyber-logo {
+        width: 12px;
+      }
+
+      .cyber-window-4 {
+        height: 200px !important;
+      }
+
+      .cyber-promo-text {
+        font-size: 9px;
+        line-height: 1.3;
+      }
+    }
+
+    /* Homepage nav starts white over hero, transitions to black below hero */
     #index .right-nav,
     #index .right-nav .search,
     #index .right-nav .desktop-search,
     #index #eyebrow-cart,
-    #index .currency-picker {
-      color: #fff;
-    }
-    #index .right-nav .search-input,
-    #index .right-nav .search-input-btn {
-      color: #fff;
-      border-color: #fff;
-    }
-    #index .right-nav .search-input::placeholder {
-      color: rgba(255, 255, 255, 0.7);
-    }
-    #index .right-nav .search-input-btn:hover {
-      background-color: #fff;
-      color: #000;
-    }
-    /* Country switcher white text */
+    #index .currency-picker,
     #index #country-switcher,
     #index #country-switcher .disclosure__button,
     #index localization-form,
     #index localization-form .disclosure,
     #index localization-form .disclosure__button {
+      color: #000;
+      transition: color 0.3s ease;
+    }
+    #index .right-nav .search-input,
+    #index .right-nav .search-input-btn {
+      color: #000;
+      border-color: #000;
+      transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+    }
+    #index .right-nav .search-input::placeholder {
+      color: rgba(0, 0, 0, 0.7);
+      transition: color 0.3s ease;
+    }
+    #index .right-nav .search-input-btn:hover {
+      background-color: #000;
       color: #fff;
+    }
+    #index .mobile-logo-image {
+      filter: none;
+      transition: filter 0.3s ease;
+    }
+    #index.index-hero-light-nav .right-nav,
+    #index.index-hero-light-nav .right-nav .search,
+    #index.index-hero-light-nav .right-nav .desktop-search,
+    #index.index-hero-light-nav #eyebrow-cart,
+    #index.index-hero-light-nav .currency-picker,
+    #index.index-hero-light-nav #country-switcher,
+    #index.index-hero-light-nav #country-switcher .disclosure__button,
+    #index.index-hero-light-nav localization-form,
+    #index.index-hero-light-nav localization-form .disclosure,
+    #index.index-hero-light-nav localization-form .disclosure__button {
+      color: #fff;
+    }
+    #index.index-hero-light-nav .right-nav .search-input,
+    #index.index-hero-light-nav .right-nav .search-input-btn {
+      color: #fff;
+      border-color: #fff;
+    }
+    #index.index-hero-light-nav .right-nav .search-input::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+    #index.index-hero-light-nav .right-nav .search-input-btn:hover {
+      background-color: #fff;
+      color: #000;
+    }
+    #index.index-hero-light-nav .mobile-logo-image {
+      filter: brightness(0) invert(1);
     }
 
     .fw22-link {
@@ -177,27 +568,27 @@
       width: auto;
       max-width: 280px;
     }
-    /* Mobile header white styles (menu closed) */
+    /* Mobile header styles for light background */
     #index .header-mobile {
       background: transparent;
     }
     #index .header-mobile .hamburger-inner,
     #index .header-mobile .hamburger-inner::before,
     #index .header-mobile .hamburger-inner::after {
-      background-color: #fff;
+      background-color: #000;
       transition: background-color 0.3s ease;
     }
     #index .header-mobile .mobile-cart,
     #index .header-mobile .cart-count {
-      color: #fff;
+      color: #000;
       transition: color 0.3s ease;
     }
     #index .mobile-logo-image {
-      filter: brightness(0) invert(1);
+      filter: none;
       transition: filter 0.3s ease;
     }
     
-    /* Mobile header black styles (menu open - .cool class applied) */
+    /* Mobile header styles (menu open - .cool class applied) */
     #index .header-mobile.cool .hamburger-inner,
     #index .header-mobile.cool .hamburger-inner::before,
     #index .header-mobile.cool .hamburger-inner::after {
@@ -262,10 +653,164 @@
       grid-auto-rows: min-content;
       transition: all .3s ease;
     }
+
+    /* ELAC hero (Figma node 580:2) */
+    .elac-hero {
+      position: relative;
+      width: 100%;
+      height: 880px;
+      grid-column: span 24;
+      overflow: hidden;
+      background-color: #000;
+      background-image: url({{ 'DSCF3967 copy.jpg' | asset_url }});
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+
+    .elac-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.18) 0%, rgba(0, 0, 0, 0.38) 100%);
+      pointer-events: none;
+    }
+
+    .elac-hero-content {
+      position: absolute;
+      left: 60px;
+      bottom: 75px;
+      width: 300px;
+      padding: 0 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 2;
+    }
+
+    .elac-hero-title {
+      margin: 0;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 1;
+      color: #fff;
+    }
+
+    .elac-hero-copy {
+      margin: 0;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 1.1;
+      color: #fff;
+      max-width: 280px;
+    }
+
+    .elac-hero-shop-btn {
+      padding: 9px 15px;
+      background-color: #fff;
+      color: #2b2b2b;
+      width: 155px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      line-height: 1;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .elac-hero-shop-btn:hover {
+      background-color: #2b2b2b;
+      color: #fff;
+    }
+
+    .elac-hero-shop-btn:hover .elac-hero-shop-btn-arrow path {
+      stroke: #fff;
+    }
+
+    .elac-hero-shop-btn-arrow {
+      width: 15px;
+      height: 8px;
+      flex-shrink: 0;
+    }
+
+    .elac-hero-shop-btn-arrow path {
+      transition: stroke 0.3s ease;
+    }
+
+    @media (max-width: 1100px) {
+      .elac-hero {
+        height: 82vh;
+        min-height: 680px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      #index #content > .index-grid-1:first-of-type {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+      #index .header-mobile {
+        z-index: 30;
+      }
+      #index.index-hero-light-nav .header-mobile .hamburger-inner,
+      #index.index-hero-light-nav .header-mobile .hamburger-inner::before,
+      #index.index-hero-light-nav .header-mobile .hamburger-inner::after {
+        background-color: #fff;
+      }
+      #index.index-hero-light-nav .header-mobile .mobile-cart,
+      #index.index-hero-light-nav .header-mobile .cart-count {
+        color: #fff;
+      }
+      .elac-hero {
+        height: 100vh;
+        height: 100svh;
+        min-height: 100vh;
+      }
+      .elac-hero-content {
+        left: 24px;
+        bottom: 50px;
+      }
+      .elac-hero-title {
+        font-size: 18px;
+      }
+      .elac-hero-copy {
+        font-size: 14px;
+      }
+      .elac-hero-shop-btn {
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .elac-hero {
+        min-height: 100vh;
+        min-height: 100svh;
+        background-position: 58% center;
+      }
+      .elac-hero-content {
+        left: 14px;
+        right: 14px;
+        bottom: 30px;
+        width: auto;
+        padding: 0;
+      }
+      .elac-hero-copy {
+        max-width: 250px;
+      }
+      .elac-hero-shop-btn {
+        padding: 7px 16px;
+        font-size: 12px;
+      }
+    }
   @media (max-width: 900px) {
     .index-grid-1 {
       grid-template-columns: repeat(12, 1fr);
-      padding: 0 0 20px;
+      padding: 40px 0 20px;
       row-gap: 20px;
     }
     .first-block-img {
@@ -927,8 +1472,8 @@
       flex-direction: column;
       gap: 5px;
       width: 726px;
+      max-width: 50%;
       height: 100%;
-      flex-shrink: 0;
       overflow: hidden;
   }
 
@@ -963,8 +1508,8 @@
   .bento-right {
       position: relative;
       width: 716px;
+      max-width: 50%;
       height: 1055px;
-      flex-shrink: 0;
   }
 
   .bento-main-image {
@@ -1029,12 +1574,12 @@
 
       .bento-left {
           width: 100%;
-          max-width: 726px;
+          max-width: 100%;
       }
 
       .bento-right {
           width: 100%;
-          max-width: 716px;
+          max-width: 100%;
           height: auto;
           aspect-ratio: 716 / 1074;
       }
@@ -1068,31 +1613,11 @@
     }
 
    @media (max-width: 768px) {
-  
     .collection-bento .bento-right { display: none !important; }
-
-  
-  .collection-bento .bento-left .bento-item:last-child { position: relative !important; }
-
-  
-  .shop-collection-link--desktop { display: none !important; }
-
-  
-  .collection-bento .bento-item { position: relative; }
-
-
-.fw22-link--bento {
-  position: absolute;
-  left: 16px;
-  bottom: 16px;
-  color: #000;
-  text-decoration: none;
-  border-radius: 4px;
-  padding: 10px 12px;           
-  line-height: 20px;
-  z-index: 10;
-}
-}
+    .collection-bento .bento-left .bento-item:last-child { position: relative !important; }
+    .shop-collection-link--desktop { display: none !important; }
+    .collection-bento .bento-item { position: relative; }
+  }
   
 
 
@@ -1256,23 +1781,41 @@
 
 .collection-bento .bento-item { position: relative; }
 
-/* Global placement for the bento CTA */
+/* Global placement for the bento CTA - stays fixed within bounds */
 .fw22-link--bento {
   position: absolute;
   left: 24px;
+  right: 24px;
   bottom: 24px;
+  width: auto;
   color: #000;
   text-decoration: none;
   border-radius: 4px;
-  padding: 10px 12px;
+  padding: 10px 0;
   line-height: 20px;
   z-index: 10;
+  font-size: 14px;
 }
 .fw22-link--bento:hover { opacity: 0.7; }
 
-/* Tighten on small screens */
+/* Tablet and smaller */
 @media (max-width: 768px) {
-  .fw22-link--bento { left: 16px; bottom: 16px; }
+  .fw22-link--bento { 
+    left: 16px; 
+    right: 16px;
+    bottom: 16px;
+    font-size: 13px;
+  }
+}
+
+/* Small screens */
+@media (max-width: 480px) {
+  .fw22-link--bento { 
+    left: 12px; 
+    right: 12px;
+    bottom: 12px;
+    font-size: 12px;
+  }
 }
 </style>
 
@@ -1290,21 +1833,20 @@
 {% endcomment %}
 
 <div class="index-grid-1">
-  <div class="first-block-img fw25-img">
-    <div class="hero-container">
-      <div class="hero-image-wrapper">
-        <img src="{{ '9B3A2811.jpg' | asset_url }}" alt="Black Friday Sale" loading="eager">
-      </div>
-      <h1 class="hero-title">Black Friday Sale</h1>
-      <div class="hero-info-box">
-        <p class="hero-info-title">Black Friday Sale</p>
-        <p class="hero-info-copy">Shop the Adsum 2025 Black Friday Warehouse Sale here.</p>
-        <a href="/collections/fw25-black-friday-sale" class="hero-shop-btn">Shop Sale</a>
-      </div>
+  <div class="elac-hero" data-name="Hero-Header">
+    <div class="elac-hero-content">
+      <p class="elac-hero-title">Adsum + ELAC NAVA100</p>
+      <p class="elac-hero-copy">We have partnered with ELAC to design our take on the NAVA100</p>
+      <a href="/products/adsum-elac-nava100" class="elac-hero-shop-btn">
+        <span>Shop Now</span>
+        <svg class="elac-hero-shop-btn-arrow" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M1 4H14M14 4L11 1M14 4L11 7" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
     </div>
   </div>
-  <div class="first-block-img-2 fw25-img-2"></div>
 </div>
+
 {% comment %}
   <div class="index-grid-1">
     <div class="first-block-img gramicci-img">
@@ -1317,7 +1859,7 @@
     </div>
   </div>
 {% endcomment %}
-
+{% comment %}
 <section class="collection-bento">
   <div class="bento-left">
     <div class="bento-item">
@@ -1342,7 +1884,7 @@
       loading="lazy"
     >
   </div>
-
+  
   
   <a href="{{ collections['tops'].url | default: '/collections/tops' }}"
      class="fw22-link fw22-link--bento"
@@ -1360,7 +1902,7 @@
         alt="Model Image"
       >
     </div>
-
+{% endcomment %}
       {% comment %}
        <a href="/collections/all" class="shop-collection-link shop-collection-link--desktop">
       <svg class="arrow-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"
@@ -1471,7 +2013,31 @@
 
 <script>
   $('.header-fullsite-fixed').addClass('header-fullsite').removeClass('header-fullsite-fixed');
-  $('.header-fullsite').addClass('menu-to-white');
+  (function () {
+    var heroNavOffset = 120;
+
+    function updateIndexHeaderTheme() {
+      var $hero = $('.elac-hero');
+      if (!$hero.length) {
+        return;
+      }
+
+      var heroBottom = $hero.offset().top + $hero.outerHeight() - heroNavOffset;
+      var shouldUseWhiteNav = $(window).scrollTop() < heroBottom;
+      var $header = $('.header-fullsite, .header-fullsite-fixed');
+
+      if (shouldUseWhiteNav) {
+        $header.addClass('menu-to-white').removeClass('menu-to-black');
+        $('#index').addClass('index-hero-light-nav');
+      } else {
+        $header.addClass('menu-to-black').removeClass('menu-to-white');
+        $('#index').removeClass('index-hero-light-nav');
+      }
+    }
+
+    updateIndexHeaderTheme();
+    $(window).on('scroll resize', updateIndexHeaderTheme);
+  })();
 </script>
 
 <script type="text/javascript">
