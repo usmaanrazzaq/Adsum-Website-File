@@ -9122,9 +9122,8 @@ h2.preview-title {
 
 .product-info-column {
     grid-column: 2;
-    position: sticky;
- 
-    top: 76px;
+    position: relative;
+    top: 0;
     height: fit-content;
     padding-left: 40px;
 }
@@ -13732,9 +13731,11 @@ width: 100%;
   position: relative;
   left: 0;
   top: 0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 13px;
   font-weight: 400;
-  padding: 76px 50px 12px 240px;
+  padding: 0;
+  margin: 0 0 25px 0;
   text-transform: none;
   letter-spacing: 0;
   color: #000;
@@ -13746,7 +13747,7 @@ width: 100%;
 
 .product-pdp-v2 .product-pdp-gallery__img {
   background: #f4f4f4;
-  margin-bottom: 28px;
+  margin-bottom: 25px;
 }
 
 .product-pdp-v2 .product-pdp-gallery__img:last-child {
