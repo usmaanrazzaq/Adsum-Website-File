@@ -45,7 +45,9 @@
   {% else %}
       <a href="/account/login" class="nav-link">Sign in</a>
   {% endif %} -->
-  
+
+  <div id="country-switcher" class="right-nav-country">{%- render 'country-switcher' -%}</div>
+
   <div class="search desktop-search">
     Search
   </div>
@@ -86,8 +88,6 @@
   </div>
 
 </header>
-
-<div id="country-switcher">{%- render 'country-switcher' -%}</div>
 
 <script type="text/javascript">//<![CDATA[
   $(function(){

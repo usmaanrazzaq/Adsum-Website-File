@@ -1,0 +1,43 @@
+{% comment %}
+  Accordion bodies for product PDP (details, size & fit, shipping).
+  Content is sourced from existing theme snippets and product description.
+{% endcomment %}
+
+<div class="product-pdp-accordion-panels">
+  <details class="product-pdp-details">
+    <summary class="product-pdp-details__summary">
+      <span class="product-pdp-details__label">Product Details</span>
+      <span class="product-pdp-details__icon" aria-hidden="true"></span>
+    </summary>
+    <div class="product-pdp-details__body rte">
+      {{ product.description }}
+    </div>
+  </details>
+
+  <details class="product-pdp-details">
+    <summary class="product-pdp-details__summary">
+      <span class="product-pdp-details__label">Size &amp; Fit</span>
+      <span class="product-pdp-details__icon" aria-hidden="true"></span>
+    </summary>
+    <div class="product-pdp-details__body product-pdp-details__body--size rte">
+      {{ product.description }}
+      <div
+        data-app="eastsideco_sizeGuides"
+        data-shop="{{ shop.permanent_domain }}"
+        data-tags="{{ product.tags | join: ',' | escape }}"
+        data-metafields="{{ product.metafields.esc-size-matters.tag }}"
+        data-popup="">
+      </div>
+    </div>
+  </details>
+
+  <details class="product-pdp-details">
+    <summary class="product-pdp-details__summary">
+      <span class="product-pdp-details__label">Shipping &amp; Returns</span>
+      <span class="product-pdp-details__icon" aria-hidden="true"></span>
+    </summary>
+    <div class="product-pdp-details__body rte product-pdp-details__body--shipping">
+      {% render 'shipping-returns' %}
+    </div>
+  </details>
+</div>

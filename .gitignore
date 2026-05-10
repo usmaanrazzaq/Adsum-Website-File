@@ -1,3 +1,7 @@
-# macOS AppleDouble / resource fork files (never commit)
+# macOS AppleDouble / resource fork files (never commit / never upload to Shopify)
 ._*
 .DS_Store
+
+# Editor temp files (Shopify upload requires strict *.liquid / asset extensions)
+*.tmp.*
+**/*.tmp.*
