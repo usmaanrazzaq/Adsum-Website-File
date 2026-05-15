@@ -127,6 +127,14 @@ $(".fancybox")
     color: #ee5943;
     margin-right: 8px;
   }
+  .product-pdp-v2 .product-pdp-heading-row__soldout {
+    color: #ee5943;
+    font-size: 20px;
+    line-height: 1;
+    display: block;
+    text-align: right;
+    padding-top: 2px;
+  }
 
   .product-pdp-v2 .product-pdp-lede {
     font-size: 13px;
@@ -558,16 +566,30 @@ $(".fancybox")
   <div class="product-pdp-heading-row">
     <h1 class="product-title2 product-pdp-heading-row__title">{{ product.title }}</h1>
     <div class="product-pdp-heading-row__price">
-      {% if product.compare_at_price_max > product.price %}
-        <span class="product-pdp-heading-row__compare">{{ product.compare_at_price_max | money | remove: ' USD' }}</span>
+      {% if product.available %}
+        {% if product.compare_at_price_max > product.price %}
+          <span class="product-pdp-heading-row__compare">{{ product.compare_at_price_max | money | remove: ' USD' }}</span>
+        {% endif %}
+        <span class="product-pdp-heading-row__current">{{ product.price | money | remove: ' USD' }}</span>
+      {% else %}
+        <span class="product-pdp-heading-row__soldout">SOLD OUT</span>
       {% endif %}
-      <span class="product-pdp-heading-row__current">{{ product.price | money | remove: ' USD' }}</span>
     </div>
   </div>
 
-  {% if product.description != blank %}
+  {% assign pdp_lede = product.metafields.custom.pdp_lede %}
+  {% assign pdp_lede_value = pdp_lede.value %}
+  {% if pdp_lede_value != blank or product.description != blank %}
   <div class="product-pdp-lede rte">
-    {{ product.description }}
+    {% if pdp_lede_value != blank %}
+      {% if pdp_lede.type == 'rich_text_field' %}
+        {{ pdp_lede | metafield_tag }}
+      {% else %}
+        {{ pdp_lede_value | newline_to_br }}
+      {% endif %}
+    {% else %}
+      {{ product.description }}
+    {% endif %}
   </div>
   {% endif %}
 
@@ -627,8 +649,6 @@ $(".fancybox")
         <div id="purchase-wrapper" class="product-pdp-purchase">
           {% if product.available == true %}
             <input type="submit" name="add" value="Add to cart" id="purchase" class="addtocart2 product-pdp-addtocart" />
-          {% else %}
-            <div class="product-sold-out product-pdp-soldout">SOLD OUT</div>
           {% endif %}
         </div>
       </div>

@@ -3,6 +3,50 @@
   Content is sourced from existing theme snippets and product description.
 {% endcomment %}
 
+{% assign product_details = product.metafields.custom.product_details %}
+{% assign size_fit = product.metafields.custom.size_fit %}
+{% assign product_details_value = product_details.value %}
+{% assign size_fit_value = size_fit.value %}
+
+<style>
+  .product-pdp-accordion-panels .product-pdp-details__body ul {
+    list-style: disc !important;
+    list-style-position: outside !important;
+    padding-left: 18px !important;
+    margin: 0 !important;
+  }
+  .product-pdp-accordion-panels .product-pdp-details__body ul li {
+    list-style: disc !important;
+    list-style-position: outside !important;
+    display: list-item !important;
+    margin: 0 0 6px 0 !important;
+    padding: 0 !important;
+  }
+  .product-pdp-accordion-panels .product-pdp-details__body ul li::marker {
+    color: #000;
+  }
+  .product-pdp-accordion-panels .product-pdp-details__body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 13px;
+    line-height: 1.35;
+  }
+  .product-pdp-accordion-panels .product-pdp-details__body th,
+  .product-pdp-accordion-panels .product-pdp-details__body td {
+    border: 0.5px solid rgba(30, 30, 30, 0.2);
+    padding: 8px 10px;
+    text-align: center;
+  }
+  .product-pdp-accordion-panels .product-pdp-details__body th {
+    font-weight: 500;
+  }
+  .product-pdp-accordion-panels .product-pdp-details__body p {
+    margin: 0;
+    line-height: 1.45;
+  }
+</style>
+
 <div class="product-pdp-accordion-panels">
   <details class="product-pdp-details">
     <summary class="product-pdp-details__summary">
@@ -10,7 +54,15 @@
       <span class="product-pdp-details__icon" aria-hidden="true"></span>
     </summary>
     <div class="product-pdp-details__body rte">
-      {{ product.description }}
+      {% if product_details_value != blank %}
+        {% if product_details.type == 'rich_text_field' %}
+          {{ product_details | metafield_tag }}
+        {% else %}
+          {{ product_details_value | newline_to_br }}
+        {% endif %}
+      {% else %}
+        {{ product.description }}
+      {% endif %}
     </div>
   </details>
 
@@ -20,7 +72,13 @@
       <span class="product-pdp-details__icon" aria-hidden="true"></span>
     </summary>
     <div class="product-pdp-details__body product-pdp-details__body--size rte">
-      {{ product.description }}
+      {% if size_fit_value != blank %}
+        {% if size_fit.type == 'rich_text_field' %}
+          {{ size_fit | metafield_tag }}
+        {% else %}
+          {{ size_fit_value | newline_to_br }}
+        {% endif %}
+      {% endif %}
       <div
         data-app="eastsideco_sizeGuides"
         data-shop="{{ shop.permanent_domain }}"
