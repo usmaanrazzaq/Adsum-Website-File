@@ -2672,24 +2672,35 @@ h4.address_title {
   line-height: 16px;
   font-size: 11px;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 30px;
   white-space: nowrap;
   padding-top: 48px;
 }
 
-.right-nav-country {
-  display: inline;
+.right-nav-country,
+.right-nav-country localization-form,
+.right-nav-country .disclosure {
+  display: flex;
+  align-items: center;
   font-size: 11px;
   line-height: 16px;
   white-space: nowrap;
+  margin: 0;
+  padding: 0;
 }
 
 .right-nav-country .disclosure__button {
   background: none;
   border: none;
+  -webkit-appearance: none;
+  appearance: none;
+  display: flex;
+  align-items: center;
   font-size: 11px;
+  line-height: 16px;
   cursor: pointer;
+  margin: 0;
   padding: 0;
   font-family: inherit;
   color: inherit;
@@ -10986,7 +10997,7 @@ text-transform: uppercase;
     display: inline;
     font-size: 11px;
     margin-top: 0px;
-    line-height: 14px;
+    line-height: 16px;
     padding: 0;
   	z-index: 1;
 }

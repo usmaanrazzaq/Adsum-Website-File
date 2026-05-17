@@ -1,0 +1,98 @@
+{% comment %}
+GWP Cart Banner — Free Classic Logo Hat - Stone with $200+ purchase
+Include in layout/theme.liquid just after: {% include 'ajaxify-cart' %}
+Add as: {% render 'gwp-cart-banner' %}
+{% endcomment %}
+
+<div id="gwp-banner-wrap" style="display:none; text-align:center; padding:15px 0;">
+  <div id="gwp-banner" style="display:inline-flex; align-items:center; gap:20px; background:#edf4ef; border:0.5px solid rgba(43,43,43,0.5); padding:15px 10px; box-sizing:border-box; text-align:left;">
+    <img
+      src="https://cdn.shopify.com/s/files/1/0664/2387/files/Adsum_Hat_Grey-1103-opt_02244d88-8192-4e49-bdb6-fe831420536c.jpg"
+      alt="Classic Logo Hat - Stone"
+      style="width:85px; height:85px; object-fit:cover; display:block; flex-shrink:0;"
+    />
+    <span id="gwp-banner-msg" style="font-family:'Inter','Helvetica Neue',Helvetica,sans-serif; font-size:14px; color:#000; line-height:normal; white-space:nowrap;"></span>
+  </div>
+</div>
+
+<script>
+  (function() {
+    var THRESHOLD = 20000; // $200.00 in cents
+    var CART_URL_PATTERN = /\/cart\/?(add|change|update|clear)(\.js)?/;
+
+    function formatMoney(cents) {
+      return '$' + (cents / 100).toFixed(2).replace(/\.00$/, '');
+    }
+
+    function updateBanner(cart) {
+      var wrap = document.getElementById('gwp-banner-wrap');
+      var banner = document.getElementById('gwp-banner');
+      var msg = document.getElementById('gwp-banner-msg');
+      var total = cart && typeof cart.total_price === 'number' ? cart.total_price : 0;
+
+      if (!wrap || !banner || !msg) return;
+
+      if (total <= 0) {
+        wrap.style.display = 'none';
+        return;
+      }
+
+      if (total >= THRESHOLD) {
+        banner.style.background = '#edf4ef';
+        msg.textContent = 'You’ve unlocked a free Classic Logo Hat - Stone - It will be added to your order automatically.';
+      } else {
+        var remaining = THRESHOLD - total;
+        banner.style.background = '#f5f4ef';
+        msg.textContent = 'Spend ' + formatMoney(remaining) + ' more to receive a free Classic Logo Hat - Stone with your order.';
+      }
+
+      wrap.style.display = 'block';
+    }
+
+    function fetchAndUpdate() {
+      if (!window.fetch) return;
+
+      fetch('/cart.js')
+        .then(function(response) { return response.json(); })
+        .then(updateBanner)
+        .catch(function() {});
+    }
+
+    function scheduleUpdate() {
+      window.setTimeout(fetchAndUpdate, 400);
+    }
+
+    function watchXHR() {
+      var originalOpen = XMLHttpRequest.prototype.open;
+
+      XMLHttpRequest.prototype.open = function(method, url) {
+        if (typeof url === 'string' && CART_URL_PATTERN.test(url)) {
+          this.addEventListener('load', scheduleUpdate);
+        }
+
+        return originalOpen.apply(this, arguments);
+      };
+    }
+
+    function watchFetch() {
+      if (!window.fetch) return;
+
+      var originalFetch = window.fetch;
+
+      window.fetch = function(input, init) {
+        var url = typeof input === 'string' ? input : input && input.url;
+        var request = originalFetch.apply(this, arguments);
+
+        if (typeof url === 'string' && CART_URL_PATTERN.test(url)) {
+          request.then(scheduleUpdate).catch(function() {});
+        }
+
+        return request;
+      };
+    }
+
+    document.addEventListener('DOMContentLoaded', fetchAndUpdate);
+    watchXHR();
+    watchFetch();
+  })();
+</script>
