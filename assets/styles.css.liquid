@@ -1062,6 +1062,31 @@ img.lazyload:not([src]) {
   box-sizing: border-box;
 }
 
+.site-promo-banner {
+  position: relative;
+  z-index: 1001;
+  width: 100%;
+  min-height: 30px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 15px;
+  background: #fff;
+  border-bottom: 0.5px solid rgba(43, 43, 43, 0.5);
+  text-align: center;
+}
+
+.site-promo-banner p {
+  margin: 0;
+  color: #000;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+
 /* Menu: hide inner scrollbar while keeping it scrollable */
 .menu {
   scrollbar-width: none;        /* Firefox */
@@ -2088,9 +2113,9 @@ img.lazyload:not([src]) {
   visibility: hidden;
   display: inline;
   position: absolute;
-  top: 0px;
+  top: 48px;
   padding: 20px 0 0 0;
-  left: 0px; 
+  left: 0px;
   font-size: 11px; 
   line-height: 14px;
   -moz-transition: all .3s ease-in-out;
@@ -9062,7 +9087,7 @@ h2.preview-title {
 
 .cart-count {
     position: absolute;
-    top: 12px;
+    top: 24px;
     right: 62px;
     color: #000;
     font-size: 10px;
@@ -10354,7 +10379,6 @@ input[type="submit"] {
   -ms-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
 }
-
 
 .lookbook-height {
   height: 70px;
@@ -13128,14 +13152,20 @@ transition: all .1s ease-in-out;
 .header-mobile {
 	display: block;
 	background: #fff;
-	position:fixed;
+	position: sticky;
+	top: 0;
+	padding-top: 12px;
 	width: 100%;
-	z-index: 99;
+	z-index: 1000;
     -moz-transition: all .3s ease-in-out;
   -webkit-transition: all .3s ease-in-out;
   -o-transition: all .3s ease-in-out;
   -ms-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
+}
+
+.header-mobile.nav-up {
+	top: 0;
 }
 
 #eyebrow-cart {
