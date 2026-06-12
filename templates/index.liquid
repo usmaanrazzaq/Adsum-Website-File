@@ -1820,6 +1820,141 @@
     font-size: 12px;
   }
 }
+
+/* Portugal Series — Adsum SS26 (Figma node 854:76) */
+.portugal-series {
+  position: relative;
+  width: 100%;
+  grid-column: span 24;
+  background-color: #fff;
+  min-height: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.portugal-series-media {
+  position: relative;
+  height: 671px;
+  width: 504px;
+  max-width: 86vw;
+  flex-shrink: 0;
+}
+
+.portugal-series-content {
+  position: absolute;
+  left: 60px;
+  bottom: 65px;
+  width: 303px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 2;
+}
+
+.portugal-series-title {
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.1;
+  color: #2b2b2b;
+}
+
+.portugal-series-copy {
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.2;
+  color: #2b2b2b;
+}
+
+.portugal-series-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 212px;
+  max-width: 100%;
+  padding: 10px 25px;
+  box-sizing: border-box;
+  background-color: #2b2b2b;
+  color: #fff;
+  text-decoration: none;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.1;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+}
+
+.portugal-series-btn:hover {
+  opacity: 0.85;
+}
+
+@media (max-width: 1100px) {
+  .portugal-series {
+    min-height: 760px;
+  }
+  .portugal-series-media {
+    height: 560px;
+    width: 420px;
+  }
+}
+
+@media (max-width: 900px) {
+  /* Stack image over text and top-align so there's no large gap below the header */
+  .portugal-series {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: auto;
+    padding: 24px 24px 60px;
+  }
+  .portugal-series-media {
+    height: auto;
+    width: 100%;
+    max-width: 460px;
+    aspect-ratio: 504 / 671;
+  }
+  .portugal-series-content {
+    position: static;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    max-width: 460px;
+    padding: 0;
+    margin-top: 24px;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .portugal-series {
+    padding: 16px 14px 50px;
+  }
+  .portugal-series-media {
+    max-width: none;
+  }
+  .portugal-series-content {
+    max-width: none;
+    margin-top: 20px;
+  }
+  .portugal-series-title {
+    font-size: 20px;
+  }
+  .portugal-series-copy {
+    font-size: 14px;
+  }
+  .portugal-series-btn {
+    font-size: 14px;
+  }
+}
 </style>
 
 {% comment %}
@@ -1835,19 +1970,26 @@
   </p>
 {% endcomment %}
 
+{% assign portugal_collection = collections['portugal-series'] %}
 <div class="index-grid-1">
-  <div class="elac-hero" data-name="Hero-Header">
-    <div class="elac-hero-content">
-      <p class="elac-hero-title">Adsum + ELAC NAVA100</p>
-      <p class="elac-hero-copy">We have partnered with ELAC to design our take on the NAVA100</p>
-      <a href="/products/adsum-elac-nava100" class="elac-hero-shop-btn">
-        <span>Shop Now</span>
-        <svg class="elac-hero-shop-btn-arrow" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M1 4H14M14 4L11 1M14 4L11 7" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+  <section class="portugal-series" data-name="Adsum SS26 - Portugal Series">
+    {% include 'image-delay-transition',
+      images: 'adsum-ss26-portugal-1.jpg,adsum-ss26-portugal-3.jpg,adsum-ss26-portugal-4.jpg',
+      alt: 'Adsum Made in Portugal Series — SS26',
+      interval: 4000,
+      fade: 1400,
+      aspect: '504 / 671',
+      sizes: '(max-width: 600px) 80vw, 504px',
+      class: 'portugal-series-media'
+    %}
+    <div class="portugal-series-content">
+      <p class="portugal-series-title">Portugal Series</p>
+      <p class="portugal-series-copy">Introducing our Made in Portugal Series for SS26.</p>
+      <a href="{{ portugal_collection.url | default: '/collections/all' }}" class="portugal-series-btn">
+        Shop Now
       </a>
     </div>
-  </div>
+  </section>
 </div>
 
 {% comment %}
@@ -2017,25 +2159,12 @@
 <script>
   $('.header-fullsite-fixed').addClass('header-fullsite').removeClass('header-fullsite-fixed');
   (function () {
-    var heroNavOffset = 120;
-
+    // The SS26 Portugal Series hero is light (white background),
+    // so the nav stays dark across the whole homepage.
     function updateIndexHeaderTheme() {
-      var $hero = $('.elac-hero');
-      if (!$hero.length) {
-        return;
-      }
-
-      var heroBottom = $hero.offset().top + $hero.outerHeight() - heroNavOffset;
-      var shouldUseWhiteNav = $(window).scrollTop() < heroBottom;
       var $header = $('.header-fullsite, .header-fullsite-fixed');
-
-      if (shouldUseWhiteNav) {
-        $header.addClass('menu-to-white').removeClass('menu-to-black');
-        $('#index').addClass('index-hero-light-nav');
-      } else {
-        $header.addClass('menu-to-black').removeClass('menu-to-white');
-        $('#index').removeClass('index-hero-light-nav');
-      }
+      $header.addClass('menu-to-black').removeClass('menu-to-white');
+      $('#index').removeClass('index-hero-light-nav');
     }
 
     updateIndexHeaderTheme();

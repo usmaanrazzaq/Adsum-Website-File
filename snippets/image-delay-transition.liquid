@@ -1,0 +1,152 @@
+{%- comment -%}
+  Image Delay Transition
+  ----------------------
+  Auto-playing crossfade between two (or more) images on a timed delay.
+  Mirrors the Figma "After Delay" image transition component used in the
+  SS26 still-life design.
+
+  The crossfade is layered: the incoming image fades in ON TOP of the
+  currently visible one (which stays put underneath), so there is never a
+  dip to the background mid-transition. Easing is a smooth ease-in-out.
+
+  Usage:
+    {% include 'image-delay-transition',
+       images: 'adsum-ss26-portugal-1.jpg,adsum-ss26-portugal-3.jpg',
+       alt: 'Portugal Series still life',
+       interval: 4000,
+       fade: 1400,
+       class: 'portugal-series-media' %}
+
+  Params:
+    images   - (required) comma-separated theme asset filenames, or full URLs
+    alt      - (optional) alt text applied to every image
+    interval - (optional) ms each image is held before crossfading (default 4000)
+    fade     - (optional) ms crossfade duration (default 1400)
+    aspect   - (optional) CSS aspect-ratio for the box, e.g. '3 / 4' (default '3 / 4')
+    class    - (optional) extra class(es) for the container element
+    sizes    - (optional) responsive sizes attribute (default '40vw')
+    loading  - (optional) loading attr for the first image ('eager' | 'lazy', default 'eager')
+{%- endcomment -%}
+
+{%- assign idt_interval = interval | default: 4000 -%}
+{%- assign idt_fade = fade | default: 1400 -%}
+{%- assign idt_aspect = aspect | default: '3 / 4' -%}
+{%- assign idt_sizes = sizes | default: '40vw' -%}
+{%- assign idt_loading = loading | default: 'eager' -%}
+{%- assign idt_images = images | split: ',' -%}
+
+{%- unless image_delay_transition_assets_rendered -%}
+  {%- assign image_delay_transition_assets_rendered = true -%}
+  <style>
+    .image-delay-transition {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: var(--idt-aspect, 3 / 4);
+    }
+    .image-delay-transition__img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      z-index: 0;
+      transition: opacity var(--idt-fade, 1400ms) ease-in-out;
+      will-change: opacity;
+      pointer-events: none;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    .image-delay-transition__img.is-active {
+      opacity: 1;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .image-delay-transition__img {
+        transition: none;
+      }
+    }
+  </style>
+{%- endunless -%}
+
+<div
+  class="image-delay-transition {{ class }}"
+  data-image-delay-transition
+  data-interval="{{ idt_interval }}"
+  data-fade="{{ idt_fade }}"
+  style="--idt-fade: {{ idt_fade }}ms; --idt-aspect: {{ idt_aspect }};"
+>
+  {%- for raw in idt_images -%}
+    {%- assign src = raw | strip -%}
+    {%- if src contains '//' -%}
+      {%- assign src_url = src -%}
+    {%- else -%}
+      {%- assign src_url = src | asset_url -%}
+    {%- endif -%}
+    <img
+      class="image-delay-transition__img{% if forloop.first %} is-active{% endif %}"
+      src="{{ src_url }}"
+      alt="{{ alt | default: '' | escape }}"
+      sizes="{{ idt_sizes }}"
+      loading="{% if forloop.first %}{{ idt_loading }}{% else %}lazy{% endif %}"
+      draggable="false"
+      {% unless forloop.first %}aria-hidden="true"{% endunless %}
+    >
+  {%- endfor -%}
+</div>
+
+{%- unless image_delay_transition_script_rendered -%}
+  {%- assign image_delay_transition_script_rendered = true -%}
+  <script>
+    (function () {
+      var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function initTransition(el) {
+        if (el.__idtInit) { return; }
+        el.__idtInit = true;
+
+        var imgs = el.querySelectorAll('.image-delay-transition__img');
+        if (imgs.length < 2 || reduceMotion) { return; }
+
+        var interval = parseInt(el.getAttribute('data-interval'), 10) || 4000;
+        var fade = parseInt(el.getAttribute('data-fade'), 10) || 1400;
+        var current = 0;
+
+        // The first image sits one layer up so the very first crossfade
+        // has something solid underneath.
+        imgs[0].style.zIndex = 1;
+
+        setInterval(function () {
+          var prev = current;
+          var next = (current + 1) % imgs.length;
+
+          // Bring the incoming image above the current one, then fade it in.
+          imgs[next].style.zIndex = 2;
+          imgs[next].classList.add('is-active');
+          imgs[next].setAttribute('aria-hidden', 'false');
+
+          // Once the incoming image fully covers the box, drop the previous
+          // one underneath it (no visible change) and reset layering.
+          setTimeout(function () {
+            imgs[prev].classList.remove('is-active');
+            imgs[prev].setAttribute('aria-hidden', 'true');
+            imgs[prev].style.zIndex = 0;
+            imgs[next].style.zIndex = 1;
+          }, fade);
+
+          current = next;
+        }, interval);
+      }
+
+      function initAll() {
+        var nodes = document.querySelectorAll('[data-image-delay-transition]');
+        for (var i = 0; i < nodes.length; i++) { initTransition(nodes[i]); }
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initAll);
+      } else {
+        initAll();
+      }
+    })();
+  </script>
+{%- endunless -%}
