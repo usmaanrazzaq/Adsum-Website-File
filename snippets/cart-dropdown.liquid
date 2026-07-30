@@ -257,13 +257,38 @@
 
   /* ---------- open / close ---------- */
 
+  var closeTimer = null;
+  var TRANSITION_MS = 280;
+
+  function prefersReducedMotion() {
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+
+  function finishClose() {
+    closeTimer = null;
+    if (isOpen) return;
+    panel.hidden = true;
+    showError(null);
+  }
+
   function open() {
     // Reposition even when already open — the viewport or the anchor may have
     // moved since the panel was last placed.
     var wasOpen = isOpen;
     isOpen = true;
+
+    if (closeTimer) {
+      window.clearTimeout(closeTimer);
+      closeTimer = null;
+    }
+
     panel.hidden = false;
     position();
+
+    // Reflow so the browser paints the closed styles before we open, otherwise
+    // the enter transition is skipped.
+    void panel.offsetWidth;
+    panel.classList.add('is-open');
 
     var els = toggleEls();
     for (var i = 0; i < els.length; i++) {
@@ -277,14 +302,21 @@
   function close() {
     if (!isOpen) return;
     isOpen = false;
-    panel.hidden = true;
-    showError(null);
+    panel.classList.remove('is-open');
 
     var els = toggleEls();
     for (var i = 0; i < els.length; i++) {
       els[i].classList.remove('is-open');
       els[i].setAttribute('aria-expanded', 'false');
     }
+
+    if (prefersReducedMotion()) {
+      finishClose();
+      return;
+    }
+
+    if (closeTimer) window.clearTimeout(closeTimer);
+    closeTimer = window.setTimeout(finishClose, TRANSITION_MS);
   }
 
   function toggle() {
