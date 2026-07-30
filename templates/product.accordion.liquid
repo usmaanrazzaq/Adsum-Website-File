@@ -146,7 +146,7 @@ $(".fancybox")
     <div class="product-info-title size-title">
       Size:
     </div>
-    <form id="first-form" action="/cart/add" method="post" style="display: inline;">
+    <form id="first-form" onsubmit="if(this.querySelector('input[type=radio][name=id]')&&!this.querySelector('input[type=radio][name=id]:checked')){var e=this.querySelector('.product-size');var l=this.previousElementSibling;if(l){l.innerHTML='PLEASE SELECT A SIZE';l.className+=' reminder';}if(e){e.className+=' no-size';if(!e.querySelector('.variant-selection-feedback'))e.insertAdjacentHTML('beforeend','<p class=&quot;variant-selection-feedback&quot;>Select one of these options</p>');}return false;}" action="/cart/add" method="post" style="display: inline;">
       {% if settings.product-qty %}
       <div id="product-qty-wrap">
         <label for="product-qty">

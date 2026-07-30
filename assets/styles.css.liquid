@@ -415,8 +415,19 @@ input[type="radio"] {
   padding: 0;
 }
 
-#product input[type="radio"], input[type="checkbox"], #product-shoe input[type="radio"], input[type="checkbox"] {
+input[type="checkbox"] {
   display: none;
+}
+
+#product input[type="radio"],
+#product-shoe input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  left: 50%;
+  top: 50%;
 }
 
 input[type="number"]::-webkit-inner-spin-button,
@@ -6115,7 +6126,17 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 
 #variants li {
   display: inline-block;
-      vertical-align: baseline;
+  position: relative;
+  vertical-align: baseline;
+}
+
+.variant-selection-feedback {
+  display: block;
+  clear: both;
+  color: #FF4136;
+  font-size: 12px;
+  line-height: 16px;
+  margin: 8px 0 0;
 }
 
 .index-scroll-arrow-img {
@@ -14176,6 +14197,7 @@ width: 100%;
 
 .product-pdp-v2 .product-pdp-form #variants li {
   display: block;
+  position: relative;
   margin: 0;
   list-style: none;
 }

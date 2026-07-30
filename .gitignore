@@ -1,7 +1,12 @@
 # macOS AppleDouble / resource fork files (never commit / never upload to Shopify)
 ._*
+**/._*
 .DS_Store
+**/.DS_Store
 
 # Editor temp files (Shopify upload requires strict *.liquid / asset extensions)
 *.tmp.*
 **/*.tmp.*
+
+# Local preview upload archives (not part of the theme)
+adsum-preview-upload*.zip

@@ -28,7 +28,7 @@ Shopify.AjaxifyCart = (function($) {
     
     // What you will never need to change
     addToCartBtnSelector:          '[type="submit"]',
-    addToCartFormSelector:         'form[action="/cart/add"]',
+    addToCartFormSelector:         'form[action*="/cart/add"]',
     shopifyAjaxAddURL:             '/cart/add.js',
     shopifyAjaxCartURL:            '/cart.js'
   };
@@ -84,13 +84,74 @@ Shopify.AjaxifyCart = (function($) {
   var _dropdown = function() {
     return window.AdsumCart || null;
   };
+  var _showVariantSelectionError = function($addToCartForm) {
+    var $sizeTitle = $addToCartForm.prevAll('.size-title').first();
+    var $pdpSizeTitle = $addToCartForm.prevAll('.product-pdp-size-label').first();
+    var $productSize = $addToCartForm.find('.product-size').first();
+    var message = 'PLEASE SELECT A SIZE';
+
+    if ($sizeTitle.text().toLowerCase().indexOf('amount') !== -1) {
+      message = 'PLEASE SELECT AN AMOUNT';
+    }
+
+    if ($pdpSizeTitle.length) {
+      $pdpSizeTitle.html(message).addClass('reminder');
+    }
+    if ($sizeTitle.length) {
+      $sizeTitle.html(message).addClass('reminder');
+    }
+
+    if ($productSize.length) {
+      $productSize
+        .addClass('no-size')
+        .find('.variant-selection-feedback')
+        .remove()
+        .end()
+        .append('<p class="variant-selection-feedback">Select one of these options</p>');
+    }
+    $('.content3').addClass('reminder').addClass('expanded');
+  };
+  var _hasSelectedVariant = function($addToCartForm) {
+    var $variantRadios = $addToCartForm.find('input:radio[name="id"]');
+
+    if ($variantRadios.length) {
+      return $variantRadios.filter(':checked').length > 0;
+    }
+
+    return !!$addToCartForm.find('[name="id"]').val();
+  };
+  var _bindVariantSubmitGuard = function() {
+    document.addEventListener('submit', function(event) {
+      var form = event.target;
+
+      if (!form || !form.action || form.action.indexOf('/cart/add') === -1) {
+        return;
+      }
+
+      var $addToCartForm = $(form);
+      if (_hasSelectedVariant($addToCartForm)) {
+        return;
+      }
+
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      _showVariantSelectionError($addToCartForm);
+    }, true);
+  };
   var _init = function() {   
     $(document).ready(function() { 
+      _bindVariantSubmitGuard();
       $(_config.addToCartFormSelector).submit(function(e) {
         e.preventDefault();
         var $addToCartForm = $(this);
         var $addToCartBtn = $addToCartForm.find(_config.addToCartBtnSelector);
         _rememberLabel($addToCartBtn);
+
+        if (!_hasSelectedVariant($addToCartForm)) {
+          _showVariantSelectionError($addToCartForm);
+          return false;
+        }
+
         _setText($addToCartBtn, _config.addingToCartBtnLabel);
         $addToCartBtn.addClass('disabled').prop('disabled', true);
         // Add to cart.
@@ -218,5 +279,13 @@ Shopify.AjaxifyCart.init();
 }
 .ajaxified-cart-feedback a {
   border-bottom: 1px solid;
+}
+.variant-selection-feedback {
+  display: block;
+  clear: both;
+  color: #FF4136;
+  font-size: 12px;
+  line-height: 16px;
+  margin: 8px 0 0;
 }
 </style>

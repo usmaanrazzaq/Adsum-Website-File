@@ -603,7 +603,7 @@ $(".fancybox")
     <div class="product-pdp-size-label">
       Select size:
     </div>
-    <form id="first-form" class="product-pdp-form" action="/cart/add" method="post">
+    <form id="first-form" class="product-pdp-form" onsubmit="if(this.querySelector('input[type=radio][name=id]')&&!this.querySelector('input[type=radio][name=id]:checked')){var e=this.querySelector('.product-size');var l=this.previousElementSibling;if(l){l.innerHTML='PLEASE SELECT A SIZE';l.className+=' reminder';}if(e){e.className+=' no-size';if(!e.querySelector('.variant-selection-feedback'))e.insertAdjacentHTML('beforeend','<p class=&quot;variant-selection-feedback&quot;>Select one of these options</p>');}return false;}" action="/cart/add" method="post">
       {% if settings.product-qty %}
       <div id="product-qty-wrap">
         <label for="product-qty">
@@ -708,7 +708,12 @@ $(".fancybox")
         return;
       }
       $('.product-pdp-size-label').html('PLEASE SELECT A SIZE').addClass('reminder');
-      $('.product-size').addClass('no-size');
+      $('.product-size')
+        .addClass('no-size')
+        .find('.variant-selection-feedback')
+        .remove()
+        .end()
+        .append('<p class="variant-selection-feedback">Select one of these options</p>');
       event.preventDefault();
       // This handler is bound before ajaxify-cart's (which binds on
       // document.ready). preventDefault alone does not stop it, so without this
