@@ -104,7 +104,14 @@
   }
 
   // Reflect the new item count in the header without a full reload.
+  // The cart dropdown owns this when present — its version can write the label
+  // from scratch, whereas the fallback below can only swap an existing digit
+  // (so it can't turn "Cart" into "Cart: 1" on the very first add).
   function updateCartCount(count) {
+    if (window.AdsumCart && window.AdsumCart.renderCount) {
+      window.AdsumCart.renderCount({ item_count: count });
+      return;
+    }
     var els = document.querySelectorAll('.cart-count, #eyebrow-cart, .item-count');
     for (var i = 0; i < els.length; i++) {
       var html = els[i].innerHTML;
@@ -168,7 +175,13 @@
   }
 
   function fetchAndSync() {
-    refetchCart().then(syncGwp).catch(function() {});
+    refetchCart().then(function(cart) {
+      // Reuse this request to keep the header count honest — it runs on every
+      // page load and after every cart mutation, so the dropdown does not need
+      // to fetch /cart.js again just to refresh the label.
+      if (window.AdsumCart && window.AdsumCart.renderCount) window.AdsumCart.renderCount(cart);
+      syncGwp(cart);
+    }).catch(function() {});
   }
 
   document.addEventListener('DOMContentLoaded', fetchAndSync);

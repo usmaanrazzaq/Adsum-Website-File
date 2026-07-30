@@ -310,6 +310,10 @@ $(".fancybox")
         $('.product-size').addClass('no-size');
 
         event.preventDefault();
+        // Bound before ajaxify-cart's handler (which binds on document.ready).
+        // preventDefault alone does not stop it, so without this a sizeless
+        // POST still went to /cart/add.js and popped the cart dropdown.
+        event.stopImmediatePropagation();
       }
   });
 

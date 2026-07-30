@@ -15,13 +15,10 @@ Shopify.AjaxifyCart = (function($) {
   // you might change.
   
   var _config = {
-    
+
     // What you might want to change
-    addToCartBtnLabel:             'ADD TO BAG',
-    addedToCartBtnLabel:           'THANK YOU!',
     addingToCartBtnLabel:          'ADDING...',
     soldOutBtnLabel:               'SOLD OUT',
-    howLongTillBtnReturnsToNormal: 1000, // in milliseconds.
     cartCountSelector:             '.cart-count, #cart-count a:first, #gocart p a, #cart .checkout em, .item-count, #eyebrow-cart',
     cartTotalSelector:             '#cart-price',
     // 'aboveForm' for top of add to cart form, 
@@ -69,12 +66,31 @@ Shopify.AjaxifyCart = (function($) {
       $button.val(label).text(label);
     }
   };
+  // Remember each button's own label instead of forcing a configured one back.
+  // The old code reset every button to 'ADD TO BAG', which silently rewrote the
+  // PDP's "Add to cart" a second after each add.
+  var _restoreLabel = function($button) {
+    var original = $button.data('ajaxifyOriginalLabel');
+    if (original !== undefined) _setText($button, original);
+  };
+  var _rememberLabel = function($button) {
+    if ($button.data('ajaxifyOriginalLabel') === undefined) {
+      var label = $button.children().length ? $.trim($button.children().first().text()) : $button.val();
+      $button.data('ajaxifyOriginalLabel', label);
+    }
+  };
+  // Hand off to the cart dropdown when it is present. It is not on layouts that
+  // include this snippet without menu.liquid (e.g. theme.no-shopping.liquid).
+  var _dropdown = function() {
+    return window.AdsumCart || null;
+  };
   var _init = function() {   
     $(document).ready(function() { 
       $(_config.addToCartFormSelector).submit(function(e) {
         e.preventDefault();
         var $addToCartForm = $(this);
         var $addToCartBtn = $addToCartForm.find(_config.addToCartBtnSelector);
+        _rememberLabel($addToCartBtn);
         _setText($addToCartBtn, _config.addingToCartBtnLabel);
         $addToCartBtn.addClass('disabled').prop('disabled', true);
         // Add to cart.
@@ -84,14 +100,21 @@ Shopify.AjaxifyCart = (function($) {
           type: 'post',
           data: $addToCartForm.serialize(),
           success: function(itemData) {
-            // Re-enable add to cart button.
-            $addToCartBtn.addClass('inverted');
-            _setText($addToCartBtn, _config.addedToCartBtnLabel);
+            // Re-enable add to cart button immediately — the confirmation now
+            // lives in the cart dropdown, not in the button's label.
+            $addToCartBtn.prop('disabled', false).removeClass('disabled');
+            _restoreLabel($addToCartBtn);
+            $('.ajaxified-cart-feedback').remove();
+
+            var dropdown = _dropdown();
+            if (dropdown) {
+              dropdown.showError(null);
+              dropdown.refresh().then(dropdown.open).catch(function() {});
+              return;
+            }
+
+            // No dropdown on this layout — keep the old inline confirmation.
             _showFeedback('success','<strong>ADDED TO CART</strong>. Please <a href="/cart" style="color: #3D9970;">view cart</a> or <a href="javascript:history.go(-1)" title="continue shopping" style="color: #3D9970;">continue shopping</a>.',$addToCartForm);
-            window.setTimeout(function(){
-              $addToCartBtn.prop('disabled', false).removeClass('disabled').removeClass('inverted');
-              _setText($addToCartBtn,_config.addToCartBtnLabel);
-            }, _config.howLongTillBtnReturnsToNormal);
             // Update cart count and show cart link.
             $.getJSON(_config.shopifyAjaxCartURL, function(cart) {
               if (_config.cartCountSelector && $(_config.cartCountSelector).size()) {
@@ -121,19 +144,34 @@ Shopify.AjaxifyCart = (function($) {
             });        
           }, 
           error: function(XMLHttpRequest) {
-            var response = eval('(' + XMLHttpRequest.responseText + ')');
-            response = response.description;
-            if (response.slice(0,4) === 'All ') {
-              _showFeedback('error', response.replace('All 1 ', 'All '), $addToCartForm);
-              $addToCartBtn.prop('disabled', false);
+            var response;
+            try {
+              response = JSON.parse(XMLHttpRequest.responseText).description;
+            } catch (e) {}
+            if (!response) response = 'Sorry — we could not add that to your cart. Please try again.';
+
+            var soldOut = response.slice(0,4) === 'All ';
+            var message = soldOut ? response.replace('All 1 ', 'All ') : response;
+
+            if (soldOut) {
               _setText($addToCartBtn, _config.soldOutBtnLabel);
-              $addToCartBtn.prop('disabled',true);
+              $addToCartBtn.prop('disabled', true);
             }
             else {
-              _showFeedback('error', '<i class="fa fa-warning"></i> ' + response, $addToCartForm);
               $addToCartBtn.prop('disabled', false).removeClass('disabled');
-              _setText($addToCartBtn, _config.addToCartBtnLabel);
+              _restoreLabel($addToCartBtn);
             }
+
+            // Surface the failure. It used to be injected into an element that
+            // assets/styles.css.liquid hid with `display: none !important`, so
+            // add-to-cart errors were invisible to the customer.
+            var dropdown = _dropdown();
+            if (dropdown) {
+              dropdown.showError(message);
+              dropdown.refresh().then(dropdown.open).catch(function() { dropdown.open(); });
+              return;
+            }
+            _showFeedback('error', message, $addToCartForm);
           }
         });   
         return false;    
@@ -171,10 +209,13 @@ Shopify.AjaxifyCart.init();
 .ajaxified-cart-feedback.success { 
   color: #3D9970;
 }
-.ajaxified-cart-feedback.error { 
-  color: #FF4136; 
-  display: none!important;
-} 
+/* Previously `display: none !important`, which meant add-to-cart failures
+   (sold out, inventory limits) were never shown to the customer. Errors now go
+   to the cart dropdown where it exists; this is the fallback for layouts
+   without it. */
+.ajaxified-cart-feedback.error {
+  color: #FF4136;
+}
 .ajaxified-cart-feedback a {
   border-bottom: 1px solid;
 }

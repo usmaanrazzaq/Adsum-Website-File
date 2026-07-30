@@ -1087,6 +1087,257 @@ img.lazyload:not([src]) {
   letter-spacing: 0;
 }
 
+/* ==========================================================================
+   Cart dropdown (mini-cart) — snippets/cart-dropdown.liquid
+   Flat white surface, hairline border, no radius, no shadow, matching
+   .site-promo-banner above. Sits above the promo banner (1001), the sticky
+   mobile header (1000) and the Global-e widget (1002).
+   ========================================================================== */
+
+.cart-dropdown {
+  position: fixed;
+  z-index: 1100;
+  box-sizing: border-box;
+  width: 335px;
+  padding: 10px;
+  background: #fff;
+  border: 0.5px solid #2b2b2b;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #000;
+  text-align: left;
+  outline: none;
+}
+
+.cart-dropdown[hidden] {
+  display: none;
+}
+
+.cart-dropdown.is-busy {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/* Also scoped past `p:first-of-type { margin: 0 }` — see the empty state below. */
+.cart-dropdown .cart-dropdown__error {
+  margin: 0 0 10px 0;
+  padding: 8px 10px;
+  background: #fff;
+  border: 0.5px solid #ff4136;
+  color: #ff4136;
+  font-size: 11px;
+  line-height: 14px;
+}
+
+.cart-dropdown__error[hidden] {
+  display: none;
+}
+
+/* Cap the list, not the panel, so Total and Checkout stay in view. */
+.cart-dropdown__items {
+  max-height: 45vh;
+  overflow-y: auto;
+}
+
+.cart-dropdown__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.cart-dropdown__thumb {
+  flex-shrink: 0;
+  width: 103px;
+  height: 102px;
+  background-position: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.cart-dropdown__thumb--empty {
+  background-color: #efefef;
+}
+
+.cart-dropdown__info {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.cart-dropdown__title {
+  font-size: 14px;
+  line-height: 18px;
+  color: #000;
+}
+
+.cart-dropdown__meta {
+  font-size: 11px;
+  line-height: 14px;
+  color: #7a7a7a;
+}
+
+.cart-dropdown__price {
+  font-size: 11px;
+  line-height: 14px;
+  color: #000;
+}
+
+.cart-dropdown__qty {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cart-dropdown__steppers {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Negative margin keeps the 12px icon rhythm of the design while giving the
+   control a ~20px touch target. */
+.cart-dropdown__stepper {
+  display: block;
+  padding: 4px;
+  margin: -4px;
+  background: none;
+  border: 0;
+  color: #000;
+  line-height: 0;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.cart-dropdown__stepper:hover {
+  color: #7a7a7a;
+}
+
+.cart-dropdown__stepper svg {
+  display: block;
+}
+
+/* Roomier than the 10px used between populated rows — the empty state has the
+   space to spare, and it keeps the message from crowding the button.
+   Scoped with the block class so it beats the stylesheet's
+   `p:first-of-type { margin: 0 }`, which is (0,1,1) and would otherwise win. */
+.cart-dropdown .cart-dropdown__empty {
+  margin: 4px 0 20px 0;
+  font-size: 14px;
+  line-height: 18px;
+  color: #000;
+}
+
+.cart-dropdown__total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 37px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 18px;
+  color: #000;
+}
+
+.cart-dropdown__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: 45px;
+  margin-bottom: 10px;
+  padding: 0 10px;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.cart-dropdown__btn--primary {
+  background: #2b2b2b;
+  border: 0;
+  color: #fff;
+}
+
+.cart-dropdown__btn--primary:hover {
+  background: #000;
+  color: #fff;
+  opacity: 1;
+}
+
+.cart-dropdown__btn--secondary {
+  background: #fff;
+  border: 0.5px solid #2b2b2b;
+  color: #2b2b2b;
+}
+
+.cart-dropdown__btn--secondary:hover {
+  background: #f8f8f8;
+  color: #2b2b2b;
+}
+
+@media (max-width: 900px) {
+  /* Full-bleed beneath the sticky mobile header. `top` is set by JS off the
+     header's own rect, so it follows the promo banner and the nav-up/down
+     scroll behaviour. */
+  .cart-dropdown {
+    width: auto;
+    border-left: 0;
+    border-right: 0;
+  }
+
+  .cart-dropdown__items {
+    max-height: 50vh;
+  }
+
+  /* The header is float-based: logo, then cart, then hamburger (60px wide).
+     Give back enough room for the new "Cart" label so nothing wraps at 320px. */
+  .mobile-logo-block {
+    width: calc(100% - 130px);
+  }
+
+  /* The mobile cart is a tappable "Cart" label plus its count bubble. It used
+     to be a bare bubble that Liquid omitted entirely on an empty cart. */
+  .mobile-cart {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: auto;
+    margin: 12px 0 0 0;
+    padding: 0 4px 0 0;
+    font-size: 13px;
+    line-height: 16px;
+    color: #000;
+    white-space: nowrap;
+    cursor: pointer;
+    /* A <button>, not a link — see #eyebrow-cart above. */
+    background: none;
+    border: 0;
+    font-family: inherit;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .mobile-cart .cart-count {
+    position: static;
+    top: auto;
+    right: auto;
+    padding: 2px 5px 3px 5px;
+    font-size: 10px;
+    line-height: 1;
+  }
+}
+
 /* Menu: hide inner scrollbar while keeping it scrollable */
 .menu {
   scrollbar-width: none;        /* Firefox */
@@ -11018,16 +11269,47 @@ text-transform: uppercase;
 }
 
 #eyebrow-cart {
-    display: inline;
+    display: inline-block;
     font-size: 11px;
-    margin-top: 0px;
     line-height: 16px;
-    padding: 0;
+    /* Chip padding is always applied, with a transparent background, so that
+       opening the cart dropdown does not shift the rest of the nav. The
+       negative margins cancel the padding back out of the layout on all four
+       sides, so this button's margin box stays exactly 16px tall — the same as
+       the other nav items — and only the chip's fill appears on open.
+       Vertical matters as much as horizontal: #country-switcher is
+       position:absolute at a fixed top, so any growth here would push the
+       in-flow items (Search, Cart) down and leave the currency picker behind. */
+    padding: 5px 12px;
+    margin: -5px -12px;
+    background: transparent;
+    cursor: pointer;
   	z-index: 1;
+    /* It is a <button> now, not a link, so that nothing can navigate to /cart.
+       Reset the UA button styling back to the nav's type. */
+    border: 0;
+    font-family: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    text-align: left;
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 #eyebrow-cart:hover {
     color: #ccc;
+}
+
+/* Filled chip while the cart dropdown is open — see snippets/cart-dropdown.liquid.
+   `color` is !important because the nav's colour is set per page via body-id
+   selectors (e.g. "#index #eyebrow-cart { color: #000 }"), which are two IDs and
+   therefore outrank this rule. Without it the label stays black on the dark chip
+   on the landing page and any other page that recolours the nav. */
+#eyebrow-cart.is-open,
+#eyebrow-cart.is-open:hover {
+    background: #2b2b2b;
+    color: #fff !important;
 }
 
 #search-block ul {

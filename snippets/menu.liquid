@@ -61,7 +61,11 @@
   	</form>
   </div>
   
-  <a id="eyebrow-cart" href="/cart">Cart{% if cart.item_count > 0 %}: {{ cart.item_count }}{% else %}{% endif %}</a>
+  {%- comment -%}
+    A button, not a link: the /cart page is deliberately not part of the flow,
+    so there must be no href that could navigate if JS is slow or fails.
+  {%- endcomment -%}
+  <button type="button" id="eyebrow-cart" aria-controls="cart-dropdown" aria-expanded="false">Cart{% if cart.item_count > 0 %}: {{ cart.item_count }}{% endif %}</button>
 
 </div>
 
@@ -73,13 +77,15 @@
     </a>
   </div>
    
-  {% if cart.item_count == 0 %}
-  {% else %} 
-  <a class="mobile-cart" href="/cart">
-      <div class="cart-count">{% if cart.item_count > 0 %} {{ cart.item_count }}{% endif %}</div>
-    </a>
-  {% endif %}
-  
+  {%- comment -%}
+    Always rendered, even on an empty cart, so the label stays tappable and the
+    dropdown has an anchor. Previously this whole block was omitted at zero.
+  {%- endcomment -%}
+  <button type="button" class="mobile-cart" aria-controls="cart-dropdown" aria-expanded="false">
+    <span class="mobile-cart-label">Cart</span>
+    <span class="cart-count"{% if cart.item_count == 0 %} style="display: none;"{% endif %}>{% if cart.item_count > 0 %}{{ cart.item_count }}{% endif %}</span>
+  </button>
+
  <div class="hamburger hamburger--squeeze toggle">
     <div class="hamburger-box">
       <div class="hamburger-inner"></div>
@@ -172,3 +178,9 @@
       });
     }
 </script>
+
+{%- comment -%}
+  Rendered last so both cart anchors above already exist, and so that
+  window.AdsumCart is defined before ajaxify-cart runs (layout/theme.liquid).
+{%- endcomment -%}
+{% render 'cart-dropdown' %}

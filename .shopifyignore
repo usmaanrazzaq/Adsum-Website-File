@@ -2,3 +2,15 @@
 **/._*
 .DS_Store
 **/.DS_Store
+
+# Editors write atomically: content goes to "<name>.tmp.<pid>.<hash>", then gets
+# renamed into place. If the theme watcher catches one mid-rename it tries to
+# upload it and Shopify rejects it for not ending in .liquid.
+*.tmp.*
+**/*.tmp.*
+*.tmp
+**/*.tmp
+*~
+**/*~
+*.swp
+**/*.swp
