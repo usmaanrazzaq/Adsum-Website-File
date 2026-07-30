@@ -51,5 +51,11 @@ window.TriplePixelData={TripleName:"macnee.myshopify.com",ver:"2.12",plat:"SHOPI
 
     {% include "google-analytics" %}
     {% include 'currencies' %}
+    {%- comment -%}
+      Every product template uses {% layout 'shop' %}, so without this the
+      add-to-cart form posts natively to /cart/add and Shopify 302s the customer
+      to /cart. This is the layout the cart dropdown matters most on.
+    {%- endcomment -%}
+    {% include 'ajaxify-cart' %}
 </body>
 </html>
