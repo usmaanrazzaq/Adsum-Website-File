@@ -1,76 +1,29 @@
-<style>
-  @media (max-width: 900px) { 
-    .search {
-      display: block;
-      padding: 0;
-    }
-    .search-mobile {
-      opacity: 1;
-      visibility: visible;
-      display: block;
-      position: initial;
-      font-size: 14px;
-      line-height: 34px;
-      padding: 0px 0 30px 0;
-      box-sizing: border-box;
-      width: 100%;
-    }
-    .search-mobile .search-input {
-      padding-left: 20px;
-      font-size: 14px;
-      width: 75%;
-      line-height: 34px;
-    }
-    #index select {
-      font-size: 18px;
-      background-position: calc(100% - 20px) 7px;
-    }
-    .mobile-search-submit {
-      background: transparent;
-      border: 1px solid;
-      padding: 2px 8px;
-      font-size: 10px;
-      width: 25%;
-      display: inline-block;
-      margin-right: -3px;
-      margin-left: -1px;
-      vertical-align: top;
-      font-size: 14px;
-      line-height: 34px;
-    }
-  }
-</style>
+{%- comment -%}
+  Mobile nav dropdown (Paper "Nav Dropdown").
+  Top-level links are underlined; children sit in a 20px-gap stack below.
+  Search / cart live in the header bar — not in this panel.
+{%- endcomment -%}
 
-{% include "menu-links" %}
+<nav class="mobile-nav-dropdown" aria-label="Mobile navigation">
+  {% for link in linklists.main-menu.links %}
+    {%- assign link_handle = link.title | downcase | strip -%}
+    {% unless link_handle == 'lookbooks' %}
+      <div class="mobile-nav-section">
+        <a href="{{ link.url }}" class="mobile-nav-parent {{ link_handle }}">{{ link.title }}</a>
 
-<br/>
-<br/>
-
-<div id="country-switcher-mobile">{%- render 'country-switcher' -%}</div>
-
-<br/>
-<br/>
-
-{% if customer %}
-  <a href="{{ routes.account_url }}" class="nav-link"><strong>{{ customer.first_name }}</strong></a>
-  <br/>
-  <a href="{{ routes.account_logout_url }}" id="customer_logout_link" style="font-size: 11px; font-style: oblique;">
-  	Log out
-  </a>
-{% else %}
-	<!-- <a href="{{ routes.account_login_url }}" class="nav-link">Sign in</a>-->
-{% endif %}
-
-{% comment %}
-<span class="mobile-currency">
-{% include 'currency-picker' %}
-</span>
-{% endcomment %}
-
-<div class="search-form search-mobile">
-    <form class="search" action="{{ routes.search_url }}" style="display: inline;">
-      <!-- ONLY SHOW PRODUCT RESULTS --> <input type="hidden" name="type" value="product">
-      <input type="text" placeholder="..." name="q" value="{{ search.terms | escape }}" class="search-input mobile-search-input" />
-      <input type="submit" value="Search" class="search-submit mobile-search-submit" style="" />
-  	</form>
-  </div>
+        {% if link.links.size > 0 %}
+          <div class="mobile-nav-children">
+            {% for child_link in link.links %}
+              <a href="{{ child_link.url }}" class="mobile-nav-child {{ child_link.title | downcase }}">{{ child_link.title }}</a>
+              {% if child_link.links.size > 0 %}
+                {% for grandchild_link in child_link.links %}
+                  <a href="{{ grandchild_link.url }}" class="mobile-nav-child {{ grandchild_link.title | downcase }}">{{ grandchild_link.title }}</a>
+                {% endfor %}
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    {% endunless %}
+  {% endfor %}
+</nav>

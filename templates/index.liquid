@@ -363,6 +363,7 @@
     #index .right-nav,
     #index .right-nav .search,
     #index .right-nav .desktop-search,
+    #index #eyebrow-search,
     #index #eyebrow-cart,
     #index .currency-picker,
     #index #country-switcher,
@@ -394,6 +395,7 @@
     #index.index-hero-light-nav .right-nav,
     #index.index-hero-light-nav .right-nav .search,
     #index.index-hero-light-nav .right-nav .desktop-search,
+    #index.index-hero-light-nav #eyebrow-search,
     #index.index-hero-light-nav #eyebrow-cart,
     #index.index-hero-light-nav .currency-picker,
     #index.index-hero-light-nav #country-switcher,
@@ -571,6 +573,7 @@
     /* Mobile header styles for light background */
     #index .header-mobile {
       background: transparent;
+      border-bottom-color: transparent;
     }
     #index .header-mobile .hamburger-inner,
     #index .header-mobile .hamburger-inner::before,
@@ -578,6 +581,7 @@
       background-color: #000;
       transition: background-color 0.3s ease;
     }
+    #index .header-mobile .mobile-search,
     #index .header-mobile .mobile-cart,
     #index .header-mobile .cart-count {
       color: #000;
@@ -589,11 +593,15 @@
     }
     
     /* Mobile header styles (menu open - .cool class applied) */
+    #index .header-mobile.cool {
+      border-bottom-color: #2b2b2b;
+    }
     #index .header-mobile.cool .hamburger-inner,
     #index .header-mobile.cool .hamburger-inner::before,
     #index .header-mobile.cool .hamburger-inner::after {
       background-color: #000;
     }
+    #index .header-mobile.cool .mobile-search,
     #index .header-mobile.cool .mobile-cart,
     #index .header-mobile.cool .cart-count {
       color: #000;
@@ -762,6 +770,7 @@
       #index.index-hero-light-nav .header-mobile .hamburger-inner::after {
         background-color: #000;
       }
+      #index.index-hero-light-nav .header-mobile .mobile-search,
       #index.index-hero-light-nav .header-mobile .mobile-cart,
       #index.index-hero-light-nav .header-mobile .cart-count {
         color: #000;

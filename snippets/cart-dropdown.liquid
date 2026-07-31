@@ -123,8 +123,23 @@
 
   /* ---------- rendering ---------- */
 
-  function renderItem(item) {
+  // Bold Quantity Breaks (shappify_qb) creates hidden per-tier variants that
+  // share product + options but have different variant_ids. Match on product
+  // + options so outerwear tiers collapse back into one row.
+  function optionsSignature(item) {
+    var ov = item.options_with_values || [];
+    var parts = [];
+    for (var i = 0; i < ov.length; i++) {
+      if (!ov[i].value || ov[i].value === 'Default Title') continue;
+      parts.push(String(ov[i].name) + ':' + String(ov[i].value));
+    }
+    return parts.join('|');
+  }
+
+  function renderItem(item, line) {
     var img = sizedImage(item.image || (item.featured_image && item.featured_image.url), '300x');
+    var key = item.key || '';
+    var optSig = optionsSignature(item);
 
     var options = '';
     var ov = item.options_with_values || [];
@@ -140,13 +155,15 @@
       : '<div class="cart-dropdown__qty">' +
           '<span class="cart-dropdown__meta">Quantity: ' + item.quantity + '</span>' +
           '<span class="cart-dropdown__steppers">' +
-            stepper('minus', item.key, item.quantity - 1, 'Decrease quantity of ' + item.title) +
-            stepper('plus',  item.key, item.quantity + 1, 'Increase quantity of ' + item.title) +
+            stepper('minus', item, line, item.quantity - 1, 'Decrease quantity of ' + item.title) +
+            stepper('plus',  item, line, item.quantity + 1, 'Increase quantity of ' + item.title) +
           '</span>' +
         '</div>';
 
     return '' +
-      '<div class="cart-dropdown__item">' +
+      '<div class="cart-dropdown__item" data-line="' + line + '" data-key="' + esc(key) + '"' +
+        ' data-variant="' + item.variant_id + '" data-product="' + item.product_id + '"' +
+        ' data-options="' + esc(optSig) + '">' +
         (img
           ? '<div class="cart-dropdown__thumb" style="background-image:url(' + esc(img) + ')" role="img" aria-label="' + esc(item.title) + '"></div>'
           : '<div class="cart-dropdown__thumb cart-dropdown__thumb--empty"></div>') +
@@ -159,19 +176,42 @@
       '</div>';
   }
 
-  function stepper(kind, key, toQty, label) {
+  function stepper(kind, item, line, toQty, label) {
     var path = kind === 'minus'
-      ? '<path d="M7.2 12.6C10.183 12.6 12.6 10.183 12.6 7.2 12.6 4.217 10.183 1.8 7.2 1.8 4.217 1.8 1.8 4.217 1.8 7.2 1.8 10.183 4.217 12.6 7.2 12.6Z"/>' +
-        '<path d="M9.6 7.2H4.8"/>'
-      : '<path d="M7.2 4.8V9.6"/>' +
-        '<path d="M9.6 7.2H4.8"/>' +
-        '<path d="M7.2 12.6C10.183 12.6 12.6 10.183 12.6 7.2 12.6 4.217 10.183 1.8 7.2 1.8 4.217 1.8 1.8 4.217 1.8 7.2 1.8 10.183 4.217 12.6 7.2 12.6Z"/>';
+      ? '<path d="M10.2 17.85C14.426 17.85 17.85 14.426 17.85 10.2 17.85 5.974 14.426 2.55 10.2 2.55 5.974 2.55 2.55 5.974 2.55 10.2 2.55 14.426 5.974 17.85 10.2 17.85Z"/>' +
+        '<path d="M13.6 10.2H6.8"/>'
+      : '<path d="M10.2 6.8V13.6"/>' +
+        '<path d="M13.6 10.2H6.8"/>' +
+        '<path d="M10.2 17.85C14.426 17.85 17.85 14.426 17.85 10.2 17.85 5.974 14.426 2.55 10.2 2.55 5.974 2.55 2.55 5.974 2.55 10.2 2.55 14.426 5.974 17.85 10.2 17.85Z"/>';
 
-    return '<button type="button" class="cart-dropdown__stepper" data-key="' + esc(key) + '"' +
-      ' data-qty="' + toQty + '" aria-label="' + esc(label) + '">' +
-      '<svg width="12" height="12" viewBox="0 0 14.4 14.4" aria-hidden="true" focusable="false" fill="none"' +
+    return '<button type="button" class="cart-dropdown__stepper" data-key="' + esc(item.key || '') + '"' +
+      ' data-line="' + line + '" data-qty="' + toQty + '"' +
+      ' data-product="' + item.product_id + '" data-options="' + esc(optionsSignature(item)) + '"' +
+      ' aria-label="' + esc(label) + '">' +
+      '<svg width="17" height="17" viewBox="0 0 20.4 20.4" aria-hidden="true" focusable="false" fill="none"' +
       ' stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10">' +
       path + '</svg></button>';
+  }
+
+  function bindSteppers() {
+    var buttons = itemsEl.querySelectorAll('.cart-dropdown__stepper');
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].addEventListener('click', onStepperClick);
+    }
+  }
+
+  function onStepperClick(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+    var btn = e.currentTarget;
+    setQuantity({
+      key: btn.getAttribute('data-key'),
+      line: btn.getAttribute('data-line'),
+      qty: btn.getAttribute('data-qty'),
+      productId: btn.getAttribute('data-product'),
+      options: btn.getAttribute('data-options') || ''
+    });
   }
 
   function render(cart) {
@@ -185,8 +225,9 @@
     }
 
     var html = '';
-    for (var i = 0; i < cart.items.length; i++) html += renderItem(cart.items[i]);
+    for (var i = 0; i < cart.items.length; i++) html += renderItem(cart.items[i], i + 1);
     itemsEl.innerHTML = html;
+    bindSteppers();
 
     footEl.innerHTML = '' +
       '<div class="cart-dropdown__total">' +
@@ -218,27 +259,177 @@
 
   /* ---------- data ---------- */
 
-  function refresh() {
+  function fetchCart() {
     return fetch('/cart.js', { credentials: 'same-origin' })
-      .then(function(r) { return r.json(); })
-      .then(function(cart) { render(cart); return cart; });
+      .then(function(r) { return r.json(); });
   }
 
-  // Keyed by line-item key rather than line index: gwp-cart-banner can add or
-  // remove the free hat between render and click, which shifts line numbers.
-  function setQuantity(key, qty) {
-    if (busy) return;
-    busy = true;
-    panel.classList.add('is-busy');
-    fetch('/cart/change.js', {
+  function refresh() {
+    return fetchCart().then(function(cart) { render(cart); return cart; });
+  }
+
+  function postCart(url, payload) {
+    if (window.jQuery) {
+      return window.jQuery.ajax({
+        type: 'POST',
+        url: url,
+        dataType: 'json',
+        data: payload
+      });
+    }
+
+    var body = new URLSearchParams();
+    Object.keys(payload).forEach(function(k) {
+      if (payload[k] != null) body.set(k, String(payload[k]));
+    });
+
+    return fetch(url, {
       method: 'POST',
       credentials: 'same-origin',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id: key, quantity: qty })
-    })
-      .then(function(r) { return r.json(); })
-      .then(function(cart) { showError(null); render(cart); })
-      .catch(function() { showError('Sorry — we could not update your cart. Please try again.'); })
+      headers: { 'Accept': 'application/json' },
+      body: body
+    }).then(function(r) {
+      return r.json().then(function(data) {
+        if (!r.ok) throw data || new Error('Cart update failed');
+        return data;
+      });
+    });
+  }
+
+  function findLineItem(cart, key, line) {
+    if (!cart || !cart.items) return null;
+    if (key && key !== 'undefined') {
+      for (var i = 0; i < cart.items.length; i++) {
+        if (cart.items[i].key === key) return { item: cart.items[i], line: i + 1 };
+      }
+    }
+    line = parseInt(line, 10);
+    if (line >= 1 && cart.items[line - 1]) {
+      return { item: cart.items[line - 1], line: line };
+    }
+    return null;
+  }
+
+  function findMatchingLines(cart, productId, optSig) {
+    var matches = [];
+    if (!cart || !cart.items || !productId) return matches;
+    productId = parseInt(productId, 10);
+    for (var i = 0; i < cart.items.length; i++) {
+      var it = cart.items[i];
+      if (isGwp(it)) continue;
+      if (parseInt(it.product_id, 10) !== productId) continue;
+      if (optionsSignature(it) !== optSig) continue;
+      matches.push({ line: i + 1, item: it });
+    }
+    return matches;
+  }
+
+  // Remove matching lines from highest index → lowest, then add one clean row.
+  // Avoids /cart/change.js on Bold Quantity Break products, which can spawn a
+  // second hidden-tier variant instead of bumping qty on the existing line.
+  function replaceQuantity(refItem, targetQty) {
+    return fetchCart().then(function(cart) {
+      var matches = findMatchingLines(cart, refItem.product_id, optionsSignature(refItem));
+      if (!matches.length) {
+        matches = [{ line: null, item: refItem }];
+      }
+
+      var variantId = refItem.variant_id;
+      var chain = Promise.resolve();
+
+      // Clear every matching row (end → start so indexes stay valid).
+      for (var j = matches.length - 1; j >= 0; j--) {
+        (function(m) {
+          chain = chain.then(function() {
+            if (m.item && m.item.key) {
+              return postCart('/cart/change.js', { id: String(m.item.key), quantity: 0 });
+            }
+            if (m.line) {
+              return postCart('/cart/change.js', { line: m.line, quantity: 0 });
+            }
+          });
+        })(matches[j]);
+      }
+
+      if (targetQty > 0) {
+        chain = chain.then(function() {
+          return postCart('/cart/add.js', { id: variantId, quantity: targetQty });
+        });
+      }
+
+      return chain;
+    });
+  }
+
+  function setQuantity(opts) {
+    if (busy) return;
+    var key = opts.key;
+    var line = parseInt(opts.line, 10);
+    var qty = parseInt(opts.qty, 10);
+
+    if (isNaN(qty) || qty < 0) return;
+    if ((!key || key === 'undefined') && (!line || line < 1)) return;
+
+    busy = true;
+    panel.classList.add('is-busy');
+
+    // Minus-to-zero: remove ONLY this line. Never collapse the whole product
+    // group to 0 (that was wiping both duplicate outerwear rows at once).
+    if (qty === 0) {
+      var removePayload = (key && key !== 'undefined')
+        ? { id: String(key), quantity: 0 }
+        : { line: line, quantity: 0 };
+
+      Promise.resolve(postCart('/cart/change.js', removePayload))
+        .then(function() { showError(null); return refresh(); })
+        .catch(function() {
+          showError('Sorry — we could not update your cart. Please try again.');
+          return refresh().catch(function() {});
+        })
+        .then(function() {
+          busy = false;
+          panel.classList.remove('is-busy');
+        });
+      return;
+    }
+
+    // Plus / non-zero qty: clear every identical product+option row, then add
+    // a single line at the requested quantity (works around Bold QB splits).
+    var keptProductId = opts.productId;
+    var keptOptSig = opts.options || '';
+
+    fetchCart()
+      .then(function(cart) {
+        var found = findLineItem(cart, key, line);
+        if (!found) throw new Error('Line not found');
+        keptProductId = found.item.product_id;
+        keptOptSig = optionsSignature(found.item);
+        return replaceQuantity(found.item, qty);
+      })
+      .then(function() { showError(null); return fetchCart(); })
+      .then(function(cart) {
+        // If an app still split the add into two rows, keep one at `qty`.
+        var matches = findMatchingLines(cart, keptProductId, keptOptSig);
+        if (matches.length <= 1) {
+          render(cart);
+          return cart;
+        }
+        var chain = Promise.resolve(
+          postCart('/cart/change.js', { id: String(matches[0].item.key), quantity: qty })
+        );
+        for (var j = matches.length - 1; j >= 1; j--) {
+          (function(itemKey) {
+            chain = chain.then(function() {
+              return postCart('/cart/change.js', { id: String(itemKey), quantity: 0 });
+            });
+          })(matches[j].item.key);
+        }
+        return chain.then(refresh);
+      })
+      .catch(function() {
+        showError('Sorry — we could not update your cart. Please try again.');
+        return refresh().catch(function() {});
+      })
       .then(function() {
         busy = false;
         panel.classList.remove('is-busy');
@@ -276,6 +467,10 @@
     // moved since the panel was last placed.
     var wasOpen = isOpen;
     isOpen = true;
+
+    if (window.AdsumSearch && window.AdsumSearch.isOpen && window.AdsumSearch.isOpen()) {
+      window.AdsumSearch.close();
+    }
 
     if (closeTimer) {
       window.clearTimeout(closeTimer);
@@ -348,10 +543,9 @@
       return;
     }
 
-    var step = e.target.closest && e.target.closest('.cart-dropdown__stepper');
-    if (step) {
-      e.preventDefault();
-      setQuantity(step.getAttribute('data-key'), parseInt(step.getAttribute('data-qty'), 10));
+    // Qty steppers bind their own click handlers in bindSteppers() — don't
+    // also handle them here (avoids double-firing with document delegation).
+    if (e.target.closest && e.target.closest('.cart-dropdown__stepper')) {
       return;
     }
 

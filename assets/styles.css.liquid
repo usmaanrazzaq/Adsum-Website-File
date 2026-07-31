@@ -1135,8 +1135,8 @@ img.lazyload:not([src]) {
   display: none;
 }
 
+/* Block double-taps while a qty change is in flight — do not dim/fade the panel. */
 .cart-dropdown.is-open.is-busy {
-  opacity: 0.55;
   pointer-events: none;
 }
 
@@ -1210,18 +1210,20 @@ img.lazyload:not([src]) {
 
 .cart-dropdown__qty {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 5px;
 }
 
 .cart-dropdown__steppers {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 5px;
 }
 
-/* Negative margin keeps the 12px icon rhythm of the design while giving the
-   control a ~20px touch target. */
+/* Negative margin keeps the 17px icon rhythm of the design while giving the
+   control a comfortable touch target. */
 .cart-dropdown__stepper {
   display: block;
   padding: 4px;
@@ -1233,6 +1235,7 @@ img.lazyload:not([src]) {
   cursor: pointer;
   -webkit-appearance: none;
   appearance: none;
+  flex-shrink: 0;
 }
 
 .cart-dropdown__stepper:hover {
@@ -1241,6 +1244,9 @@ img.lazyload:not([src]) {
 
 .cart-dropdown__stepper svg {
   display: block;
+  width: 17px;
+  height: 17px;
+  pointer-events: none;
 }
 
 /* Roomier than the 10px used between populated rows — the empty state has the
@@ -1309,6 +1315,208 @@ img.lazyload:not([src]) {
   color: #2b2b2b;
 }
 
+/* ==========================================================================
+   Search dropdown — snippets/search-dropdown.liquid
+   Paper "Search Dropdown": 303px panel, hairline border, input row + product
+   rows (103×102 thumb). Mirrors cart open animation / z-index.
+   ========================================================================== */
+
+.search-dropdown {
+  position: fixed;
+  z-index: 1100;
+  box-sizing: border-box;
+  width: 303px;
+  padding: 0;
+  background: #fff;
+  border: 0.5px solid #2b2b2b;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #000;
+  text-align: left;
+  outline: none;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition: opacity 0.28s ease-in-out, transform 0.28s ease-in-out, visibility 0.28s ease-in-out;
+}
+
+.search-dropdown.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.search-dropdown[hidden] {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .search-dropdown {
+    transition-duration: 0s;
+  }
+}
+
+.search-dropdown__form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 5px 10px;
+  background: #fff;
+  border: 0;
+  border-bottom: 0.5px solid #2b2b2b;
+}
+
+/* Beat the theme's global `input[type="search"] { background-color: #c9c9c9 }` */
+.search-dropdown input.search-dropdown__input {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: #fff;
+  background-color: #fff;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #000;
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.search-dropdown__input::-webkit-search-decoration,
+.search-dropdown__input::-webkit-search-cancel-button,
+.search-dropdown__input::-webkit-search-results-button,
+.search-dropdown__input::-webkit-search-results-decoration {
+  display: none;
+}
+
+.search-dropdown__input::placeholder {
+  color: #7a7a7a;
+}
+
+.search-dropdown__go {
+  display: block;
+  flex-shrink: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: none;
+  color: #2b2b2b;
+  line-height: 0;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.search-dropdown__go:hover {
+  color: #7a7a7a;
+}
+
+.search-dropdown__go svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+}
+
+.search-dropdown__results {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  box-sizing: border-box;
+  max-height: min(378px, 60vh);
+  padding: 10px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: #fff;
+}
+
+.search-dropdown__results:empty {
+  display: none;
+}
+
+.search-dropdown__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+  padding: 5px 0;
+  border-bottom: 0.5px solid #2b2b2b;
+  text-decoration: none;
+  color: #000;
+}
+
+.search-dropdown__item:hover .search-dropdown__title,
+.search-dropdown__item:hover .search-dropdown__view {
+  color: #7a7a7a;
+}
+
+.search-dropdown__thumb {
+  flex-shrink: 0;
+  width: 103px;
+  height: 102px;
+  background-position: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.search-dropdown__thumb--empty {
+  background-color: #efefef;
+}
+
+.search-dropdown__info {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  align-self: stretch;
+  gap: 5px;
+}
+
+.search-dropdown__title {
+  align-self: stretch;
+  font-size: 14px;
+  line-height: 18px;
+  color: #000;
+}
+
+.search-dropdown__view {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  align-self: stretch;
+  font-size: 14px;
+  line-height: 18px;
+  color: #000;
+}
+
+.search-dropdown__view svg {
+  display: block;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.search-dropdown .search-dropdown__empty {
+  margin: 4px 0;
+  font-size: 14px;
+  line-height: 18px;
+  color: #000;
+}
+
 @media (max-width: 900px) {
   /* Full-bleed beneath the sticky mobile header. `top` is set by JS off the
      header's own rect, so it follows the promo banner and the nav-up/down
@@ -1319,27 +1527,102 @@ img.lazyload:not([src]) {
     border-right: 0;
   }
 
-  /* The header is float-based: logo, then cart, then hamburger (60px wide).
-     Give back enough room for the new "Cart" label so nothing wraps at 320px. */
-  .mobile-logo-block {
-    width: calc(100% - 130px);
+  .search-dropdown {
+    width: auto;
+    border-left: 0;
+    border-right: 0;
   }
 
-  /* The mobile cart is a tappable "Cart" label plus its count bubble. It used
-     to be a bare bubble that Liquid omitted entirely on an empty cart. */
-  .mobile-cart {
+  /* Mobile bar: menu | logo | search + cart (flex; Paper Nav frame). */
+  .header-mobile {
     display: flex;
     align-items: center;
-    gap: 6px;
+    justify-content: space-between;
+    padding: 5px 15px;
+    border-bottom: 0.5px solid #2b2b2b;
+    box-sizing: border-box;
+    overflow: visible;
+  }
+
+  .header-mobile.cool {
+    background: #fff;
+  }
+
+  .header-mobile .hamburger {
+    flex-shrink: 0;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header-mobile .hamburger-box {
+    width: 18px;
+    height: 14px;
+  }
+
+  .header-mobile .hamburger-inner,
+  .header-mobile .hamburger-inner::before,
+  .header-mobile .hamburger-inner::after {
+    width: 18px;
+    height: 1.5px;
+  }
+
+  .header-mobile .hamburger-inner::before {
+    top: -6px;
+  }
+
+  .header-mobile .hamburger-inner::after {
+    bottom: -6px;
+  }
+
+  .mobile-logo-block {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     width: auto;
-    margin: 12px 0 0 0;
-    padding: 0 4px 0 0;
-    font-size: 13px;
-    line-height: 16px;
+    float: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .mobile-logo-block a {
+    pointer-events: auto;
+  }
+
+  .mobile-logo-image {
+    width: 82px;
+    height: 20px;
+    max-width: 82px;
+    margin: 0;
+    display: block;
+  }
+
+  .mobile-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+  }
+
+  .mobile-search,
+  .mobile-cart {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    margin: 0;
+    padding: 0;
     color: #000;
-    white-space: nowrap;
     cursor: pointer;
-    /* A <button>, not a link — see #eyebrow-cart above. */
     background: none;
     border: 0;
     font-family: inherit;
@@ -1347,13 +1630,21 @@ img.lazyload:not([src]) {
     appearance: none;
   }
 
+  .mobile-nav-icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+  }
+
   .mobile-cart .cart-count {
-    position: static;
-    top: auto;
-    right: auto;
-    padding: 2px 5px 3px 5px;
-    font-size: 10px;
-    line-height: 1;
+    position: absolute;
+    top: -6px;
+    right: -8px;
+    min-width: 14px;
+    padding: 1px 4px;
+    font-size: 9px;
+    line-height: 1.2;
+    text-align: center;
   }
 }
 
@@ -1906,7 +2197,7 @@ img.lazyload:not([src]) {
 }
 
 
-#article-super-series .right-nav, #article-super-series #eyebrow-cart, #article-super-series .currency-picker {
+#article-super-series .right-nav, #article-super-series #eyebrow-search, #article-super-series #eyebrow-cart, #article-super-series .currency-picker {
   color:#fff;
 }
 
@@ -2372,8 +2663,8 @@ img.lazyload:not([src]) {
 }
 
 @media (max-width: 900px) {
-  .desktop-search, .desktop-search-form {
-    display: none; 
+  .desktop-search {
+    display: none;
   }
 }
 
@@ -4227,7 +4518,7 @@ select::-ms-expand {
 }
 
 
-#index .right-nav, #index #eyebrow-cart, #index .currency-picker {
+#index .right-nav, #index #eyebrow-search, #index #eyebrow-cart, #index .currency-picker {
   color:#fff;
 }
 
@@ -8138,32 +8429,69 @@ p.tradeshow-content {
 }
 
 .header-mobile > .mobile-menu {
+  top: 100%;
+  left: -100%;
+  right: auto;
   width: 100%;
+  box-sizing: border-box;
   overflow: auto;
-  max-height: calc(100vh - 100px);
-  padding: 8px 20px 0px 20px;
-  background: rgba(255,255,255, 1)
+  max-height: calc(100vh - 50px);
+  padding-top: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  background: #fff;
+  z-index: 2;
 }
 
-.header-mobile > .mobile-menu > .nav-link, .header-mobile > .mobile-menu > .mobile-links-show > .nav-link {
-    font-size: 18px;
-    line-height: 32px;
+.header-mobile > .mobile-menu.mobile-menu-view {
+  left: 0;
 }
 
-.header-mobile > .mobile-menu > .nav-link-wrapper > .nav-link, .header-mobile > .mobile-menu > .mobile-links-show > .nav-link-wrapper > .nav-link {
-    font-size: 18px;
-    line-height: 32px;
+/* Paper Nav Dropdown link stack */
+.mobile-nav-dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 20px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-.header-mobile > .mobile-menu > .stuff-toggle:before,  .header-mobile > .mobile-menu > .mobile-links-show > .stuff-toggle:before {
-    margin: 0px 11px 0 0px;
-    font-size: 22px;
+.mobile-nav-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
 }
 
-.header-mobile > .mobile-menu > .nav-link-secondary-wrapper > .nav-link-secondary, .header-mobile > .mobile-menu > .nav-link-secondary-wrapper > .nav-link, .header-mobile > .mobile-menu > .mobile-links-show > .nav-link-secondary-wrapper > .nav-link {
-    font-size: 14px;
-    line-height: 26px;
-  min-width: 200px;
+.mobile-nav-parent,
+.mobile-nav-child {
+  display: block;
+  width: fit-content;
+  color: #000;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0;
+  text-decoration: none;
+}
+
+.mobile-nav-children {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+}
+
+.mobile-nav-parent:hover,
+.mobile-nav-child:hover {
+  color: #666;
 }
 
 .japan-padding {
@@ -9342,42 +9670,41 @@ h2.preview-title {
 .mobile-menu {
 	position: absolute;
 	background: #fff;
-	z-index: 1;
+	z-index: 2;
+	top: 100%;
 	left: -100%;
-	padding: 20px 40px 30px 20px;
-	-webkit-transition: all .5s ease-in-out;
-	-moz-transition: all .5s ease-in-out;
-	-o-transition: all .5s ease-in-out;
-	-ms-transition: all .5s ease-in-out;
-	transition: all .5s ease-in-out;
+	width: 100%;
+	box-sizing: border-box;
+	padding-top: 15px;
+	padding-right: 15px;
+	padding-bottom: 15px;
+	padding-left: 15px;
+	-webkit-transition: left .5s ease-in-out;
+	-moz-transition: left .5s ease-in-out;
+	-o-transition: left .5s ease-in-out;
+	-ms-transition: left .5s ease-in-out;
+	transition: left .5s ease-in-out;
 }
 	
+.mobile-menu.mobile-menu-view,
 .mobile-menu-view {
-	left: 0px;
-	-webkit-transition: all .5s ease-in-out;
-	-moz-transition: all .5s ease-in-out;
-	-o-transition: all .5s ease-in-out;
-	-ms-transition: all .5s ease-in-out;
-	transition: all .5s ease-in-out;
+	left: 0;
 }
    
 .header-mobile {
 	display: none;
+	position: relative;
 }
 
 .cart-count {
-    position: absolute;
-    top: 24px;
-    right: 62px;
     color: #000;
     font-size: 10px;
     font-weight: 500;
-    padding: 4px 6px 5px 6px;
+    padding: 2px 5px 3px 5px;
     border-radius: 5px;
     background-color: #fff;
     border: 1px solid #000;
-    /* font-weight: 600; */
-}
+  }
 
 .mobile-cart-image {
     width: 12px;
@@ -9387,27 +9714,20 @@ h2.preview-title {
 }
 
 .mobile-logo-block {
-  width: -moz-calc(100% - 60px);
-  width: -webkit-calc(100% - 60px);
-  width: -o-calc(100% - 60px);
-  width: calc(100% - 60px);
-  float: left;
+  float: none;
 }
-  
 
 .mobile-logo-image {
-  max-width: 81px; 
-  display: inline-block; 
-  margin: 12px 10px 0 20px;
+  max-width: 82px;
+  display: block;
+  margin: 0;
 }
 
 .mobile-cart {
-  float:left;
-  width: 50px;
   -webkit-transition: all .1s ease-in-out;
 	-moz-transition: all .1s ease-in-out;
 	-o-transition: all .1s ease-in-out;
-	-ms-transition: all .1s ease-in-out;
+  -ms-transition: all .1s ease-in-out;
 	transition: all .1s ease-in-out;
 }
 
@@ -11297,12 +11617,13 @@ text-transform: uppercase;
   margin-bottom: 40px;
 }
 
+#eyebrow-search,
 #eyebrow-cart {
     display: inline-block;
     font-size: 11px;
     line-height: 16px;
     /* Chip padding is always applied, with a transparent background, so that
-       opening the cart dropdown does not shift the rest of the nav. The
+       opening the dropdown does not shift the rest of the nav. The
        negative margins cancel the padding back out of the layout on all four
        sides, so this button's margin box stays exactly 16px tall — the same as
        the other nav items — and only the chip's fill appears on open.
@@ -11314,8 +11635,7 @@ text-transform: uppercase;
     background: transparent;
     cursor: pointer;
   	z-index: 1;
-    /* It is a <button> now, not a link, so that nothing can navigate to /cart.
-       Reset the UA button styling back to the nav's type. */
+    /* Buttons, not links — reset UA styling back to the nav's type. */
     border: 0;
     font-family: inherit;
     font-weight: inherit;
@@ -11326,15 +11646,18 @@ text-transform: uppercase;
     appearance: none;
 }
 
+#eyebrow-search:hover,
 #eyebrow-cart:hover {
     color: #ccc;
 }
 
-/* Filled chip while the cart dropdown is open — see snippets/cart-dropdown.liquid.
+/* Filled chip while the dropdown is open — see cart/search-dropdown snippets.
    `color` is !important because the nav's colour is set per page via body-id
    selectors (e.g. "#index #eyebrow-cart { color: #000 }"), which are two IDs and
    therefore outrank this rule. Without it the label stays black on the dark chip
    on the landing page and any other page that recolours the nav. */
+#eyebrow-search.is-open,
+#eyebrow-search.is-open:hover,
 #eyebrow-cart.is-open,
 #eyebrow-cart.is-open:hover {
     background: #2b2b2b;
@@ -13461,12 +13784,17 @@ transition: all .1s ease-in-out;
 }
 	
 .header-mobile {
-	display: block;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 	background: #fff;
 	position: sticky;
 	top: 0;
-	padding-top: 12px;
+	padding: 5px 15px;
 	width: 100%;
+	box-sizing: border-box;
+	border-bottom: 0.5px solid #2b2b2b;
+	overflow: visible;
 	z-index: 1000;
     -moz-transition: all .3s ease-in-out;
   -webkit-transition: all .3s ease-in-out;
@@ -13479,6 +13807,7 @@ transition: all .1s ease-in-out;
 	top: 0;
 }
 
+#eyebrow-search,
 #eyebrow-cart {
 	display: none;
 	}

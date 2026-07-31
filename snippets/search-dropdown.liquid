@@ -1,0 +1,328 @@
+{% comment %}
+  Search Dropdown (predictive search)
+
+  Mirrors the cart dropdown: fixed panel from the header, toggled by desktop
+  Search / mobile search icon. Initial open animates the input in; typing
+  queries Shopify's suggest API and lists matching products (incl. colorways
+  as separate products when titled "Name - Color").
+
+  Rendered from snippets/menu.liquid next to cart-dropdown.
+{% endcomment %}
+
+<div class="search-dropdown" id="search-dropdown" role="dialog" aria-modal="false" aria-label="Search" tabindex="-1" hidden>
+  <form class="search-dropdown__form" id="search-dropdown-form" action="{{ routes.search_url }}" method="get" role="search">
+    <input type="hidden" name="type" value="product">
+    <input
+      type="search"
+      name="q"
+      id="search-dropdown-input"
+      class="search-dropdown__input"
+      placeholder="Search"
+      autocomplete="off"
+      autocorrect="off"
+      autocapitalize="off"
+      spellcheck="false"
+      aria-label="Search products"
+    >
+    <button type="submit" class="search-dropdown__go" aria-label="Submit search">
+      <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="none">
+        <path d="M12.667 8L3.333 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"/>
+        <path d="M8.667 4L12.667 8 8.667 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"/>
+      </svg>
+    </button>
+  </form>
+  <div class="search-dropdown__results" id="search-dropdown-results" aria-live="polite"></div>
+</div>
+
+<script>
+(function() {
+  var panel = document.getElementById('search-dropdown');
+  if (!panel) return;
+
+  var formEl = document.getElementById('search-dropdown-form');
+  var inputEl = document.getElementById('search-dropdown-input');
+  var resultsEl = document.getElementById('search-dropdown-results');
+
+  var isOpen = false;
+  var rafId = null;
+  var closeTimer = null;
+  var debounceTimer = null;
+  var activeRequest = 0;
+  var TRANSITION_MS = 280;
+  var DEBOUNCE_MS = 250;
+
+  var ARROW_SVG =
+    '<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="none">' +
+      '<path d="M12.667 8L3.333 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"/>' +
+      '<path d="M8.667 4L12.667 8 8.667 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"/>' +
+    '</svg>';
+
+  function esc(str) {
+    return String(str == null ? '' : str)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+
+  function isMobile() {
+    return window.matchMedia('(max-width: 900px)').matches;
+  }
+
+  function prefersReducedMotion() {
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+
+  function toggleEls() {
+    var els = [];
+    var eyebrow = document.getElementById('eyebrow-search');
+    var mobile = document.querySelector('.mobile-search');
+    if (eyebrow) els.push(eyebrow);
+    if (mobile) els.push(mobile);
+    return els;
+  }
+
+  function anchorEl() {
+    return isMobile()
+      ? document.querySelector('.header-mobile')
+      : document.getElementById('eyebrow-search');
+  }
+
+  function position() {
+    var anchor = anchorEl();
+    if (!anchor) return;
+
+    var r = anchor.getBoundingClientRect();
+
+    if (isMobile()) {
+      panel.style.top = Math.max(0, r.bottom) + 'px';
+      panel.style.left = '0px';
+      panel.style.right = '0px';
+      panel.style.width = '';
+    } else {
+      panel.style.top = Math.max(10, r.bottom + 8) + 'px';
+      panel.style.left = 'auto';
+      panel.style.right = Math.max(10, document.documentElement.clientWidth - r.right) + 'px';
+      panel.style.width = '303px';
+    }
+  }
+
+  function schedulePosition() {
+    if (rafId) window.cancelAnimationFrame(rafId);
+    rafId = window.requestAnimationFrame(function() {
+      rafId = null;
+      if (isOpen) position();
+    });
+  }
+
+  function sizedImage(url, size) {
+    if (!url) return '';
+    var parts = String(url).split('?');
+    var query = parts[1] ? '?' + parts[1] : '';
+    return parts[0].replace(/(\.(png|jpe?g|gif|webp))/i, '_' + size + '$1') + query;
+  }
+
+  function productImage(product) {
+    if (!product) return '';
+    if (product.featured_image) {
+      if (typeof product.featured_image === 'string') return product.featured_image;
+      if (product.featured_image.url) return product.featured_image.url;
+    }
+    if (product.image) {
+      if (typeof product.image === 'string') return product.image;
+      if (product.image.url) return product.image.url;
+    }
+    return '';
+  }
+
+  function shouldHide(product) {
+    var tags = product.tags || [];
+    if (typeof tags === 'string') tags = tags.split(', ');
+    for (var i = 0; i < tags.length; i++) {
+      if (String(tags[i]).toLowerCase().indexOf('hidesearch') !== -1) return true;
+    }
+    return false;
+  }
+
+  function renderResults(products) {
+    if (!products || !products.length) {
+      resultsEl.innerHTML = inputEl.value.trim()
+        ? '<p class="search-dropdown__empty">No products found.</p>'
+        : '';
+      return;
+    }
+
+    var html = '';
+    for (var i = 0; i < products.length; i++) {
+      var p = products[i];
+      if (shouldHide(p)) continue;
+      var url = p.url || ('/products/' + (p.handle || ''));
+      var img = sizedImage(productImage(p), '300x');
+      var title = p.title || '';
+
+      html += '' +
+        '<a class="search-dropdown__item" href="' + esc(url) + '">' +
+          (img
+            ? '<span class="search-dropdown__thumb" style="background-image:url(' + esc(img) + ')" role="img" aria-hidden="true"></span>'
+            : '<span class="search-dropdown__thumb search-dropdown__thumb--empty" aria-hidden="true"></span>') +
+          '<span class="search-dropdown__info">' +
+            '<span class="search-dropdown__title">' + esc(title) + '</span>' +
+            '<span class="search-dropdown__view">View' + ARROW_SVG + '</span>' +
+          '</span>' +
+        '</a>';
+    }
+
+    resultsEl.innerHTML = html || '<p class="search-dropdown__empty">No products found.</p>';
+    if (isOpen) position();
+  }
+
+  function search(query) {
+    var q = String(query || '').trim();
+    if (!q) {
+      renderResults([]);
+      return;
+    }
+
+    var requestId = ++activeRequest;
+    var url = '/search/suggest.json?q=' + encodeURIComponent(q) +
+      '&resources[type]=product' +
+      '&resources[limit]=10' +
+      '&resources[options][unavailable_products]=last' +
+      '&resources[options][fields]=title,product_type,variants.title,tag';
+
+    fetch(url, { credentials: 'same-origin', headers: { 'Accept': 'application/json' } })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (requestId !== activeRequest) return;
+        var products = (((data || {}).resources || {}).results || {}).products || [];
+        renderResults(products);
+      })
+      .catch(function() {
+        if (requestId !== activeRequest) return;
+        resultsEl.innerHTML = '<p class="search-dropdown__empty">Search unavailable. Try again.</p>';
+      });
+  }
+
+  function scheduleSearch(query) {
+    if (debounceTimer) window.clearTimeout(debounceTimer);
+    debounceTimer = window.setTimeout(function() {
+      debounceTimer = null;
+      search(query);
+    }, DEBOUNCE_MS);
+  }
+
+  function finishClose() {
+    closeTimer = null;
+    if (isOpen) return;
+    panel.hidden = true;
+    resultsEl.innerHTML = '';
+  }
+
+  function open() {
+    var wasOpen = isOpen;
+    isOpen = true;
+
+    if (window.AdsumCart && window.AdsumCart.isOpen && window.AdsumCart.isOpen()) {
+      window.AdsumCart.close();
+    }
+
+    if (closeTimer) {
+      window.clearTimeout(closeTimer);
+      closeTimer = null;
+    }
+
+    panel.hidden = false;
+    position();
+    void panel.offsetWidth;
+    panel.classList.add('is-open');
+
+    var els = toggleEls();
+    for (var i = 0; i < els.length; i++) {
+      els[i].classList.add('is-open');
+      els[i].setAttribute('aria-expanded', 'true');
+    }
+
+    if (!wasOpen) {
+      // Let the enter transition start, then focus so the input feels animated in.
+      window.setTimeout(function() {
+        if (!isOpen) return;
+        inputEl.focus();
+      }, prefersReducedMotion() ? 0 : 40);
+    }
+  }
+
+  function close() {
+    if (!isOpen) return;
+    isOpen = false;
+    panel.classList.remove('is-open');
+
+    var els = toggleEls();
+    for (var i = 0; i < els.length; i++) {
+      els[i].classList.remove('is-open');
+      els[i].setAttribute('aria-expanded', 'false');
+    }
+
+    if (debounceTimer) {
+      window.clearTimeout(debounceTimer);
+      debounceTimer = null;
+    }
+
+    if (prefersReducedMotion()) {
+      finishClose();
+      return;
+    }
+
+    if (closeTimer) window.clearTimeout(closeTimer);
+    closeTimer = window.setTimeout(finishClose, TRANSITION_MS);
+  }
+
+  function toggle() {
+    if (isOpen) { close(); return; }
+    open();
+  }
+
+  /* ---------- events ---------- */
+
+  var wasOpenOnClick = false;
+  document.addEventListener('click', function() { wasOpenOnClick = isOpen; }, true);
+
+  document.addEventListener('click', function(e) {
+    var toggler = e.target.closest && e.target.closest('#eyebrow-search, .mobile-search');
+    if (toggler) {
+      e.preventDefault();
+      toggle();
+      return;
+    }
+
+    if (wasOpenOnClick && isOpen && !panel.contains(e.target)) close();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key !== 'Escape' && e.keyCode !== 27) return;
+    if (!isOpen) return;
+    var anchor = document.getElementById('eyebrow-search') || document.querySelector('.mobile-search');
+    close();
+    if (anchor && anchor.focus) anchor.focus();
+  });
+
+  inputEl.addEventListener('input', function() {
+    scheduleSearch(inputEl.value);
+  });
+
+  formEl.addEventListener('submit', function(e) {
+    // Empty query: stay in the dropdown rather than navigating to /search.
+    if (!inputEl.value.trim()) {
+      e.preventDefault();
+      inputEl.focus();
+    }
+  });
+
+  window.addEventListener('scroll', schedulePosition, true);
+  window.addEventListener('resize', schedulePosition);
+
+  window.AdsumSearch = {
+    open: open,
+    close: close,
+    toggle: toggle,
+    isOpen: function() { return isOpen; }
+  };
+})();
+</script>
