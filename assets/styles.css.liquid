@@ -1609,7 +1609,7 @@ img.lazyload:not([src]) {
   .mobile-nav-actions {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 30px;
     flex-shrink: 0;
   }
 
@@ -1619,8 +1619,8 @@ img.lazyload:not([src]) {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 24px;
-    height: 24px;
+    width: 18px;
+    height: 18px;
     margin: 0;
     padding: 0;
     color: #000;
@@ -1630,12 +1630,6 @@ img.lazyload:not([src]) {
     font-family: inherit;
     -webkit-appearance: none;
     appearance: none;
-  }
-
-  .mobile-nav-icon {
-    display: block;
-    width: 24px;
-    height: 24px;
   }
 
   .mobile-cart .cart-count {
@@ -1648,6 +1642,13 @@ img.lazyload:not([src]) {
     line-height: 1.2;
     text-align: center;
   }
+}
+
+.nav-icon,
+.mobile-nav-icon {
+  display: block;
+  width: 18px;
+  height: 18px;
 }
 
 /* Menu: hide inner scrollbar while keeping it scrollable */
@@ -11621,19 +11622,20 @@ text-transform: uppercase;
 
 #eyebrow-search,
 #eyebrow-cart {
-    display: inline-block;
-    font-size: 11px;
-    line-height: 16px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
     /* Chip padding is always applied, with a transparent background, so that
        opening the dropdown does not shift the rest of the nav. The
        negative margins cancel the padding back out of the layout on all four
-       sides, so this button's margin box stays exactly 16px tall — the same as
-       the other nav items — and only the chip's fill appears on open.
-       Vertical matters as much as horizontal: #country-switcher is
-       position:absolute at a fixed top, so any growth here would push the
-       in-flow items (Search, Cart) down and leave the currency picker behind. */
-    padding: 5px 12px;
-    margin: -5px -12px;
+       sides, so this button's margin box stays 18×18 — matching the icon —
+       and only the chip's fill appears on open. */
+    padding: 4px;
+    margin: -4px;
+    box-sizing: content-box;
     background: transparent;
     cursor: pointer;
   	z-index: 1;
@@ -11643,7 +11645,8 @@ text-transform: uppercase;
     font-weight: inherit;
     letter-spacing: inherit;
     color: inherit;
-    text-align: left;
+    text-align: center;
+    line-height: 0;
     -webkit-appearance: none;
     appearance: none;
 }
@@ -11653,10 +11656,21 @@ text-transform: uppercase;
     color: #ccc;
 }
 
+#eyebrow-cart .cart-count {
+    position: absolute;
+    top: -2px;
+    right: -6px;
+    min-width: 14px;
+    padding: 1px 4px;
+    font-size: 9px;
+    line-height: 1.2;
+    text-align: center;
+}
+
 /* Filled chip while the dropdown is open — see cart/search-dropdown snippets.
    `color` is !important because the nav's colour is set per page via body-id
    selectors (e.g. "#index #eyebrow-cart { color: #000 }"), which are two IDs and
-   therefore outrank this rule. Without it the label stays black on the dark chip
+   therefore outrank this rule. Without it the icon stays black on the dark chip
    on the landing page and any other page that recolours the nav. */
 #eyebrow-search.is-open,
 #eyebrow-search.is-open:hover,

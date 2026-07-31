@@ -1,24 +1,16 @@
     
   {% if localization.available_countries.size > 1 %}
     <style>
-      /*
+      /* In-flow inside .right-nav so gap (30px) keeps it tight to Search/Cart.
+         Absolute `right` offsets were calibrated for the old text labels and
+         left a large hole once those became icons. */
       #country-switcher {
         font-size: 11px;
-        display: inline-block;
-        padding-right: 22px;
-        position: absolute;
+        position: relative;
         color: black;
-        right: 159px;
-        top: 52px;
-        z-index: 1;
-      } */
-      #country-switcher {
-        font-size: 11px;
-        padding-right: 22px;
-        position: absolute;
-        color: black;
-        top: 48px;
-        right: 172px;
+        top: auto;
+        right: auto;
+        padding-right: 0;
         z-index: 1;
       }
       #country-switcher:hover {

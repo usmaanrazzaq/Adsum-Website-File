@@ -112,7 +112,7 @@
       window.AdsumCart.renderCount({ item_count: count });
       return;
     }
-    var els = document.querySelectorAll('.cart-count, #eyebrow-cart, .item-count');
+    var els = document.querySelectorAll('.cart-count, .item-count');
     for (var i = 0; i < els.length; i++) {
       var html = els[i].innerHTML;
       if (/[0-9]+/.test(html)) els[i].innerHTML = html.replace(/[0-9]+/, count);

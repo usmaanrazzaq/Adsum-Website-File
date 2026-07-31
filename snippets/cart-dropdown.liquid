@@ -241,14 +241,11 @@
     if (isOpen) position();
   }
 
-  // The old updaters used html.replace(/[0-9]+/, count), which silently did
-  // nothing when the label read "Cart" with no digit in it — so the count never
-  // appeared after the first add. Write the label outright instead.
+  // Desktop + mobile cart controls are icon buttons; the count lives in
+  // `.cart-count` badges. Never rewrite the button's textContent — that would
+  // wipe the SVG icons.
   function renderCount(cart) {
     var n = (cart && cart.item_count) || 0;
-
-    var eyebrow = document.getElementById('eyebrow-cart');
-    if (eyebrow) eyebrow.textContent = n > 0 ? 'Cart: ' + n : 'Cart';
 
     var bubbles = document.querySelectorAll('.cart-count');
     for (var i = 0; i < bubbles.length; i++) {
