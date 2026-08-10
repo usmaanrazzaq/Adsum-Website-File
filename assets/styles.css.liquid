@@ -11675,17 +11675,15 @@ text-transform: uppercase;
     text-align: center;
 }
 
-/* Filled chip while the dropdown is open — see cart/search-dropdown snippets.
-   `color` is !important because the nav's colour is set per page via body-id
-   selectors (e.g. "#index #eyebrow-cart { color: #000 }"), which are two IDs and
-   therefore outrank this rule. Without it the icon stays black on the dark chip
-   on the landing page and any other page that recolours the nav. */
+/* Border-only chip while the dropdown is open — see cart/search-dropdown snippets.
+   Transparent fill; box-shadow draws the border so layout size does not shift.
+   Color stays inherited from the page nav (do not force white). */
 #eyebrow-search.is-open,
 #eyebrow-search.is-open:hover,
 #eyebrow-cart.is-open,
 #eyebrow-cart.is-open:hover {
-    background: #2b2b2b;
-    color: #fff !important;
+    background: transparent;
+    box-shadow: 0 0 0 1px currentColor;
 }
 
 #search-block ul {
