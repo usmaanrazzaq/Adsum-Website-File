@@ -359,7 +359,16 @@
       }
     }
 
-    /* Homepage nav starts white over hero, transitions to black below hero */
+    /* Homepage nav over Archive Sale hero — keep above fading images */
+    #index .header-fullsite,
+    #index .header-fullsite-fixed {
+      z-index: 500;
+    }
+
+    #index .right-nav {
+      z-index: 500;
+    }
+
     #index .right-nav,
     #index .right-nav .search,
     #index .right-nav .desktop-search,
@@ -371,7 +380,7 @@
     #index localization-form,
     #index localization-form .disclosure,
     #index localization-form .disclosure__button {
-      color: #000;
+      color: #000 !important;
       transition: color 0.3s ease;
     }
     #index .right-nav .search-input,
@@ -1830,138 +1839,249 @@
   }
 }
 
-/* Portugal Series — Adsum SS26 (Figma node 854:76) */
-.portugal-series {
+/* Archive Sale landing — Paper "Archive Sale - Landing page" */
+.archive-sale-landing {
   position: relative;
   width: 100%;
   grid-column: span 24;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   background-color: #fff;
-  min-height: 900px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
   box-sizing: border-box;
 }
 
-.portugal-series-media {
-  position: relative;
-  height: 671px;
-  width: 504px;
-  max-width: 86vw;
-  flex-shrink: 0;
-}
-
-.portugal-series-content {
-  position: absolute;
-  left: 60px;
-  bottom: 65px;
-  width: 303px;
-  padding: 0 10px;
-  box-sizing: border-box;
+.archive-sale-landing__content {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  z-index: 2;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 0 20px 55px;
+  box-sizing: border-box;
+  min-height: 100vh;
+  gap: 60px;
 }
 
-.portugal-series-title {
+.archive-sale-landing__brand {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin: 0;
+}
+
+.archive-sale-landing__brand-img {
+  display: block;
+  width: 182px;
+  height: 45px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.archive-sale-landing__brand-mobile {
+  display: none;
+  width: 158px;
+  height: auto;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.archive-sale-landing__brand-text {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 60px;
+  line-height: 50px;
+  letter-spacing: -0.03em;
+  color: #000;
+}
+
+.archive-sale-landing__tagline {
   margin: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 500;
-  font-size: 24px;
-  line-height: 1.1;
-  color: #2b2b2b;
+  font-size: 32px;
+  line-height: 40px;
+  color: #000;
+  white-space: nowrap;
 }
 
-.portugal-series-copy {
+.archive-sale-landing__meta {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 544px;
+  max-width: 100%;
   margin: 0;
+  box-sizing: border-box;
+}
+
+.archive-sale-landing__meta-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  flex: 0 0 auto;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 400;
-  font-size: 15px;
-  line-height: 1.2;
-  color: #2b2b2b;
+  font-size: 14px;
+  line-height: 18px;
+  color: #000;
 }
 
-.portugal-series-btn {
+.archive-sale-landing__meta-label {
+  font-weight: 500;
+}
+
+.archive-sale-landing__meta-divider {
+  width: 17px;
+  height: 0.5px;
+  background-color: #2b2b2b;
+  flex-shrink: 0;
+}
+
+.archive-sale-landing__clock {
+  font-variant-numeric: tabular-nums;
+  min-height: 18px;
+}
+
+.archive-sale-landing__cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 212px;
+  width: 280px;
   max-width: 100%;
-  padding: 10px 25px;
+  height: 45px;
+  margin: 0;
   box-sizing: border-box;
   background-color: #2b2b2b;
   color: #fff;
   text-decoration: none;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
   font-size: 16px;
-  line-height: 1.1;
-  text-align: center;
-  transition: background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+  line-height: 20px;
+  transition: opacity 0.3s ease;
 }
 
-.portugal-series-btn:hover {
+.archive-sale-landing__cta:hover {
   opacity: 0.85;
+  color: #fff;
+}
+
+.archive-sale-landing__media {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: #f2f2f2;
+  /* Don't let the hero intercept clicks meant for the right-nav overlays */
+  pointer-events: none;
+  z-index: 0;
+}
+
+.archive-sale-landing__media .image-delay-transition {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  min-height: 100%;
+}
+
+.archive-sale-landing__media .image-delay-transition__img {
+  object-position: center center;
 }
 
 @media (max-width: 1100px) {
-  .portugal-series {
-    min-height: 760px;
+  .archive-sale-landing__brand-text {
+    font-size: 48px;
+    line-height: 44px;
   }
-  .portugal-series-media {
-    height: 560px;
-    width: 420px;
+
+  .archive-sale-landing__brand-img {
+    width: 146px;
+    height: 36px;
+  }
+
+  .archive-sale-landing__tagline {
+    font-size: 24px;
+    line-height: 30px;
+    white-space: normal;
+  }
+
+  .archive-sale-landing__content {
+    gap: 40px;
+  }
+
+  .archive-sale-landing__meta {
+    width: 100%;
+    max-width: 544px;
   }
 }
 
 @media (max-width: 900px) {
-  /* Stack image over text and top-align so there's no large gap below the header */
-  .portugal-series {
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+  .archive-sale-landing {
+    grid-template-columns: 1fr;
     min-height: auto;
-    padding: 24px 24px 60px;
   }
-  .portugal-series-media {
+
+  .archive-sale-landing__media {
+    order: -1;
+    min-height: 0;
     height: auto;
-    width: 100%;
-    max-width: 460px;
-    aspect-ratio: 504 / 671;
+    aspect-ratio: 1512 / 1964;
   }
-  .portugal-series-content {
-    position: static;
-    left: auto;
-    right: auto;
-    bottom: auto;
+
+  .archive-sale-landing__media .image-delay-transition {
+    position: absolute;
+    inset: 0;
+  }
+
+  .archive-sale-landing__media .image-delay-transition__img {
+    object-position: center top;
+  }
+
+  .archive-sale-landing__content {
+    min-height: auto;
+    padding: 15px 15px 40px;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+
+  .archive-sale-landing__brand-desktop {
+    display: none;
+  }
+
+  .archive-sale-landing__brand-mobile {
+    display: block;
+  }
+
+  .archive-sale-landing__tagline {
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 500;
+  }
+
+  .archive-sale-landing__meta {
     width: 100%;
-    max-width: 460px;
-    padding: 0;
-    margin-top: 24px;
-    align-items: flex-start;
+  }
+
+  .archive-sale-landing__cta {
+    width: 280px;
   }
 }
 
-@media (max-width: 600px) {
-  .portugal-series {
-    padding: 16px 14px 50px;
+@media (max-width: 400px) {
+  .archive-sale-landing__meta {
+    gap: 10px;
   }
-  .portugal-series-media {
-    max-width: none;
+
+  .archive-sale-landing__meta-col {
+    font-size: 12px;
+    line-height: 16px;
   }
-  .portugal-series-content {
-    max-width: none;
-    margin-top: 20px;
-  }
-  .portugal-series-title {
-    font-size: 20px;
-  }
-  .portugal-series-copy {
-    font-size: 14px;
-  }
-  .portugal-series-btn {
-    font-size: 14px;
+
+  .archive-sale-landing__cta {
+    width: 100%;
   }
 }
 </style>
@@ -1979,24 +2099,66 @@
   </p>
 {% endcomment %}
 
-{% assign portugal_collection = collections['portugal-series'] %}
+{% assign archive_page = pages['adsumarchive'] %}
 <div class="index-grid-1">
-  <section class="portugal-series" data-name="Adsum SS26 - Portugal Series">
-    {% include 'image-delay-transition',
-      images: 'adsum-ss26-portugal-1.jpg,adsum-ss26-portugal-3.jpg,adsum-ss26-portugal-4.jpg',
-      alt: 'Adsum Made in Portugal Series — SS26',
-      interval: 4000,
-      fade: 1400,
-      aspect: '504 / 671',
-      sizes: '(max-width: 600px) 80vw, 504px',
-      class: 'portugal-series-media'
-    %}
-    <div class="portugal-series-content">
-      <p class="portugal-series-title">Portugal Series</p>
-      <p class="portugal-series-copy">Introducing our Made in Portugal Series for SS26.</p>
-      <a href="{{ portugal_collection.url | default: '/collections/all' }}" class="portugal-series-btn">
-        Shop Now
+  <section class="archive-sale-landing" data-name="Archive Sale - Landing page">
+    <div class="archive-sale-landing__content">
+      <div class="archive-sale-landing__brand">
+        <img
+          class="archive-sale-landing__brand-img archive-sale-landing__brand-desktop"
+          src="{{ 'adsum-archive-wordmark.png' | asset_url }}"
+          alt="Adsum"
+          width="182"
+          height="45"
+        >
+        <span class="archive-sale-landing__brand-text archive-sale-landing__brand-desktop">Archive</span>
+        <img
+          class="archive-sale-landing__brand-mobile"
+          src="{{ 'adsum-archive-logo-mobile.png' | asset_url }}"
+          alt="Adsum Archive"
+          width="158"
+          height="21"
+        >
+      </div>
+
+      <p class="archive-sale-landing__tagline">Past season goods. Deeply reduced.</p>
+
+      <div class="archive-sale-landing__meta">
+        <div class="archive-sale-landing__meta-col">
+          <div class="archive-sale-landing__meta-label">Dates:</div>
+          <div>08.11.26<br>11 AM EST</div>
+          <div class="archive-sale-landing__meta-divider" aria-hidden="true"></div>
+          <div>08.18.26<br>11 AM EST</div>
+        </div>
+        <div class="archive-sale-landing__meta-col">
+          <div class="archive-sale-landing__meta-label">NYC Time:</div>
+          <div class="archive-sale-landing__clock" id="archive-nyc-clock" aria-live="polite">—</div>
+        </div>
+        <div class="archive-sale-landing__meta-col">
+          <div class="archive-sale-landing__meta-label">Categories:</div>
+          <div>Outerwear<br>Tops<br>Bottoms<br>Accessories</div>
+        </div>
+      </div>
+
+      <a
+        href="{{ archive_page.url | default: '/pages/adsumarchive' }}"
+        class="archive-sale-landing__cta"
+      >
+        Shop now
       </a>
+    </div>
+
+    <div class="archive-sale-landing__media">
+      {% include 'image-delay-transition',
+        images: 'archive-sale-hero.jpg,archive-sale-hero-2.jpg,archive-sale-hero-3.jpg,archive-sale-hero-4.jpg',
+        alt: 'Adsum Archive Sale',
+        interval: 4000,
+        fade: 1400,
+        aspect: 'auto',
+        sizes: '(max-width: 900px) 100vw, 50vw',
+        loading: 'eager',
+        class: 'archive-sale-landing__fade'
+      %}
     </div>
   </section>
 </div>
@@ -2079,9 +2241,6 @@
   <span>Shop Collection</span>
 </a>
 {% endcomment %}
-    
-  </div>
-</section>
 
 <div id="index-featured-products" class="index-blog-block-wrapper ">
   <div class="index-news-title">Featured</div>
@@ -2168,8 +2327,7 @@
 <script>
   $('.header-fullsite-fixed').addClass('header-fullsite').removeClass('header-fullsite-fixed');
   (function () {
-    // The SS26 Portugal Series hero is light (white background),
-    // so the nav stays dark across the whole homepage.
+    // Archive Sale landing is light (white left panel), so keep the nav dark.
     function updateIndexHeaderTheme() {
       var $header = $('.header-fullsite, .header-fullsite-fixed');
       $header.addClass('menu-to-black').removeClass('menu-to-white');
@@ -2178,6 +2336,25 @@
 
     updateIndexHeaderTheme();
     $(window).on('scroll resize', updateIndexHeaderTheme);
+  })();
+
+  (function () {
+    var clockEl = document.getElementById('archive-nyc-clock');
+    if (!clockEl) return;
+
+    var formatter = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'America/New_York',
+      hour: 'numeric',
+      minute: '2-digit',
+      hour12: true
+    });
+
+    function updateNycClock() {
+      clockEl.textContent = formatter.format(new Date()).toLowerCase();
+    }
+
+    updateNycClock();
+    setInterval(updateNycClock, 1000);
   })();
 </script>
 
