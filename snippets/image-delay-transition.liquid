@@ -11,7 +11,7 @@
 
   Usage:
     {% include 'image-delay-transition',
-       images: 'adsum-ss26-portugal-1.jpg,adsum-ss26-portugal-3.jpg',
+       images: 'adsum-ss26-portugal-1.jpg,adsum-ss26-portugal-5.jpg,adsum-ss26-portugal-2.jpg',
        alt: 'Portugal Series still life',
        interval: 4000,
        fade: 1400,
@@ -33,6 +33,8 @@
 {%- assign idt_aspect = aspect | default: '3 / 4' -%}
 {%- assign idt_sizes = sizes | default: '40vw' -%}
 {%- assign idt_loading = loading | default: 'eager' -%}
+{%- assign idt_width = width | default: 504 -%}
+{%- assign idt_height = height | default: 671 -%}
 {%- assign idt_images = images | split: ',' -%}
 
 {%- unless image_delay_transition_assets_rendered -%}
@@ -86,6 +88,8 @@
       class="image-delay-transition__img{% if forloop.first %} is-active{% endif %}"
       src="{{ src_url }}"
       alt="{{ alt | default: '' | escape }}"
+      width="{{ idt_width }}"
+      height="{{ idt_height }}"
       sizes="{{ idt_sizes }}"
       loading="{% if forloop.first %}{{ idt_loading }}{% else %}lazy{% endif %}"
       draggable="false"
