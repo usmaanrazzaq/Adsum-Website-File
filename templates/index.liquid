@@ -1,18 +1,21 @@
 <style>
-    /* Fix double scrollbar issue */
+    /* One page scroller only. Do not set overflow-x/y separately on body
+       or #content — mixed `hidden` + `visible` computes to `auto` and
+       creates a nested scrollbar that steals touch scrolling. */
     html {
       overflow-x: hidden;
-      overflow-y: scroll;
+      overflow-y: auto;
     }
     
     body#index {
       height: auto !important;
       min-height: 100vh;
-      overflow: initial !important;
+      overflow: visible !important;
     }
     
     body#index #content {
       overflow: visible;
+      max-width: 100%;
     }
 
     /* Cyber Monday Hero Styles */
@@ -359,7 +362,7 @@
       }
     }
 
-    /* Homepage nav over Portugal Series hero — keep above fading images */
+    /* Homepage nav over OOFOS hero — keep above the photos */
     #index .header-fullsite,
     #index .header-fullsite-fixed {
       z-index: 500;
@@ -770,6 +773,14 @@
       #index #content > .index-grid-1:first-of-type {
         padding-top: 0;
         padding-bottom: 0;
+        grid-template-columns: 1fr;
+      }
+
+      /* Full-bleed homepage heroes must span the grid they are in.
+         `span 24` on the 12-column mobile grid creates implicit
+         columns and a left-edge white gutter. */
+      #index #content > .index-grid-1:first-of-type > * {
+        grid-column: 1 / -1;
       }
       #index .header-mobile {
         z-index: 30;
@@ -1839,137 +1850,139 @@
   }
 }
 
-/* Portugal Series — Adsum SS26 (Paper "Adsum SS26 - v2") */
-.portugal-series {
+/* Adsum x OOFOS landing — Paper "Adsum x Oofos v4" */
+.oofos-hero {
   position: relative;
   width: 100%;
-  grid-column: span 24;
+  max-width: 100%;
+  grid-column: 1 / -1;
+  height: 100vh;
+  height: 100svh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   background-color: #fff;
-  min-height: 900px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
   box-sizing: border-box;
 }
 
-.portugal-series-media {
-  position: relative;
-  height: 671px;
-  width: 504px;
-  max-width: 86vw;
+.oofos-hero__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  pointer-events: none;
+}
+
+.oofos-hero__content {
+  position: absolute;
+  left: 60px;
+  bottom: 60px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 10px;
+  box-sizing: border-box;
+  max-width: calc(100% - 80px);
+}
+
+.oofos-hero__logos {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.oofos-hero__logo-adsum {
+  display: block;
+  width: 80px;
+  height: 20px;
+  object-fit: contain;
   flex-shrink: 0;
 }
 
-.portugal-series-content {
-  position: absolute;
-  left: 60px;
-  bottom: 63px;
-  width: 303px;
-  padding: 0 10px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  z-index: 2;
-}
-
-.portugal-series-title {
-  margin: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 30px;
-  color: #2b2b2b;
-}
-
-.portugal-series-copy {
-  margin: 0;
+.oofos-hero__logo-plus {
+  color: #fff;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 400;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 18px;
-  color: #2b2b2b;
 }
 
-.portugal-series-btn {
+.oofos-hero__logo-oofos {
+  display: block;
+  width: 111px;
+  height: 18px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.oofos-hero__tagline {
+  margin: 0;
+  color: #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  width: fit-content;
+}
+
+.oofos-hero__cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 212px;
+  width: 300px;
   max-width: 100%;
+  height: 50px;
+  margin: 0;
   padding: 10px 25px;
   box-sizing: border-box;
   background-color: #2b2b2b;
   color: #fff;
   text-decoration: none;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
   font-size: 16px;
   line-height: 20px;
   text-align: center;
-  transition: background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
-.portugal-series-btn:hover {
+.oofos-hero__cta:hover {
   opacity: 0.85;
-}
-
-@media (max-width: 1100px) {
-  .portugal-series {
-    min-height: 760px;
-  }
-  .portugal-series-media {
-    height: 560px;
-    width: 420px;
-  }
+  color: #fff;
 }
 
 @media (max-width: 900px) {
-  .portugal-series {
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    min-height: auto;
-    padding: 24px 24px 60px;
+  .oofos-hero {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    height: 85vh;
+    height: 85svh;
   }
-  .portugal-series-media {
-    height: auto;
-    width: 100%;
-    max-width: 460px;
-    aspect-ratio: 504 / 671;
+
+  .oofos-hero__img--car {
+    display: none;
   }
-  .portugal-series-content {
-    position: static;
-    left: auto;
-    right: auto;
-    bottom: auto;
-    width: 100%;
-    max-width: 460px;
-    padding: 0;
-    margin-top: 24px;
-    align-items: flex-start;
+
+  .oofos-hero__content {
+    left: 20px;
+    bottom: 24px;
+    max-width: calc(100% - 40px);
   }
 }
 
-@media (max-width: 600px) {
-  .portugal-series {
-    padding: 16px 14px 50px;
+@media (max-width: 400px) {
+  .oofos-hero__content {
+    left: 14px;
+    bottom: 20px;
+    max-width: calc(100% - 28px);
+    padding: 0;
   }
-  .portugal-series-media {
-    max-width: none;
-  }
-  .portugal-series-content {
-    max-width: none;
-    margin-top: 20px;
-  }
-  .portugal-series-title {
-    font-size: 20px;
-  }
-  .portugal-series-copy {
-    font-size: 14px;
-  }
-  .portugal-series-btn {
-    font-size: 14px;
+
+  .oofos-hero__cta {
+    width: 100%;
   }
 }
 </style>
@@ -1987,21 +2000,51 @@
   </p>
 {% endcomment %}
 
+{% assign oofos_collection = collections['adsum-oofos'] %}
 <div class="index-grid-1">
-  <section class="portugal-series" data-name="Adsum SS26 - Portugal Series">
-    {% include 'image-delay-transition',
-      images: 'adsum-ss26-portugal-1.jpg,adsum-ss26-portugal-5.jpg,adsum-ss26-portugal-2.jpg',
-      alt: 'Adsum Made in Portugal Series — SS26',
-      interval: 4000,
-      fade: 1400,
-      aspect: '504 / 671',
-      sizes: '(max-width: 600px) 80vw, 504px',
-      class: 'portugal-series-media'
-    %}
-    <div class="portugal-series-content">
-      <p class="portugal-series-title">Portugal Series</p>
-      <p class="portugal-series-copy">Introducing our Made in Portugal Series for SS26.</p>
-      <a href="{{ routes.all_products_collection_url }}" class="portugal-series-btn">
+  <section class="oofos-hero" data-name="Adsum x Oofos v4">
+    <img
+      class="oofos-hero__img oofos-hero__img--beach"
+      src="{{ 'adsum-oofos-hero-beach.jpg' | asset_url }}"
+      alt="Adsum x OOFOS — walking on the beach"
+      width="2268"
+      height="2946"
+      sizes="(max-width: 900px) 100vw, 50vw"
+      loading="eager"
+      fetchpriority="high"
+    >
+    <img
+      class="oofos-hero__img oofos-hero__img--car"
+      src="{{ 'adsum-oofos-hero-car.jpg' | asset_url }}"
+      alt="Adsum x OOFOS — OOFOS sandals"
+      width="2268"
+      height="2946"
+      sizes="(max-width: 900px) 100vw, 50vw"
+      loading="eager"
+    >
+    <div class="oofos-hero__content">
+      <div class="oofos-hero__logos">
+        <img
+          class="oofos-hero__logo-adsum"
+          src="{{ 'adsum-oofos-wordmark.png' | asset_url }}"
+          alt="Adsum"
+          width="80"
+          height="20"
+        >
+        <span class="oofos-hero__logo-plus" aria-hidden="true">+</span>
+        <img
+          class="oofos-hero__logo-oofos"
+          src="{{ 'oofos-logo-white.png' | asset_url }}"
+          alt="OOFOS"
+          width="111"
+          height="18"
+        >
+      </div>
+      <p class="oofos-hero__tagline">Welcome to the Unglamorous Beach Club.</p>
+      <a
+        href="{{ oofos_collection.url | default: '/collections/adsum-oofos' }}"
+        class="oofos-hero__cta"
+      >
         Shop Now
       </a>
     </div>
@@ -2172,8 +2215,7 @@
 <script>
   $('.header-fullsite-fixed').addClass('header-fullsite').removeClass('header-fullsite-fixed');
   (function () {
-    // The SS26 Portugal Series hero is light (white background),
-    // so the nav stays dark across the whole homepage.
+    // Adsum x OOFOS hero photos are bright, so keep the nav dark.
     function updateIndexHeaderTheme() {
       var $header = $('.header-fullsite, .header-fullsite-fixed');
       $header.addClass('menu-to-black').removeClass('menu-to-white');

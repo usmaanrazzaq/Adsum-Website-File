@@ -172,9 +172,22 @@
 
 
   $(document).ready(function(){
+    function pinMobileMenu() {
+      var header = document.querySelector('.header-mobile');
+      if (!header) return;
+      document.documentElement.style.setProperty(
+        '--mobile-nav-top',
+        Math.max(0, Math.round(header.getBoundingClientRect().bottom)) + 'px'
+      );
+    }
+
+    pinMobileMenu();
+    $(window).on('resize scroll', pinMobileMenu);
+
     $('.header-mobile .toggle').on('click', function(){
       var $menu = $('#mobile-menu');
       var isOpen = !$menu.hasClass('mobile-menu-view');
+      pinMobileMenu();
       $menu.toggleClass('mobile-menu-view', isOpen);
       $('.header-mobile').toggleClass('cool', isOpen);
       $(this).toggleClass('menu-opacity', isOpen).attr('aria-expanded', isOpen ? 'true' : 'false');

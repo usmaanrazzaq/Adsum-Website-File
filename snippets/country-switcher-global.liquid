@@ -72,23 +72,27 @@
       }  
 
       .CountryList li{ display:block!important; }
-      ::-webkit-scrollbar {
+      .CountryList::-webkit-scrollbar,
+      ul.Ge_Count_Li::-webkit-scrollbar {
       width: 12px;
       height: 12px;
       }
 
-      ::-webkit-scrollbar-track {
+      .CountryList::-webkit-scrollbar-track,
+      ul.Ge_Count_Li::-webkit-scrollbar-track {
       background: #f5f5f5;
       border-radius: 10px;
       }
 
-      ::-webkit-scrollbar-thumb {
+      .CountryList::-webkit-scrollbar-thumb,
+      ul.Ge_Count_Li::-webkit-scrollbar-thumb {
       border-radius: 10px;
-      background: #ccc;  
+      background: #ccc;
       }
 
-      ::-webkit-scrollbar-thumb:hover {
-      background: #999;  
+      .CountryList::-webkit-scrollbar-thumb:hover,
+      ul.Ge_Count_Li::-webkit-scrollbar-thumb:hover {
+      background: #999;
       }
       /* mobile nav */
       .mobile-navigation .CountryList{ max-height: 30vh; margin-left:-18px; }
