@@ -2000,7 +2000,7 @@
   </p>
 {% endcomment %}
 
-{% assign oofos_collection = collections['adsum-oofos'] %}
+{% assign oofos_product = all_products['adsum-oofos'] %}
 <div class="index-grid-1">
   <section class="oofos-hero" data-name="Adsum x Oofos v4">
     <img
@@ -2042,7 +2042,7 @@
       </div>
       <p class="oofos-hero__tagline">Welcome to the Unglamorous Beach Club.</p>
       <a
-        href="{{ oofos_collection.url | default: '/collections/adsum-oofos' }}"
+        href="{{ oofos_product.url | default: '/products/adsum-oofos' }}"
         class="oofos-hero__cta"
       >
         Shop Now
