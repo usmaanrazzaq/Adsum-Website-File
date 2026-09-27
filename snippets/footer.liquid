@@ -1,93 +1,349 @@
 <style>
-  .footer-newsletter-block-signup input {
-    border-radius: 0px!important;
-    font-size: 12px!important;
-    border-right: none!important;
+  .footer.site-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 16px;
+    min-height: 361px;
+    padding: 40px;
+    border-top: none;
+    background-color: #F4F4F4;
+    color: #2B2B2B;
+    font-family: "Helvetica Neue", Helvetica, system-ui, sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+    -webkit-font-smoothing: antialiased;
   }
-  .hZrcDZ.hZrcDZ {
-    max-width: 200px;
+
+  .site-footer__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
   }
-  #email_10101841 {
+
+  .site-footer__newsletter {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 345px;
+    max-width: 100%;
+  }
+
+  .site-footer__title,
+  .site-footer__text {
+    margin: 0;
+    color: #000;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .site-footer__social {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .site-footer__social .icon-footer {
+    float: none;
+    color: #2B2B2B;
+  }
+
+  .site-footer__social .icon-footer:hover {
+    color: #6E6E73;
+  }
+
+  .site-footer__social .icons {
+    margin: 0;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .site-footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .site-footer__links {
+    display: flex;
+    gap: 15px;
+  }
+
+  .site-footer__links .footer-link {
+    margin: 0;
+    color: #2B2B2B;
+  }
+
+  .site-footer__links .footer-link:hover {
+    color: #6E6E73;
+  }
+
+  /* Klaviyo injects its form markup at runtime with hashed class names. */
+  .site-footer__signup .klaviyo-form-SRchgF,
+  .site-footer__signup .klaviyo-form-SRchgF form {
     width: 100%;
+    max-width: 345px !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
   }
-  .footer-newsletter-block-signup button {
-    font-size: 11px!important;
-    border: 1px solid #000!important;
-    padding: 9px 16px!important;
-    -moz-transition: all .3s ease-in-out;
-    -webkit-transition: all .3s ease-in-out;
-    -o-transition: all .3s ease-in-out;
-    -ms-transition: all .3s ease-in-out;
+
+  .site-footer__signup .klaviyo-form-SRchgF form > div,
+  .site-footer__signup .klaviyo-form-SRchgF [data-testid="form-row"] {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 15px !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .site-footer__signup .klaviyo-form-SRchgF [data-testid="form-component"] {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex: none !important;
+  }
+
+  .site-footer__signup .klaviyo-form-SRchgF input[type="email"],
+  .site-footer__signup .klaviyo-form-SRchgF input[type="text"] {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    height: 40px !important;
+    padding: 0 16px !important;
+    border: 1px solid #2B2B2B !important;
+    border-radius: 0 !important;
+    background: #fff !important;
+    color: #2B2B2B !important;
+    font-family: "Helvetica Neue", Helvetica, system-ui, sans-serif !important;
+    font-size: 14px !important;
+    line-height: 18px !important;
+  }
+
+  .site-footer__signup .klaviyo-form-SRchgF input::placeholder {
+    color: #8D8D92 !important;
+    font-size: 14px !important;
+  }
+
+  .site-footer__signup .klaviyo-form-SRchgF button {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    height: 40px !important;
+    padding: 0 18px !important;
+    border: 1px solid #2B2B2B !important;
+    border-radius: 0 !important;
+    background: #2B2B2B !important;
+    color: #fff !important;
+    font-family: "Helvetica Neue", Helvetica, system-ui, sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 18px !important;
     transition: all .3s ease-in-out;
   }
-  .footer-newsletter-block-signup button:hover {
-    color: #000!important;
-    background-color:#fff!important;
-    border: 1px solid #000!important;
-    -moz-transition: all .3s ease-in-out;
-    -webkit-transition: all .3s ease-in-out;
-    -o-transition: all .3s ease-in-out;
-    -ms-transition: all .3s ease-in-out;
+
+  .site-footer__signup .klaviyo-form-SRchgF button:hover {
+    background: #fff !important;
+    color: #2B2B2B !important;
+  }
+
+  .site-footer__fallback {
+    display: none;
+  }
+
+  .site-footer__signup.is-fallback .klaviyo-form-SRchgF {
+    display: none;
+  }
+
+  .site-footer__signup.is-fallback .site-footer__fallback {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 345px;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .site-footer__fallback input[type="email"] {
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    margin: 0;
+    padding: 0 16px;
+    border: 1px solid #2B2B2B;
+    border-radius: 0;
+    background: #fff;
+    color: #2B2B2B;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 18px;
+    -webkit-appearance: none;
+  }
+
+  .site-footer__fallback input[type="email"]::placeholder {
+    color: #8D8D92;
+  }
+
+  .site-footer__fallback button {
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    margin: 0;
+    padding: 0 18px;
+    border: 1px solid #2B2B2B;
+    border-radius: 0;
+    background: #2B2B2B;
+    color: #fff;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 18px;
+    cursor: pointer;
     transition: all .3s ease-in-out;
   }
-  
+
+  .site-footer__fallback button:hover {
+    background: #fff;
+    color: #2B2B2B;
+  }
+
+  .site-footer__fallback button[disabled] {
+    opacity: .6;
+    cursor: default;
+  }
+
+  .site-footer__fallback-message {
+    margin: 0;
+    font-size: 14px;
+    line-height: 18px;
+    color: #2B2B2B;
+  }
+
   @media (max-width: 900px) {
-    .hZrcDZ.hZrcDZ {
-      max-width: none;
+    .footer.site-footer {
+      min-height: 0;
+      gap: 40px;
+      padding: 40px 20px;
     }
-    .iBtvku.iBtvku {
-      max-width: none;
+
+    .site-footer__top,
+    .site-footer__bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+    }
+
+    .site-footer__newsletter,
+    .site-footer__signup .klaviyo-form-SRchgF,
+    .site-footer__signup .klaviyo-form-SRchgF form,
+    .site-footer__signup.is-fallback .site-footer__fallback {
+      width: 100%;
+      max-width: none !important;
+    }
+
+    .site-footer__social .icons {
+      font-size: 20px;
+      line-height: 24px;
+    }
+
+    .site-footer__links {
+      flex-wrap: wrap;
     }
   }
 </style>
 
-<div class="footer">
-  
-  <div class="footer-50percent">
-    <div id="mc_embed_signup">
-    	<form action="//adsumnyc.us11.list-manage.com/subscribe/post?u=3c16622f98c4e2178e7cd57c6&amp;id=b580079383" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-          
-          <div class="footer-newsletter-title">
-          	<label for="mce-EMAIL" class="mailchimp-email" style="color: #000; font-weight: 600;">Newsletter</label>
-          </div>
-          
-          <div class="footer-newsletter-block">
-            <div class="footer-newsletter-block-text">
-              Sign up to our newsletter and be the first to hear about new product releases, upcoming parties & events.
+<div class="footer site-footer">
 
-            </div>
-            <div class="footer-newsletter-block-signup">
-              <div class="klaviyo-form-SRchgF"></div>
-            </div>
-          </div>
+  <div class="site-footer__top">
+    <div class="site-footer__newsletter">
+      <div class="site-footer__title">Newsletter</div>
+      <p class="site-footer__text">Sign up to our newsletter and be the first to hear about new product releases, upcoming parties & events</p>
+      <div class="site-footer__signup">
+        <div class="klaviyo-form-SRchgF"></div>
 
-          <div class="response" id="mce-error-response" style="display:none"></div>
-          <div class="response" id="mce-success-response" style="display:none"></div>
-          
-    	</form>
+        {% form 'customer', class: 'site-footer__fallback', id: 'footer-newsletter-form' %}
+          {% if form.posted_successfully? %}
+            <p class="site-footer__fallback-message" data-posted>Thanks for signing up.</p>
+          {% else %}
+            <input type="hidden" name="contact[tags]" value="newsletter">
+            <input type="email" name="contact[email]" placeholder="Enter your email" aria-label="Enter your email" autocomplete="email" required>
+            <button type="submit">JOIN</button>
+          {% endif %}
+        {% endform %}
+      </div>
+    </div>
+
+    <div class="site-footer__social">
+      <a href="https://open.spotify.com/user/adsumnyc" target="_blank" class="icon-footer" aria-label="Spotify"><i class="icons icon-spotify">&#xe806;</i></a>
+      <a href="https://www.facebook.com/adsumnyc/" target="_blank" class="icon-footer" aria-label="Facebook"><i class="icons icon-facebook">&#xe800;</i></a>
+      <a href="http://www.instagram.com/adsumnyc" target="_blank" class="icon-footer" aria-label="Instagram"><i class="icons icon-instagram">&#xe802;</i></a>
     </div>
   </div>
-  
-  <div class="footer-50percent footer-social-icons">
-    <a href="https://open.spotify.com/user/adsumnyc" target="_blank" class="icon-footer"><i class="icons icon-spotify">&#xe806;</i></a>
-    <a href="https://www.facebook.com/adsumnyc/" target="_blank" class="icon-footer"><i class="icons icon-facebook">&#xe800;</i></a>  
-    <a href="http://www.instagram.com/adsumnyc" target="_blank" class="icon-footer"><i class="icons icon-instagram">&#xe802;</i></a>
-  </div>
 
-  <div class="footer-50percent footer-link-wrapper">
-    <a href="/pages/contact" class="footer-link">Contact</a>
-    <a href="/pages/shipping-returns" class="footer-link">Shipping/Returns</a>
-    <a href="/pages/careers" class="footer-link">Careers</a>
-  </div>
-
-  <div class="footer-50percent">
-    <div class="footer-copyright">© {{ 'now' | date: "%Y" }} Adsum</div>
+  <div class="site-footer__bottom">
+    <nav class="site-footer__links">
+      <a href="/pages/contact" class="footer-link">Contact</a>
+      <a href="/pages/shipping-returns" class="footer-link">Shipping/Returns</a>
+      <a href="/pages/careers" class="footer-link">Careers</a>
+    </nav>
+    <div class="site-footer__copyright">© {{ 'now' | date: "%Y" }} Adsum</div>
   </div>
 
 </div>
 
-<!--
-        <a href="http://www.instagram.com/adsumnyc" target="_blank" class="icon-footer"><i class="icons icon-tumblr">&#xe804;</i></a>
-        <i class="icons icon-soundcloud">&#xe803;</i>
-        <i class="icons icon-twitter">&#xe805;</i>      
--->
+<script>
+  (function () {
+    var signup = document.querySelector('.site-footer__signup');
+    if (!signup) return;
+    var embed = signup.querySelector('.klaviyo-form-SRchgF');
+    var form = signup.querySelector('.site-footer__fallback');
+
+    function embedRendered() {
+      return !!embed.querySelector('input');
+    }
+
+    if (form.querySelector('[data-posted]')) {
+      signup.classList.add('is-fallback');
+      return;
+    }
+
+    // Klaviyo's script is blocked by some browsers and content blockers, leaving the embed empty.
+    setTimeout(function () {
+      if (!embedRendered()) signup.classList.add('is-fallback');
+    }, 4000);
+
+    new MutationObserver(function () {
+      var input = form.querySelector('input[type="email"]');
+      if (embedRendered() && !input.value && document.activeElement !== input) {
+        signup.classList.remove('is-fallback');
+      }
+    }).observe(embed, { childList: true, subtree: true });
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      var email = form.querySelector('input[type="email"]').value.trim();
+      form.querySelector('button').disabled = true;
+
+      fetch('https://a.klaviyo.com/client/subscriptions/?company_id=LtAnwJ', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', revision: '2024-10-15' },
+        body: JSON.stringify({
+          data: {
+            type: 'subscription',
+            attributes: { profile: { data: { type: 'profile', attributes: { email: email } } } },
+            relationships: { list: { data: { type: 'list', id: 'SNStq4' } } }
+          }
+        })
+      }).then(function (response) {
+        if (!response.ok) throw new Error(response.status);
+        form.innerHTML = '<p class="site-footer__fallback-message">Thanks for signing up.</p>';
+      }).catch(function () {
+        form.submit();
+      });
+    });
+  })();
+</script>

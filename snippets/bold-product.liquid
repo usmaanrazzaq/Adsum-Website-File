@@ -407,12 +407,11 @@ OPTIONAL: bold-product-error.liquid - If this snippet exists, it will be used to
 [
     {%- assign not_first = false -%}
     {%- for opt in bold_product.options -%}
-      {%- assign option_name = 'options' | append: forloop.index -%}
     {%- if not_first -%},{%- else -%}{%- assign not_first = true -%}{%- endif -%}{
 "name":{{- opt | json -}},
 {%- if bold_product_endpoint == 'json' -%}"product_id":{{- bold_product.id | json -}},{%- endif -%}
 "position":{{-  forloop.index | json -}},
-"values":{{- [option_name] | json -}}
+"values":{%- case forloop.index -%}{%- when 1 -%}{{- options1 | json -}}{%- when 2 -%}{{- options2 | json -}}{%- else -%}{{- options3 | json -}}{%- endcase -%}
 }
     {%- endfor -%}
 ]
