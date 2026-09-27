@@ -49,7 +49,7 @@
 		{% when 'blog' %} 
 			<title>{{ page_title }} &#47; {{ shop.name }}</title>
 			<meta name="description" content="{{ shop.name }} {{ blog.title | escape }}" />
-			<meta property="og:image" content="{{ article | img_url: 'master }}" />
+			<meta property="og:image" content="{{ article | img_url: 'master' }}" />
         	<meta property="og:image:secure_url" content="{{ article | img_url: 'master' }}" />
         	<meta property="og:title" content="{{ article.title | escape }}" />
         	<meta property="og:description" content="{{ article.content | strip_html | truncate: 150 }}" />
