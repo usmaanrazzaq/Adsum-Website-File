@@ -362,7 +362,7 @@
       }
     }
 
-    /* Homepage nav over OOFOS hero — keep above the photos */
+    /* Homepage nav over FW26 hero — keep above the photos */
     #index .header-fullsite,
     #index .header-fullsite-fixed {
       z-index: 500;
@@ -1850,22 +1850,59 @@
   }
 }
 
-/* Adsum x OOFOS landing — Paper "Adsum x Oofos v4" */
-.oofos-hero {
+/* FW26 landing — Paper "FW26 - Landing page v3" (pairs from v2 and v4) */
+.fw26-hero {
   position: relative;
   width: 100%;
   max-width: 100%;
   grid-column: 1 / -1;
   height: 100vh;
   height: 100svh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* Each half is at least as wide as a 2:3 photo, so the products are
+     never cropped at the sides — only spare backdrop above and below. */
+  max-height: 75vw;
   background-color: #fff;
   overflow: hidden;
   box-sizing: border-box;
 }
 
-.oofos-hero__img {
+/* Each slide is one left/right pair, so the pairing never splits mid-fade.
+   The outgoing slide stays opaque underneath (.is-prev) while the incoming
+   one fades in on top, so the white background never shows through. */
+.fw26-hero__stage {
+  position: absolute;
+  inset: 0;
+}
+
+.fw26-hero__slide {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: minmax(0, 1fr);
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 1.2s ease;
+}
+
+.fw26-hero__slide.is-prev {
+  opacity: 1;
+  z-index: 1;
+  transition: none;
+}
+
+.fw26-hero__slide.is-active {
+  opacity: 1;
+  z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fw26-hero__slide {
+    transition: none;
+  }
+}
+
+.fw26-hero__img {
   display: block;
   width: 100%;
   height: 100%;
@@ -1874,115 +1911,116 @@
   pointer-events: none;
 }
 
-.oofos-hero__content {
+.fw26-hero__content {
   position: absolute;
-  left: 60px;
-  bottom: 60px;
-  z-index: 2;
+  left: 25px;
+  bottom: 75px;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 15px;
-  padding: 10px;
+  gap: 25px;
   box-sizing: border-box;
-  max-width: calc(100% - 80px);
+  max-width: calc(100% - 50px);
 }
 
-.oofos-hero__logos {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.oofos-hero__logo-adsum {
-  display: block;
-  width: 80px;
-  height: 20px;
-  object-fit: contain;
-  flex-shrink: 0;
-}
-
-.oofos-hero__logo-plus {
-  color: #fff;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
-}
-
-.oofos-hero__logo-oofos {
-  display: block;
-  width: 111px;
-  height: 18px;
-  object-fit: contain;
-  flex-shrink: 0;
-}
-
-.oofos-hero__tagline {
+.fw26-hero__title {
   margin: 0;
-  color: #fff;
+  color: #2b2b2b;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 20px;
-  width: fit-content;
+  font-size: 20px;
+  line-height: 24px;
+  white-space: nowrap;
 }
 
-.oofos-hero__cta {
+.fw26-hero__cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 300px;
+  width: 245px;
   max-width: 100%;
   height: 50px;
   margin: 0;
-  padding: 10px 25px;
   box-sizing: border-box;
   background-color: #2b2b2b;
   color: #fff;
   text-decoration: none;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 20px;
+  font-size: 18px;
+  line-height: 22px;
   text-align: center;
   transition: opacity 0.3s ease;
 }
 
-.oofos-hero__cta:hover {
+.fw26-hero__cta:hover {
   opacity: 0.85;
   color: #fff;
 }
 
+/* Below desktop each photo is too narrow for the copy to clear the outfit,
+   so the copy sits below the photos. The stage keeps the 75vw cap and
+   leaves room for the copy and the fixed newsletter tab within the first
+   screen (plus the mobile header bar, which only shows at 900px and below). */
+@media (max-width: 1024px) {
+  .fw26-hero {
+    height: auto;
+    max-height: none;
+  }
+
+  .fw26-hero__stage {
+    position: relative;
+    height: 75vw;
+    max-height: calc(100vh - 190px);
+    max-height: calc(100svh - 190px);
+  }
+
+  .fw26-hero__content {
+    position: static;
+    gap: 15px;
+    max-width: none;
+    padding: 20px 20px 30px;
+  }
+}
+
 @media (max-width: 900px) {
-  .oofos-hero {
+  .fw26-hero__stage {
+    max-height: calc(100vh - 240px);
+    max-height: calc(100svh - 240px);
+  }
+}
+
+@media (max-width: 600px) {
+  .fw26-hero__stage {
+    height: 75vh;
+    height: 75svh;
+    max-height: none;
+  }
+
+  .fw26-hero__slide {
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    height: 85vh;
-    height: 85svh;
   }
 
-  .oofos-hero__img--car {
+  .fw26-hero__img--right {
     display: none;
-  }
-
-  .oofos-hero__content {
-    left: 20px;
-    bottom: 24px;
-    max-width: calc(100% - 40px);
   }
 }
 
 @media (max-width: 400px) {
-  .oofos-hero__content {
-    left: 14px;
-    bottom: 20px;
-    max-width: calc(100% - 28px);
-    padding: 0;
+  .fw26-hero__content {
+    padding: 16px 14px 24px;
   }
 
-  .oofos-hero__cta {
+  .fw26-hero__title {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .fw26-hero__cta {
     width: 100%;
+    font-size: 16px;
+    line-height: 20px;
   }
 }
 </style>
@@ -2000,52 +2038,79 @@
   </p>
 {% endcomment %}
 
-{% assign oofos_product = all_products['adsum-oofos'] %}
+{% assign fw26_drop_one = collections['fw26-drop-1'] %}
 <div class="index-grid-1">
-  <section class="oofos-hero" data-name="Adsum x Oofos v4">
-    <img
-      class="oofos-hero__img oofos-hero__img--beach"
-      src="{{ 'adsum-oofos-hero-beach.jpg' | asset_url }}"
-      alt="Adsum x OOFOS — walking on the beach"
-      width="2268"
-      height="2946"
-      sizes="(max-width: 900px) 100vw, 50vw"
-      loading="eager"
-      fetchpriority="high"
-    >
-    <img
-      class="oofos-hero__img oofos-hero__img--car"
-      src="{{ 'adsum-oofos-hero-car.jpg' | asset_url }}"
-      alt="Adsum x OOFOS — OOFOS sandals"
-      width="2268"
-      height="2946"
-      sizes="(max-width: 900px) 100vw, 50vw"
-      loading="eager"
-    >
-    <div class="oofos-hero__content">
-      <div class="oofos-hero__logos">
+  <section class="fw26-hero" data-name="FW26 - Landing page v3">
+    <div class="fw26-hero__stage">
+      <div class="fw26-hero__slide is-active">
         <img
-          class="oofos-hero__logo-adsum"
-          src="{{ 'adsum-oofos-wordmark.png' | asset_url }}"
-          alt="Adsum"
-          width="80"
-          height="20"
+          class="fw26-hero__img fw26-hero__img--left"
+          src="{{ 'adsum-fw26-hero-model.jpg' | asset_url }}"
+          alt="Adsum FW26 — model in a beige down jacket and light-wash jeans"
+          width="2001"
+          height="3000"
+          sizes="(max-width: 600px) 100vw, 50vw"
+          loading="eager"
+          fetchpriority="high"
         >
-        <span class="oofos-hero__logo-plus" aria-hidden="true">+</span>
         <img
-          class="oofos-hero__logo-oofos"
-          src="{{ 'oofos-logo-white.png' | asset_url }}"
-          alt="OOFOS"
-          width="111"
-          height="18"
+          class="fw26-hero__img fw26-hero__img--right"
+          src="{{ 'adsum-fw26-hero-jacket.jpg' | asset_url }}"
+          alt="Adsum FW26 — white down parka with black lining"
+          width="1999"
+          height="3000"
+          sizes="(max-width: 600px) 100vw, 50vw"
+          loading="eager"
         >
       </div>
-      <p class="oofos-hero__tagline">Welcome to the Unglamorous Beach Club.</p>
+      <div class="fw26-hero__slide" aria-hidden="true">
+        <img
+          class="fw26-hero__img fw26-hero__img--left"
+          src="{{ 'adsum-fw26-hero-maroon.jpg' | asset_url }}"
+          alt="Adsum FW26 — model in a maroon sweater and dark denim with a black duffel"
+          width="2001"
+          height="3000"
+          sizes="(max-width: 600px) 100vw, 50vw"
+          loading="lazy"
+        >
+        <img
+          class="fw26-hero__img fw26-hero__img--right"
+          src="{{ 'adsum-fw26-hero-duffel.jpg' | asset_url }}"
+          alt="Adsum FW26 — black nylon duffel bag"
+          width="1999"
+          height="3000"
+          sizes="(max-width: 600px) 100vw, 50vw"
+          loading="lazy"
+        >
+      </div>
+      <div class="fw26-hero__slide" aria-hidden="true">
+        <img
+          class="fw26-hero__img fw26-hero__img--left"
+          src="{{ 'adsum-fw26-hero-black-jacket.jpg' | asset_url }}"
+          alt="Adsum FW26 — model in a black fleece with a green sling bag, in profile"
+          width="2001"
+          height="3000"
+          sizes="(max-width: 600px) 100vw, 50vw"
+          loading="lazy"
+        >
+        <img
+          class="fw26-hero__img fw26-hero__img--right"
+          src="{{ 'adsum-fw26-hero-black-hoodie.jpg' | asset_url }}"
+          alt="Adsum FW26 — model in a black fleece pullover and black pants"
+          width="2001"
+          height="3000"
+          sizes="(max-width: 600px) 100vw, 50vw"
+          loading="lazy"
+        >
+      </div>
+    </div>
+    <div class="fw26-hero__content">
+      <p class="fw26-hero__title">FW26 Available now!</p>
       <a
-        href="{{ oofos_product.url | default: '/products/adsum-oofos' }}"
-        class="oofos-hero__cta"
+        href="{{ fw26_drop_one.url | default: '/collections/all' }}"
+        class="fw26-hero__cta"
       >
-        Shop Now
+        Shop now
       </a>
     </div>
   </section>
@@ -2215,7 +2280,7 @@
 <script>
   $('.header-fullsite-fixed').addClass('header-fullsite').removeClass('header-fullsite-fixed');
   (function () {
-    // Adsum x OOFOS hero photos are bright, so keep the nav dark.
+    // FW26 hero photos are bright, so keep the nav dark.
     function updateIndexHeaderTheme() {
       var $header = $('.header-fullsite, .header-fullsite-fixed');
       $header.addClass('menu-to-black').removeClass('menu-to-white');
@@ -2224,6 +2289,55 @@
 
     updateIndexHeaderTheme();
     $(window).on('scroll resize', updateIndexHeaderTheme);
+  })();
+
+  (function () {
+    var slides = document.querySelectorAll('.fw26-hero__slide');
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (slides.length < 2 || reduceMotion) return;
+
+    var current = 0;
+    var interval = 5000;
+    var fade = 1200;
+
+    // Hidden images (the right photo on mobile) are lazy and never load, so only wait on rendered ones.
+    function isReady(slide) {
+      var imgs = slide.querySelectorAll('img');
+      for (var i = 0; i < imgs.length; i++) {
+        if (imgs[i].getClientRects().length && !imgs[i].complete) return false;
+      }
+      return true;
+    }
+
+    function advance() {
+      if (document.hidden) return;
+      var next = (current + 1) % slides.length;
+      if (!isReady(slides[next])) return;
+
+      var prev = slides[current];
+      var incoming = slides[next];
+      var released = false;
+
+      // The fade can start late while photos decode, so drop the outgoing
+      // pair only once the incoming one is fully opaque.
+      function release(e) {
+        if (released || (e && e.target !== incoming)) return;
+        released = true;
+        incoming.removeEventListener('transitionend', release);
+        prev.classList.remove('is-prev');
+      }
+
+      prev.classList.remove('is-active');
+      prev.classList.add('is-prev');
+      prev.setAttribute('aria-hidden', 'true');
+      incoming.addEventListener('transitionend', release);
+      incoming.classList.add('is-active');
+      incoming.removeAttribute('aria-hidden');
+      setTimeout(release, fade * 3);
+      current = next;
+    }
+
+    setInterval(advance, interval);
   })();
 </script>
 
