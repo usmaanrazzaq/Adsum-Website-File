@@ -2038,7 +2038,7 @@
   </p>
 {% endcomment %}
 
-{% assign fw26_drop_one = collections['fw26-drop-1'] %}
+{% assign fw26_collection = collections['fw26'] %}
 <div class="index-grid-1">
   <section class="fw26-hero" data-name="FW26 - Landing page v3">
     <div class="fw26-hero__stage">
@@ -2107,7 +2107,7 @@
     <div class="fw26-hero__content">
       <p class="fw26-hero__title">FW26 Available now!</p>
       <a
-        href="{{ fw26_drop_one.url | default: '/collections/all' }}"
+        href="{{ fw26_collection.url | default: '/collections/fw26' }}"
         class="fw26-hero__cta"
       >
         Shop now
