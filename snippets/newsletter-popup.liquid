@@ -1,0 +1,408 @@
+<style>
+  .newsletter-tab {
+    position: fixed;
+    left: 0;
+    bottom: 28px;
+    z-index: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 25px;
+    height: 150px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: #fff;
+    color: #000;
+    font-family: "Helvetica Neue", Helvetica, system-ui, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    writing-mode: vertical-rl;
+    -webkit-font-smoothing: antialiased;
+    cursor: pointer;
+    transition: opacity .3s ease-in-out, visibility 0s;
+  }
+
+  .newsletter-tab:hover {
+    color: #6E6E73;
+  }
+
+  .newsletter-tab.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .3s ease-in-out, visibility 0s .3s;
+  }
+
+  .newsletter-popup {
+    position: fixed;
+    inset: 0;
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .3s ease-in-out, visibility 0s .3s;
+  }
+
+  .newsletter-popup.is-open {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity .3s ease-in-out;
+  }
+
+  .newsletter-popup__card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-sizing: border-box;
+    width: 550px;
+    max-width: 100%;
+    max-height: 100%;
+    overflow-y: auto;
+    padding: 10px 20px;
+    background: #fff;
+    box-shadow: 0 2px 15px 10px rgba(43, 43, 43, .25);
+    color: #000;
+    font-family: "Helvetica Neue", Helvetica, system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    outline: none;
+  }
+
+  .newsletter-popup__close-row {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .newsletter-popup__close {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: #000;
+    cursor: pointer;
+  }
+
+  .newsletter-popup__close:hover {
+    color: #6E6E73;
+  }
+
+  /* 292px is everything in the card besides the image, plus the 20px viewport gutters,
+     so the image gives up height on short screens before the card has to scroll. */
+  .newsletter-popup__image {
+    display: block;
+    flex-shrink: 0;
+    width: 100%;
+    height: 580px;
+    max-height: calc(100vh - 332px);
+    max-height: calc(100svh - 332px);
+    min-height: 180px;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+
+  .newsletter-popup__body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .newsletter-popup__title {
+    margin: 0;
+    color: #000;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  .newsletter-popup__text {
+    margin: 0;
+    color: #000;
+    font-size: 14px;
+    line-height: 18px;
+    text-wrap: pretty;
+  }
+
+  .newsletter-popup__form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
+  }
+
+  .newsletter-popup__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .newsletter-popup__form input[type="email"],
+  .newsletter-popup__form button {
+    box-sizing: border-box;
+    width: 100%;
+    height: 60px;
+    margin: 0;
+    padding: 8px 15px;
+    border: .5px solid rgba(43, 43, 43, .5);
+    border-radius: 0;
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 20px;
+    -webkit-appearance: none;
+  }
+
+  .newsletter-popup__form input[type="email"] {
+    background: #fff;
+    color: #000;
+  }
+
+  .newsletter-popup__form input[type="email"]::placeholder {
+    color: #828282;
+  }
+
+  .newsletter-popup__form button {
+    background: #2B2B2B;
+    color: #fff;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+  }
+
+  .newsletter-popup__form button:hover {
+    border-color: #2B2B2B;
+    background: #fff;
+    color: #2B2B2B;
+  }
+
+  .newsletter-popup__form button[disabled] {
+    opacity: .6;
+    cursor: default;
+  }
+
+  .newsletter-popup__message {
+    margin: 0 0 10px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  /* The mobile design dims the page behind the card. */
+  @media (max-width: 900px) {
+    .newsletter-popup {
+      padding: 11px;
+      background: rgba(43, 43, 43, .25);
+    }
+
+    .newsletter-popup__card {
+      width: 380px;
+      padding: 8px 15px;
+      box-shadow: 0 2px 15px 5px rgba(0, 0, 0, .2);
+    }
+
+    /* 295px covers the close row, copy, fields and gutters, with room for the copy to wrap on narrow phones. */
+    .newsletter-popup__image {
+      height: auto;
+      aspect-ratio: 350 / 401;
+      max-height: calc(100vh - 295px);
+      max-height: calc(100svh - 295px);
+    }
+
+    .newsletter-popup__title {
+      font-size: 18px;
+      line-height: 22px;
+    }
+
+    .newsletter-popup__text {
+      font-size: 12px;
+      line-height: 16px;
+    }
+
+    .newsletter-popup__form input[type="email"],
+    .newsletter-popup__form button {
+      height: 45px;
+    }
+  }
+</style>
+
+<button type="button" class="newsletter-tab" aria-haspopup="dialog" aria-controls="newsletter-popup">Newsletter</button>
+
+<div class="newsletter-popup" id="newsletter-popup">
+  <div class="newsletter-popup__card" role="dialog" aria-modal="true" aria-labelledby="newsletter-popup-title" tabindex="-1">
+    <div class="newsletter-popup__close-row">
+      <button type="button" class="newsletter-popup__close" aria-label="Close">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+    </div>
+
+    <img
+      class="newsletter-popup__image"
+      src="{{ 'adsum-newsletter-popup.jpg' | asset_url }}"
+      alt=""
+      width="1200"
+      height="1800"
+      loading="lazy"
+    >
+
+    <div class="newsletter-popup__body">
+      <h2 class="newsletter-popup__title" id="newsletter-popup-title">Take 15% off your first order</h2>
+      <p class="newsletter-popup__text">Sign up for our newsletter for 15% off your order and be the first to hear about new product releases, upcoming parties & events. Act fast though, the discount only lasts 30 days</p>
+
+      {% form 'customer', class: 'newsletter-popup__form', id: 'popup-newsletter-form' %}
+        {% if form.posted_successfully? %}
+          <p class="newsletter-popup__message" data-posted>Thanks for subscribing. Check your email for a confirmation message, then your 15% code will follow.</p>
+        {% else %}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <label class="newsletter-popup__label" for="newsletter-popup-email">Email Address</label>
+          <input type="email" id="newsletter-popup-email" name="contact[email]" placeholder="Email Address" autocomplete="email" required>
+          <button type="submit">Subscribe</button>
+        {% endif %}
+      {% endform %}
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var tab = document.querySelector('.newsletter-tab');
+    var popup = document.querySelector('.newsletter-popup');
+    if (!tab || !popup) return;
+    var card = popup.querySelector('.newsletter-popup__card');
+    var form = popup.querySelector('.newsletter-popup__form');
+    var SEEN_KEY = 'adsum-newsletter-seen';
+    var SUBSCRIBED_KEY = 'adsum-newsletter-subscribed';
+
+    function getFlag(key) {
+      try { return localStorage.getItem(key) === '1'; } catch (e) { return false; }
+    }
+
+    function setFlag(key) {
+      try { localStorage.setItem(key, '1'); } catch (e) {}
+    }
+
+    function isOpen() {
+      return popup.classList.contains('is-open');
+    }
+
+    function open() {
+      popup.classList.add('is-open');
+      tab.classList.add('is-hidden');
+      card.focus({ preventScroll: true });
+    }
+
+    function close() {
+      if (!isOpen()) return;
+      var hadFocus = popup.contains(document.activeElement);
+      popup.classList.remove('is-open');
+      setFlag(SEEN_KEY);
+      if (getFlag(SUBSCRIBED_KEY)) return;
+      tab.classList.remove('is-hidden');
+      if (hadFocus) tab.focus({ preventScroll: true });
+    }
+
+    tab.addEventListener('click', open);
+    popup.querySelector('.newsletter-popup__close').addEventListener('click', close);
+
+    // The card doesn't fill the overlay, so a click that lands on the overlay itself is outside it.
+    popup.addEventListener('click', function (event) {
+      if (event.target === popup) close();
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (!isOpen()) return;
+      if (event.key === 'Escape') {
+        close();
+        return;
+      }
+      if (event.key !== 'Tab') return;
+      var focusable = card.querySelectorAll('button:not([disabled]), input:not([type="hidden"])');
+      var first = focusable[0];
+      var last = focusable[focusable.length - 1];
+      if (event.shiftKey && (document.activeElement === first || document.activeElement === card)) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+
+    // Shopify reloads the page after the fallback post, so show the confirmation if it came from here.
+    if (form.querySelector('[data-posted]')) {
+      setFlag(SUBSCRIBED_KEY);
+      if (location.hash === '#popup-newsletter-form') open();
+    }
+
+    function autoOpen() {
+      if (isOpen() || getFlag(SEEN_KEY) || getFlag(SUBSCRIBED_KEY)) return;
+      // Like the old Klaviyo flyout, skip visitors Klaviyo already knows.
+      var klaviyo = window.klaviyo;
+      if (klaviyo && typeof klaviyo.isIdentified === 'function') {
+        Promise.resolve(klaviyo.isIdentified()).then(function (identified) {
+          if (!identified) open();
+        }, open);
+      } else {
+        open();
+      }
+    }
+
+    // The old flyout opened after 5 seconds, 30% scroll or exit intent, whichever came first.
+    function onScroll() {
+      var scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollable > 0 && window.scrollY / scrollable >= 0.3) autoOpen();
+    }
+
+    function onMouseOut(event) {
+      if (!event.relatedTarget && event.clientY <= 0) autoOpen();
+    }
+
+    if (getFlag(SUBSCRIBED_KEY)) {
+      tab.classList.add('is-hidden');
+    } else if (!getFlag(SEEN_KEY)) {
+      setTimeout(autoOpen, 5000);
+      window.addEventListener('scroll', onScroll, { passive: true });
+      document.addEventListener('mouseout', onMouseOut);
+    }
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      var email = form.querySelector('input[type="email"]').value.trim();
+      form.querySelector('button').disabled = true;
+
+      fetch('https://a.klaviyo.com/client/subscriptions/?company_id=LtAnwJ', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', revision: '2024-10-15' },
+        body: JSON.stringify({
+          data: {
+            type: 'subscription',
+            attributes: { profile: { data: { type: 'profile', attributes: { email: email } } } },
+            relationships: { list: { data: { type: 'list', id: 'SNStq4' } } }
+          }
+        })
+      }).then(function (response) {
+        if (!response.ok) throw new Error(response.status);
+        setFlag(SUBSCRIBED_KEY);
+        if (window.klaviyo && typeof window.klaviyo.identify === 'function') {
+          window.klaviyo.identify({ email: email });
+        }
+        form.innerHTML = '<p class="newsletter-popup__message">Thanks for subscribing. Check your email for a confirmation message, then your 15% code will follow.</p>';
+        card.focus({ preventScroll: true });
+      }).catch(function () {
+        form.submit();
+      });
+    });
+  })();
+</script>
