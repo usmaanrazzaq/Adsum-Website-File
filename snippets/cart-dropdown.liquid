@@ -1,8 +1,8 @@
 {% comment %}
   Cart Dropdown (mini-cart)
 
-  Replaces the old "redirect to /cart" add-to-cart flow. The panel drops from the
-  header on add-to-cart, and toggles open when the customer clicks Cart.
+  Replaces the old "redirect to /cart" add-to-cart flow. The panel slides out from
+  the right edge on add-to-cart, and toggles open when the customer clicks Cart.
 
   Rendered globally from the end of snippets/menu.liquid.
 
@@ -13,8 +13,20 @@
 {% endcomment %}
 
 <div class="cart-dropdown" id="cart-dropdown" role="dialog" aria-modal="false" aria-label="Cart" tabindex="-1" hidden>
+  <div class="cart-dropdown__head">
+    <span class="cart-dropdown__heading">Cart</span>
+    <button type="button" class="cart-dropdown__close" data-cart-close aria-label="Close cart">
+      <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 6L6 18"/>
+        <path d="M6 6L18 18"/>
+      </svg>
+    </button>
+  </div>
   <p class="cart-dropdown__error" id="cart-dropdown-error" hidden></p>
-  <div class="cart-dropdown__items" id="cart-dropdown-items"></div>
+  <div class="cart-dropdown__body" id="cart-dropdown-body">
+    <div class="cart-dropdown__items" id="cart-dropdown-items"></div>
+    <div class="cart-dropdown__ymal" id="cart-dropdown-ymal" hidden></div>
+  </div>
   <div class="cart-dropdown__foot" id="cart-dropdown-foot"></div>
 </div>
 
@@ -23,16 +35,22 @@
   var panel = document.getElementById('cart-dropdown');
   if (!panel) return;
 
+  var bodyEl  = document.getElementById('cart-dropdown-body');
   var itemsEl = document.getElementById('cart-dropdown-items');
+  var ymalEl  = document.getElementById('cart-dropdown-ymal');
   var footEl  = document.getElementById('cart-dropdown-foot');
   var errEl   = document.getElementById('cart-dropdown-error');
 
   var MONEY        = "{{ shop.money_format | remove: "'" | remove: '"' }}";
   var MONEY_WITH_C = "{{ shop.money_with_currency_format | remove: "'" | remove: '"' }}";
 
-  var isOpen  = false;
-  var busy    = false;
-  var rafId   = null;
+  var YMAL_LIMIT = 3;
+
+  var isOpen   = false;
+  var busy     = false;
+  var ymalSeed = null;
+  var ymalHtml = '';
+  var ymalCache = {};
 
   /* ---------- helpers ---------- */
 
@@ -40,10 +58,6 @@
     return String(str == null ? '' : str)
       .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
-  }
-
-  function isMobile() {
-    return window.matchMedia('(max-width: 900px)').matches;
   }
 
   // Mirrors the theme's existing use of Shopify.formatMoney in ajaxify-cart,
@@ -70,12 +84,6 @@
     return !!(item.properties && item.properties._gwp === 'true');
   }
 
-  function anchorEl() {
-    return isMobile()
-      ? document.querySelector('.header-mobile')
-      : document.getElementById('eyebrow-cart');
-  }
-
   function toggleEls() {
     var els = [];
     var eyebrow = document.getElementById('eyebrow-cart');
@@ -85,40 +93,12 @@
     return els;
   }
 
-  /* ---------- positioning ---------- */
-
-  // One fixed-position panel for both breakpoints. `top` is read off the anchor
-  // each time so the panel tracks the promo banner and the sticky mobile header
-  // instead of assuming a fixed header height.
-  function position() {
-    var anchor = anchorEl();
-    if (!anchor) return;
-
-    var r = anchor.getBoundingClientRect();
-
-    if (isMobile()) {
-      panel.style.top   = Math.max(0, r.bottom) + 'px';
-      panel.style.left  = '0px';
-      panel.style.right = '0px';
-    } else {
-      // Clamp to the viewport: on desktop the nav is not sticky, so the anchor
-      // is usually scrolled off-screen by the time the customer reaches the
-      // add-to-cart button on a PDP.
-      panel.style.top   = Math.max(10, r.bottom + 8) + 'px';
-      panel.style.left  = 'auto';
-      panel.style.right = Math.max(10, document.documentElement.clientWidth - r.right) + 'px';
+  // Both toggles are always in the DOM; only one is displayed per breakpoint.
+  function focusToggle() {
+    var els = toggleEls();
+    for (var i = 0; i < els.length; i++) {
+      if (els[i].getClientRects().length) { els[i].focus(); return; }
     }
-  }
-
-  // Cancel-and-reschedule rather than bailing out when a frame is already
-  // pending: a bail-out guard leaves rafId set forever if that frame never
-  // runs (backgrounded tab), which would silently freeze the panel in place.
-  function schedulePosition() {
-    if (rafId) window.cancelAnimationFrame(rafId);
-    rafId = window.requestAnimationFrame(function() {
-      rafId = null;
-      if (isOpen) position();
-    });
   }
 
   /* ---------- rendering ---------- */
@@ -145,19 +125,17 @@
     var ov = item.options_with_values || [];
     for (var i = 0; i < ov.length; i++) {
       if (!ov[i].value || ov[i].value === 'Default Title') continue;
-      options += '<div class="cart-dropdown__meta">' + esc(ov[i].name) + ': ' + esc(ov[i].value) + '</div>';
+      options += '<span class="cart-dropdown__meta">' + esc(ov[i].name) + ': ' + esc(ov[i].value) + '</span>';
     }
 
     // The GWP hat is re-added automatically by gwp-cart-banner ~500ms after any
     // cart change, so editing its quantity here would silently bounce back.
     var qtyRow = isGwp(item)
       ? '<div class="cart-dropdown__meta">Quantity: ' + item.quantity + ' &middot; Gift</div>'
-      : '<div class="cart-dropdown__qty">' +
-          '<span class="cart-dropdown__meta">Quantity: ' + item.quantity + '</span>' +
-          '<span class="cart-dropdown__steppers">' +
-            stepper('minus', item, line, item.quantity - 1, 'Decrease quantity of ' + item.title) +
-            stepper('plus',  item, line, item.quantity + 1, 'Increase quantity of ' + item.title) +
-          '</span>' +
+      : '<div class="cart-dropdown__steppers">' +
+          stepper('minus', item, line, item.quantity - 1, 'Decrease quantity of ' + item.title) +
+          '<span class="cart-dropdown__count">' + item.quantity + '</span>' +
+          stepper('plus',  item, line, item.quantity + 1, 'Increase quantity of ' + item.title) +
         '</div>';
 
     return '' +
@@ -169,26 +147,23 @@
           : '<div class="cart-dropdown__thumb cart-dropdown__thumb--empty"></div>') +
         '<div class="cart-dropdown__info">' +
           '<div class="cart-dropdown__title">' + esc(item.product_title || item.title) + '</div>' +
-          options +
+          (options ? '<div class="cart-dropdown__options">' + options + '</div>' : '') +
           qtyRow +
-          '<div class="cart-dropdown__price">Price: ' + money(item.final_line_price, true) + '</div>' +
         '</div>' +
       '</div>';
   }
 
   function stepper(kind, item, line, toQty, label) {
     var path = kind === 'minus'
-      ? '<path d="M10.2 17.85C14.426 17.85 17.85 14.426 17.85 10.2 17.85 5.974 14.426 2.55 10.2 2.55 5.974 2.55 2.55 5.974 2.55 10.2 2.55 14.426 5.974 17.85 10.2 17.85Z"/>' +
-        '<path d="M13.6 10.2H6.8"/>'
-      : '<path d="M10.2 6.8V13.6"/>' +
-        '<path d="M13.6 10.2H6.8"/>' +
-        '<path d="M10.2 17.85C14.426 17.85 17.85 14.426 17.85 10.2 17.85 5.974 14.426 2.55 10.2 2.55 5.974 2.55 2.55 5.974 2.55 10.2 2.55 14.426 5.974 17.85 10.2 17.85Z"/>';
+      ? '<path d="M17.1 12H5.7"/>'
+      : '<path d="M12 5V19"/>' +
+        '<path d="M19 12H5"/>';
 
     return '<button type="button" class="cart-dropdown__stepper" data-key="' + esc(item.key || '') + '"' +
       ' data-line="' + line + '" data-qty="' + toQty + '"' +
       ' data-product="' + item.product_id + '" data-options="' + esc(optionsSignature(item)) + '"' +
       ' aria-label="' + esc(label) + '">' +
-      '<svg width="17" height="17" viewBox="0 0 20.4 20.4" aria-hidden="true" focusable="false" fill="none"' +
+      '<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none"' +
       ' stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10">' +
       path + '</svg></button>';
   }
@@ -217,10 +192,15 @@
   function render(cart) {
     renderCount(cart);
 
-    if (!cart.items || !cart.items.length) {
-      itemsEl.innerHTML = '<p class="cart-dropdown__empty">Your shopping cart is empty.</p>';
-      footEl.innerHTML  = '<button type="button" class="cart-dropdown__btn cart-dropdown__btn--secondary" data-cart-close>Continue Shopping</button>';
-      if (isOpen) position();
+    var isEmpty = !cart.items || !cart.items.length;
+    panel.classList.toggle('is-empty', isEmpty);
+    renderYmal(cart);
+
+    if (isEmpty) {
+      itemsEl.innerHTML = '' +
+        '<p class="cart-dropdown__empty">Your cart is empty. Let&#39;s change that.</p>' +
+        '<a href="/collections/fw26" class="cart-dropdown__btn cart-dropdown__btn--primary">Shop now</a>';
+      footEl.innerHTML = '';
       return;
     }
 
@@ -236,9 +216,79 @@
       '</div>' +
       '<a href="/checkout" class="cart-dropdown__btn cart-dropdown__btn--primary">Checkout</a>' +
       '<button type="button" class="cart-dropdown__btn cart-dropdown__btn--secondary" data-cart-close>Continue Shopping</button>';
+  }
 
-    // Content height just changed; keep the panel anchored.
-    if (isOpen) position();
+  /* ---------- you may also like ---------- */
+
+  function fetchRecommendations(productId) {
+    if (!ymalCache[productId]) {
+      // Over-fetch: anything already in the cart is filtered out afterwards.
+      ymalCache[productId] = fetch('/recommendations/products.json?product_id=' + productId + '&limit=' + (YMAL_LIMIT * 2), { credentials: 'same-origin' })
+        .then(function(r) {
+          if (!r.ok) throw new Error('Recommendations failed');
+          return r.json();
+        })
+        .then(function(data) { return data.products || []; })
+        .catch(function() {
+          delete ymalCache[productId];
+          return [];
+        });
+    }
+    return ymalCache[productId];
+  }
+
+  // Seeded from the first non-gift line: Shopify lists the newest add first, and
+  // the GWP hat would otherwise steer the recommendations.
+  function ymalSeedId(cart) {
+    var items = cart.items || [];
+    for (var i = 0; i < items.length; i++) {
+      if (!isGwp(items[i])) return items[i].product_id;
+    }
+    return null;
+  }
+
+  function renderYmalCard(product) {
+    return '' +
+      '<a class="cart-dropdown__ymal-item" href="' + esc(product.url) + '">' +
+        '<img src="' + esc(sizedImage(product.featured_image, '500x')) + '" alt="' + esc(product.title) + '" loading="lazy">' +
+      '</a>';
+  }
+
+  function renderYmal(cart) {
+    var seed = ymalSeedId(cart);
+    ymalSeed = seed;
+
+    if (!seed) {
+      ymalEl.hidden = true;
+      return;
+    }
+
+    fetchRecommendations(seed).then(function(products) {
+      // The cart moved on while this request was in flight.
+      if (ymalSeed !== seed) return;
+
+      var inCart = {};
+      for (var i = 0; i < cart.items.length; i++) inCart[cart.items[i].product_id] = true;
+
+      var cards = '';
+      var shown = 0;
+      for (var j = 0; j < products.length && shown < YMAL_LIMIT; j++) {
+        var p = products[j];
+        if (inCart[p.id] || !p.available || !p.featured_image) continue;
+        cards += renderYmalCard(p);
+        shown++;
+      }
+
+      // Skip no-op rewrites so a qty change doesn't reset the row's scroll.
+      if (cards !== ymalHtml) {
+        ymalHtml = cards;
+        ymalEl.innerHTML = cards
+          ? '<div class="cart-dropdown__ymal-title">You may also like</div>' +
+            '<div class="cart-dropdown__ymal-items">' + cards + '</div>'
+          : '';
+      }
+      ymalEl.hidden = !cards;
+    });
   }
 
   // Desktop + mobile cart controls are icon buttons; the count lives in
@@ -460,8 +510,6 @@
   }
 
   function open() {
-    // Reposition even when already open — the viewport or the anchor may have
-    // moved since the panel was last placed.
     var wasOpen = isOpen;
     isOpen = true;
 
@@ -475,7 +523,6 @@
     }
 
     panel.hidden = false;
-    position();
 
     // Reflow so the browser paints the closed styles before we open, otherwise
     // the enter transition is skipped.
@@ -488,7 +535,10 @@
       els[i].setAttribute('aria-expanded', 'true');
     }
     // Only on an actual open, so a re-open never steals focus mid-interaction.
-    if (!wasOpen) panel.focus();
+    if (!wasOpen) {
+      bodyEl.scrollTop = 0;
+      panel.focus({ preventScroll: true });
+    }
   }
 
   function close() {
@@ -537,6 +587,7 @@
     if (closer) {
       e.preventDefault();
       close();
+      focusToggle();
       return;
     }
 
@@ -552,13 +603,9 @@
   document.addEventListener('keydown', function(e) {
     if (e.key !== 'Escape' && e.keyCode !== 27) return;
     if (!isOpen) return;
-    var anchor = document.getElementById('eyebrow-cart') || document.querySelector('.mobile-cart');
     close();
-    if (anchor && anchor.focus) anchor.focus();
+    focusToggle();
   });
-
-  window.addEventListener('scroll', schedulePosition, true);
-  window.addEventListener('resize', schedulePosition);
 
   // gwp-cart-banner auto-adds the free hat ~500ms after a qualifying add and
   // dispatches this event. Without it the panel goes stale as soon as it opens.
