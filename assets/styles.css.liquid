@@ -1100,35 +1100,41 @@ img.lazyload:not([src]) {
 
 /* ==========================================================================
    Cart dropdown (mini-cart) — snippets/cart-dropdown.liquid
-   Flat white surface, hairline border, no radius, no shadow, matching
-   .site-promo-banner above. Sits above the promo banner (1001), the sticky
-   mobile header (1000) and the Global-e widget (1002).
+   Full-height panel that slides out from the right edge. Flat white surface,
+   no radius, no shadow. Sits above the promo banner (1001), the sticky mobile
+   header (1000) and the Global-e widget (1002).
    ========================================================================== */
 
 .cart-dropdown {
   position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
   z-index: 1100;
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
-  width: 335px;
-  padding: 10px;
+  width: 465px;
+  max-width: 100%;
+  padding: 35px 10px;
   background: #fff;
-  border: 0.5px solid #2b2b2b;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #000;
   text-align: left;
   outline: none;
-  opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: translateY(-8px);
-  transition: opacity 0.28s ease-in-out, transform 0.28s ease-in-out, visibility 0.28s ease-in-out;
+  transform: translateX(100%);
+  transition: transform 0.28s ease-in-out, visibility 0.28s ease-in-out;
 }
 
+/* Visibility flips instantly on the way in: a hidden element can't take focus,
+   and open() focuses the panel in the same tick. */
 .cart-dropdown.is-open {
-  opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: translateY(0);
+  transform: translateX(0);
+  transition: transform 0.28s ease-in-out, visibility 0s;
 }
 
 .cart-dropdown[hidden] {
@@ -1141,14 +1147,130 @@ img.lazyload:not([src]) {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .cart-dropdown {
+  .cart-dropdown,
+  .cart-dropdown.is-open {
     transition-duration: 0s;
   }
 }
 
+.cart-dropdown__head {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.cart-dropdown__heading {
+  font-size: 16px;
+  line-height: 20px;
+  color: #000;
+}
+
+/* Same negative-margin touch target as the qty steppers. */
+.cart-dropdown__close {
+  display: block;
+  padding: 4px;
+  margin: -4px;
+  background: none;
+  border: 0;
+  color: #000;
+  line-height: 0;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.cart-dropdown__close:hover {
+  color: #7a7a7a;
+}
+
+.cart-dropdown__close svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+}
+
+/* Items + recommendations scroll; the header and foot stay pinned, so Checkout
+   is reachable on viewports shorter than the 1080px design. */
+.cart-dropdown__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.cart-dropdown__items {
+  flex-shrink: 0;
+  padding: 15px 0;
+  border-bottom: 0.5px solid #2b2b2b;
+}
+
+/* Auto margins centre the row in the space between the items and the foot, and
+   fall back to 0 once the body has to scroll. */
+.cart-dropdown__ymal {
+  flex-shrink: 0;
+  margin: auto 0;
+  padding: 15px 0;
+}
+
+.cart-dropdown__ymal[hidden] {
+  display: none;
+}
+
+.cart-dropdown__ymal-title {
+  margin-bottom: 15px;
+  font-size: 16px;
+  line-height: 20px;
+  color: #000;
+}
+
+.cart-dropdown__ymal-items {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+}
+
+.cart-dropdown__ymal-item {
+  display: block;
+  flex-shrink: 0;
+  width: 250px;
+  height: 370px;
+}
+
+.cart-dropdown__ymal-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cart-dropdown__foot {
+  flex-shrink: 0;
+  padding: 15px 0;
+  border-top: 0.5px solid #2b2b2b;
+}
+
+.cart-dropdown.is-empty .cart-dropdown__body {
+  justify-content: center;
+}
+
+.cart-dropdown.is-empty .cart-dropdown__items {
+  padding: 15px 0 0;
+  border-bottom: 0;
+}
+
+.cart-dropdown.is-empty .cart-dropdown__foot {
+  display: none;
+}
+
 /* Also scoped past `p:first-of-type { margin: 0 }` — see the empty state below. */
 .cart-dropdown .cart-dropdown__error {
-  margin: 0 0 10px 0;
+  flex-shrink: 0;
+  margin: 0 0 15px 0;
   padding: 8px 10px;
   background: #fff;
   border: 0.5px solid #ff4136;
@@ -1170,8 +1292,8 @@ img.lazyload:not([src]) {
 
 .cart-dropdown__thumb {
   flex-shrink: 0;
-  width: 103px;
-  height: 102px;
+  width: 110px;
+  height: 116px;
   background-position: 50%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1196,33 +1318,33 @@ img.lazyload:not([src]) {
   color: #000;
 }
 
+.cart-dropdown__options {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px 15px;
+}
+
 .cart-dropdown__meta {
   font-size: 11px;
   line-height: 14px;
   color: #7a7a7a;
 }
 
-.cart-dropdown__price {
+.cart-dropdown__steppers {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.cart-dropdown__count {
+  padding: 5px 10px;
   font-size: 11px;
   line-height: 14px;
   color: #000;
 }
 
-.cart-dropdown__qty {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 5px;
-}
-
-.cart-dropdown__steppers {
-  display: flex;
-  align-items: flex-start;
-  gap: 5px;
-}
-
-/* Negative margin keeps the 17px icon rhythm of the design while giving the
+/* Negative margin keeps the 16px icon rhythm of the design while giving the
    control a comfortable touch target. */
 .cart-dropdown__stepper {
   display: block;
@@ -1244,19 +1366,18 @@ img.lazyload:not([src]) {
 
 .cart-dropdown__stepper svg {
   display: block;
-  width: 17px;
-  height: 17px;
+  width: 16px;
+  height: 16px;
   pointer-events: none;
 }
 
-/* Roomier than the 10px used between populated rows — the empty state has the
-   space to spare, and it keeps the message from crowding the button.
-   Scoped with the block class so it beats the stylesheet's
+/* Scoped with the block class so it beats the stylesheet's
    `p:first-of-type { margin: 0 }`, which is (0,1,1) and would otherwise win. */
 .cart-dropdown .cart-dropdown__empty {
-  margin: 4px 0 20px 0;
+  margin: 0 0 40px 0;
   font-size: 14px;
   line-height: 18px;
+  text-align: center;
   color: #000;
 }
 
@@ -1277,7 +1398,7 @@ img.lazyload:not([src]) {
   justify-content: center;
   box-sizing: border-box;
   width: 100%;
-  height: 45px;
+  height: 50px;
   margin-bottom: 10px;
   padding: 0 10px;
   font-family: inherit;
@@ -1520,13 +1641,26 @@ img.lazyload:not([src]) {
 }
 
 @media (max-width: 900px) {
-  /* Full-bleed beneath the sticky mobile header. `top` is set by JS off the
-     header's own rect, so it follows the promo banner and the nav-up/down
-     scroll behaviour. */
+  /* The header stays on screen and its cart icon becomes the close button, so
+     the panel starts below it and drops its own title row. --mobile-nav-top is
+     kept current by snippets/menu.liquid. */
   .cart-dropdown {
-    width: auto;
-    border-left: 0;
-    border-right: 0;
+    top: var(--mobile-nav-top, 0px);
+    width: 100%;
+    padding: 10px;
+  }
+
+  .cart-dropdown__head {
+    display: none;
+  }
+
+  /* Swiped on touch screens, so the row doesn't need a visible scrollbar. */
+  .cart-dropdown__ymal-items {
+    scrollbar-width: none;
+  }
+
+  .cart-dropdown__ymal-items::-webkit-scrollbar {
+    display: none;
   }
 
   .search-dropdown {
@@ -1627,8 +1761,8 @@ img.lazyload:not([src]) {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     margin: 0;
     padding: 0;
     color: #000;
@@ -1640,6 +1774,23 @@ img.lazyload:not([src]) {
     appearance: none;
   }
 
+  /* 40px tap area around the 16px icons; fits the 30px gap without the two
+     controls overlapping. */
+  .mobile-search::after,
+  .mobile-cart::after {
+    content: "";
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    bottom: -12px;
+    left: -12px;
+  }
+
+  .header-mobile .mobile-nav-icon {
+    width: 16px;
+    height: 16px;
+  }
+
   .mobile-cart .cart-count {
     position: absolute;
     top: -6px;
@@ -1649,6 +1800,21 @@ img.lazyload:not([src]) {
     font-size: 9px;
     line-height: 1.2;
     text-align: center;
+  }
+
+  .mobile-cart .mobile-cart-close,
+  .mobile-cart.is-open .mobile-cart-bag,
+  .mobile-cart.is-open .cart-count {
+    display: none;
+  }
+
+  .mobile-cart.is-open .mobile-cart-close {
+    display: block;
+  }
+
+  /* The homepage header is transparent; it can't stay that way over the panel. */
+  #index .header-mobile:has(.mobile-cart.is-open) {
+    background: #fff;
   }
 }
 
@@ -3272,7 +3438,7 @@ h4.address_title {
   align-items: center;
   gap: 30px;
   white-space: nowrap;
-  padding-top: 48px;
+  padding-top: 40px;
 }
 
 .right-nav-country,
