@@ -25,7 +25,29 @@
      font-size: 11px;
      border-radius: 15px;
   }
+  /* Products tagged 'coming-soon': dimmed image with a centred label, no hover swap */
+  .product-coming-soon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(43, 43, 43, 0.25);
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.28571;
+    z-index: 1;
+  }
+  .collection-grid-item.is-coming-soon .collection-product-hover {
+    display: none;
+  }
   @media (max-width:900px) {
+    .product-coming-soon {
+      font-size: 13px;
+    }
     .product-exclusive {
       color: #000;
       background-color: none;
@@ -47,20 +69,35 @@
   }
 </style>
 
+{% comment %}
+  Two passes so products tagged 'coming-soon' always sit after everything else,
+  whatever sort order the collection uses.
+{% endcomment %}
+{% for gallery_pass in (1..2) %}
 {% for product in collection.products %}
 
-{% if template == 'collection.sidebar' %}
-<div class="product4 {% cycle '', '' %}">  
-{% else %}
-<div class="collection-grid-item {{ product.tags | downcase }}">
+{% assign coming_soon = false %}
+{% if product.tags contains 'coming-soon' %}
+  {% assign coming_soon = true %}
 {% endif %}
-  
-  <a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}">  
+{% if gallery_pass == 1 and coming_soon %}{% continue %}{% endif %}
+{% if gallery_pass == 2 and coming_soon == false %}{% continue %}{% endif %}
+
+{% if template == 'collection.sidebar' %}
+<div class="product4 {% cycle '', '' %}">
+{% else %}
+<div class="collection-grid-item {{ product.tags | downcase }}{% if coming_soon %} is-coming-soon{% endif %}">
+{% endif %}
+
+  <a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}">
 	<div style="position: relative;">
       {% if product.tags contains 'exclusive' %}
           <div class="product-exclusive">
             Adsum Exclusive
           </div>
+        {% endif %}
+      {% if coming_soon %}
+          <div class="product-coming-soon">Coming Soon</div>
         {% endif %}
       <img data-sizes="auto"
            src="{{ product.images.first | product_img_url: '1x1' }}" 
@@ -78,6 +115,11 @@
            alt="{{ product.images[1].alt | escape }}" class="collection-product-hover lazyload"/>
     </div>
 	<div class="product_info_content">
+		{% if coming_soon %}
+			<div class="gallery-product-title">
+				{{ product.title }}
+			</div>
+		{% else %}
 		{%if product.available == true %}
 			<div class="gallery-product-title">
 				{{ product.title }}
@@ -127,11 +169,13 @@
 		{%if product.available == false %}    
 			<span style="text-decoration: uppercase;">Sold Out</span>
 		{% endif %}
-  
-	</div>          
+		{% endif %}
+
+	</div>
   </a>
-	
+
 </div>
+{% endfor %}
 {% endfor %}
   
 <style>
