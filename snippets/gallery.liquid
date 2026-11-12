@@ -89,7 +89,7 @@
 <div class="collection-grid-item {{ product.tags | downcase }}{% if coming_soon %} is-coming-soon{% endif %}">
 {% endif %}
 
-  <a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}">
+  <a href="{{ product.url }}" title="{{ product.title | strip_html | escape }}">
 	<div style="position: relative;">
       {% if product.tags contains 'exclusive' %}
           <div class="product-exclusive">
